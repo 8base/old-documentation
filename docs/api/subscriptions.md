@@ -1,0 +1,14 @@
+Subscriptions let your client-side application receive server-side events from the 8base platform. This is useful when you are building real-time functionality such as chats or notifications. Subscriptions are automatically generated for every data table you create.
+
+Apollo Client provides a standard way to use subscriptions, but some additional configuration needs to be implemented in order to connect to the Websocket endpoint. However, if you are using [EightBaseAppProvider](https://github.com/8base/sdk/tree/master/packages/app-provider) from 8base open-source SDK it does all the configuration for you and you can start using subscriptions out of the box.
+[block:code]
+{
+  "codes": [
+    {
+      "code": "import gql from 'graphql-tag';\nimport { Subscription } from 'react-apollo';\n\nconst CHAT_MESSAGE_SUBSCRIPTION = gql`\n  subscription onChatMessageAdded($chatId: String!) {\n    ChatMessage(filter: {\n      mutation_in: [create],\n      node: {\n        chatId: {\n          equals: $chatId\n        }\n      }\n    }) {\n      node {\n        createdAt\n        createdBy {\n          firstName\n          lastName\n        }\n        text\n      }\n    }\n  }\n`;\n\nconst NewChatMessage = ({ chatId }) => (\n  <Subscription\n    subscription={CHAT_MESSAGE_SUBSCRIPTION}\n    variables={{ chatId }}\n  >\n    {({ data: { ChatMessage }, loading }) => (\n      <div>New message: {!loading && ChatMessage.text}</div>\n    )}\n  </Subscription>\n);",
+      "language": "javascript",
+      "name": "SubscriptionExample.js"
+    }
+  ]
+}
+[/block]
