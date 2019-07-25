@@ -7,6 +7,7 @@ So... let's get to it!
 The first thing you'll need to do is create an 8base account. To get started, click [this link to signup](https://app.8base.com/auth/signup). If you use an email and password to create your account, we'll send you a confirmation email. Either way, once your account is confirmed 8base will redirect you to your default workspace. 
 
 * Image of signup screen
+![8base Signup](.gitbook/assets/signup-screen.png)
 
 Voila! You've officially signed up for 8base :)
 
@@ -16,8 +17,7 @@ In 8base, workspaces are treated like an individual project. Just like you proba
 
 At the top of your screen, click the "YOUR NAME's Workspace" dropdown and select "+ New Workspace". Name it whatever you like before pressing create. The new workspace should load in less then 10-seconds.
 
-* Image on empty workspace
-
+![Create a Workspace](.gitbook/assets/create-workspace.png)
 
 ### 3. Install the 8base CLI
 
@@ -54,10 +54,13 @@ npm install
 ```
 
 Using the 8base CLI you'll be able to authenicate your development workspace. Allowing you to communicate with 8base for deploys, function invocations, logs, and more. Try running the following and allow your browser to launch a new window (you may have to login). If you have multiple workspaces set up already, the CLI will prompt you to select one. Also, make sure to note the API endpoint URL displayed after login - you will need it later.
+
 ```
 # Login with CLI. 
 8base login
 ```
+
+![Logged in with 8base CLI](.gitbook/assets/cli-login-success.png)
 
 Now we're going to run the import using a `DEMO.json` file found in the `app-example/server` directory. Just so you know, this can take a minute.
 ```
@@ -65,12 +68,14 @@ Now we're going to run the import using a `DEMO.json` file found in the `app-exa
 8base import -f DEMO.json
 ```
 
-Once the import is done... woohoo! You're ready to deploy using our handy `deploy` command.
+Once the import is done... woohoo! You're ready to deploy using our handy `deploy` command. Once the deploy is finished, checkout the [Data Viewer](https://app.8base.com/data/) in your workspace. There should be brand new database tables filled with rows of data there waiting for you.
 
 ```
 # Deploy backend logic
 8base deploy
 ```
+
+![8base data viewer inside of workspace](.gitbook/assets/demo-data-viewer.png)
 
 ### 6. Fire-up the App
 
@@ -86,6 +91,9 @@ npm install
 # Swap placeholder with API URL and run start command
 REACT_APP_8BASE_API_ENDPOINT=<YOUR_API_URL_GOES_HERE> npm start
 ```
+
+![8base Demo Application Properties page](.gitbook/assets/demo-app-properties.png)
+
 
 ##### For Windows Users
 
@@ -106,11 +114,5 @@ If you're developing with 8base on a Windows machine, there are a few extra step
 
 You can now login and logout of the demo app using your username and password. It's done! While you may have followed a few steps at this point, you probably haven't learned much about 8base. So, lets dive in and understand the fruits of our labor.
 
+
 We hope this guide helps you better understand how 8base works. Feel free to modify the data schema in your workspace, build new tables and screens to learn how to develop applications using 8base.
-[block:callout]
-{
-  "type": "warning",
-  "title": "Windows users",
-  "body": "In order to be able to specify environment variables (e.g. `REACT_APP_8BASE_API_ENDPOINT`) inline on Windows you can use <a href=\"https://www.npmjs.com/package/cross-env\" target=\"_blank\">cross-env</a>:\n`npm install -g cross-env`\n\nThis will allow you to run:\n`cross-env REACT_APP_8BASE_API_ENDPOINT=!!INSERT_API_URL_HERE!! npm start`"
-}
-[/block]
