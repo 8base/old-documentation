@@ -1,44 +1,44 @@
-# Summary
+# Table of contents
 
-### Introduction
+* [Introduction](README.md)
 
-* [Getting Started](getting_started/introduction.md)
-    * [Quick Start](getting_started/quick_start.md)
-    * [Platform Overview](getting_started/platform_overview.md)
-    * [Connection to 8base](getting_started/connection_to_8base.md)
+## Introduction
 
-### 8base Console
+* [Getting Started](introduction/introduction/README.md)
+  * [Quick Start](introduction/introduction/quick_start.md)
+  * [Platform Overview](introduction/introduction/platform_overview.md)
+  * [Connection to 8base](introduction/introduction/connection_to_8base.md)
 
-* [8base Console](api/overview.md)
-    * [Authentication](api/authentication.md)
-    * [Permissions](api/authentication.md)
-    * [Files](api/files.md)
-    * [Filestack](api/upload_to_filestack.md)
+## 8base Console
 
-* [GraphQL API](api/overview.md)
-    * [Queries](api/queries.md)
-    * [Mutations](api/mutations.md)
-    * [Subscriptions](api/subscriptions.md)    
+* [8base Console](8base-console/overview/README.md)
+  * [Authentication](8base-console/overview/authentication.md)
+  * [Permissions](8base-console/overview/authentication-1.md)
+  * [Files](8base-console/overview/files.md)
+  * [Filestack](8base-console/overview/upload_to_filestack.md)
+* [GraphQL API](8base-console/overview-1/README.md)
+  * [Queries](8base-console/overview-1/queries.md)
+  * [Mutations](8base-console/overview-1/mutations.md)
+  * [Subscriptions](8base-console/overview-1/subscriptions.md)
+* [Serverless Functions](8base-console/overview-2/README.md)
+  * [Webhooks](8base-console/overview-2/webhooks.md)
+  * [Triggers](8base-console/overview-2/triggers.md)
+  * [Tasks](8base-console/overview-2/tasks/README.md)
+    * [Reslovers](8base-console/overview-2/tasks/resolvers.md)
+    * [Environment](8base-console/overview-2/tasks/runtime_environment.md)
+    * [Error Handling](8base-console/overview-2/tasks/error_handling.md)
+* [Logic](8base-console/cli/README.md)
+  * [Project Structure](8base-console/cli/project_structure.md)
+  * [8base Config](8base-console/cli/8base_yaml.md)
+  * [Commands](8base-console/cli/commands.md)
+  * [Local Development](8base-console/cli/local_development.md)
+  * [Permissions](8base-console/cli/permissions.md)
+  * [Troubleshooting](8base-console/cli/troubleshooting.md)
 
-* [Serverless Functions](logic/functions/overview.md)
- 	* [Webhooks](logic/functions/webhooks.md)
- 	* [Triggers](logic/functions/triggers.md)
- 	* [Tasks](logic/functions/tasks.md)
-  	* [Reslovers](logic/functions/resolvers.md)
-  	* [Environment](logic/functions/runtime_environment.md)
-  	* [Error Handling](logic/functions/error_handling.md)
+## Client Side Tools
 
-* [Logic](logic/cli.md)
-	* [Project Structure](logic/project_structure.md)
-	* [8base Config](logic/8base_yaml.md)
-	* [Commands](logic/commands.md)
-	* [Local Development](logic/local_development.md)
-	* [Permissions](logic/permissions.md)
-	* [Troubleshooting](logic/troubleshooting)
+* [Client Tools](client-side-tools/overview/README.md)
+  * [User Authentication](client-side-tools/overview/user-authentication.md)
+  * [Application File Uploads](client-side-tools/overview/file_upload.md)
+  * [VS Code Plugin](client-side-tools/overview/vs_code_plugin.md)
 
-### Client Side Tools
-
-* [Client Tools](client_tools/overview.md)
-	* [User Authentication](client_tools/authentication.md)
-	* [Application File Uploads](client_tools/file_upload.md)
-	* [VS Code Plugin](client_tools/vs_code_plugin.md)
