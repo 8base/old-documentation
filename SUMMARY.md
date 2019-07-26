@@ -14,6 +14,7 @@
   * [Queries](8base-console/graphql-api/queries.md)
   * [Mutations](8base-console/graphql-api/mutations.md)
   * [Subscriptions](8base-console/graphql-api/subscriptions.md)
+  * [Error Handling](8base-console/graphql-api/error_handling.md)
 
 * [Custom Functions](8base-console/custom-functions/READme.md)
   * [Webhooks](8base-console/custom-functions/webhooks.md)
@@ -26,14 +27,11 @@
 * [Development Environment](dev-env/READme.md)
   * [Project Structure](dev-env/project-structure.md)
   * [8base Config](dev-env/8base-yml.md)
-  * [Troubleshooting](dev-env/troubleshooting.md)
   * [Environment](dev-env/runtime_environment.md)
-  * [Error Handling](dev-env/error_handling.md)
+  * [Troubleshooting](dev-env/troubleshooting.md)
 
 * [CLI](cli/README.md)
   * [Commands](cli/commands.md)
-  * [Permissions](cli/permissions.md)
-  * [Local Development](cli/local_development.md)
 
 * [Client Tools](client-tools/README.md)
   * [User Authentication](client-tools/user-authentication.md)
