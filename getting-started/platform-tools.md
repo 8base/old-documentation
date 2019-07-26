@@ -6,27 +6,37 @@ The platform runs in a serverless, scalable and secure cloud environment powered
 
 8base platform consists of the following high-level components.
 
-## Data Builder
+### Data Builder
 
-\[block:image\] { "images": \[ { "image": \[ "[https://files.readme.io/44df042-FireShot\_Capture\_004\_-\_8base\_-\_app.8base.com.png](https://files.readme.io/44df042-FireShot_Capture_004_-_8base_-_app.8base.com.png)", "FireShot Capture 004 - 8base - app.8base.com.png", 2880, 1588, "\#f2f3f3" \], "caption": "" } \] } \[/block\] Data Builder lets you define the data model: tables, fields and relationships between tables. It is packed with cool features. For example, `File` field type allows you to seamlessly attach files to data objects; or `Smart` fields that make it simple to implement complex fields such as address or phone number.
+![8Base Data Builder](../.gitbook/assets/44df042-FireShot_Capture_004_-_8base_-_app.8base.com.png)
 
-## Data Viewer
+The Data Builder lets you define the data model: tables, fields and relationships between tables. It is packed with cool features. For example, `File` field type allows you to seamlessly attach files to data objects; or `Smart` fields that make it simple to implement complex fields such as address or phone number.
 
-\[block:image\] { "images": \[ { "image": \[ "[https://files.readme.io/e47095d-FireShot\_Capture\_008\_-\_8base\_-\_app.8base.com.png](https://files.readme.io/e47095d-FireShot_Capture_008_-_8base_-_app.8base.com.png)", "FireShot Capture 008 - 8base - app.8base.com.png", 2880, 1588, "\#edeff0" \], "caption": "" } \] } \[/block\] Data Viewer lets you view and modify the data in an excel-like user interface. This is useful for admins to browse and modify the data or enter sample content while in development.
+### Data Viewer
 
-## Role-based security
+![8base Data Viewer](../.gitbook/assets/e47095d-FireShot_Capture_008_-_8base_-_app.8base.com.png)
 
-\[block:image\] { "images": \[ { "image": \[ "[https://files.readme.io/2b505e4-FireShot\_Capture\_010\_-\_8base\_-\_app.8base.com.png](https://files.readme.io/2b505e4-FireShot_Capture_010_-_8base_-_app.8base.com.png)", "FireShot Capture 010 - 8base - app.8base.com.png", 2880, 1588, "\#eff1f2" \], "caption": "" } \] } \[/block\] Role-based security lets you define custom roles with granular access controls. You can specify which tables and fields a role can read, modify or delete. You can even apply custom filters, such as giving users access only to records they created.
+Data Viewer lets you view and modify the data in an excel-like user interface. This is useful for admins to browse and modify the data or enter sample content while in development.
 
-## GraphQL API
+### Role-based Security
 
-\[block:image\] { "images": \[ { "image": \[ "[https://files.readme.io/51fbda9-FireShot\_Capture\_009\_-\_8base\_-\_app.8base.com.png](https://files.readme.io/51fbda9-FireShot_Capture_009_-_8base_-_app.8base.com.png)", "FireShot Capture 009 - 8base - app.8base.com.png", 2880, 1588, "\#f1f1f2" \], "caption": "" } \] } \[/block\] [GraphQL API](https://docs.8base.com/docs/api) is generated automatically from the data model you define. It gives power to front-end developers to query and modify the data in ways that were traditionally available only to back-end developers. It comes with robust filters, sorting, pagination, full-text search and is secured using the role-based security.
+![Role-based security manager](../.gitbook/assets/2b505e4-FireShot_Capture_010_-_8base_-_app.8base.com.png)
 
-## Command-line Interface
+Role-based security lets you define custom roles with granular access controls. You can specify which tables and fields a role can read, modify or delete. You can even apply custom filters, such as giving users access only to records they created.
 
-\[block:image\] { "images": \[ { "image": \[ "[https://files.readme.io/c890144-Screenshot\_2019-05-12\_09.23.51.png](https://files.readme.io/c890144-Screenshot_2019-05-12_09.23.51.png)", "Screenshot 2019-05-12 09.23.51.png", 1864, 1292, "\#0d0d0d" \], "sizing": "smart", "caption": "" } \] } \[/block\] [Command-line Interface \(CLI\)](https://docs.8base.com/docs/cli-install) allows you to develop and deploy custom backend logic in JavaScript or TypeScript. Need to run a custom algorithm, connect to a 3rd-party API or execute a task on schedule? The CLI lets you deploy this logic in seconds to 8base serverless environment where it is executed and scaled automatically.
+### [GraphQL API](8base-console/graphql-api/READme.md)
 
-## Front-end tools
+![8base GraphQL Explorer](../.gitbook/assets/51fbda9-FireShot_Capture_009_-_8base_-_app.8base.com.png)
 
-[Front-end SDK and Boost UI Kit](https://docs.8base.com/docs/overview-sdk) provide a set of open-source libraries and UI components that simplify and accelerate front-end development. Libraries and UI components are pre-integrated with the 8base API to enable useful features, such as automatically applying client-side validation to form fields based on your data schema, seamless file uploads and more.
+The GraphQL API is generated automatically from the data model you define. It gives power to front-end developers to query and modify the data in ways that were traditionally available only to back-end developers. It comes with robust filters, sorting, pagination, full-text search and is secured using the role-based security.
+
+### [CLI](cli/READme.md)
+
+![../.gitbook/assets/c890144-Screenshot\_2019-05-12\_09.23.51.png](../.gitbook/assets/c890144-Screenshot_2019-05-12_09.23.51.png)
+
+The Command-line Interface \(CLI\) allows you to develop and deploy custom backend logic in JavaScript or TypeScript. Need to run a custom algorithm, connect to a 3rd-party API or execute a task on schedule? The CLI lets you deploy this logic in seconds to 8base serverless environment where it is executed and scaled automatically.
+
+### [Client Tools](client-tools/READme.md)
+
+Front-end SDK and Boost UI Kit provide a set of open-source libraries and UI components that simplify and accelerate front-end development. Libraries and UI components are pre-integrated with the 8base API to enable useful features, such as automatically applying client-side validation to form fields based on your data schema, seamless file uploads and more.
 
