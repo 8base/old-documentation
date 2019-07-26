@@ -13,13 +13,15 @@ The first thing you'll need to do is create an 8base account. To get started, cl
 
 Voila! You've officially signed up for 8base :)
 
-### 2. Create a new Workspace
+### 2. Visit your Workspace
 
-In 8base, workspaces are treated like an individual project. Just like you probably have different Git repositories for different code bases. This allows you to easily stay organized with projects, as well as upgrade individual workspaces when your app or service begins to scale! Each workspace starts on a [No Committment 30-day Free Trial](https://www.8base.com/pricing), so lets create a new one for the sake of this demo.
+In 8base, workspaces are treated like an individual project. Just like you probably have different Git repositories for different code bases. This allows you to easily stay organized with projects, as well as upgrade individual workspaces when your app or service begins to scale! Each workspace starts on a [30-day Free Trial](https://www.8base.com/pricing).  
 
-At the top of your screen, click the "YOUR NAME's Workspace" dropdown and select "+ New Workspace". Name it whatever you like before pressing create. The new workspace should load in less then 10-seconds.
+Lets just use the default workspace for the rest of this demo.
 
-![Create a Workspace](.gitbook/assets/create-workspace.png)
+*Optional: If you want to create a new workspace, click the "YOUR NAME's Workspace" dropdown at the top of your screen and select "+ New Workspace". Name it whatever you like before pressing create. The new workspace should load in less then 10-seconds.*
+
+![Create a Workspace](.gitbook/assets/workspace-menu.png)
 
 ### 3. Install the 8base CLI
 
