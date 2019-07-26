@@ -9,7 +9,7 @@ So... let's get to it!
 The first thing you'll need to do is create an 8base account. To get started, click [this link to signup](https://app.8base.com/auth/signup). If you use an email and password to create your account, we'll send you a confirmation email. Either way, once your account is confirmed 8base will redirect you to your default workspace. 
 
 * Image of signup screen
-![8base Signup](.gitbook/assets/signup-screen.png)
+![8base Signup](assets/signup-screen.png)
 
 Voila! You've officially signed up for 8base :)
 
