@@ -22,7 +22,7 @@ Lets just use the default workspace for the rest of this demo.
 
 _Optional: If you want to create a new workspace, click the "YOUR NAME's Workspace" dropdown at the top of your screen and select "+ New Workspace". Name it whatever you like before pressing create. The new workspace should load in less then 10-seconds._
 
-![Create a Workspace](https://github.com/8base/Documentation/tree/9d72c1880393106b4fdf000f0f4101c652a8556b/docs/getting_started/.gitbook/assets/workspace-menu.png)
+![Create a Workspace](../../.gitbook/assets/workspace-menu.png)
 
 ## 3. Install the 8base CLI
 
@@ -66,7 +66,7 @@ Using the 8base CLI you'll be able to authenicate your development workspace. Al
 8base login
 ```
 
-![Logged in with 8base CLI](https://github.com/8base/Documentation/tree/9d72c1880393106b4fdf000f0f4101c652a8556b/docs/getting_started/.gitbook/assets/cli-login-success.png)
+![Logged in with 8base CLI](../../.gitbook/assets/cli-login-success.png)
 
 Now we're going to run the import using a `DEMO.json` file found in the `app-example/server` directory. Just so you know, this can take a minute.
 
@@ -82,7 +82,7 @@ Once the import is done... woohoo! You're ready to deploy using our handy `deplo
 8base deploy
 ```
 
-![8base data viewer inside of workspace](https://github.com/8base/Documentation/tree/9d72c1880393106b4fdf000f0f4101c652a8556b/docs/getting_started/.gitbook/assets/demo-data-viewer.png)
+![8base data viewer inside of workspace](../../.gitbook/assets/demo-data-viewer.png)
 
 ## 6. Fire-up the App
 
@@ -101,7 +101,7 @@ npm install
 REACT_APP_8BASE_API_ENDPOINT=<YOUR_API_URL_GOES_HERE> npm start
 ```
 
-![8base Demo Application Properties page](https://github.com/8base/Documentation/tree/9d72c1880393106b4fdf000f0f4101c652a8556b/docs/getting_started/.gitbook/assets/demo-app-properties.png)
+![8base Demo Application Properties page](../../.gitbook/assets/demo-app-properties.png)
 
 ### For Windows Users
 
@@ -166,7 +166,7 @@ Just for fun, lets add an _Address_ field to your **Properties** table.
 4. Once the field form opens up, select "Address" as the format
 5. Create the field
 
-![Creating fields in 8base](https://github.com/8base/Documentation/tree/9d72c1880393106b4fdf000f0f4101c652a8556b/docs/getting_started/.gitbook/assets/add-field.png)
+![Creating fields in 8base](../../.gitbook/assets/add-field.png)
 
 As simple as that, your _Properties_ table can now save addresses.
 
@@ -198,7 +198,7 @@ query {
 
 Run the query by pressing the large _play_ button. Your requested _Properties_ list will pop up in a blink! Only sharing with you the requested data of _title_, _description_, and _pictures\[count\]_.
 
-![Running queries in API Explorer](https://github.com/8base/Documentation/tree/9d72c1880393106b4fdf000f0f4101c652a8556b/docs/getting_started/.gitbook/assets/data-query.png)
+![Running queries in API Explorer](../../.gitbook/assets/data-query.png)
 
 There is so much more you can do and learn in the API Explorer about GraphQL and your data, so we suggest taking some time to experiment.
 
