@@ -1,9 +1,9 @@
 ## Introduction
 
-* [Getting Started](introduction/introduction/README.md)
-  * [Quick Start](introduction/introduction/quick_start.md)
-  * [Platform Overview](introduction/introduction/platform_overview.md)
-  * [Connection to 8base](introduction/introduction/connection_to_8base.md)
+* [Getting Started](Introduction/Getting\ Started/README.md)
+  * [Quick Start](Introduction/Getting\ Started/quick_start.md)
+  * [Platform Overview](Introduction/Getting\ Started/platform_overview.md)
+  * [Connection to 8base](Introduction/Getting\ Started/connection_to_8base.md)
 
 ## 8base Console
 
