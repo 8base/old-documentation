@@ -4,26 +4,24 @@
 
 ## Useful Guides
 
-> **[Quick Start](quick-start.md)**
-> Learn 8base by building a React application.
-***
+> **[Quick Start](quick-start.md)** \n Learn 8base by building a React application.
+<br>
 
-> **[Connect to your API](connecting-to-api.md)**
-> Explore ways to connect to 8base GraphQL API.
-***
+> **[Connect to your API](connecting-to-api.md)** \n Explore ways to connect to 8base GraphQL API.
+<br>
 
 > **[Platform overview](platform-tools.md)**
 > Read high-level overview of 8base components.
-***
+<br>
 
 > **[GraphQL API](../8base-console/graphql-api/READme.md)**
 > Dive deeper into API concepts like authentication, queries, mutations, subscriptions and files.
-***
+\n
 
 > **[Custom Functions](../8base-console/custom-functions/READme.md)**
 > Learn how to deploy backend functions in JavaScript/TypeScript using 8base CLI.
-***
+<br>
 
 > **[Client Tools](../client-tools/READme.md)**
 > Accelerate front-end development with 8base SDK and Boost UI Kit.
-***
+<br>
