@@ -1,72 +1,38 @@
 # Connection to 8base
 
-## Setup
+8base provisions all database tables with over one-dozen built in GraphQL schemas. These resources allow you to perform any Create, Read, Update and Delete (CRUD) action needed to effectively manage your data. Additionally, it doesn't matter what technology you're using for a client - or server - applciation. As long as you can perform web requests, you'll be able to connect to your 8base workspace endpoints. 
 
-1. Log in to 8base and create a new workspace called Todo
-2. Create a table called Todos in your new workspace
-3. In the Schema for your Todos table, define the following fields:
+### Setup
+
+In the following examples, we've made a few assumptions (feel free to re-create them for your learnings sake!). Those assuptions are the following:
+
+1. You've manage a workspace named *Todo's Workspace*
+2. You've defined a table named *Todos*
+3. The *Todos* table has the following fields:
    * `text: text`
-   * `completed: switch, format: Yes/No`
-4. Manually add a few records in your table.
-5. Click the endpoint button to get your workspace URI
-6. Navigate to Settings --&gt; Roles --&gt; Guest and allow CRUD access for the Todos table
-7. Navigate to Settings --&gt; API Tokens and create a new API token with the developer role. Save this token, you will use this for examples that use authorization below.
+   * `completed: switch, { format: Yes/No }`
+4. One or more *Todos* records have been created
+6. Guest users are permitted CRUD access on the *Todos* table
+7. An API token has been created for a role named *Developer*.
 
-## Connect your Data
+### Executing API Calls
 
-_Replace all instances of {your-endpoint-here} with your workspace endpoint and all instances of {your-api-token-here} with your developer API token_
+In all of the following examples, make sure to replace all occurances of `{API_ENDPOINT}` with your workspace's endpoint and all occurances of `{API_TOKEN}` with your developer API token. 
 
-* [Curl](doc:connecting-to-your-frontend#section-curl) 
-* [Node \(w/graphql-request\)](doc:connecting-to-your-frontend#section-node-w-graphql-request-https-www-npmjs-com-package-graphql-request-) 
-* [Vanilla JS \(w/ fetch\)](doc:connecting-to-your-frontend#section-vanilla-js-w-fetch-https-developer-mozilla-org-en-us-docs-web-api-fetch_api-)
-* [Create React App \(w/ Apollo Client\)](doc:connecting-to-your-frontend#section-create-react-app-w-apollo-client-https-www-apollographql-com-docs-react-)
-* [Python \(w/ python-graphql-client\)](doc:connecting-to-your-frontend#section-python-w-python-graphql-client-https-github-com-prisma-python-graphql-client-)
+##### Example GraphQL Query
 
-### Curl
-
-Read
-
-```text
+```sh
 curl \
    -X POST \
    -H "Content-Type: application/json" \
  --data '{ "query": "{ todosList { items { text } } }" }' \
- {your-endpoint-here}
+ {API_ENDPOINT}
 ```
-
-Mutate
-
-```text
-curl \
-   -X POST \
-   -H "Content-Type: application/json" \
- --data '{"query":"mutation TodoCreate { todoCreate(data: {text: \"from CURL\", completed: false}) {id text completed}}"}' \
-{your-endpoint-here}
-```
-
-Mutate with Authentication
-
-```text
-curl \
-   -X POST \
-   -H "Content-Type: application/json" \
-   -H 'authorization: Bearer {your-api-token-here}' \
-   --data '{"query":"mutation TodoCreate { todoCreate(data: {text: \"from CURL with auth\", completed: false}) {id text completed}}"}' \
-{your-endpoint-here}
-```
-
-### Node \(w/ [graphql-request](https://www.npmjs.com/package/graphql-request)\)
-
-Read
-
-1. `mkdir node && cd node && npm init -y && touch getTodos.js`
-2. `npm install graphql-request`
-3. Copy and paste this code into getTodos.js:
 
 ```javascript
+// 'graphql-request' or other GraphQL library is required
 const { request } = require('graphql-request')
-
-const ENDPOINT = `{your-endpoint-here}`
+const ENDPOINT = `{API_ENDPOINT}`
 
 const GET_TODOS = `
 query {
@@ -81,14 +47,21 @@ query {
 request(ENDPOINT, GET_TODOS).then((r) => console.log(r.todosList.items))
 ```
 
-1. Open your terminal and run `node getTodos.js`
+##### Example GraphQL Mutation
 
-Mutate
-
-1. Make a copy of getTodos.js and name it makeTodos.js
-2. Add the following code to makeTodos.js
+```sh
+curl \
+  -X POST \
+  -H "Content-Type: application/json" \
+  --data '{"query":"mutation TodoCreate { todoCreate(data: {text: \"from CURL\", completed: false}) {id text completed}}"}' \
+  {API_ENDPOINT}
+```
 
 ```javascript
+// 'graphql-request' or other GraphQL library is required
+const { request } = require('graphql-request')
+const ENDPOINT = `{API_ENDPOINT}`
+
 const MAKE_TODO = `
   mutation TodoCreate {
     todoCreate(
@@ -102,28 +75,45 @@ const MAKE_TODO = `
     }
   }
 `
+request(ENDPOINT, MAKE_TODO).then((r) => console.log(r))
 ```
 
-1. Modify the request function to look like this: `request(ENDPOINT, MAKE_TODO ).then((r) => console.log(r))`
-2. Open your terminal and run `node makeTodos.js`
+##### Example GraphQL Mutation with Authentication
 
-Mutate with Authentication
-
-1. Go back to makeTodos.js and make these changes/ additions:
+```sh
+curl \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -H 'authorization: Bearer {API_TOKEN}' \
+  --data '{"query":"mutation TodoCreate { todoCreate(data: {text: \"from CURL with auth\", completed: false}) {id text completed}}"}' \
+  {API_ENDPOINT}
+```
 
 ```javascript
-const { request, GraphQLClient } = require('graphql-request') // extract `GraphQLClient` in the `require` statement:
+// 'graphql-request' or other GraphQL library is required
+const { request, GraphQLClient } = require('graphql-request')
+const ENDPOINT = `{API_ENDPOINT}`
 
-// {...}
+const MAKE_TODO = `
+  mutation TodoCreate {
+    todoCreate(
+      data: {
+        text: "from node",
+        completed: false
+    }) {
+      id
+      text
+      completed
+    }
+  }
+`
 
 // create a new instance of GraphQLClient in order to add an authorization header
 const client = new GraphQLClient(ENDPOINT, {
   headers: {
-    Authorization: 'Bearer {your-api-token-here}',
+    Authorization: 'Bearer {API_TOKEN}',
   },
 })
-
-// {...}
 
 // update the request function so it runs in the context of client
 client.request(MAKE_TODO).then((r) => console.log(r))
@@ -136,7 +126,7 @@ client.request(MAKE_TODO).then((r) => console.log(r))
 Read
 
 ```javascript
-fetch("{your-endpoint-here}",
+fetch("{API_ENDPOINT}",
   {
       "headers": {
           "content-type": "application/json"
@@ -150,7 +140,7 @@ fetch("{your-endpoint-here}",
 Mutate
 
 ```javascript
-fetch("{your-endpoint-here}",
+fetch("{API_ENDPOINT}",
   {
       "headers": {
           "content-type": "application/json"
@@ -168,7 +158,7 @@ fetch("{your-api-endpoint}",
   {
       "headers": {
           "content-type": "application/json",
-          "authorization": "Bearer {your-api-token-here}"
+          "authorization": "Bearer {API_TOKEN}"
       },
       "body": "{\"query\":\"mutation TodoCreate { todoCreate(data: {text: \\\"from js fetch with auth\\\", completed: false}) { id, text, completed }}\"}",
       "method": "POST"
@@ -194,7 +184,7 @@ import gql from 'graphql-tag';
 import Todos from './Todos';
 
 const client = new ApolloClient({
-  uri: "{your-endpoint-here}"
+  uri: "{API_ENDPOINT}"
 });
 
 class App extends Component {
@@ -359,7 +349,7 @@ Mutate with Authentication
 const client = new ApolloClient({
   uri: "{your-api-endpoint}",
   headers: {
-    Authorization: 'Bearer {your-api-token-here}'
+    Authorization: 'Bearer {API_TOKEN}'
   }
 });
 ```
@@ -374,7 +364,7 @@ const client = new ApolloClient({
 ```python
 from graphqlclient import GraphQLClient
 
-client = GraphQLClient('{your-endpoint-here}')
+client = GraphQLClient('{API_ENDPOINT}')
 
 result = client.execute('''
 {
