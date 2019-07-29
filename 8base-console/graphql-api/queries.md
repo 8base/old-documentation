@@ -1,67 +1,149 @@
 # Queries
 
-For each table in a given workspace, 8base GraphQL API exposes two queries:
+On this page, you'll learn in detail about how to query the GraphQL API.
 
-* To get a **single data object** by ID. Example: `user(id: ID): User`
-* To get a **list of objects** based on filter, sorting and pagination parameters. Example: `usersList(filter: UserFilter, orderBy: [UserOrderBy], skip: Int, after: String, before: String, first: Int, last: Int): [User!]!`
+### Understanding Fields 
+Put simply, GraphQL is a specification for requesting fields on objects. Let's looking at a simple 8base query example and the result it returns when run:
 
-  \[block:api-header\]
-
-  {
-
-  "title": "Single-object queries"
-
-  }
-
-  \[/block\]
-
-  Single-object queries allow you to get an object by id. For example, `user(id: ID): User` receives user id and returns the found `User` object or `null` if a user with this id is not found. Just like with any GraphQL query you can specify what fields or related objects you want to get. For example:
-
-  ```text
-  {
-  user(id: "...") {
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
+```javascript
+query {
+  user(email: "john@email.com") {
     firstName
     lastName
-    groups {
-      name
+  }
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Result" %}
+```json
+{
+  "data": {
+    "user": {
+      "firstName": "John",
+      "lastName": "Smith"
     }
   }
-  }
-  ```
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-  \[block:api-header\]
+We see immediately that our result has the same shape as the query. This is key to GraphQL; you always get what you ask for, and the server knows which fields the clients asking for.
 
-  {
+8base GraphQL queries are interactive, and support relational queries natively. This mean two important things, 1) a query can be changed at any time, and 2) related data can be joined without writing complex database queries and serializers (it's handled for you). Let's try another example to demonstrate this.
 
-  "title": "List queries"
-
-  }
-
-  \[/block\]
-
-  List queries allow you to query collections of objects based on complex filter, sorting and pagination parameters. For example, the following query returns first 10 users with "a" in last name sorted by creation time. In addition, it returns the total count of records satisfying the filter criteria.
-
-  ```text
-  {
-  usersList(filter: {
-    lastName: {
-      contains: "a"
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
+```javascript
+query {
+  user(email: "john@email.com") {
+    firstName
+    roles {
+      items {
+        name
+        description
+      }
     }
-  }, first: 10, orderBy: [createdAt_ASC]) {
-    count
+  }
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Result" %}
+```json
+{
+  "data": {
+    "user": {
+      "firstName": "John",
+      "roles": {
+        "items": [
+          {
+            "name": "Administrator",
+            "description": "Administrator Role"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+In this previous example, the `lastName` field was removed from the query and a `roles` parameter added. In the response, we see this reflected by there no longer being a `lastName` key and the added `roles` array containing it's specified paramters - a sub-selection on fields for the related object(s).
+
+### Understanding Arguments 
+The power of the 8base GraphQL API is further enriched by the ability to specify different arguments when executing a query. This has been demonstrated several times now, where "john@email.com" is being passed as an argument to the query (`...user(email: "john@email.com")`). When creating data tables in the **Data Builder**, any field marked as *unique* can then be used as an argument for a query. 
+
+For example, were the *Users* table to have a *fingerPrintHash* field that was set to only permit unique values, we could then query a specific user record like so:
+
+```javascript
+{
+  user(fingerPrintHash: "<UNIQUE_HASH_VALUE>") {
+    firstName
+    lastName
+  }
+}
+```
+
+### List Queries
+
+For every data table defined in an 8base workspace, two default queries are automatically defined.
+
+1. `<tableName>(...)`: Retreval of a single record
+2. `<tableName>List`: Retreval of a list of records
+
+With list queries, a developer is able to request one or more records while optionally applying different selection options. For example, if you were to run a query requesting the first 10 users that have "gmail.com" email addresses, the query could look like so.
+
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
+```javascript
+query {
+  usersList(first: 10, filter: {
+    email: {
+      ends_with: "gmail.com"
+    }
+  }) {
     items {
-      id
       firstName
       lastName
+      email
     }
   }
-  }
-  ```
+}
+```
+{% endcode-tabs-item %}
 
-  List queries take the following parameters:
+{% code-tabs-item title="Result" %}
+```json
+{
+  "data": {
+    "usersList": {
+      "items": [
+        {
+          "firstName": "Jake",
+          "lastName": "Johnson",
+          "email": "jake@gmail.com"
+        },
+        //...
+      ]
+    }
+  }
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+As seen in the previous example, the query returns an object that is predictably formatted to the query itself, containing the requested information.
+
+8base responds to the following query arguments when specified for *lists*.
 
 * **filter**. Filters records based on field values.
 * **orderBy**. Sort order configuration. Can be single- or multi- field sorting.
+* **sort**. Alias for orderBy argumentr.
 * **first**. Limit query to first N records. Default and maximum value is 1000. Used for offset-based pagination.
 * **skip**. Skip N records from the result. Used for offset-based pagination.
 * **last**. Return N last records from the result.
