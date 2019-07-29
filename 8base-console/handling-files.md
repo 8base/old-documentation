@@ -6,12 +6,12 @@ To handle delivery and transformations on file uploads in the 8base Management C
 
 ### Managing Files
 
-**Upload**
+**Upload**  
 Inside the **Data Viewer** (`Data > Table Name > Data`) you're able to manage all records for the select data table. When creating or editing a record, the `Add <File Type>` option will appear next to any pertaining data field. Using this option will launch the Filestack uploader, allowing you the option of uploading different files through a number of connected channels.
 
 ![Data Viewer uploader with connected channels](../.gitbook/assets/data-viewer-upload.png)
 
-**Delete**
+**Delete**  
 In this same view you are able to remove any file from a given record. Simply use the elipsis dropdown located on the image and select "Delete". Make sure to save your changes before leaving the screen.
 
 ![Delete files from a specific record](../.gitbook/assets/data-viewer-file-delete.png)

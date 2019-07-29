@@ -4,7 +4,9 @@ The 8base Management Console allows for convenient and fine-grained administrati
 
 To get started fast with the 8base Management Console, all you'll need is [an 8base account](https://app.8base.com) and modern web browser.
 
-![### Console overview](../.gitbook/assets/relaxed-coder.png)
+![ ](../.gitbook/assets/relaxed-coder.png)
+
+### Console Overview
 
 * Create and manage custom data tables for relational data
 * Browse, sort, filter and learn from your app data in the cloud 
