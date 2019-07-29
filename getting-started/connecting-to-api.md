@@ -2,7 +2,7 @@
 
 ## Connection to 8base
 
-8base provisions all database tables with over one-dozen built in GraphQL schemas. These resources allow you to perform any Create, Read, Update and Delete (CRUD) action needed to effectively manage your data. Additionally, it doesn't matter what technology you're using for a client - or server - applciation. As long as you can perform web requests, you'll be able to connect to your 8base workspace endpoints.
+8base provisions all database tables with over one-dozen built in GraphQL schemas. These resources allow you to perform any Create, Read, Update and Delete \(CRUD\) action needed to effectively manage your data. Additionally, it doesn't matter what technology you're using for a client - or server - applciation. As long as you can perform web requests, you'll be able to connect to your 8base workspace endpoints.
 
 ### Setup
 
@@ -75,7 +75,6 @@ print(result)
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-
 #### Example GraphQL Mutation
 
 {% code-tabs %}
@@ -138,7 +137,6 @@ print(result)
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-
 #### Example GraphQL Mutation with Authentication
 
 {% code-tabs %}
@@ -147,7 +145,7 @@ print(result)
 curl \
   -X POST \
   -H "Content-Type: application/json" \
-  -H 'authorization: Bearer {API_TOKEN}' \
+  -H 'Authorization: Bearer {API_TOKEN}' \
   --data '{"query":"mutation TodoCreate { todoCreate(data: {text: \"from CURL with auth\", completed: false}) {id text completed}}"}' \
   {API_ENDPOINT}
 ```
@@ -211,3 +209,4 @@ print(result)
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
+
