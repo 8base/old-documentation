@@ -98,3 +98,14 @@ $$
 
 {% file src=".gitbook/assets/8base-logo.png" caption="This is what an uploaded file looks like \(filename here\)" %}
 
+
+# Code Tabs 
+{% codetabs name="Python", type="py" -%}
+	msg = "Hello World"
+	print msg
+{%- language name="JavaScript", type="js" -%}
+	var msg = "Hello World";
+	console.log(msg);
+{%- language name="HTML", type="html" -%}
+	<b>Hello World</b>
+{%- endcodetabs %}

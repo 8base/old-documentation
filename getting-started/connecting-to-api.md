@@ -21,6 +21,47 @@ In all of the following examples, make sure to replace all occurances of `{API_E
 
 ##### Example GraphQL Query
 
+{% codetabs name="Bash", type="sh" -%}
+  curl \
+    -X POST \
+    -H "Content-Type: application/json" \
+    --data '{ "query": "{ todosList { items { text } } }" }' \
+    {API_ENDPOINT}
+{%- language name="JavaScript", type="js" -%}
+  // 'graphql-request' or other GraphQL library is required
+  const { request } = require('graphql-request')
+  const ENDPOINT = `{API_ENDPOINT}`
+
+  const GET_TODOS = `
+  query {
+    todosList {
+      items {
+        text
+      }
+    }
+  }
+  `
+
+  request(ENDPOINT, GET_TODOS).then((r) => console.log(r.todosList.items))
+{%- language name="Python", type="py" -%}
+  # `graphqlclient` or other GraphQL library is required 
+  from graphqlclient import GraphQLClient
+
+  client = GraphQLClient('{API_ENDPOINT}')
+
+  result = client.execute('''
+  query {
+    todosList {
+      items {
+        text
+      }
+    }
+  }
+  ''')
+
+  print(result)
+{%- endcodetabs %}
+
 ```sh
 curl \
    -X POST \
