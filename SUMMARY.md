@@ -11,8 +11,8 @@
 
 ## 8base Console
 
-* [Overview](8base-console/8base-console.md)
-* [Users & Authentication](8base-console/authentication.md)
+* [Overview](8base-console/READme.md)
+* [Authentication](8base-console/authentication.md)
 * [Authorization](8base-console/roles-and-permissions.md)
 * [Handling Files](8base-console/handling-files.md)
 * [GraphQL API](8base-console/graphql-api/README.md)

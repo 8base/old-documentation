@@ -1,39 +1,18 @@
-# Handling Files
+# Files
 
-\[block:callout\] { "type": "info", "title": "File picker for React", "body": "For React developers 8base SDK provides `@8base/file-input` package that automates the steps described here. If you're looking for an easy way to integrate file uploading capability into your application read the [Client Tools](https://github.com/8base/Documentation/tree/4df3b0cc7b342fe0d3468fbf0a5cafa597c6f037/docs/api/file-upload/README.md) section." } \[/block\] 8base provides a native file management capability. You can attach files to your data object by creating a field of type `File`. A `File` field can store one or multiple files. You can manage granular files permissions just like you would for any other table.
+In the 8base GraphQL API, `Files` is just another table that supports all standard CRUD operations and connections to other tables. When you create a field of type `File` the platform creates a relationship (connection) between your table and the `Files` table under the hood. This allows you to use connection-related operations such as `create`, `connect`, `disconnect` on file-type fields.
 
-In the GraphQL API `Files` is just another table that supports all standard CRUD operations as well as connections to other tables. When you create a field of type `File` the platform creates a relationship\(connection\) between your table and the `Files` table under the hood. This allows you to use connection-related operations such as `create`, `connect`, `disconnect` on file-type fields.
+To handle delivery and transformations on file uploads in the 8base Management Console, we've integrated with [Filestack](https://www.filestack.com/). [S3](https://aws.amazon.com/s3/) is then used to safely store the uploaded file. Thus, inside the **Data Viewer** you're be able to easily management files (pictures and documents) as they are attached to different records.
 
-8base is natively integrated with [Filestack](https://www.filestack.com/) to handle file uploads, delivery and transformations. Filestack provides file `handle`, which is a unique identifier of the file inside Filestack. You provide Filestack `handle` when creating a `File` object in 8base.
+### Managing Files
 
-The workflow of creating a file consists of the following steps:
+**Upload**
+Inside the **Data Viewer** (`Data > Table Name > Data`) you're able to manage all records for the select data table. When creating or editing a record, the `Add <File Type>` option will appear next to any pertaining data field. Using this option will launch the Filestack uploader, allowing you the option of uploading different files through a number of connected channels.
 
-1. **Get Filestack upload details**
+![Data Viewer uploader with connected channels](../.gitbook/assets/data-viewer-upload.png)
 
-   You can use the `fileUploadInfo` query to get all fields required by Filestack to upload a file. It generates a temporary policy allowing you to upload a file to a predefined path, based on your workspace ID.
+**Delete**
+In this same view you are able to remove any file from a given record. Simply use the elipsis dropdown located on the image and select "Delete". Make sure to save your changes before leaving the screen.
 
-   \[block:code\]
-
-   {
-
-   "codes": \[
-
-   {
-
-   "code": "{\n fileUploadInfo {\n policy\n signature\n apiKey\n path\n }\n}",
-
-   "language": "javascript",
-
-   "name": "fileUploadInfo query"
-
-   }
-
-   \]
-
-   }
-
-   \[/block\]
-
-2. **Upload file to Filestack** Use Filestack API or picker to upload the file using the parameters from the step 1. On successful upload Filestack returns file `handle`. You can learn more about uploading files directly to Filestack [here](https://www.filestack.com/docs/concepts/uploading/). For React developers 8base SDK provides [tools](https://github.com/8base/Documentation/tree/4df3b0cc7b342fe0d3468fbf0a5cafa597c6f037/docs/api/file-upload/README.md) to simplify file uploads such that you never need to interact with Filestack directly.
-3. **Create file in 8base** Create file in 8base by passing the Filestack `handle` from step 2. You can either create a `File` object directly so you can later connect it to other tables: \[block:code\] { "codes": \[ { "code": "mutation {\n fileCreate\(data: {\n fileId: \"g8fLXNCRT4K3TJSUFrRW\" \# Filestack handle here\n filename: \"upload.jpg\"\n }\) {\n id\n }\n}", "language": "javascript", "name": "fileCreate mutation" } \] } \[/block\] or you can create and connect file at the same time: \[block:code\] { "codes": \[ { "code": "mutation {\n customerCreate\(data: {\n picture: {\n create: {\n fileId: \"g8fLXNCRT4K3TJSUFrRW\" \# Filestack handle here\n filename: \"avatar.jpg\"\n }\n }\n }\) {\n id\n }\n}", "language": "javascript", "name": "Create and connect file to a data object" } \] } \[/block\]
+![Delete files from a specific record](../.gitbook/assets/data-viewer-file-delete.png)
 
