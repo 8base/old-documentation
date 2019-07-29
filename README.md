@@ -1,6 +1,6 @@
-# Welcome
+# Introduction
 
-![Zen Master](./.gitbook/assets/zen-developer.png)
+![Zen Master](.gitbook/assets/zen-developer.png)
 
 Welcome to 8base! We're so glad you're here. We've poured countless hours into creativity and code to create 8base. All of that effort inteded solely to support you in building something amazing.
 

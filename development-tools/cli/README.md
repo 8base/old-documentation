@@ -1,4 +1,4 @@
-# Logic
+# CLI
 
 The 8base Command Line Interface \(CLI\) makes it easy to add custom backend logic to your apps straight from the terminal. \[block:api-header\] { "title": "Install" } \[/block\] Install the 8base CLI via `npm` \([node.js](https://nodejs.org/) is required\).
 

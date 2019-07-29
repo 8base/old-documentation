@@ -1,4 +1,4 @@
-# Files
+# Handling Files
 
 \[block:callout\] { "type": "info", "title": "File picker for React", "body": "For React developers 8base SDK provides `@8base/file-input` package that automates the steps described here. If you're looking for an easy way to integrate file uploading capability into your application read the [Client Tools](https://github.com/8base/Documentation/tree/4df3b0cc7b342fe0d3468fbf0a5cafa597c6f037/docs/api/file-upload/README.md) section." } \[/block\] 8base provides a native file management capability. You can attach files to your data object by creating a field of type `File`. A `File` field can store one or multiple files. You can manage granular files permissions just like you would for any other table.
 
@@ -18,15 +18,15 @@ The workflow of creating a file consists of the following steps:
 
    "codes": \[
 
-    {
+   {
 
-      "code": "{\n  fileUploadInfo {\n    policy\n    signature\n    apiKey\n    path\n  }\n}",
+   "code": "{\n fileUploadInfo {\n policy\n signature\n apiKey\n path\n }\n}",
 
-      "language": "javascript",
+   "language": "javascript",
 
-      "name": "fileUploadInfo query"
+   "name": "fileUploadInfo query"
 
-    }
+   }
 
    \]
 

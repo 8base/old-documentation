@@ -1,68 +1,91 @@
-# Connection to 8base
+# Connecting to API
 
-8base provisions all database tables with over one-dozen built in GraphQL schemas. These resources allow you to perform any Create, Read, Update and Delete (CRUD) action needed to effectively manage your data. Additionally, it doesn't matter what technology you're using for a client - or server - applciation. As long as you can perform web requests, you'll be able to connect to your 8base workspace endpoints. 
+## Connection to 8base
+
+8base provisions all database tables with over one-dozen built in GraphQL schemas. These resources allow you to perform any Create, Read, Update and Delete \(CRUD\) action needed to effectively manage your data. Additionally, it doesn't matter what technology you're using for a client - or server - applciation. As long as you can perform web requests, you'll be able to connect to your 8base workspace endpoints.
 
 ### Setup
 
-In the following examples, we've made a few assumptions (feel free to re-create them for your learnings sake!). Those assuptions are the following:
+In the following examples, we've made a few assumptions \(feel free to re-create them for your learnings sake!\). Those assuptions are the following:
 
-1. You've manage a workspace named *Todo's Workspace*
-2. You've defined a table named *Todos*
-3. The *Todos* table has the following fields:
+1. You've manage a workspace named _Todo's Workspace_
+2. You've defined a table named _Todos_
+3. The _Todos_ table has the following fields:
    * `text: text`
    * `completed: switch, { format: Yes/No }`
-4. One or more *Todos* records have been created
-6. Guest users are permitted CRUD access on the *Todos* table
-7. An API token has been created for a role named *Developer*.
+4. One or more _Todos_ records have been created
+5. Guest users are permitted CRUD access on the _Todos_ table
+6. An API token has been created for a role named _Developer_.
 
 ### Executing API Calls
 
-In all of the following examples, make sure to replace all occurances of `{API_ENDPOINT}` with your workspace's endpoint and all occurances of `{API_TOKEN}` with your developer API token. 
+In all of the following examples, make sure to replace all occurances of `{API_ENDPOINT}` with your workspace's endpoint and all occurances of `{API_TOKEN}` with your developer API token.
 
-##### Example GraphQL Query
+#### Example GraphQL Query
 
-{% codetabs name="Bash", type="sh" -%}
-  curl \
-    -X POST \
-    -H "Content-Type: application/json" \
-    --data '{ "query": "{ todosList { items { text } } }" }' \
+{% code-tabs %}
+{% code-tabs-item title="Bash" %}
+```bash
+curl  -X POST \
+    -H "Content-Type: application/json"  \
+    --data '{ "query": "{ todosList { items { text } } }" }'  \
     {API_ENDPOINT}
-{%- language name="JavaScript", type="js" -%}
-  // 'graphql-request' or other GraphQL library is required
-  const { request } = require('graphql-request')
-  const ENDPOINT = `{API_ENDPOINT}`
+```
+{% endcode-tabs-item %}
 
-  const GET_TODOS = `
-  query {
-    todosList {
-      items {
-        text
-      }
+{% code-tabs-item title="JavaScript" %}
+```javascript
+// 'graphql-request' or other GraphQL library is required
+const { request } = require('graphql-request')
+const ENDPOINT = `{API_ENDPOINT}`
+
+const GET_TODOS = `
+query {
+  todosList {
+    items {
+      text
     }
   }
-  `
+}
+`
 
-  request(ENDPOINT, GET_TODOS).then((r) => console.log(r.todosList.items))
-{%- language name="Python", type="py" -%}
-  # `graphqlclient` or other GraphQL library is required 
-  from graphqlclient import GraphQLClient
+request(ENDPOINT, GET_TODOS).then((r) => console.log(r.todosList.items))
+```
+{% endcode-tabs-item %}
 
-  client = GraphQLClient('{API_ENDPOINT}')
+{% code-tabs-item title="Python" %}
+```python
+# `graphqlclient` or other GraphQL library is required 
+from graphqlclient import GraphQLClient
 
-  result = client.execute('''
-  query {
-    todosList {
-      items {
-        text
-      }
+client = GraphQLClient('{API_ENDPOINT}')
+
+result = client.execute('''
+query {
+  todosList {
+    items {
+      text
     }
   }
-  ''')
+}
+''')
 
-  print(result)
-{%- endcodetabs %}
+print(result)
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-```sh
+## `graphqlclient` or other GraphQL library is required
+
+from graphqlclient import GraphQLClient
+
+client = GraphQLClient\('{API\_ENDPOINT}'\)
+
+result = client.execute\(''' query { todosList { items { text } } } '''\)
+
+print\(result\)
+
+```bash
 curl \
    -X POST \
    -H "Content-Type: application/json" \
@@ -108,9 +131,9 @@ query {
 print(result)
 ```
 
-##### Example GraphQL Mutation
+#### Example GraphQL Mutation
 
-```sh
+```bash
 # Shell
 curl \
   -X POST \
@@ -165,9 +188,9 @@ mutation TodoCreate {
 print(result)
 ```
 
-##### Example GraphQL Mutation with Authentication
+#### Example GraphQL Mutation with Authentication
 
-```sh
+```bash
 # Shell
 curl \
   -X POST \
@@ -232,3 +255,4 @@ mutation TodoCreate {
 
 print(result)
 ```
+
