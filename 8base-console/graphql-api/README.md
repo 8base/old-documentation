@@ -1,6 +1,9 @@
 # GraphQL API
 
-Each workspace has a GraphQL API endpoint with queries, mutations and subscriptions for every table representing CRUD \(create/read/update/delete\) operations. The API comes with filtering, pagination, full-text search and other features to make the job of front-end developers easier.
+All workspaces in 8base are assigned a unique API endpoints. These endpoints handle GraphQL queries, mutations and subscriptions for every data table (covering all Create, Read, Update, Delete operations, plus some...) out-of-the-box. Additionally, API comes with filtering, pagination, full-text search and many other advanced features, to put the best tools possible in the front-end developer's hands.
 
-You can get your workspace API endpoint URL in Data Builder. \[block:image\] { "images": \[ { "image": \[ "[https://files.readme.io/703d70b-endpoint.png](https://files.readme.io/703d70b-endpoint.png)", "endpoint.png", 823, 591, "\#9c9d9e" \], "caption": "Click \"Endpoint\" to get API URL" } \] } \[/block\]
+*Note: Using [Custom Functions](../custom-functions/README.md), these GraphQL resources can be extend and added to in anyway seen fit.*
 
+There are several way of retrieving an API endpoint for your workspace. The most straightforward is to login to the [8base Management Console](https://app.8base.com), select a workspace and copy the `API Endpoint` displayed on the dashboard.
+
+![Where to find a workspace API endpoint](../.gitbook/assets/workspace-api-endpoint.png)
