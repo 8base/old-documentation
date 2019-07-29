@@ -47,9 +47,30 @@ query {
 request(ENDPOINT, GET_TODOS).then((r) => console.log(r.todosList.items))
 ```
 
+```python
+# Python
+# `graphqlclient` or other GraphQL library is required 
+from graphqlclient import GraphQLClient
+
+client = GraphQLClient('{API_ENDPOINT}')
+
+result = client.execute('''
+query {
+  todosList {
+    items {
+      text
+    }
+  }
+}
+''')
+
+print(result)
+```
+
 ##### Example GraphQL Mutation
 
 ```sh
+# Shell
 curl \
   -X POST \
   -H "Content-Type: application/json" \
@@ -58,6 +79,7 @@ curl \
 ```
 
 ```javascript
+// JavaScript
 // 'graphql-request' or other GraphQL library is required
 const { request } = require('graphql-request')
 const ENDPOINT = `{API_ENDPOINT}`
@@ -78,9 +100,34 @@ const MAKE_TODO = `
 request(ENDPOINT, MAKE_TODO).then((r) => console.log(r))
 ```
 
+```python
+# Python
+# `graphqlclient` or other GraphQL library is required 
+from graphqlclient import GraphQLClient
+
+client = GraphQLClient('{API_ENDPOINT}')
+
+result = client.execute('''
+mutation TodoCreate {
+  todoCreate(
+    data: {
+      text: "from node",
+      completed: false
+  }) {
+    id
+    text
+    completed
+  }
+}
+''')
+
+print(result)
+```
+
 ##### Example GraphQL Mutation with Authentication
 
 ```sh
+# Shell
 curl \
   -X POST \
   -H "Content-Type: application/json" \
@@ -90,6 +137,7 @@ curl \
 ```
 
 ```javascript
+// JavaScript
 // 'graphql-request' or other GraphQL library is required
 const { request, GraphQLClient } = require('graphql-request')
 const ENDPOINT = `{API_ENDPOINT}`
@@ -119,28 +167,27 @@ const client = new GraphQLClient(ENDPOINT, {
 client.request(MAKE_TODO).then((r) => console.log(r))
 ```
 
-1. Change the role permissions in application settings, start your react server and enter a new todo item to test your mutation.
-
-### Python \(w/ [python-graphql-client](https://github.com/prisma/python-graphql-client)\)
-
-1. `pip install graphqlclient`
-2. Copy and paste the following code in your project
-
 ```python
+# Python
+# `graphqlclient` or other GraphQL library is required 
 from graphqlclient import GraphQLClient
 
 client = GraphQLClient('{API_ENDPOINT}')
+client.inject_token('Authorization','Bearer %s' % API_TOKEN)
 
 result = client.execute('''
-{
-  allFilms {
-    films {
-      title
-    }
+mutation TodoCreate {
+  todoCreate(
+    data: {
+      text: "from node",
+      completed: false
+  }) {
+    id
+    text
+    completed
   }
 }
 ''')
 
 print(result)
 ```
-
