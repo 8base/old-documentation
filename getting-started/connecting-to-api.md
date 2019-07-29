@@ -2,7 +2,7 @@
 
 ## Connection to 8base
 
-8base provisions all database tables with over one-dozen built in GraphQL schemas. These resources allow you to perform any Create, Read, Update and Delete \(CRUD\) action needed to effectively manage your data. Additionally, it doesn't matter what technology you're using for a client - or server - applciation. As long as you can perform web requests, you'll be able to connect to your 8base workspace endpoints.
+8base provisions all database tables with over one-dozen built in GraphQL schemas. These resources allow you to perform any Create, Read, Update and Delete (CRUD) action needed to effectively manage your data. Additionally, it doesn't matter what technology you're using for a client - or server - applciation. As long as you can perform web requests, you'll be able to connect to your 8base workspace endpoints.
 
 ### Setup
 
@@ -75,75 +75,22 @@ print(result)
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-## `graphqlclient` or other GraphQL library is required
-
-from graphqlclient import GraphQLClient
-
-client = GraphQLClient\('{API\_ENDPOINT}'\)
-
-result = client.execute\(''' query { todosList { items { text } } } '''\)
-
-print\(result\)
-
-```bash
-curl \
-   -X POST \
-   -H "Content-Type: application/json" \
- --data '{ "query": "{ todosList { items { text } } }" }' \
- {API_ENDPOINT}
-```
-
-```javascript
-// 'graphql-request' or other GraphQL library is required
-const { request } = require('graphql-request')
-const ENDPOINT = `{API_ENDPOINT}`
-
-const GET_TODOS = `
-query {
-  todosList {
-    items {
-      text
-    }
-  }
-}
-`
-
-request(ENDPOINT, GET_TODOS).then((r) => console.log(r.todosList.items))
-```
-
-```python
-# Python
-# `graphqlclient` or other GraphQL library is required 
-from graphqlclient import GraphQLClient
-
-client = GraphQLClient('{API_ENDPOINT}')
-
-result = client.execute('''
-query {
-  todosList {
-    items {
-      text
-    }
-  }
-}
-''')
-
-print(result)
-```
 
 #### Example GraphQL Mutation
 
+{% code-tabs %}
+{% code-tabs-item title="Bash" %}
 ```bash
-# Shell
 curl \
   -X POST \
   -H "Content-Type: application/json" \
   --data '{"query":"mutation TodoCreate { todoCreate(data: {text: \"from CURL\", completed: false}) {id text completed}}"}' \
   {API_ENDPOINT}
 ```
+{% endcode-tabs-item %}
 
+{% code-tabs-item title="JavaScript" %}
 ```javascript
-// JavaScript
 // 'graphql-request' or other GraphQL library is required
 const { request } = require('graphql-request')
 const ENDPOINT = `{API_ENDPOINT}`
@@ -163,9 +110,10 @@ const MAKE_TODO = `
 `
 request(ENDPOINT, MAKE_TODO).then((r) => console.log(r))
 ```
+{% endcode-tabs-item %}
 
+{% code-tabs-item title="Python" %}
 ```python
-# Python
 # `graphqlclient` or other GraphQL library is required 
 from graphqlclient import GraphQLClient
 
@@ -187,11 +135,15 @@ mutation TodoCreate {
 
 print(result)
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
 
 #### Example GraphQL Mutation with Authentication
 
+{% code-tabs %}
+{% code-tabs-item title="Bash" %}
 ```bash
-# Shell
 curl \
   -X POST \
   -H "Content-Type: application/json" \
@@ -199,9 +151,10 @@ curl \
   --data '{"query":"mutation TodoCreate { todoCreate(data: {text: \"from CURL with auth\", completed: false}) {id text completed}}"}' \
   {API_ENDPOINT}
 ```
+{% endcode-tabs-item %}
 
+{% code-tabs-item title="JavaScript" %}
 ```javascript
-// JavaScript
 // 'graphql-request' or other GraphQL library is required
 const { request, GraphQLClient } = require('graphql-request')
 const ENDPOINT = `{API_ENDPOINT}`
@@ -230,9 +183,10 @@ const client = new GraphQLClient(ENDPOINT, {
 // update the request function so it runs in the context of client
 client.request(MAKE_TODO).then((r) => console.log(r))
 ```
+{% endcode-tabs-item %}
 
+{% code-tabs-item title="Python" %}
 ```python
-# Python
 # `graphqlclient` or other GraphQL library is required 
 from graphqlclient import GraphQLClient
 
@@ -255,4 +209,5 @@ mutation TodoCreate {
 
 print(result)
 ```
-
+{% endcode-tabs-item %}
+{% endcode-tabs %}
