@@ -94,7 +94,7 @@ For example, were the *Users* table to have a *fingerPrintHash* field that was s
 For every data table defined in an 8base workspace, two default queries are automatically defined.
 
 1. `<tableName>(...)`: Retreval of a single record
-2. `<tableName>List`: Retreval of a list of records
+2. `<tableName>List(...)`: Retreval of a list of records
 
 With list queries, a developer is able to request one or more records while optionally applying different selection options. For example, if you were to run a query requesting the first 10 users that have "gmail.com" email addresses, the query could look like so.
 
@@ -128,7 +128,7 @@ query {
           "lastName": "Johnson",
           "email": "jake@gmail.com"
         },
-        //...
+        // More results...
       ]
     }
   }
@@ -139,12 +139,13 @@ query {
 
 As seen in the previous example, the query returns an object that is predictably formatted to the query itself, containing the requested information.
 
+##### List Arguments
 8base responds to the following query arguments when specified for *lists*.
 
 * **filter**. Filters records based on field values.
 * **orderBy**. Sort order configuration. Can be single- or multi- field sorting.
 * **sort**. Alias for orderBy argumentr.
-* **first**. Limit query to first N records. Default and maximum value is 1000. Used for offset-based pagination.
+* **first**. Limit query to first N records. Default and maximum value is 1000.
 * **skip**. Skip N records from the result. Used for offset-based pagination.
 * **last**. Return N last records from the result.
 * **after**. Return records after specified ID. Used for cursor-based pagination.
