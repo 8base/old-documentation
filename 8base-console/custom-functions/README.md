@@ -4,11 +4,23 @@ In 8base, pretty much everything is extensible when using *Custom Functions* (CF
 
 CFs in 8base are essentially AWS Lambdas that get enriched with access to your workspace resources. For example, 8base makes sure you're able to access the workspace's environment variables and database from within a CF by default. CFs can be written in either JavaScript or TypeScript (we'll package them for you... so no need to worry about Babel) and be deployed in a matter of minutes.
 
-Some highlights of 8base CFs include:
+### Highlights
 * **Serverless execution:** Once deployed, CFs are ready to scale from 1 to 1,000,000+ calls thanks to serverless design
 * **JavaScript + TypeScript:** Write in JavaScript or TypeScript and 8base will compile it as needed
 * **Predefined Triggers:** 8base currently offers four types of CF triggers that will cover 99.999% of requirements
 * **Easily Permissioned:** As with most 8base features, authorizing CFs can be easily configered in the *Role Manager*
+
+### Custom Function Types
+There are 4-types of CFs made available on 8base that we will go over in depth in the following 4 sections. They are:
+
+* [**Resolvers**](./resolvers.md): For extending your GraphQL API
+* [**Webhooks**](./webhooks.md): For declaring RESTful endpoints (GET, POST, DELETE, etc...)
+* [**Triggers**](./triggers.md): For functions that require event base execution
+* [**Tasks**](./tasks.md): For functions that need to be scheduled and re-occuring (cron jobs)
+
+All CFs must be declared in your projects 8base.yml file.
+
+### Development Tips
 
 CFs are developed in a local development environment and then deployed to a given workspace using the [8base CLI](../../development-tools/cli/README.md). When in development, they can be invoked locally for testing purposes. A folder structure we suggest when developing CFs locally is to have a `mocks` directories containing any desired request mock.
 
@@ -28,12 +40,3 @@ The benefit of this is the ability to quickly test your functions locally using 
 ```bash
 $ 8base invoke-local helloResolver -p src/resolvers/mocks/request.json
 ```
-
-### Custom Function Types
-
-There are 4-types of CFs made available on 8base that we will go over in depth in the following 4 sections. They are:
-
-* [**Resolvers**: For extending your GraphQL API](./resolvers.md)
-* [**Webhooks**: For declaring RESTful endpoints (GET, POST, DELETE, etc...)](./webhooks.md)
-* [**Triggers**: For functions that require event base execution](./triggers.md)
-* [**Tasks**: For functions that need to be scheduled and re-occuring (cron jobs)](./tasks.md)
