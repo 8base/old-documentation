@@ -151,3 +151,26 @@ As seen in the previous example, the query returns an object that is predictably
 * **after**. Return records after specified ID. Used for cursor-based pagination.
 * **before**. Return records before specified ID. Used for cursor-based pagination.
 
+
+##### Sort
+```javascript
+{
+  postsList(sort: [
+    {
+      author: {
+        name: ASC
+      }
+    }
+  ]) {
+    items {
+      id
+      title
+      author {
+        id
+        name
+      }
+    }
+  }
+}
+```
+
