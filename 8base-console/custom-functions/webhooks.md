@@ -84,9 +84,10 @@ In order to get your webhook URL after you have deployed it, run `8base describe
 
 ### Examples
 
-Here is an example webhook to help you get started .
+Here is an example webhook with in code documentation to help you get started.
 
 ```javascript
+// Import any dependencies
 import gql from 'graphql-tag';
 
 // Import custom module that handles sending emails
