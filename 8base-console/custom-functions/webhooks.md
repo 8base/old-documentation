@@ -11,7 +11,7 @@ functions:
   # Using a default path, the deployed endpoint would
   # be available when making an POST request to:
   #
-  # https://api.8base.com/<WORKSPACE_ID>/paymentWebhookDefaultPath
+  # https://api.8base.com/<WORKSPACE_ID>/webhook/paymentWebhookDefaultPath
   #
 	paymentWebhookDefaultPath:
 		handler:
@@ -22,7 +22,7 @@ functions:
   # Using a custom path, the deployed endpoint would
   # be available when making an POST request to:
   #
-  # https://api.8base.com/<WORKSPACE_ID>/successful-charge-notice
+  # https://api.8base.com/<WORKSPACE_ID>/webhook/successful-charge-notice
   #
 		paymentWebhookCustomPath:
 		handler:
@@ -110,6 +110,13 @@ const INVOICE_MUTATION = gql`
   }
 `;
 
+// Define a simple response generator
+const responseBuilder = (code=200, message=undefined, headers={}) => ({
+  body: JSON.stringify({ message }),
+  statusCode: code,
+  headers
+})
+
 // Define an asynchronous webhook handler function.
 module.exports = async (event, ctx) => {
 	// Define response placeholder var
@@ -129,11 +136,7 @@ module.exports = async (event, ctx) => {
     })
   // Handle error for failed GraphQL mutation
   } catch (e) {
-    return { 
-	  	data: { 
-	  		success: false 
-	  	}
-	  }
+    return responseBuilder(422, "Failed to update invoice")
   }
 
   try {
@@ -158,19 +161,11 @@ module.exports = async (event, ctx) => {
 
   // Handle error for failed email
   } catch (e) {
-    return { 
-    	data: { 
-    		success: false
-    	}
-    }
+    return responseBuilder(400, 'Failed to notify user')
   }
 
   // Return final success response
-  return { 
-  	data: { 
-  		success: true 
-  	} 
-  }
+  return responseBuilder(200, 'Success')
 };
 ```
 
