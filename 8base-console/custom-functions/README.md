@@ -20,8 +20,39 @@ There are 4-types of CFs made available on 8base that we will go over in depth i
 
 All CFs must be declared in your projects 8base.yml file.
 
-### Development Tips
+### Custom Function Arguments
+All CFs recieve the same function arguments when invoked; *event* and *ctx*. These arguments are positional, so you may rename them to whatever names you prefer.
 
+##### event
+When a CF is invoked, 8base will attempt to parse the request body and query string to add any parsed values to `event.data` attribute. However, the raw request body will always be available on at `event.body`. The `event` argument can be expected to have the following structure:
+
+```json
+{
+	"event": {
+	  "data": {
+	    "arg1": "arg1 value",
+	    "arg2": "arg2 value"
+	  },
+	  "headers": {
+	    "x-header-1": "header value",
+	    "x-header-2": "header value"
+	  },
+	  "body": "raw request body"
+	}
+}
+```
+##### ctx
+The context argument - `ctx` - exposes 8base GraphQL and other APIs. It can be used to run Queries and Mutations from inside the CF and to call other functions.
+
+```javascript
+// Code...
+ctx.api.gqlRequest(QUERY, { ...parameters });
+```
+
+### Managing Dependencies
+8base deploys CFs to a Node.js 8.10 runtime environment in which any compatible NPM dependencies are supported. On deploy, the system will check whether or not your dependencies have been installed and handle that accordingly. As expected, deploys run significantly faster when dependencies are installed locally. Feel free to use either NPM or Yarn as your package manager during development.
+
+### Development Tips
 CFs are developed in a local development environment and then deployed to a given workspace using the [8base CLI](../../development-tools/cli/README.md). When in development, they can be invoked locally for testing purposes. A folder structure we suggest when developing CFs locally is to have a `mocks` directories containing any desired request mock.
 
 ```bash

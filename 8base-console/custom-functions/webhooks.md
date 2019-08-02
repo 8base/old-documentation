@@ -1,11 +1,12 @@
 # Webhooks
 
-Webhooks allow you to expose *Custom Functions* as regular RESTful endpoints. They can be very useful if you integrate with a 3rd party service that posts data back to your app using a specified URL. For example, enabling a payment processing service such as Stripe or Coinbase Commerce to notify your app of a successful payment by calling *X* URL.
+A *webhook* allows you to call *Custom Functions* as regular RESTful endpoints. They can be very useful if you integrate with a 3rd party service that posts data back to your app using a specified URL. For example, enabling a payment processing service such as Stripe or Coinbase Commerce to notify your app of a successful payment by calling *X* URL.
 
 ### 8base.yml Declaration
 Webhooks have an optional parameter `path` that allows you to manually specify the final URL fragment. By default, it gets defined as the function name. 
 
 ```yaml
+
 functions:
   #
   # Using a default path, the deployed endpoint would
@@ -13,6 +14,7 @@ functions:
   #
   # https://api.8base.com/<WORKSPACE_ID>/webhook/paymentWebhookDefaultPath
   #
+  # Declare custom webhooks like so.
 	paymentWebhookDefaultPath:
 		handler:
 			code: src/paymentWebhook.js
@@ -24,7 +26,8 @@ functions:
   #
   # https://api.8base.com/<WORKSPACE_ID>/webhook/successful-charge-notice
   #
-		paymentWebhookCustomPath:
+  # Declare custom webhooks like so.
+	paymentWebhookCustomPath:
 		handler:
 			code: src/paymentWebhook.js
 		type: webhook
@@ -34,33 +37,7 @@ functions:
 
 All webhooks require is a unique name and allow for the same function to be called from different entries. This means that `functionA` and `functionB` may both specify the same function to be called, even if they different configurations (i.e. POST vs DELETE). You are able to deploy as many webhooks as you want to a single workspace. 
 
-
-### Webhook Arguments
-
-##### event
-When called, 8base will attempt to parse request body and query string and add parsed values to `event.data`. However, the raw request body will always be available on at `event.body`. A webhook's `event` argument can be expected to have the following structure:
-
-```json
-{
-	"event": {
-	  "data": {
-	    "arg1": "arg1 value",
-	    "arg2": "arg2 value"
-	  },
-	  "headers": {
-	    "x-header-1": "header value"
-	  },
-	  "body": "raw request body"
-	}
-}
-```
-##### ctx
-The context argument - `ctx` - exposes the 8base GraphQL API. It can be used to run Queries and Mutations from inside the webhook or to call other custom functions.
-
-```javascript
-// Code...
-ctx.api.gqlRequest(QUERY, { ...parameters });
-```
+### [Webhook Arguments](./README.md)
 
 ### Webhook Response
 The format of the response object is left entirely up to the developer, giving full control over the returned HTTP status code, headers and response body. 
@@ -82,7 +59,7 @@ return {
 In order to get your webhook URL after you have deployed it, run `8base describe [FUNCTION_NAME]` using the CLI.
 {% endhint %}
 
-### Examples
+### Example
 
 Here is an example webhook with in code documentation to help you get started.
 

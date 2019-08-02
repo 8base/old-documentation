@@ -1,8 +1,76 @@
 # Reslovers
 
-A resolver is a type of function that is exposed in the GraphQL API and can be directly called from the front-end app. Resolvers allow you to add custom queries and mutations in addition to auto-generated CRUD operations. Resolvers are used to integrate 3rd party APIs, query data from blockchain networks or run custom algorithms.
+A *resolver* is a function type that gets exposed to the GraphQL API and can be directly called from client apps. Resolvers allow you to add custom queries and mutations in addition to the auto-generated CRUD operations 8base handles for you. Resolvers are used to integrate 3rd party APIs, query / coerce data, or run custom algorithms.
 
-Resolver configuration consist of three elements: 1. `8base.yml` configuration 2. A file with the code 3. GraphQL file extending the API schema \[block:code\] { "codes": \[ { "code": "functions:\n hello:\n handler:\n code: src/hello.js\n type: resolver\n schema: src/hello.graphql", "language": "yaml", "name": "8base.yml" }, { "code": "type HelloResult {\n result: String!\n}\n\nextend type Mutation {\n hello\(name: String\): HelloResult\n}\n\n\# Alternatively:\n\# extend type Query {\n\# hello\(name: String\): HelloResult\n\# }", "language": "text", "name": "hello.graphql" }, { "code": "module.exports = event =&gt; {\n const name = event.data.name;\n \n return {\n data: {\n result: `Hello ${name}!`\n } \n }\n};", "language": "javascript", "name": "hello.js" } \] } \[/block\]
+### 8base.yml Declaration
+Resolver declarations require a *handler.code*, *type*, and *schema* definition. While the *type* value must equal 'resolver', *handler.code* and *schema* both accept relative path values to the resolver's two required files. 
 
-\[block:api-header\] { "title": "Input and output" } \[/block\] Input arguments of a custom mutation or query are stored in the `event.data` object. In the example above `event.data` equals: \[block:code\] { "codes": \[ { "code": "{\n name: \"Some string\"\n}", "language": "json", "name": "event.data" } \] } \[/block\] The value returned by a resolver is allowed two properties: `data` and `errors`. The format of the `data` property should conform to the schema defined in the .graphql file. \[block:code\] { "codes": \[ { "code": "return {\n data: {\n result: \"Hello world\"\n },\n errors: \[{\n message: \"Error message\",\n code: \"error\_code\"\n }\]\n}", "language": "javascript", "name": "return" } \] } \[/block\]
+```yaml
+#
+# Both the function handler and GraphQL schema definition
+# must be specified using relative paths in the 8base.yml.
+#
+functions:
+  #
+  # Declare custom GraphQL resolvers like so. 
+  paymentResolver:
+    handler:
+      code: src/mutations/payment/handler.js
+    type: resolver
+    schema: src/mutations/payment/schema.graphql
+```
+All resolver functions require unique names You are able to deploy as many resolvers as you want to a single workspace. 
+
+### Schema.graphql
+The `schema.graphql` file defines the GraphQL function and permitted response type. This describes the function name and arguments that the developer connecting to the GraphQL API has available.
+
+```javascript
+type HelloResult {
+  result: String!
+}
+
+extend type Mutation {
+  hello(name: String): HelloResult
+}
+
+// Or alternatively...
+
+extend type Query {
+  hello(name: String): HelloResult
+}
+```
+
+### Resolver Handler 
+The `handler.js` file defines the JavaScript function handling the GraphQL call. 
+
+```javascript
+module.exports = event => {
+  const name = event.data.name;
+  
+  return {
+    data: {
+      result: `Hello ${name}!`
+    }    
+  }
+};
+```
+
+### [Webhook Arguments](./README.md)
+
+### Resolver Response
+
+The value returned by a resolver is allowed two properties: *data* and *errors*. The format of the data property should conform to the schema defined in the `schema.graphql` file.
+
+```javascript
+return {
+  data: {
+    result: "Hello world"
+  },
+  errors: [{
+    message: "Error message",
+    code: "error_code"
+  }]
+}
+```
+
 
