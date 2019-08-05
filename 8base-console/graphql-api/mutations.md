@@ -22,72 +22,42 @@ Each mutation is composed of both a request template and a response template, gi
 ### Managing Order Examples
 
 1. Create an order and return id, name, and price on success.
-
-   \[block:code\]
-
-   {
-
-   "codes": \[
-
-    {
-
-      "code": "mutation {\n  orderCreate\(data: {\n    name: \"Order 1\"\n    price: 100\n  }\) {\n    id\n    name\n    price\n}\n  ",
-
-      "language": "javascript"
-
-    }
-
-   \]
-
-   }
-
-   \[/block\]
+```javascript
+mutation {
+  orderCreate({
+    name: "Order 1"
+    price: 100
+  }) {
+    id
+    name
+    price
+  }
+}
+```
 
 2. Update the order price and only return the new price value.
-
-   \[block:code\]
-
-   {
-
-   "codes": \[
-
-    {
-
-      "code": "mutation {\n  orderUpdate\(data: {\n    id: \"\"\n    price: 150\n  }\) {\n    price\n  }\n}\n",
-
-      "language": "javascript"
-
-    }
-
-   \]
-
-   }
-
-   \[/block\]
+```javascript
+mutation {
+  orderUpdate(data: {
+    id: "<ORDER_ID>"
+    price: 150
+  }) {
+    price
+  }
+}
+```
 
 3. Delete the order and only return Boolean indicating success or failure.
-
-   \[block:code\]
-
-   {
-
-   "codes": \[
-
-    {
-
-      "code": "mutation {\n  orderDelete\(data: {\n    id: \"\"\n  }\) {\n    success\n  }\n}\n",
-
-      "language": "javascript"
-
-    }
-
-   \]
-
-   }
-
-   \[/block\]
-
-   When handling delete mutations, an additional force parameter can be specified in the data object that accepts a Boolean value - the defaults is false. When set to true it will force delete the entry, ignoring any validation or dependency errors that may be in place.
+```javascript
+mutation {
+  orderDelete(data: {
+    id: "<ORDER_ID>"
+  }) {
+    success
+  }
+}
+```
+When handling delete mutations, an additional force parameter can be specified in the data object that accepts a Boolean value - the default value is `false`. When set to `true` it will force a cascading delete on the record. This means that if the record being deleted is a parent in a mandatory relationship with child records, all child records will be deleted as well.
 
 ## Relationships
 
@@ -105,91 +75,100 @@ A cool feature of 8base API is the ability to create related objects while creat
 ### Relationship Examples
 
 1. Creates a Customer record along with two Orders in a single transaction.
-
-   \[block:code\]
-
-   {
-
-   "codes": \[
-
-    {
-
-      "code": "mutation {\n  customerCreate\(data: {\n    name: \"John Smith\"\n    orders: {\n      create: \[{\n        title: \"iPhone X\"\n        price: 1000\n      },\n      {\n        title: \"iPad\"\n        price: 500\n      }\]\n    }\n  }\) {\n    id\n    name\n    orders {\n      items {\n        title\n        price\n      }\n    }\n  }\n}",
-
-      "language": "javascript"
-
+```javascript
+mutation {
+  customerCreate(data: {
+    name: "John Smith"
+    orders: {
+      create: [{
+        title: "iPhone X"
+        price: 1000
+      },
+      {
+        title: "iPad"
+        price: 500
+      }]
     }
-
-   \]
-
-   }
-
-   \[/block\]
+  }) {
+    id
+    name
+    orders {
+      items {
+        title
+        price
+      }
+    }
+  }
+}
+```
 
 2. Relate one or more existing Orders to a Customer record.
-
-   \[block:code\]
-
-   {
-
-   "codes": \[
-
-    {
-
-      "code": "mutation {\n  customerUpdate\(data: {\n    id: \"\"\n    orders: {\n      connect: \[{\n        id: \"\"\n      }\]\n    }\n  }\) {\n    id\n    name\n    orders {\n      items {\n        title\n        price\n      }\n    }\n  }\n}",
-
-      "language": "javascript"
-
+```javascript
+mutation {
+  customerUpdate(data: {
+    id: "<CUSTOMER_ID>"
+    orders: {
+      connect: [{
+        id: "<ORDER_ID>"
+      }]
     }
-
-   \]
-
-   }
-
-   \[/block\]
+  }) {
+    id
+    name
+    orders {
+      items {
+        title
+        price
+      }
+    }
+  }
+}
+```
 
 3. Reconnect a list of Orders to a Customer record **while removing all currently related Orders**.
-
-   \[block:code\]
-
-   {
-
-   "codes": \[
-
-    {
-
-      "code": "mutation {\n  customerUpdate\(data: {\n    id: \"\"\n    orders: {\n      reconnect: \[{\n        id: \"\"\n      }\]\n    }\n  }\) {\n    id\n    name\n    orders {\n      items {\n        title\n        price\n      }\n    }\n  }\n}",
-
-      "language": "javascript"
-
+```javascript
+mutation {
+  customerUpdate(data: {
+    id: "<CUSTOMER_ID>"
+    orders: {
+      reconnect: [{
+        id: "<ORDER_ID>"
+      }]
     }
-
-   \]
-
-   }
-
-   \[/block\]
+  }) {
+    id
+    name
+    orders {
+      items {
+        title
+        price
+      }
+    }
+  }
+}
+```
 
 4. Disconnect one or more Orders from a Customer record.
    * The disconnect mutation is **not** valid on mandatory relationship fields. To disconnect a mandatory association, you must either update the parent record directly or delete the child record.
 
-     \[block:code\]
-
-     {
-
-     "codes": \[
-
-     {
-
-     "code": "mutation {\n  customerUpdate\(data: {\n    id: \"\"\n    orders: {\n      disconnect: \[{\n        id: \"\"\n      }\]\n    }\n  }\) {\n    id\n    name\n    orders {\n      items {\n        title\n        price\n      }\n    }\n  }\n}",
-
-     "language": "javascript"
-
-     }
-
-     \]
-
-     }
-
-     \[/block\]
+```javascript
+mutation {
+  customerUpdate(data: {
+    id: ""
+    orders: {
+      disconnect: [{
+        id: ""
+      }]
+    }
+  }) {
+  id
+  name
+  orders {
+    items {
+      title
+      price
+    }
+  }
+}
+```
 

@@ -3,8 +3,6 @@
 Every 8base workspace is initialized with native support for signing up, managing and authorizing your application's Users. This eliminates the requirment of managing emails and passwords or social sign-on providers without compromising on access to your user data.
 
 ## Users
-
-### User Table
 **Users** is defined as a *System Table* in 8base, meaning that it required in every workspace. That said it is fully customizable using the Data Builder and can be configured as required by your application.
 
 By default, the User table has the following fields defined.

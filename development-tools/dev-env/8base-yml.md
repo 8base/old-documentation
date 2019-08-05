@@ -4,20 +4,41 @@
 
 The file has two main sections:
 
-* `functions` - list and configure all your custom functions. Read more on how to configure functions [here](https://github.com/8base/Documentation/tree/4df3b0cc7b342fe0d3468fbf0a5cafa597c6f037/docs/logic/functions/README.md). 
-* `permissions` - list custom permissions that can be used in your code. More [here](https://github.com/8base/Documentation/tree/4df3b0cc7b342fe0d3468fbf0a5cafa597c6f037/docs/logic/permissions-1/README.md).
+* `functions` - list and configure all your custom functions. Read more on how to configure functions [here](../../8base-console/custom-functions/README.md). 
+* `permissions` - list custom permissions that can be used in your code. More [here](../../8base-console/roles-permissions.md).
 
-  \[block:api-header\]
+### Example 8base.yml
 
-  {
+```yaml
+functions:
+  resolverExample:
+    handler:
+      code: src/resolverFunc.ts
+    type: resolver
+    schema: src/resolverFunc.graphql
 
-  "title": "Example configuration"
+  triggerBefore:
+    handler:
+      code: src/triggerBefore.ts
+    type: trigger.before
+    operation: TableName.create
 
-  }
-
-  \[/block\]
-
-\[block:code\] { "codes": \[ { "code": "functions:\n resolverExample:\n handler:\n code: src/resolverFunc.ts\n type: resolver\n schema: src/resolverFunc.graphql\n\n triggerBefore:\n handler:\n code: src/triggerBefore.ts\n type: trigger.before\n operation: TableName.create\n\n triggerAfter:\n handler:\n code: src/triggerAfter.ts\n type: trigger.after\n operation: TableName.create\n \n webhookExample:\n handler:\n code: src/webhookFunc.ts\n type: webhook\n path: webhook\_url \#optional, default: function name\n method: POST\n \n taskExample:\n handler:\n code: src/taskFunc.ts\n type: task\n schedule: 'rate\(1 minute\)'", "language": "yaml", "name": "8base.yml" } \] } \[/block\]
-
-\[block:callout\] { "type": "info", "title": "Data schema management", "body": "Currently 8base CLI doesn't provide a way to manage the data schema. We are working on this and plan to add data schema management, including migrations, in the near future." } \[/block\]
-
+  triggerAfter:
+    handler:
+      code: src/triggerAfter.ts
+    type: trigger.after
+    operation: TableName.create
+  
+  webhookExample:
+    handler:
+      code: src/webhookFunc.ts
+    type: webhook
+    path: webhook_url #optional, default: function name
+    method: POST
+    
+  taskExample:
+    handler:
+      code: src/taskFunc.ts
+    type: task
+    schedule: 'rate(1 minute)'
+```

@@ -32,7 +32,6 @@
   * [Project Structure](development-tools/dev-env/project-structure.md)
   * [8base Config](development-tools/dev-env/8base-yml.md)
   * [Environment](development-tools/dev-env/runtime_environment.md)
-  * [Troubleshooting](development-tools/dev-env/troubleshooting.md)
 * [CLI](development-tools/cli/README.md)
   * [Commands](development-tools/cli/commands.md)
 * [Client Tools](development-tools/client-tools/README.md)

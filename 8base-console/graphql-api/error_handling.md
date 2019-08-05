@@ -4,49 +4,23 @@ In order to return an error or a list of errors from a custom function you can a
 
 * For resolvers and triggers:
 
-  \[block:code\]
-
-  {
-
-  "codes": \[
-
-    {
-
-  ```text
-  "code": "// throw new Error(\"Error message\") =>\nreturn {\n  data: null,\n  errors: [{\n    message: error.message,\n    code: error.code,\n  }]\n}",
-  "language": "javascript",
-  "name": "throw.js"
-  ```
-
-    }
-
-  \]
-
-  }
-
-  \[/block\]
+```javascript
+// throw new Error("Error message") =>
+return {
+  data: null,
+  errors: [{
+    message: error.message,
+    code: error.code,
+  }]
+}
+```
 
 * For webhooks:
 
-  \[block:code\]
-
-  {
-
-  "codes": \[
-
-    {
-
-  ```text
-  "code": "// throw new Error(\"Error message\") =>\nreturn {\n  statusCode: 500,\n  body: error.message\n}",
-  "language": "javascript",
-  "name": "throw.js"
-  ```
-
-    }
-
-  \]
-
-  }
-
-  \[/block\]
-
+```javascript
+// throw new Error("Error message") =>
+return {
+  statusCode: 500,
+  body: error.message
+}
+```
