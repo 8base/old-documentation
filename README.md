@@ -1,7 +1,6 @@
 # Introduction
 
-| [Sign Up for 8Base](https://auth.8base.com/login) | [Documentation Home](https://docs.8base.com) | [Getting Started](https://docs.8base.com/getting-started/quick-start) | [8base Plans](https://www.8base.com/pricing) |
-| ----------------- | :----------------: | :-------------: | :---------- |
+[Sign Up for 8Base](https://auth.8base.com/login) • [Documentation Home](https://docs.8base.com) • [Getting Started](https://docs.8base.com/getting-started/quick-start) • [8base Plans](https://www.8base.com/pricing)
 
 Welcome to 8base! We're so glad you're here. We've poured countless hours into creativity and code to create 8base. All of that effort inteded solely to support you in building something amazing.
 
