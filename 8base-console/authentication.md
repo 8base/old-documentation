@@ -52,8 +52,14 @@ All required information can be found in the settings of your Auth0 account.
 ### OpenID Connect
 The ability to setup an authentication provider that supports the OpenID specification is available for workspaces on a *Profession* or *Enterprise* plan. To use this feature, there is some light setup required in the Managment Console and a custom *resolver* function that should be deployed to your project's workspace.
 
-### Social Sign-on Providers
-In progress...
+### Sign-on Providers
+Sign-on providers can easily be enable/disabled in the *8base Authentication Settings* section of the workspace's Authentication view. In order to use this feature, at least one authentication profile must be created using with the type set to "8base Authentication".
+
+![Creating an Authentication Profile](../.gitbook/assets/signon-provider-form.png)
+
+Each sign-on provider requires a *Client ID* and *Client Secret* to be configured. These credentials can be collected from the sign-on provider(s) you wish to configure. Once collected, enter the credentials into the relevant sign-on provider form before clicking "Enable Sign-On Provider" and "Save".
+
+![Enabling a Sign-on Provider](../.gitbook/assets/signon-provider-config.png)
 
 ##### Configuring the OpenID Settings
 In the 8base Management Console you're able to configure one or more authentication providers under `Settings > Authentication`. Click the "+" button and fill out the provider form, selecting *OpenID* as the type and adding a OpenID Provider URL. Once completed, the record will be saved to your *Authentication Profiles*.
