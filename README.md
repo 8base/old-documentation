@@ -1,6 +1,6 @@
 # Introduction
 
-[Sign Up for 8Base](https://auth.8base.com/login) • [Documentation Home](https://docs.8base.com) • [Getting Started](https://docs.8base.com/getting-started/quick-start) • [8base Plans](https://www.8base.com/pricing)
+[Sign Up for 8Base](https://auth.8base.com/login) 🤘 [Documentation Home](https://docs.8base.com) 📑 [Getting Started](https://docs.8base.com/getting-started/quick-start) 🚀 [8base Plans](https://www.8base.com/pricing)
 
 ## Welcome!
 
