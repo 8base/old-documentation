@@ -12,6 +12,16 @@ Always let us know how we can help!
 
 ![Zen Master](.gitbook/assets/zen-developer.png)
 
+## Connecting with the Community
+
+While building on 8base and checking out the docs, you might have some questions. Actually, lets re-phrase that... while building on 8base YOU'LL DEFINATELY HAVE SOME QUESTIONS. When such a situation arises, fret not. We're here for you.
+
+##### Slack
+* [Join us on Slack](https://slack.8base.com/) to chat with other devs and our support team.
+
+##### Discourse Community
+* [Start a Topic on 8base's Discourse](https://community.8base.com) for new feature suggestions, code support, or debugging help.
+
 ## Contributing to 8base Docs
 
 Like most great things, 8base is a work in progress. As a consequence of that, our documentation is constantly under development and probably in need of some TLC. Right now, we have two team members are maintaining the docs and, frankly, they could use a little help...
