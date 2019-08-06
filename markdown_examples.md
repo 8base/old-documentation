@@ -2,7 +2,11 @@
 description: EXAMPLE OF ALL MARKDOWN COMPONENTS FOR DOCUMENTATION DEVELOPMENT
 ---
 
-# NOT FOR DOCUMENTATION
+For the time being, we're using GitBook to display our docs at [https://docs.8base.com](https://docs.8base.com). Because of that, we have some neat markdown plugins that you can leverage when writing documentation.
+
+They're below... Go to town! 
+
+*Hint: View the Raw file to see all markdown syntax.*
 
 Paragraphs look like this.
 
