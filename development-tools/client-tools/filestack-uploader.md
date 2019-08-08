@@ -2,7 +2,7 @@
 
 ### File picker for React
 
-For React developers 8base SDK provides `@8base/file-input` package that automates the steps described here. If you're looking for an easy way to integrate file uploading capability into your application read the [Client Tools](./file_upload.md) section. 
+For React developers 8base SDK provides the `@8base/file-input` package that automates the steps described here. If you're looking for an easy way to integrate file uploading capabilities into your application read the [Client Tools](./file_upload.md) section.
 
 8base provides a native file management capability. You can attach files to your data object by creating a field of type `File`. A `File` field can store one or multiple files. You can manage granular files permissions just like you would for any other table.
 
@@ -29,7 +29,7 @@ The workflow of creating a file consists of the following steps:
 
 2. **Upload file to Filestack** Use Filestack API or picker to upload the file using the parameters from the step 1. On successful upload Filestack returns file `handle`. You can learn more about uploading files directly to Filestack [here](https://www.filestack.com/docs/concepts/uploading/). For React developers using the 8base SDK, it provides [tools](./file_upload.md) to simplify file uploads such that you never need to interact with Filestack directly.
 
-3. **Create file in 8base** Create file in 8base by passing the Filestack `handle` from step 2. You can either create a `File` object directly so you can later connect it to other tables: 
+3. **Create file in 8base** Create file in 8base by passing the Filestack `handle` from step 2. You can either create a `File` object directly so you can later connect it to other tables:
 
 ```javascript
 mutation {
@@ -42,7 +42,7 @@ mutation {
 }
 ```
 
- or you can create and connect file at the same time: 
+ or you can create and connect file at the same time:
 
 ```javascript
 mutation {
@@ -85,7 +85,7 @@ The success response should look similar to this:
 In this case, your handle will be `VJaeYGhMSJ2FJJnvSPx9`, the last portion of `"url"`.
 
 ### React Native Support
-Filestack does not have an SDK for React Native. See below for how to implement file uploads in React Native using the `fetch()` API and the `ImagePicker` API from Expo. 
+Filestack does not have an SDK for React Native. See below for how to implement file uploads in React Native using the `fetch()` API and the `ImagePicker` API from Expo.
 
 ```javascript
 const handlePost = async () => {
@@ -115,7 +115,7 @@ const handlePost = async () => {
     const responseJson = await response.json()
 
     this.setState({
-      handle: responseJson.url.slice(33) 
+      handle: responseJson.url.slice(33)
     })
   } catch (e) {
     console.log("error", e)
@@ -126,10 +126,10 @@ const handlePost = async () => {
 
 const _pickImage = async () => {
   // Allow application access to Camera Roll
-  const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL); 
-  
+  const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+
   // (...)
-  
+
   //The ImagePicker API from expo returns a URI, which we will use to access the file object to upload to Filestack.
   let result = await ImagePicker.launchImageLibraryAsync({
     allowsEditing: true,
@@ -141,4 +141,3 @@ const _pickImage = async () => {
   }
 }
 ```
-

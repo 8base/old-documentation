@@ -49,7 +49,7 @@ cd app-example
 
 ## 5. Import and Deploy the Schema, Data and Backend Logic
 
-As you may know by now, 8base gives developers a Serverless + GraphQL backend that's ready to rock'n roll from the get go. It's quick and convenient to update tables, fields, model relationships, and much more in the [8base console](https://app.8base.com/). Let's simply bootstrap our demo app with some definitions and data we've already prepped for you.
+As you may know by now, 8base gives developers a Serverless + GraphQL backend that's ready to rock'n roll from the get go. It's quick and convenient to update tables, fields, model relationships, and much more in the [8base console](https://app.8base.com/). Let's simply bootstrap our demo app with some definitions and data we've already prepared for you.
 
 ```text
 # Change into the app-example/server directory
@@ -59,10 +59,10 @@ cd app-example/server
 npm install
 ```
 
-Using the 8base CLI you'll be able to authenicate your development workspace. Allowing you to communicate with 8base for deploys, function invocations, logs, and more. Try running the following and allow your browser to launch a new window \(you may have to login\). If you have multiple workspaces set up already, the CLI will prompt you to select one. Also, make sure to note the API endpoint URL displayed after login - you will need it later.
+Using the 8base CLI you'll be able to authenticate your development workspace. Allowing you to communicate with 8base for deploys, function invocations, logs, and more. Try running the following and allow your browser to launch a new window \(you may have to login\). If you have multiple workspaces set up already, the CLI will prompt you to select one. Also, make sure to note the API endpoint URL displayed after login - you will need it later.
 
 ```text
-# Login with CLI. 
+# Login with CLI.
 8base login
 ```
 
@@ -86,7 +86,7 @@ Once the import is done... woohoo! You're ready to deploy using our handy `deplo
 
 ## 6. Fire-up the App
 
-Let's get this show on the road. To start up the app lets first change into the `app-example/client` directory. Just like in `app-example/server` well first want to install all our dependencies. Once that's handeled though, try running the following start command - the app may take a minute or two to build.
+Let's get this show on the road. To start up the app lets first change into the `app-example/client` directory. Just like before in `app-example/server` we'll first want to install all our dependencies here. Once that's handeled though, try running the following start command - the app may take a minute or two to build.
 
 ### For Mac Users
 
@@ -141,7 +141,7 @@ server/
 └── package.json
 ```
 
-By running the `8base deploy` command you deployed a custom function to the serverless cloud. There are many custom function types you can deploy on 8base. All of which must be configured in the `8base.yml` file located at the root of your project. By looking at that file now, we can see a functions declaration containing a `listingShare` object that has three important keys - _handler_, _type_, and _schema_.
+By running the `8base deploy` command you deployed a custom function to the serverless cloud. There are many custom function types you can deploy on 8base, all of which must be configured in the `8base.yml` file located at the root of your project. By looking at that file now, we can see a functions declaration containing a `listingShare` object that has three important keys - _handler_, _type_, and _schema_.
 
 ```yaml
 functions:
@@ -152,11 +152,11 @@ functions:
     schema: src/mutations/listingShare/schema.graphql
 ```
 
-In this quickstart, will skip the different function types. Just know that your `8base.yml` file is the master config file of your serverless application. In it we must declare any path to our functions and their supporting files. In the case of this `resolver` function, we've effectively extended the GraphQL API with a new Mutation that handles the "Share Listing" feature we mentioned earlier. Take a moment to check out the `handler.js` and `schema.graphql` files in `src/mutations/listingShare`. All the magic is happens there :\)
+In this quickstart, we'll skip the different function types. Just know that your `8base.yml` file is the master config file of your serverless application. In it we must declare any path to our functions and their supporting files. In the case of this `resolver` function, we've effectively extended the GraphQL API with a new Mutation that handles the "Share Listing" feature we mentioned earlier. Take a moment to check out the `handler.js` and `schema.graphql` files in `src/mutations/listingShare`. All the magic happens there :\)
 
 ### 8base Data Viewer
 
-Your workspace was provisioned with four custom database tables upon importing the DEMO.json file - each with a dozen or more rows of data. The most popular way to accomplish this is from scratch by using the [Data Viewer](https://app.8base.com/data/). Navigate there now and you'll see how easy it is to create, update, and delete your table schemas, as well as view the data they contain by switching over to the **Data** tab.
+Your workspace was provisioned with four custom database tables upon importing the `DEMO.json` file - each with a dozen or more rows of data. The most popular way to accomplish this from scratch is by using the [Data Viewer](https://app.8base.com/data/). Navigate there now and you'll see how easy it is to create, update, and delete your table schemas, as well as view the data they contain by switching over to the **Data** tab.
 
 Just for fun, lets add an _Address_ field to your **Properties** table.
 
@@ -176,7 +176,7 @@ Don't believe me? Check out the next section.
 
 ### API Explorer
 
-As promised, all of your CRUD actions are right here and ready to go. Lets prove it - as well as see all the GraphQL access that your applications now have access to.
+As promised, all of your CRUD actions are right here and ready to go. Let's prove it - as well as see all the GraphQL access that your applications now have access to.
 
 Navigate to the [8base API Explorer](https://app.8base.com/api-explorer). This is essentially your API playground, where you can quickly develop and execute powerful GraphQL commands. Copy over the following command once the API explorer is loaded.
 
@@ -189,7 +189,7 @@ query {
       title
       description
       pictures {
-        count    
+        count
       }
     }
   }
@@ -205,4 +205,3 @@ There is so much more you can do and learn in the API Explorer about GraphQL and
 ## Conclusion
 
 We hope this guide helps you better understand how 8base works. Feel free to modify the data schema in your workspace, add new tables, deploy custom logic, and develop amazing applications using 8base.
-

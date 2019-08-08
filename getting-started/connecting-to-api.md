@@ -1,12 +1,12 @@
 # Connecting to the API
 
-8base provisions all database tables with over one-dozen built in GraphQL schemas. These resources allow you to perform any Create, Read, Update and Delete \(CRUD\) action needed to effectively manage your data. Additionally, it doesn't matter what technology you're using for a client - or server - applciation. As long as you can perform web requests, you'll be able to connect to your 8base workspace endpoints.
+8base provisions all database tables with over one-dozen built-in GraphQL schemas. These resources allow you to perform any Create, Read, Update and Delete \(CRUD\) action needed to effectively manage your data. Additionally, it doesn't matter what technology you're using for a client - or server - application. As long as you can perform web requests, you'll be able to connect to your 8base workspace endpoints.
 
 ### Setup
 
-In the following examples, we've made a few assumptions \(feel free to re-create them for your learnings sake!\). Those assuptions are the following:
+In the following examples, we've made a few assumptions \(feel free to re-create them for your learnings sake!\). Those assumptions are the following:
 
-1. You've manage a workspace named _Todo's Workspace_
+1. You manage a workspace named _Todo's Workspace_
 2. You've defined a table named _Todos_
 3. The _Todos_ table has the following fields:
    * `text: text`
@@ -53,7 +53,7 @@ request(ENDPOINT, GET_TODOS).then((r) => console.log(r.todosList.items))
 
 {% code-tabs-item title="Python" %}
 ```python
-# `graphqlclient` or other GraphQL library is required 
+# `graphqlclient` or other GraphQL library is required
 from graphqlclient import GraphQLClient
 
 client = GraphQLClient('{API_ENDPOINT}')
@@ -111,7 +111,7 @@ request(ENDPOINT, MAKE_TODO).then((r) => console.log(r))
 
 {% code-tabs-item title="Python" %}
 ```python
-# `graphqlclient` or other GraphQL library is required 
+# `graphqlclient` or other GraphQL library is required
 from graphqlclient import GraphQLClient
 
 client = GraphQLClient('{API_ENDPOINT}')
@@ -183,7 +183,7 @@ client.request(MAKE_TODO).then((r) => console.log(r))
 
 {% code-tabs-item title="Python" %}
 ```python
-# `graphqlclient` or other GraphQL library is required 
+# `graphqlclient` or other GraphQL library is required
 from graphqlclient import GraphQLClient
 
 client = GraphQLClient('{API_ENDPOINT}')
@@ -207,4 +207,3 @@ print(result)
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
-
