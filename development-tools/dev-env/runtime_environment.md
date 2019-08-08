@@ -1,7 +1,7 @@
 # Environment
 
-## Function arguments 
-Each function handler receives two arguments: `event` and `context`. The structure of the `event` object depends on the type of the function and is described in corresponding sections of the docs. The `context` object contains useful properties and methods that are described below. 
+## Function arguments
+Each function handler receives two arguments: `event` and `context`. The structure of the `event` object depends on the type of the function and is described in corresponding sections of the docs. The `context` object contains useful properties and methods that are described below.
 
 ### Context object
 Functions have a second `context` argument passed to them that has the following properties:
@@ -12,7 +12,7 @@ Functions have a second `context` argument passed to them that has the following
 
 ### Using `gqlRequest` to call 8base API
 
-The `context.api.gqlRequest` method has the following signature: `gqlRequest(query, variables, options)`. In addition to GraphQL query and variables you can pass the optional `options` argument that has two properties: 
+The `context.api.gqlRequest` method has the following signature: `gqlRequest(query, variables, options)`. In addition to a GraphQL query and variables you can pass the optional `options` argument that has two properties:
 
 * `authorization` allows you to override the authorization token. For example if you'd like to use an API token instead of the original user authorization token.
 * `checkPermissions` - setting it to `false` lets you execute a GraphQL operation with elevated permissions. This is useful when the logic inside of your function requires more permissions than the user making the request. You can think of it as equivalent to `sudo` in Linux.
@@ -34,12 +34,12 @@ module.exports = async (event, context) => {
 ```
 
 ### Environment variables
-You can set environment variables in 8base settings and they automatically get exposed in all functions through `process.env.VARIABLE_NAME`. 
+You can set environment variables in 8base settings and they automatically get exposed in all functions through `process.env.VARIABLE_NAME`.
 
 ![Setting environment variables in 8base settings](../../.gitbook/assets/8base-env-variables.png)
 
-### Timeouts 
-Functions have maximum 20 seconds execution time. After execution time limit is reached the execution times out and returns an error. Please let us know if have a use case where you need more than 20 seconds continuous execution 
+### Timeouts
+Functions have maximum 20 seconds execution time. After the execution time limit is reached the execution times out and returns an error. Please let us know if you have a use case where you need more than 20 seconds continuous execution.
 
 ### What happens after 'return'
 After your function returns its execution is immediately frozen. This means that if you have any asynchronous processes still running they will not be able to finish. There are several ways to deal with this:
@@ -71,10 +71,9 @@ module.exports = (event: any, context: any) => {
 };
 ```
 
-3. Spawn a background task that keeps running after your function returns you can use the `context.invokeFunction` API ([described here](../../8base-console/custom-functions/tasks.md)). 
+3. Spawn a background task that keeps running after your function returns. You can use the `context.invokeFunction` API ([described here](../../8base-console/custom-functions/tasks.md)).
 
 ### Managing Dependencies
- You can add any dependencies using `npm` or `yarn`. When you run '8base deploy' command 8base uploads your code to the cloud, runs `npm install` and deploys the bundle to AWS Lambda.
+You can add any dependencies using `npm` or `yarn`. When you run '8base deploy', 8base uploads your code to the cloud, runs `npm install` and deploys the bundle to AWS Lambda.
 
-It is recommended that you have `package-lock.json` file to dramatically accelerate deployment. 8base checks whether `package-lock.json` has changed since the last deploy and only installs dependencies when necessary.
-
+It is recommended that you have a `package-lock.json` file to dramatically accelerate deployment. 8base checks whether `package-lock.json` has changed since the last deploy and only installs dependencies when necessary.

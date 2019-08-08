@@ -3,7 +3,7 @@
 A *webhook* allows you to call *Custom Functions* as regular RESTful endpoints. They can be very useful if you integrate with a 3rd party service that posts data back to your app using a specified URL. For example, enabling a payment processing service such as Stripe or Coinbase Commerce to notify your app of a successful payment by calling *X* URL.
 
 ### 8base.yml Declaration
-Webhooks have an optional parameter `path` that allows you to manually specify the final URL fragment. By default, it gets defined as the function name. 
+Webhooks have an optional parameter `path` that allows you to manually specify the final URL fragment. By default, it gets defined as the function name.
 
 ```yaml
 
@@ -35,12 +35,12 @@ functions:
 		method: POST
 ```
 
-All webhooks require is a unique name and allow for the same function to be called from different entries. This means that `functionA` and `functionB` may both specify the same function to be called, even if they different configurations (i.e. POST vs DELETE). You are able to deploy as many webhooks as you want to a single workspace. 
+All webhooks require a unique name and allow for the same function to be called from different entries. This means that `functionA` and `functionB` may both specify the same function to be called, even if they have different configurations (i.e. POST vs DELETE). You are able to deploy as many webhooks as you want to a single workspace.
 
 ### [Webhook Arguments](./README.md)
 
 ### Webhook Response
-The format of the response object is left entirely up to the developer, giving full control over the returned HTTP status code, headers and response body. 
+The format of the response object is left entirely up to the developer, giving full control over the returned HTTP status code, headers and response body.
 
 *An HTTP `statusCode` value is required*
 
@@ -54,14 +54,14 @@ return {
 }
 ```
 {% hint style="info" %}
-##### Getting the webhook URL 
+##### Getting the webhook URL
 
 In order to get your webhook URL after you have deployed it, run `8base describe [FUNCTION_NAME]` using the CLI.
 {% endhint %}
 
 ### Example
 
-Here is an example webhook with in code documentation to help you get started.
+Here is an example webhook with code documentation to help you get started.
 
 ```javascript
 // Import any dependencies
@@ -104,11 +104,11 @@ module.exports = async (event, ctx) => {
   	//
   	// {
   	//		"invoiceId": <invoiceID>,
-  	//		"chargeType": <chargeType>   	
+  	//		"chargeType": <chargeType>
   	// }
   	//
-    response = await ctx.api.gqlRequest(INVOICE_MUTATION, { 
-    	id: event.data.invoiceId 
+    response = await ctx.api.gqlRequest(INVOICE_MUTATION, {
+    	id: event.data.invoiceId
     	state: event.data.chargeType
     })
   // Handle error for failed GraphQL mutation
@@ -120,10 +120,10 @@ module.exports = async (event, ctx) => {
   	// If the update was successful, send an email to the
   	// app user notifying them.
     const { invoiceUpdatenv: { customer } } = response
-    
+
     // Add email event to logs
     console.log(`Sending email to ${customer.email}...`)
-    
+
     // Send email using imported module
     await sendMail({
       from: GMAIL_USER,
@@ -145,6 +145,3 @@ module.exports = async (event, ctx) => {
   return responseBuilder(200, 'Success')
 };
 ```
-
-
-

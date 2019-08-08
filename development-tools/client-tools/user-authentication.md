@@ -1,8 +1,8 @@
 # User Authentication
 
-8base SDK provides an easy way to implement login in your client application. We use [auth0](https://www.auth0.com) to login users and generate a JWT token that can be used to authenticate the API.
+8base SDK provides an easy way to implement login in your client application. We use [Auth0](https://www.auth0.com) to login users and generate a JWT token that can be used to authenticate the API.
 
-8base SDK provides `Auth0WebClient` package that wraps and configures auth0 react library. You initialize `Auth0WebClient` with `domain`, `clientID` and `redirectUri` and pass it to `EightBaseAppProvider`. The example below shows recommended configuration using the default auth0 account.
+8base SDK provides the `Auth0WebClient` package that wraps and configures the Auth0 React library. You initialize `Auth0WebClient` with `domain`, `clientID` and `redirectUri` and pass it to `EightBaseAppProvider`. The example below shows recommended configuration using the default Auth0 account.
 
 ```javascript
 import React from 'react';
@@ -13,8 +13,8 @@ import { EightBaseBoostProvider, Loader } from '@8base/boost';
 
 import { Routes } from './routes';
 
-// Use this auth0 configuration if you want 
-// to use the default 8base auth0 account for authentication
+// Use this Auth0 configuration if you want
+// to use the default 8base Auth0 account for authentication
 const AUTH_CLIENT_ID = 'qGHZVu5CxY5klivm28OPLjopvsYp0baD';
 const AUTH_DOMAIN = 'auth.8base.com';
 
@@ -43,7 +43,7 @@ export { App };
 ### withAuth HOC
 }
 [/block]
-Once you initialized `EightBaseAppProvider` with `authClient` you can use `withAuth` higher order component to receive the current authentication state. `withAuth` injects `auth` prop into the wrapped component and allows you to check whether the user is logged in, trigger logout and more. Check out [`withAuth` source code](https://github.com/8base/sdk/blob/master/packages/auth/src/withAuth.js) for more details on what props it injects.
+Once you initialized `EightBaseAppProvider` with `authClient` you can use the `withAuth` higher order component to receive the current authentication state. `withAuth` injects `auth` prop into the wrapped component and allows you to check whether the user is logged in, trigger logout and more. Check out the [`withAuth` source code](https://github.com/8base/sdk/blob/master/packages/auth/src/withAuth.js) for more details on what props it injects.
 
 ```javascript
 import React from 'react';
@@ -53,15 +53,15 @@ import { withAuth } from '@8base/auth';
 class ProtectedComponent extends React.Component {
   render() {
     const {
-      auth: { isAuthorized }    
+      auth: { isAuthorized }
     } = this.props;
-  
+
     if (isAuthorized) {
       return (<div>User is logged in!</div>);
     }
-    
+
     // Otherwise redirect to login screen.
-    return <Redirect to={{ pathname: '/auth' }} 
+    return <Redirect to={{ pathname: '/auth' }}
   }
 }
 

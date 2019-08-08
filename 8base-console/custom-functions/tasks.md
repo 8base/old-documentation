@@ -1,9 +1,9 @@
 # Tasks
 
-A *task* is a type of functions that can be invoked directly from other functions or executed on a specified interval. These allow for cron job like execution of your custom functions and are great for re-occurring tasks.
+A *task* is a type of function that can be invoked directly from other functions or executed on a specified interval. This allows for cron job like execution of your custom functions and is great for re-occurring tasks.
 
 
-### 8base.yml  
+### 8base.yml
 A task can either be specified to run on a schedule or not. If not, it is then only expected to run whenever called by another custom function. The schedule parameter accepts by the minute, hourly, or daily intervals.
 
 ```yaml
@@ -24,10 +24,10 @@ functions:
 ```
 
 ##### Non-scheduled function calls
-Functions like resolvers, triggers and webhooks usually run in response to user actions. Normally, you'd want to return response to the user as soon as possible while offloading any longer-running processes to background tasks. In order to do so you can use the `invokeFunction(taskName, args, options)` method found on the context argument to invoke a background task.
+Functions like resolvers, triggers and webhooks usually run in response to user actions. Normally, you'd want to return a response to the user as soon as possible while offloading any longer-running processes to background tasks. In order to do so you can use the `invokeFunction(taskName, args, options)` method found on the context argument to invoke a background task.
 
 ```javascript
-// Context (ctx) argument maintains the invokeFunction method for 
+// Context (ctx) argument maintains the invokeFunction method for
 //invoking tasks from other functions.
 module.exports = async (event, ctx) => {
   const args = { param: 'value' }
@@ -38,12 +38,12 @@ module.exports = async (event, ctx) => {
 }
 ```
 
-The `options.waitForResponse (default: false)` property tells the platform to resolve the promise immediately without waiting for the task to complete. If instead you'd like to wait for task result you can set `waitForResponse` to `true`.
+The `options.waitForResponse (default: false)` property tells the platform to resolve the promise immediately without waiting for the task to complete. If instead you'd like to wait for the task result you can set `waitForResponse` to `true`.
 
 *Note: The value of `args` is passed to the `event.data` property of the invoked task.*
 
 ### Scheduled tasks
-You can configure tasks to run on schedule using the `schedule` option in the 8base.yml declaration. The `schedule` parameter accepts two types of expressions: Rate and Cron - both of which specify a scheduled invocation on a reoccuring schedule.
+You can configure tasks to run on schedule using the `schedule` option in the 8base.yml declaration. The `schedule` parameter accepts two types of expressions: Rate and Cron - both of which specify a scheduled invocation on a re-occuring schedule.
 
 ##### Rate expressions
 `rate(Value Unit)`
@@ -79,4 +79,3 @@ Cron expressions that lead to rates faster than one invocation/minute are not su
 
 Check example expressions and read a detailed description of cron syntax [here](https://docs.aws.amazon.com/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html?shortFooter=true).
 {% endhint %}
-

@@ -1,11 +1,11 @@
 # Users + Authentication
 
-Every 8base workspace is initialized with native support for signing up, managing and authorizing your application's Users. This eliminates the requirment of managing emails and passwords or social sign-on providers without compromising on access to your user data.
+Every 8base workspace is initialized with native support for signing up, managing and authorizing your application's Users. This eliminates the requirement of managing emails and passwords or social sign-on providers without compromising on access to your user data.
 
 ## Users
-**Users** is defined as a *System Table* in 8base, meaning that it required in every workspace. That said it is fully customizable using the Data Builder and can be configured as required by your application.
+**Users** is defined as a *System Table* in 8base, meaning that it is required in every workspace. That said, it is fully customizable using the Data Builder and can be configured as required by your application.
 
-By default, the User table has the following fields defined.
+By default, the Users table has the following fields defined.
 
 ```javascript
 {
@@ -33,15 +33,15 @@ By default, the User table has the following fields defined.
 ````
 
 ### Managing Users in the Console
-In most applications, Users records will be creates as a part of a sign-up flow. However, in situations where a User must be created, updated or deleted manually by an admin it is easy to do so using the Data Viewer pane when reviewing the Users' table.
+In most applications, Users records will be created as a part of a sign-up flow. However, in situations where a User must be created, updated or deleted manually by an admin it is easy to do so using the Data Viewer pane when reviewing the Users table.
 
 ![Creating a user in the 8base Management Console](../.gitbook/assets/data-viewer-create-user.png)
 
 ## Authorization
-Under the hood, 8base utilizies [Auth0](https://auth0.com/) to manage your users' identities and ensure the best security standards are being met. All user accounts are by default stored in an Auth0 account that's managed by 8base. For upgraded workspace plans, the option of connecting ones own Auth0 account or an OpenID provider is available.
+Under the hood, 8base utilizes [Auth0](https://auth0.com/) to manage your users' identities and ensure the best security standards are being met. All user accounts are by default stored in an Auth0 account that's managed by 8base. For upgraded workspace plans, the option of connecting ones own Auth0 account or an OpenID provider is available.
 
 ### Your Own Auth0 Account
-To set up your own Auth0 account on 8base, there are only a few steps required. First, navigate to the `Settings > Authentication` of your workspace and create a new *Authentication Profile*. In the form that appears, select *Your Auth0 Account*. 
+To set up your own Auth0 account on 8base, there are only a few steps required. First, navigate to the `Settings > Authentication` of your workspace and create a new *Authentication Profile*. In the form that appears, select *Your Auth0 Account*.
 
 All required information can be found in the settings of your Auth0 account.
 
@@ -51,7 +51,7 @@ All required information can be found in the settings of your Auth0 account.
 The ability to setup an authentication provider that supports the OpenID specification is available for workspaces on a *Profession* or *Enterprise* plan. To use this feature, there is some light setup required in the Managment Console and a custom *resolver* function that should be deployed to your project's workspace.
 
 ### Sign-on Providers
-Sign-on providers can easily be enable/disabled in the *8base Authentication Settings* section of the workspace's Authentication view. In order to use this feature, at least one authentication profile must be created using with the type set to "8base Authentication".
+Sign-on providers can easily be enable/disabled in the *8base Authentication Settings* section of the workspace's Authentication view. In order to use this feature, at least one authentication profile must be created with the type set to "8base Authentication".
 
 ![Creating an Authentication Profile](../.gitbook/assets/signon-provider-form.png)
 
@@ -65,9 +65,9 @@ In the 8base Management Console you're able to configure one or more authenticat
 ![Adding an OpenID Authentication Provider in 8base](../.gitbook/assets/openid-settings.png)
 
 ##### getToken Resolver
-A custom *getToken* reslover mutation function should be deployed to the workspace. This can be done by installing the [8base CLI with instruction at the provided link](../development-tools/cli/README.md).
+A custom *getToken* resolver mutation function should be deployed to the workspace. This can be done by installing the [8base CLI](../development-tools/cli/README.md).
 
-In the *getToken* function provided, the relevant environment variables are being accessed - as they are set in the Management Console - to provide the required credentials and configurations. A request is then made to the authentication provider, the authenticating user queried from the database - or created when not found - and token returned.
+In the provided *getToken* function, the relevant environment variables are being accessed - as they are set in the Management Console - to provide the required credentials and configurations. A request is then made to the authentication provider to query or create the authenticating user from the database and return the user's token.
 
 {% code-tabs %}
 {% code-tabs-item title="8base.yml" %}
@@ -141,7 +141,7 @@ export default async (event: any, context: any) => {
     try  {
       await context.api.gqlRequest(CURRENT_USER_QUERY, {}, {
         authorization: token,
-      }); 
+      });
     } catch (e) {
       ({ email } = jwtDecode(token));
 
@@ -188,4 +188,4 @@ To set environment variables that can be accessed from within custom functions, 
 ![Environment variables manager in the 8base Management Console](../.gitbook/assets/openid-env-variables.png)
 
 ##### Troubleshooting
-If you're unable to get the authentication provider to work and are recieveing a "Not Authorized" error message, you may need to update the associated role and it's API permissions. You can do this by first ensuring that the configured provider has an associated role, like *Guest*. Next, navigate to `Settings > Roles > [ROLE_NAME] > Data` and ensure that the role is enabled for the *Get Token* function call.
+If you're unable to get the authentication provider to work and are receiveing a "Not Authorized" error message, you may need to update the associated role and its API permissions. You can do this by first ensuring that the configured provider has an associated role, like *Guest*. Next, navigate to `Settings > Roles > [ROLE_NAME] > Data` and ensure that the role is enabled for the *Get Token* function call.
