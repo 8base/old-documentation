@@ -24,7 +24,7 @@
   * [Webhooks](8base-console/custom-functions/webhooks.md)
   * [Triggers](8base-console/custom-functions/triggers.md)
   * [Tasks](8base-console/custom-functions/tasks.md)
-  * [Reslovers](8base-console/custom-functions/resolvers.md)
+  * [Resolvers](8base-console/custom-functions/resolvers.md)
 
 ## Development Tools
 
