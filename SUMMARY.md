@@ -20,6 +20,7 @@
   * [Mutations](8base-console/graphql-api/mutations.md)
   * [Subscriptions](8base-console/graphql-api/subscriptions.md)
   * [Error Handling](8base-console/graphql-api/error_handling.md)
+
 * [Custom Functions](8base-console/custom-functions/README.md)
   * [Webhooks](8base-console/custom-functions/webhooks.md)
   * [Triggers](8base-console/custom-functions/triggers.md)
@@ -32,11 +33,14 @@
   * [Project Structure](development-tools/dev-env/project-structure.md)
   * [8base Config](development-tools/dev-env/8base-yml.md)
   * [Environment](development-tools/dev-env/runtime_environment.md)
+
 * [CLI](development-tools/cli/README.md)
   * [Commands](development-tools/cli/commands.md)
-* [Client Tools](development-tools/client-tools/README.md)
-  * [User Authentication](development-tools/client-tools/user-authentication.md)
-  * [Application File Uploads](development-tools/client-tools/file_upload.md)
-  * [VS Code Plugin](development-tools/client-tools/vs_code_plugin.md)
-  * [Filestack](development-tools/client-tools/filestack-uploader.md)
+
+* [SDK](development-tools/sdk/README.md)
+  * [User Auth](development-tools/sdk/auth/README.md)
+    * [React](development-tools/sdk/auth/react-auth.md)
+  * [Application File Uploads](development-tools/sdk/file_upload.md)
+  * [VS Code Plugin](development-tools/sdk/vs_code_plugin.md)
+  * [Filestack](development-tools/sdk/filestack-uploader.md)
 
