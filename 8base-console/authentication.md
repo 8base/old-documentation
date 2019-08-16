@@ -51,13 +51,13 @@ Create an authentication profile by pressing the + button and filling in the des
 
 * **Roles**: Roles can be either Guest, Administrator, or any custom role. Multiple-roles can be selected.
 
-##### Client information
+#### Client information
 An authentication profile's corresponding client-side information is generated once created. Client-side information allows for connecting client applications to the 8base backend and any corresponding authentication settings. Client ID and Domain are not sensitive strings and get added to one or more client apps.
 
-##### Configure Callback URLs
+#### Configure Callback URLs
 A callback URL is an endpoint that gets invoked after a user authenticates. Users are not able to log into an application and receive an error if this field is left empty. By default, the callback URL `http://localhost:3000/auth/callback` is set. Keep it or replace it with an existing URL from your application.
 
-##### Configure Logout URLs
+#### Configure Logout URLs
 The logout URL is where a user gets returned to after logging out. Specify them in the Allowed Logout URLs field. The default logout URL is http://localhost:3000/ and attempting to log out when no logout URL was provided displays an error.
 
 ### Your Own Auth0 Account
@@ -79,12 +79,12 @@ Each sign-on provider requires a *Client ID* and *Client Secret*. These credenti
 
 ![Enabling a Sign-on Provider](../.gitbook/assets/signon-provider-config.png)
 
-##### Configuring the OpenID Settings
+#### Configuring the OpenID Settings
 In the 8base Management Console, you're able to configure one or more authentication providers under `Settings > Authentication`. Click the "+" button and fill out the provider form, selecting *OpenID* as the type and adding an OpenID Provider URL. Once completed, the record gets saved to your *Authentication Profiles*.
 
 ![Adding an OpenID Authentication Provider in 8base](../.gitbook/assets/openid-settings.png)
 
-##### getToken Resolver
+#### getToken Resolver
 A custom *getToken* resolver mutation function needs to must be deployed to the workspace. This can be done by installing the [8base CLI](../development-tools/cli/README.md).
 
 In the provided *getToken* function, the relevant environment variables are accessed - if set in the Management Console - to provide the required credentials and configurations. A request is then made to the authentication provider to query or create the authenticating user from the database and return the user's token.
@@ -202,10 +202,10 @@ extend type Mutation {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-##### Setting Environment Variables
+#### Setting Environment Variables
 To set environment variables that can get accessed from within custom functions, open up your workspace, and navigate to `Settings > Environment Variables`. Here, any key-value pair may be securely stored and accessed from within your functions at `process.env.<ENV_VARIABLE_KEYNAME>`.
 
 ![Environment variables manager in the 8base Management Console](../.gitbook/assets/openid-env-variables.png)
 
-##### Troubleshooting
+#### Troubleshooting
 If you're unable to get the authentication provider to work and are receiving a "Not Authorized" error message, you may need to update the associated role and its API permissions. You can do this by first ensuring that the configured provider has an associated role, like *Guest*. Next, navigate to `Settings > Roles > [ROLE_NAME] > Data` and ensure that the role is enabled for the *Get Token* function call.
