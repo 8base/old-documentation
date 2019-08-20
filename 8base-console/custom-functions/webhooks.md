@@ -60,7 +60,7 @@ Once deployed, the updated webhook endpoint gets set to `https://api.8base.com/<
 ```javascript
 module.exports = async (event, ctx) => {
   /* Accessing pathParameters from the event object */
-  let customerId = event.pathParameters.customerId;
+  let { customerId } = event.pathParameters;
 
   /* Function code*/
 };
