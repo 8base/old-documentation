@@ -24,10 +24,9 @@ In all of the following examples, make sure to replace all occurances of `{API_E
 {% code-tabs %}
 {% code-tabs-item title="Bash" %}
 ```bash
-curl  -X POST \
-    -H "Content-Type: application/json"  \
-    --data '{ "query": "{ todosList { items { text } } }" }'  \
-    {API_ENDPOINT}
+curl -X POST {API_ENDPOINT} \
+     -H "Content-Type: application/json"  \
+     -d '{ "query": "{ todosList { items { text } } }" }'
 ```
 {% endcode-tabs-item %}
 
@@ -78,11 +77,9 @@ print(result)
 {% code-tabs %}
 {% code-tabs-item title="Bash" %}
 ```bash
-curl \
-  -X POST \
-  -H "Content-Type: application/json" \
-  --data '{"query":"mutation TodoCreate { todoCreate(data: {text: \"from CURL\", completed: false}) {id text completed}}"}' \
-  {API_ENDPOINT}
+curl -X POST {API_ENDPOINT} \
+     -H "Content-Type: application/json" \
+     -d '{ "query": "mutation TodoCreate { todoCreate(data: {text: \"from CURL\", completed: false}) {id text completed}}"}'
 ```
 {% endcode-tabs-item %}
 
@@ -140,12 +137,10 @@ print(result)
 {% code-tabs %}
 {% code-tabs-item title="Bash" %}
 ```bash
-curl \
-  -X POST \
-  -H "Content-Type: application/json" \
-  -H 'Authorization: Bearer {API_TOKEN}' \
-  --data '{"query":"mutation TodoCreate { todoCreate(data: {text: \"from CURL with auth\", completed: false}) {id text completed}}"}' \
-  {API_ENDPOINT}
+curl -X POST {API_ENDPOINT}\
+     -H "Content-Type: application/json" \
+     -H 'Authorization: Bearer {API_TOKEN}' \
+     -d '{ "query": "mutation TodoCreate { todoCreate(data: {text: \"from CURL with auth\", completed: false}) {id text completed}} "}'
 ```
 {% endcode-tabs-item %}
 
