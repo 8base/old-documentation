@@ -68,10 +68,10 @@ module.exports = async (event, ctx) => {
 
 
 ### Permissioning Webhooks
-Webhooks are public functions by default and are **not** permissioned using 8base's native authorization system. Instead, developers looking to permission access to webhook functions can do so using this suggested method - or another that they choose to impliment.
+Webhooks are public functions by default and are **not** permissioned using 8base's native authorization system. Instead, developers looking to permission access to webhook functions can do so using this suggested method - or another way that they choose to implement.
 
 ##### Checking for an Environment Variable
-For systems that require a secure webhook, access tokens from authorized systems can get [set as a environment variables](../../development-tools/dev-env/runtime_environment.md) in the 8base workspace. The authorized system is then able to specify their access token as a custom header, which then get validated within the webhook function.
+For systems that require a secure webhook, access tokens from authorized systems get [set as a environment variables](../../development-tools/dev-env/runtime_environment.md) in the 8base workspace. The authorized system is then able to specify their access token as a custom header, which then get validated within the webhook function.
 
 ![Setting custom access tokens and Environment Variables](../../.gitbook/assets/permission-webhooks-env-vars.png)
 
@@ -81,9 +81,9 @@ In this example, the webhook's path is `{client}/protected-webhook`. We expect t
 module.exports = async (event, ctx) => {
   /* Validate access using custom header */
   let accessToken = process.env[`${event.pathParameters.client}_ACCESS_TOKEN`];
-  let headerToken = event.headers['X-CUSTOM-ACCESS-TOKEN'];
+  let headerToken = event.headers['X-CLIENT-ACCESS-TOKEN'];
 
-  if (Boolean(accessToken) && accessToken === headerToken) {
+  if (!Boolean(accessToken) && accessToken != headerToken) {
     return {
       statusCode: 403,
       body: JSON.stringify({ message: 'Unauthorized access' })
