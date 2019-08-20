@@ -73,7 +73,7 @@ Webhooks are public functions by default and are **not** permissioned using 8bas
 ##### Checking for an Environment Variable
 For systems that require a secure webhook, access tokens from authorized systems get [set as a environment variables](../../development-tools/dev-env/runtime_environment.md) in the 8base workspace. The authorized system is then able to specify their access token as a custom header, which then get validated within the webhook function.
 
-![Setting custom access tokens and Environment Variables](../../.gitbook/assets/permission-webhooks-env-vars.png)
+![Setting custom access tokens and Environment Variables](../../.gitbook/assets/permissons-webhook-vars-example.png)
 
 In this example, the webhook's path is `{client}/protected-webhook`. We expect the `client` path parameter to be a name (i.e. STRIPE, AUTHORIZE_NET, etc). That value is then coerced into an environment variable key, retrieved, and compared.
 
