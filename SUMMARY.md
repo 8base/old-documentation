@@ -19,6 +19,7 @@
   * [Queries](8base-console/graphql-api/queries.md)
   * [Mutations](8base-console/graphql-api/mutations.md)
   * [Subscriptions](8base-console/graphql-api/subscriptions.md)
+  * [Variables](8base-console/graphql-api/variables.md)
   * [Error Handling](8base-console/graphql-api/error_handling.md)
 
 * [Custom Functions](8base-console/custom-functions/README.md)
