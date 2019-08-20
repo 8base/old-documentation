@@ -20,7 +20,7 @@ functions:
     handler:
       code: src/sendWeeklyReport.ts
     type: task
-    schedule: 'rate(1 week)'
+    schedule: 'rate(7 days)'
 ```
 
 ##### Non-scheduled function calls
