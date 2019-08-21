@@ -63,11 +63,10 @@ The "X" found on the right side of a field's name input gets clicked to delete a
 #### Text 
 For storing *String* data.
 
-**Configurations**
-
+Configurations
 * *Field Size* - The maximum string length.
 * *Allow Multiple* - Stores 0 or more *Text* values in an array (not searchable).
-* **Mandatory** - Whether the field value is required.
+* *Mandatory* - Whether the field value is required.
 * *Unique* - Whether the field value is required to be unique.
 * *Default Value* - A default value assigned to new records.
 * *Description* - A meta description used for documentation.
@@ -75,8 +74,7 @@ For storing *String* data.
 #### Number
 For storing *Integer*, *BigInt*, and *Float* data.
 
-**Configurations**
-
+Configurations
 * *Decimal Place* - How many decimal places *Float* values maintain.
 * *Big Number* - For numbers outside the range `-2^63 (-9,223,372,036,854,775,808) to 2^63-1 (9,223,372,036,854,775,807)`
 * *Minimum Value* - The minimum value required.
@@ -90,8 +88,7 @@ For storing *Integer*, *BigInt*, and *Float* data.
 #### Date
 For storing *Date* and *DateTime* data.
 
-**Configurations**
-
+Configurations
 * *Format* - Whether the field stores a *Date* or a *DateTime* value.
 * *Allow Multiple* - Stores 0 or more *Date* values in an array (not searchable).
 * *Mandatory* - Whether the field value is required.
@@ -102,8 +99,7 @@ For storing *Date* and *DateTime* data.
 #### Switch
 For storing *Boolean* and custom *Enum* type data.
 
-**Configurations**
-
+Configurations
 * *Format* - For specifying the *Boolean* type (true / false, yes / no, etc...)
 * *Allow Multiple* - Stores 0 or more *Boolean* values in an array (not searchable).
 * *Mandatory* - Whether the field value is required.
@@ -113,8 +109,7 @@ For storing *Boolean* and custom *Enum* type data.
 #### File
 For storing *Image* and *File* objects.
 
-**Configurations**
-
+Configurations
 * *Format* - Whether the field stores a *File* or an *Image*.
 * *Allow Multiple* - Stores 0 or more *File* objects in an array.
 * *Mandatory* - Whether the field value is required.
@@ -123,8 +118,7 @@ For storing *Image* and *File* objects.
 #### Table
 For specifying *has many*, *has one* and *belongs to* relationships between tables.
 
-**Configurations**
-
+Configurations
 * *Table* - For selecting what table is to get related.
 * *Relation Field Name* - The name of the relation as it appears on the **corresponding** table.
 * *Allow Multiple X to Y* - Whether the relationship is *has one* or *has many*.
@@ -134,8 +128,7 @@ For specifying *has many*, *has one* and *belongs to* relationships between tabl
 #### Smart
 For storing *addresses* and *phone numbers* with managed validations and logic. 
 
-**Configurations**
-
+Configurations
 * *Format* - Whether the field stores a *Phone Number* or an *Address*.
 * *Allow Multiple* - Stores 0 or more *Smart* objects in an array.
 * *Mandatory* - Whether the field value is required.
@@ -144,8 +137,7 @@ For storing *addresses* and *phone numbers* with managed validations and logic.
 #### JSON
 For storing *JSON* objects.
 
-**Configurations**
-
+Configurations
 * *Mandatory* - Whether the field value is required.
 * *Default Value* - A default value assigned to new records.
 * *Description* - A meta description used for documentation.
