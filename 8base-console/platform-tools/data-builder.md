@@ -60,81 +60,93 @@ The "X" found on the right side of a field's name input gets clicked to delete a
 ### Field Types
 8base offer 8 fields types that can be configured to fit almost any data requirement.
 
-##### Text 
+#### Text 
 For storing *String* data.
 
 **Configurations**
 
-* Field Size - The maximum string length.
-* Allow Multiple - Stores 0 or more *Text* values in an array (not searchable).
-* Mandatory - Whether the field value is required.
-* Unique - Whether the field value is required to be unique.
-* Default Value - A default value assigned to new records.
-* Description - A meta description used for documentation.
+* *Field Size* - The maximum string length.
+* *Allow Multiple* - Stores 0 or more *Text* values in an array (not searchable).
+* **Mandatory** - Whether the field value is required.
+* *Unique* - Whether the field value is required to be unique.
+* *Default Value* - A default value assigned to new records.
+* *Description* - A meta description used for documentation.
 
-##### Number
+#### Number
 For storing *Integer*, *BigInt*, and *Float* data.
 
 **Configurations**
 
-* Decimal Place - How many decimal places *Float* values maintain.
-* Big Number - For numbers outside the range `-2^63 (-9,223,372,036,854,775,808) to 2^63-1 (9,223,372,036,854,775,807)`
-* Minimum Value - The minimum value required.
-* Maximum Value - The maximum value required.
-* Allow Multiple - Stores 0 or more *Number* values in an array (not searchable).
-* Mandatory - Whether the field value is required.
-* Unique - Whether the field value is required to be unique.
-* Default Value - A default value assigned to new records.
-* Description - A meta description used for documentation.
+* *Decimal Place* - How many decimal places *Float* values maintain.
+* *Big Number* - For numbers outside the range `-2^63 (-9,223,372,036,854,775,808) to 2^63-1 (9,223,372,036,854,775,807)`
+* *Minimum Value* - The minimum value required.
+* *Maximum Value* - The maximum value required.
+* *Allow Multiple* - Stores 0 or more *Number* values in an array (not searchable).
+* *Mandatory* - Whether the field value is required.
+* *Unique* - Whether the field value is required to be unique.
+* *Default Value* - A default value assigned to new records.
+* *Description* - A meta description used for documentation.
 
-##### Date
+#### Date
 For storing *Date* and *DateTime* data.
 
-* Format - Whether the field stores a *Date* or a *DateTime* value.
-* Allow Multiple - Stores 0 or more *Date* values in an array (not searchable).
-* Mandatory - Whether the field value is required.
-* Unique - Whether the field value is required to be unique.
-* Default Value - A default value assigned to new records.
-* Description - A meta description used for documentation.
+**Configurations**
 
-##### Switch
+* *Format* - Whether the field stores a *Date* or a *DateTime* value.
+* *Allow Multiple* - Stores 0 or more *Date* values in an array (not searchable).
+* *Mandatory* - Whether the field value is required.
+* *Unique* - Whether the field value is required to be unique.
+* *Default Value* - A default value assigned to new records.
+* *Description* - A meta description used for documentation.
+
+#### Switch
 For storing *Boolean* and custom *Enum* type data.
 
-* Format - For specifying the *Boolean* type (true / false, yes / no, etc...)
-* Allow Multiple - Stores 0 or more *Boolean* values in an array (not searchable).
-* Mandatory - Whether the field value is required.
-* Default Value - A default value assigned to new records.
-* Description - A meta description used for documentation.
+**Configurations**
 
-##### File
+* *Format* - For specifying the *Boolean* type (true / false, yes / no, etc...)
+* *Allow Multiple* - Stores 0 or more *Boolean* values in an array (not searchable).
+* *Mandatory* - Whether the field value is required.
+* *Default Value* - A default value assigned to new records.
+* *Description* - A meta description used for documentation.
+
+#### File
 For storing *Image* and *File* objects.
 
-* Format - Whether the field stores a *File* or an *Image*.
-* Allow Multiple - Stores 0 or more *File* objects in an array.
-* Mandatory - Whether the field value is required.
-* Description - A meta description used for documentation.
+**Configurations**
 
-##### Table
+* *Format* - Whether the field stores a *File* or an *Image*.
+* *Allow Multiple* - Stores 0 or more *File* objects in an array.
+* *Mandatory* - Whether the field value is required.
+* *Description* - A meta description used for documentation.
+
+#### Table
 For specifying *has many*, *has one* and *belongs to* relationships between tables.
 
-* Table - For selecting what table is to get related.
-* Relation Field Name - The name of the relation as it appears on the **corresponding** table.
-* Allow Multiple *X* to *Y* - Whether the relationship is *has one* or *has many*.
-* Mandatory - Whether the field relationship is required.
-* Description - A meta description used for documentation.
+**Configurations**
 
-##### Smart
+* *Table* - For selecting what table is to get related.
+* *Relation Field Name* - The name of the relation as it appears on the **corresponding** table.
+* *Allow Multiple X to Y* - Whether the relationship is *has one* or *has many*.
+* *Mandatory* - Whether the field relationship is required.
+* *Description* - A meta description used for documentation.
+
+#### Smart
 For storing *addresses* and *phone numbers* with managed validations and logic. 
 
-* Format - Whether the field stores a *Phone Number* or an *Address*.
-* Allow Multiple - Stores 0 or more *Smart* objects in an array.
-* Mandatory - Whether the field value is required.
-* Description - A meta description used for documentation.
+**Configurations**
 
-##### JSON
+* *Format* - Whether the field stores a *Phone Number* or an *Address*.
+* *Allow Multiple* - Stores 0 or more *Smart* objects in an array.
+* *Mandatory* - Whether the field value is required.
+* *Description* - A meta description used for documentation.
+
+#### JSON
 For storing *JSON* objects.
 
-* Mandatory - Whether the field value is required.
-* Default Value - A default value assigned to new records.
-* Description - A meta description used for documentation.
+**Configurations**
+
+* *Mandatory* - Whether the field value is required.
+* *Default Value* - A default value assigned to new records.
+* *Description* - A meta description used for documentation.
 
