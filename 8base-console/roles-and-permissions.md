@@ -53,15 +53,15 @@ Lists all users that hold the selected role and allows for easy role assignment 
 ![Apps permissions in Roles Manager](../.gitbook/assets/role-permissions-users.png)
 
 ### Advanced
-Custom filters get applied to the *Read* and *Update* permissions of any role, allowing for advanced scoping of the records accessible to the user. These filters get constructed using `JSON` and mirror the same filter types that get used GraphQL.
+Custom filters get applied to the *Read* and *Update* permissions of any role, making possible advanced scoping of the records. These filters get constructed using `JSON` and mirror table specific GraphQL filter types.
 
 ##### Default Filters
 To better understand custom filters, lets reference two default filters that come configured in new workspaces.
 
-**Table**: Users
-**Permission**: Read and Update
+* **Table**: Users  
+* **Permission**: Read and Update
 
-New roles are, by default, don't allow the logged in user to read or update other user records. To enforce this, a custom filter is applied to the *Users* table for read and update permission on the role. 
+New roles, by default, don't allow the logged in user to read or update other user records. To enforce this, a custom filter is applied to role's read and update permission in regards to the *Users* table. 
 
 ```json
 {
@@ -71,18 +71,18 @@ New roles are, by default, don't allow the logged in user to read or update othe
 }
 ```
 
-In this example, `__loggedInUserId` is used to dynamically replace the *equals* key's value with the logged in user's ID. If the ID of the logged in user does not match the ID of a given user record - listed or single -, it cannot be read or updated.
+In this example, `__loggedInUserId` is a dynamic variable that 8base replaces with the logged in user's ID. If the ID of the logged in user does not match the ID of a given user record, it cannot get read or updated.
 
 {% hint style="info" %}
 ##### Dynamic Variables
 
-The `__loggedInUserId` can be used in both custom filters and the API Explorer for dynamic filtering!
+The `__loggedInUserId` is used in both *Custom Filters* and the API Explorer for dynamic filtering!
 {% endhint %}
 
-**Table**: Files
-**Permission**: Read and Update
+* **Table**: Files  
+* **Permission**: Read and Update
 
-8base stores media (videos, documents, images, etc...) as records in the *Files* tables. This makes it necessary for media to be scoped, by default, with the following constraints:
+8base stores media (videos, documents, images, etc...) as records in a system table called *Files*. This makes it necessary for media to be scoped, by default, to the following constraints:
 
 1. When a file is public, anyone can view it.
 2. When a file is private, only the user it was created by can view it.
@@ -111,11 +111,11 @@ These constraints get enforced using the following filter.
 ##### Custom Filters
 {% youtube src="https://www.youtube.com/watch?v=FqZ0-usc93w" %}{% endyoutube %}
 
-The best way to write custom filters is using the API Explorer with [Variables](./graphql-api/variables.md). The filtered result of any GraphQL query is the scope that can be expected when using a custom filter.
+The best way to write custom filters is using the API Explorer in conjuction with [Variables](./graphql-api/variables.md). The filtered result of any GraphQL query is the scoped record set that can be expected by using the same filter as a role's *Custom Filter*.
 
-For example, imagine that workspace has both *Posts* and *Authors* tables. In the API Explorer, an 8base user wants to query all *Posts* that belong to *Authors* under the following criteria:
+For example, imagine that a workspace has both *Posts* and *Authors* tables. In the API Explorer, an 8base user wants to query all *Posts* that belong to *Authors* under the following criteria:
 
-1. Only authors who work for Stage Media (having *@stagemedia.com* email handles) 
+1. Only authors who work for Stage Media (have *@stagemedia.com* email handles) 
 2. Only authors who have been attributed a *Role* named "Editor".
 
 GraphQL Query
@@ -125,6 +125,7 @@ query($filter: PostFilter) {
   postsList(filter: $filter) {
     items {
       id
+      title
     }
   }
 }
@@ -152,9 +153,9 @@ Query Variable
 }
 ```
 
-After succesfully running this query, the user decides that the filter would best serve as a custom filter for scoping post updates. That way, only *editors* would only be able to update posts that belong to authors from their own company. 
+After succesfully running this query, the user decides that the filter should get enforced as a custom filter for post updates. That way, only *editors* would only be able to update posts that belong to authors from their own company. 
 
-This achieved, the value of the `filter` key can be pasted into the *Custom Filter* section of the desired role's update permission.
+To accomplish this, the value of the `filter` key can be pasted into the *Custom Filter* section of the desired role's update permission.
 
 
 ![Adding custom filters to roles](../.gitbook/assets/roles-and-permissions-custom-filter-create.png)
