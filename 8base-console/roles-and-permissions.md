@@ -35,20 +35,127 @@ To delete a role, toggle the ellipsis toggle located at the end of the roles tab
 
 In the Roles Manager view (`Settings > Roles`), click on the name of a *Role* whose permissions you'd like to update. You'll be taken to a view containing three tabs; *Data*, *Apps* and *Roles*.
 
-##### DATA
-Lists all data tables in the current workspace. Each table exposes the ability to set Create, Read, Update, Delete and Field permissions using simple controls. Should you want to fine-tune permissions beyond the scope that's included, `Custom Filters` on tables and `Custom Access` on fields can be implemented.
+##### Data
+Lists all data tables in the current workspace. Each table exposes the ability to set Create, Read, Update, Delete (CRUD) and Field permissions using simple controls. If fine-tuned permissions beyond CRUD actions are required, `Custom Filters` on tables and `Custom Access` on fields can be implemented.
 
 ![Data permissions in Roles Manager](../.gitbook/assets/role-permissions-data.png)
 
-##### APPS
+##### Apps
 Allows toggling of role permissions for 8base Management Console administration, such as Schema Management, Workspace Settings, Team Administration and more.
 
 ![Apps permissions in Roles Manager](../.gitbook/assets/role-permissions-apps.png)
 
-
-##### USERS
+##### Users
 Lists all users that hold the selected role and allows for easy role assignment and de-assignment to specific users.
 
 *Note: By default, all users are granted the **Guest** role. You may change the name of the Guest role in the edit form.*
 
 ![Apps permissions in Roles Manager](../.gitbook/assets/role-permissions-users.png)
+
+### Advanced
+Custom filters get applied to the *Read* and *Update* permissions of any role, allowing for advanced scoping of the records accessible to the user. These filters get constructed using `JSON` and mirror the same filter types that get used GraphQL.
+
+##### Default Custom Filters
+To better understand custom filters, lets reference two default filters that come configured in new workspaces.
+
+**Table**: Users
+**Permission**: Read and Update
+
+New roles are, by default, don't allow the logged in user to read or update other user records. To enforce this, a custom filter is applied to the *Users* table for read and update permission on the role. 
+
+```json
+{
+    "id": {
+        "equals": "__loggedInUserId"
+    }
+}
+```
+
+In this example, `__loggedInUserId` is used to dynamically replace the *equals* key's value with the logged in user's ID. If the ID of the logged in user does not match the ID of a given user record - listed or single -, it cannot be read or updated.
+
+{% hint style="info" %}
+##### Dynamic Variables
+
+The `__loggedInUserId` can be used in both custom filters and the API Explorer for dynamic filtering!
+{% endhint %}
+
+**Table**: Files
+**Permission**: Read and Update
+
+8base stores media (videos, documents, images, etc...) as records in the *Files* tables. This makes it necessary for media to be scoped, by default, with the following constraints:
+
+1. When a file is public, anyone can view it.
+2. When a file is private, only the user it was created by can view it.
+
+These constraints get enforced using the following filter.
+
+```json
+{
+    "OR": [
+        {
+            "public": {
+                "equals": true
+            }
+        },
+        {
+            "createdBy": {
+                "id": {
+                    "equals": "__loggedInUserId"
+                }
+            }
+        }
+    ]
+}
+```
+
+##### Writing Custom Filters
+
+![Custom filters for advanced permissioning](https://www.youtube.com/watch?v=FqZ0-usc93w)
+
+The best way to write custom filters is using the API Explorer with [Variables](./graphql-api/variables.md). The filtered result of any GraphQL query is the scope that can be expected when using a custom filter.
+
+For example, imagine that workspace has both *Posts* and *Authors* tables. In the API Explorer, an 8base user wants to query all *Posts* that belong to *Authors* under the following criteria:
+
+1. Only authors who work for Stage Media (having *@stagemedia.com* email handles) 
+2. Only authors who have been attributed a *Role* named "Editor".
+
+GraphQL Query
+```js
+/* GraphQL Query */
+query($filter: PostFilter) {
+  postsList(filter: $filter) {
+    items {
+      id
+    }
+  }
+}
+```
+
+Query Variable
+```json
+{
+	"filter": {
+    "author": {
+      "user": {
+        "email": {
+          "ends_with": "@stagemedia.com"
+        },
+        "roles": {
+          "some": {
+            "name": {
+              "equals": "Editor"
+            }
+          }
+        }
+      }
+    } 
+  }
+}
+```
+
+After succesfully running this query, the user decides that the filter would best serve as a custom filter for scoping post updates. That way, only *editors* would only be able to update posts that belong to authors from their own company. 
+
+This achieved, the value of the `filter` key can be pasted into the *Custom Filter* section of the desired role's update permission.
+
+
+![Adding custom filters to roles](../.gitbook/assets/roles-and-permissions-custom-filter-create.png)
