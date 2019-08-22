@@ -55,7 +55,7 @@ Lists all users that hold the selected role and allows for easy role assignment 
 ### Advanced
 Custom filters get applied to the *Read* and *Update* permissions of any role, allowing for advanced scoping of the records accessible to the user. These filters get constructed using `JSON` and mirror the same filter types that get used GraphQL.
 
-##### Default Custom Filters
+##### Default Filters
 To better understand custom filters, lets reference two default filters that come configured in new workspaces.
 
 **Table**: Users
@@ -65,9 +65,9 @@ New roles are, by default, don't allow the logged in user to read or update othe
 
 ```json
 {
-    "id": {
-        "equals": "__loggedInUserId"
-    }
+  "id": {
+    "equals": "__loggedInUserId"
+  }
 }
 ```
 
@@ -91,26 +91,25 @@ These constraints get enforced using the following filter.
 
 ```json
 {
-    "OR": [
-        {
-            "public": {
-                "equals": true
-            }
-        },
-        {
-            "createdBy": {
-                "id": {
-                    "equals": "__loggedInUserId"
-                }
-            }
+  "OR": [
+    {
+      "public": {
+        "equals": true
+      }
+    },
+    {
+      "createdBy": {
+        "id": {
+          "equals": "__loggedInUserId"
         }
-    ]
+      }
+    }
+  ]
 }
 ```
 
-##### Writing Custom Filters
-
-![Custom filters for advanced permissioning](https://www.youtube.com/watch?v=FqZ0-usc93w)
+##### Custom Filters
+{% youtube src="https://www.youtube.com/watch?v=FqZ0-usc93w" %}{% endyoutube %}
 
 The best way to write custom filters is using the API Explorer with [Variables](./graphql-api/variables.md). The filtered result of any GraphQL query is the scope that can be expected when using a custom filter.
 
