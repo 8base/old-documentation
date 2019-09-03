@@ -3,7 +3,7 @@
 While logged into a project's workspace, 8base provides an "Admin Panel" like interface for searching and managing table records. This *Data Viewer* is located within the management console's *Data* screen, tabbed alongside the each tables *Schema*. 
 
 
-![8Base Data Viewer](../../.gitbook/assets/data-viewer)
+![8Base Data Viewer](../../.gitbook/assets/data-viewer.png)
 
 ## Adding Records
 New table records can get added using the "+" button next to the table name. An form modal will appear that displays all table fields. All validations specified in the schema definition are enforced while using the data viewer.
