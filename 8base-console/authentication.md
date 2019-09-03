@@ -1,4 +1,4 @@
-# Users + Authentication
+# Authentication
 
 Every 8base workspace initializes with native support for signing up, managing, and authorizing your application's Users. This feature eliminates the requirement of managing emails and passwords or social sign-on providers without compromising on access to your user data.
 

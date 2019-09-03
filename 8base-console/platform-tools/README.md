@@ -6,13 +6,13 @@ The platform runs in a serverless, scalable and secure cloud environment powered
 
 8base platform consists of the following high-level components.
 
-## Data Builder
+## [Data Builder](./data-builder.md)
 
 ![8Base Data Builder](../../.gitbook/assets/44df042-fireshot_capture_004_-_8base_-_app.8base.com.png)
 
 The Data Builder lets you define the data model: tables, fields and relationships between tables. It is packed with cool features. For example, `File` field type allows you to seamlessly attach files to data objects; or `Smart` fields that make it simple to implement complex fields such as address or phone number.
 
-## Data Viewer
+## [Data Viewer](./data-viewer.md)
 
 ![8base Data Viewer](../../.gitbook/assets/e47095d-fireshot_capture_008_-_8base_-_app.8base.com.png)
 

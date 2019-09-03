@@ -11,12 +11,13 @@
 ## 8base Console
 
 * [Overview](8base-console/READme.md)
-* [Users + Authentication](8base-console/authentication.md)
+* [Authentication](8base-console/authentication.md)
 * [Authorization](8base-console/roles-and-permissions.md)
 * [Handling Files](8base-console/handling-files.md)
 
 * [Platform Tools](8base-console/platform-tools/README.md)
   * [Data Builder](8base-console/platform-tools/data-builder.md)
+  * [Data Viewer](8base-console/platform-tools/data-viewer.md)
 
 * [GraphQL API](8base-console/graphql-api/README.md)
   * [Queries](8base-console/graphql-api/queries.md)
