@@ -44,7 +44,7 @@ A confirmation input that requires the table name to be typed in appears when at
 | `one-to-many` | Record in table A may `have_many` records in table B. | Records in table B may `have_one` or `belong_to` records in table A. |
 | many-to-many | Record in table A may `have_many` records in table B. | Record in table B may `have_many` records in table A. |
 
-![Updating fields in the Data Builder](../../.gitbook/assets/data-builder-making-relationships.gif)
+![Defining relationships in the Data Builder](../../.gitbook/assets/data-builder-making-relationships.gif)
 
 Defining a relationship between two tables can get accomplished by dragging and dropping one table onto another, as well as by selecting `Table` as the Data Type when creating a new table field.
 
