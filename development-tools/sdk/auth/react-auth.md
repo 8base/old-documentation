@@ -71,8 +71,6 @@ ReactDOM.render(
 );
 ```
 
-![Copy your application's API endpoint for use](https://paper-attachments.dropbox.com/s_852651193E1A9C7AB063A15777445082FCBA8EFB681C0ABC9C5C34FAD9595A67_1562188904588_8base-endpoint.png)
-
 ### Login
 
 `@8base/react-sdk` exports the `withAuth` function to provide components with props for authorizing the user. The component determines whether the user is authorized before fetching and displaying the user information, from which the authentication state can be determined. It can be easily used for dynamically rendering components.
