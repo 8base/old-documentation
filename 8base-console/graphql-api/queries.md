@@ -218,3 +218,240 @@ query {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
+##### Query record by Unique Attribute
+Query a single record using a unique field other than `id`. **Note**, this field must be specified as *No Duplicate Values* in the table's field definition.
+
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
+```javascript
+query {
+  post(title: "Awesome Possum") {
+    title
+    body
+  }
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Response" %}
+```javascript
+{
+  "data": {
+    "post": {
+      "title": "Awesome Possum",
+      "body": "This post is awesome, like a possum!"
+    }
+  }
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+##### Query record with Related Record
+Query a single record and return data from a related table in the response.
+
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
+```javascript
+query {
+  post(title: "Awesome Possum") {
+    title
+    author {
+      name
+    }
+  }
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Response" %}
+```javascript
+{
+  "data": {
+    "post": {
+      "title": "Awesome Possum",
+      "author": {
+        "name": "Huxley"
+      }
+    }
+  }
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+##### Query list of records
+Query list of records from a single table.
+
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
+```javascript
+query {
+  postsList {
+    items {
+      title
+      body
+    }
+  }
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Response" %}
+```javascript
+{
+  "data": {
+    "postsList": {
+      "items": [
+        {
+          "title": "Awesome Possum",
+          "body": "This post is awesome, like a possum!"
+        },
+        {
+          "title": "A Sunset and Waves",
+          "body": "There was once a beautiful sunset, and waves."
+        },
+        {
+          "title": "Vapor Distilled Water for All",
+          "body": "Everyone can have vapor distilled water."
+        }
+      ]
+    }
+  }
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+##### Query list of filtered records
+Query list of records that are filtered.
+
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
+```javascript
+query {
+  postsList(filter: {
+    title: {
+      contains: "Possum"
+    },
+    createdAt: {
+      gt: "2019-09-01T00:00:00.000Z"
+    }
+  }) {
+    items {
+      title
+      body
+    }
+  }
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Response" %}
+```javascript
+{
+  "data": {
+    "postsList": {
+      "items": [
+        {
+          "title": "Awesome Possum",
+          "body": "This post is awesome, like a possum!"
+        },
+        {
+          "title": "Everybody Loves Possum",
+          "body": "Seriously, there is nothing like a sweet and cuddly possum."
+        }
+      ]
+    }
+  }
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+##### Query pagenated list of records
+Query paginated list of records with related-table data in response and aggregator.
+
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
+```javascript
+query {
+  postsList(skip: 0, first: 5) {
+    items {
+      title
+      body
+      author {
+        name
+        posts {
+          count
+        }
+      }
+    }
+  }
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Response" %}
+```javascript
+{
+  "data": {
+    "postsList": {
+      "items": [
+        {
+          "title": "Awesome Possum",
+          "body": "This post is awesome, like a possum!",
+          "author": {
+            "name": "Huxley",
+            "posts": {
+              "count": 2
+            }
+          }
+        },
+        {
+          "title": "A Sunset and Waves",
+          "body": "There was once a beautiful sunset, and waves.",
+          "author": {
+            "name": "Stevens",
+            "posts": {
+              "count": 2
+            }
+          }
+        },
+        {
+          "title": "Vapor Distilled Water for All",
+          "body": "Everyone can have vapor distilled water.",
+          "author": {
+            "name": "Vanderwall",
+            "posts": {
+              "count": 1
+            }
+          }
+        },
+        {
+          "title": "Everybody Loves Possum",
+          "body": "Seriously, there is nothing like a sweet and cuddly possum.",
+          "author": {
+            "name": "Stevens",
+            "posts": {
+              "count": 2
+            }
+          }
+        },
+        {
+          "title": "Abominable Snowman Found Dead in Miami Motel",
+          "body": "The abominable snowman, after not being seen since never, was found dead in a Miami motel.",
+          "author": {
+            "name": "Huxley",
+            "posts": {
+              "count": 2
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
