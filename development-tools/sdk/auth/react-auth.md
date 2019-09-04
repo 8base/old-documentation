@@ -3,36 +3,49 @@
 8base React SDK provides an easy way to implement authentication (sign-up, sign-in, sign-out) in your React.js apps. It works by wrapping an application in an AppProvider component that interfaces with a specified authentication client. with  To use it, the following dependencies are required.
 
 * **react-apollo** contains the bindings for Apollo Client with React.
-* **@8base/react-sdk** provides tools to use 8base with React.
 * **react-router-dom** DOM bindings for React Router
+* **@8base/react-sdk** provides tools to use 8base with React.
+* **@8base/auth** prodides auth and auth strategies modules
 
 ```sh
-npm install -s @8base/react-sdk react-apollo react-router-dom
+npm install -s @8base/react-sdk @8base/auth react-apollo react-router-dom
 ```
 
 In the top level component of the application (main.js, app.js, index.js, etc...), wrap the root element with `<AppProvider>`. A *uri* and *authClient* argument is required. Please refer to the example below. 
 
 ```js
+/* react/apollo packages */
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { AppProvider, WebAuth0AuthClient } from '@8base/react-sdk';
+import { Auth } from '@8base/auth';
+import { AppProvider } from '@8base/react-sdk';
 
+/* Root component */
 import App from './App';
 
 /* 8base Workspace API Endpoint */
 const URI = '<API_ENDPOINT>'
 
-/* All option values can be set and retreived in authentication profile settings */
-const webAuthClient = new WebAuth0AuthClient({
-  /* Authentication profile domain */
-  domain: "<AUTH_DOMAIN>",
+/**
+ * All option values can be set and retreived from 
+ * the authentication profile settings in 8base.
+ *
+ * Don't forget set custom domains in the 
+ * authentication settings!
+ */
+const authClient = Auth.createClient({
+  strategy: '8base-auth',
+  subscribable: true,
+}, {
   /* Authentication profile client ID  */
-  clientId: "<AUTH_CLIENT_ID>",
+  clientId: '<AUTH_CLIENT_ID>',
+  /* Authentication profile domain */
+  domain: '<AUTH_DOMAIN>',
   /* Permitted callback url */
-  redirectUri: `${window.location.origin}/auth/callback`, // the callback url you set
+  redirectUri: `${window.location.origin}/auth/callback/path`,
   /* Permitted logout redirect url */
-  logoutRedirectUri: `${window.location.origin}/`,
+  logoutRedirectUri: `${window.location.origin}/`
 });
+
 
 ReactDOM.render(
 	/**
@@ -46,7 +59,7 @@ ReactDOM.render(
 	 *	</AppProvider>,
 	 * 
 	 */
-	<AppProvider uri={URI} authClient={webAuthClient}>
+	<AppProvider uri={URI} authClient={authClient}>
 		{({ loading }) => {
 		  if (loading) {
 		    return <p>Please wait...</p>;
