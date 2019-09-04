@@ -38,19 +38,15 @@ A confirmation input that requires the table name to be typed in appears when at
 ### Table Relationships
 8base supports 3-types of table relationships to be defined that are congruent with what to expect from relational databases:
 
-| Type | Definition |
+| Type | *A* to *B* | *B* to *B* |
 | -- | -- | -- |
-| `one-to-one` | Records in table A may `have_one` or `belong_to` records in table B. Records in table B may `have_one` or `belong_to` records in table A |
-| `one-to-many` | Record in table A may `have_many` records in table B. Records in table B may `have_one` or `belong_to` records in table A. |
-| many-to-many | Record in table A may `have_many` records in table B. Record in table B may `have_many` records in table A. |
+| `one-to-one` | Records in table A may `have_one` or `belong_to` records in table B. | Records in table B may `have_one` or `belong_to` records in table A. |
+| `one-to-many` | Record in table A may `have_many` records in table B. | Records in table B may `have_one` or `belong_to` records in table A. |
+| many-to-many | Record in table A may `have_many` records in table B. | Record in table B may `have_many` records in table A. |
+
+![Updating fields in the Data Builder](../../.gitbook/assets/data-builder-making-relationships.gif)
 
 Defining a relationship between two tables can get accomplished by dragging and dropping one table onto another, as well as by selecting `Table` as the Data Type when creating a new table field.
-
-{% hint style="info" %}
-##### Self-Referential Relationships
-
-Self-Referential relationships can be defined by relating tables to themselves! For example, a the *Users* table might have a `many-to-many` relationship with itself, and use a named association of *friends*.
-{% endhint %}
 
 #### Table Configurations
 For specifying *has many*, *has one* and *belongs to* relationships between tables.
@@ -62,6 +58,11 @@ Configurations
 * *Mandatory* - Whether the field relationship is required.
 * *Description* - A meta description used for documentation.
 
+{% hint style="info" %}
+##### Self-Referential Relationships
+
+Self-Referential relationships can be defined by relating tables to themselves! For example, a the *Users* table might have a `many-to-many` relationship with itself, and use a named association of *friends*.
+{% endhint %}
 
 ### Table Types
 There are several types of tables in 8base, each of which offers an important utility.
