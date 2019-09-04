@@ -376,7 +376,7 @@ Query paginated list of records with related-table data in response and aggregat
 {% code-tabs-item title="Query" %}
 ```javascript
 query {
-  postsList(skip: 0, first: 5) {
+  postsList(skip: 10, first: 5) {
     items {
       title
       body
