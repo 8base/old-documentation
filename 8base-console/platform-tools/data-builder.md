@@ -1,8 +1,10 @@
 # Data Builder
 
-A cornerstone feature of 8base is the *Data Builder*. It's found in the management console's `Data` screen and allows for simple to complex relational data models to be defined using a UI. 
+The 8base Data Builder is a data modeling UI for defining database tables, field types, and relationships between tables. For each table defined, the 8base GraphQL engine creates GraphQL schema object types and the corresponding query, mutation, and subscription fields with resolvers automatically. 
 
-The *Data Builder* lets you define a project's data model; tables, fields and relationships between tables. It is packed with cool features. For example, `File` field type allows you to seamlessly attach files to records and `Smart` fields make it simple to implement complex validations for addresses or phone number.
+This means that all Create, Read, Update, and Delete (CRUD) actions, as well as real-time connections (websockets) are immediately available to use via the workspace's unique API endpoint. 
+
+Data Builder is found in the management console's `Data` view. It is packed with cool features. For example, `File` field type allows you to seamlessly attach files to records and `Smart` fields make it simple to implement complex validations for addresses or phone number.
 
 ![8Base Data Builder](../../.gitbook/assets/data-builder-new-table.gif)
 
@@ -12,10 +14,14 @@ In the background, 8base spins up an Aurora MySQL database instance for your wor
 ### Creating Tables
 New tables get created using the "+ New Table" button. An input that prompts for a *name* value will appear, with which the table can named. All tables require unique names.
 
+As soon as a table gets created, corresponding GraphQL schema types and query, mutation, and subscription resolvers will be generated automatically.
+
 ![Creating new table's in the Data Builder](../../.gitbook/assets/data-builder-new-table.png)
 
 ### Updating Tables
-Once a table gets created, fields and relations can get defined. All updates to a table are published in real-time, giving a seemless experience between defining a data model and having it be highly available. 
+After a table gets created, fields and relations can get defined. All updates to a table are published in real-time, giving a seemless experience between defining a data model and having it be highly available. 
+
+As soon as a table gets updated, its corresponding GraphQL schema types and query, mutation, and subscription resolvers will be updated automatically.
 
 To ensure that table related errors and mistakes are minimized, 8base protects against **dozens** of harmful actions. Some of these include:
 
@@ -28,6 +34,34 @@ To ensure that table related errors and mistakes are minimized, 8base protects a
 A confirmation input that requires the table name to be typed in appears when attempting to delete a table. Know that deleted tables **cannot** be restored and any existing table records will be lost. Additionally, if any other tables are related to the table being deleted - *belongs to* and *has many*, either specified as mandatory or not - those relations will be severed.
 
 ![Deleting table's in the Data Builder](../../.gitbook/assets/data-builder-delete-table.png)
+
+### Table Relationships
+8base supports 3-types of table relationships to be defined that are congruent with what to expect from relational databases:
+
+| Type | Definition |
+| -- | -- | -- |
+| `one-to-one` | Records in table A may `have_one` or `belong_to` records in table B. Records in table B may `have_one` or `belong_to` records in table A |
+| `one-to-many` | Record in table A may `have_many` records in table B. Records in table B may `have_one` or `belong_to` records in table A. |
+| many-to-many | Record in table A may `have_many` records in table B. Record in table B may `have_many` records in table A. |
+
+Defining a relationship between two tables can get accomplished by dragging and dropping one table onto another, as well as by selecting `Table` as the Data Type when creating a new table field.
+
+{% hint style="info" %}
+##### Self-Referential Relationships
+
+Self-Referential relationships can be defined by relating tables to themselves! For example, a the *Users* table might have a `many-to-many` relationship with itself, and use a named association of *friends*.
+{% endhint %}
+
+#### Table Configurations
+For specifying *has many*, *has one* and *belongs to* relationships between tables.
+
+Configurations
+* *Table* - For selecting what table is to get related.
+* *Relation Field Name* - The name of the relation as it appears on the **corresponding** table.
+* *Allow Multiple X to Y* - Whether the relationship is *has one* or *has many*.
+* *Mandatory* - Whether the field relationship is required.
+* *Description* - A meta description used for documentation.
+
 
 ### Table Types
 There are several types of tables in 8base, each of which offers an important utility.
