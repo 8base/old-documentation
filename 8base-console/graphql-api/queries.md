@@ -1,6 +1,16 @@
 # Queries
 
-On this page, you'll learn in detail about how to query the GraphQL API.
+GraphQL queries are used to fetch data via the workspace API.
+
+8base's GraphQL engine auto-generates queries as part of the GraphQL schema based on your workspace tables. All workspace tables can be queried through the workspace endpoint.
+
+### Auto-generated queries
+Whenever a table is added to a work space, two GraphQL query operations are auto-generated for the table. They are:
+
+* `tableName(...)` - Accepts any *mandatory* and *unique* value as an argument to retreive a single record from the database.
+
+* `tableNameList(...)` - Accepts *filter*, *orderBy*, *sort*, *skip*, *after*, *before*, *first* and, *last* to retrive a list of curated records while supporting pagination, relational-filtering, sorting, and more.
+
 
 ### Understanding Fields
 Put simply, GraphQL is a specification for requesting fields on objects. Let's look at a simple 8base query example and the result it returns when run:
@@ -173,3 +183,38 @@ As seen in the previous example, the query returns an object that is predictably
   }
 }
 ```
+
+### Query Examples
+For the sake of the following examples, let's consider a scenario where a table called *Posts* exists, having expected fields and relations like *title*, *body*, *author*, etc.
+
+##### Query record by ID
+Query a single record using it's `id`.
+
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
+```javascript
+query {
+  post(id: "<POST_ID>") {
+    id
+    title
+    body
+  }
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Response" %}
+```javascript
+{
+  "data": {
+    "post": {
+      "id": "<POST_ID>",
+      "title": "Awesome Possum",
+      "body": "This post is awesome, like a possum!"
+    }
+  }
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
