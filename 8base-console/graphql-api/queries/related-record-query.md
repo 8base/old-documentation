@@ -1,6 +1,6 @@
 *For the sake of the following examples, let's consider a scenario where a table called `Posts` exists, having expected fields and relations like `title`, `body`, `author`, etc.*
 
-### Related record queries
+### Fetching related table records
 Query a single record and return data from related tables in the response.
 
 **Query**

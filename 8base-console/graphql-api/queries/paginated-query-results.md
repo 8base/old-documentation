@@ -1,6 +1,6 @@
 *For the sake of the following examples, let's consider a scenario where a table called `Posts` exists, having expected fields and relations like `title`, `body`, `author`, etc.*
 
-### Paginated list queries
+### Using pagination in queries
 The arguments `skip` and `first` get used for pagination.
 
 `first` specifies the number of rows to pass from the result set and `skip` determines which slice to retain from the results.

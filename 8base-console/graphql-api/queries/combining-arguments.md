@@ -1,6 +1,6 @@
 *For the sake of the following examples, let's consider a scenario where a table called `Posts` exists, having expected fields and relations like `title`, `body`, `author`, etc.*
 
-### Combining query arguments
+### Using multiple arguments in queries
 
 More than one argument can get used in a single list query.
 

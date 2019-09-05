@@ -1,6 +1,6 @@
 *For the sake of the following examples, let's consider a scenario where a table called `Posts` exists, having expected fields and relations like `title`, `body`, `author`, etc.*
 
-### Combining queries
+### Using multiple queries in a request
 
 If multiple queries are combined into a single request, they get executed in parallel, the responses are collated and returned as a single response object. This lets you fetch objects of different and unrelated types in the same query.
 

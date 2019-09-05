@@ -1,7 +1,7 @@
 *For the sake of the following examples, let's consider a scenario where a table called `Posts` exists, having expected fields and relations like `title`, `body`, `author`, etc.*
 
-### Aggregation queries
-You can fetch aggregations on nodes using an aggregation query. Currently the available aggregation function is count. 
+### Using aggregators in queries
+You can fetch aggregations on nodes using an aggregation query. Currently the available aggregation function is `count`. 
 
 **Query**
 ```javascript

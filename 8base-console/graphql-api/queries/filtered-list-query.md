@@ -1,6 +1,6 @@
 *For the sake of the following examples, let's consider a scenario where a table called `Posts` exists, having expected fields and relations like `title`, `body`, `author`, etc.*
 
-### Filtered list queries
+### Using filters in queries
 Query list of records that are filtered. Notice the `filter` argument.
 
 **Query**

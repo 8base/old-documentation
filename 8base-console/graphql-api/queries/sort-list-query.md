@@ -1,6 +1,6 @@
 *For the sake of the following examples, let's consider a scenario where a table called `Posts` exists, having expected fields and relations like `title`, `body`, `author`, etc.*
 
-### Sorted list queries
+### Using sorting in queries
 
 Results from your query can be sorted by using the `sort` argument. The sort order (ascending vs. descending) gets set by specifying ASC or DESC for the field name.
 

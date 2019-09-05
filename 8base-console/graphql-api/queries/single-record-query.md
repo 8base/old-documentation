@@ -1,7 +1,6 @@
 *For the sake of the following examples, let's consider a scenario where a table called `Posts` exists, having expected fields and relations like `title`, `body`, `author`, etc.*
 
-### Single record queries
-
+### Fetching specific table records
 You can fetch a single record using the record's `id`.
 
 **Query**

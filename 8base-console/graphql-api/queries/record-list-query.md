@@ -1,6 +1,6 @@
 *For the sake of the following examples, let's consider a scenario where a table called `Posts` exists, having expected fields and relations like `title`, `body`, `author`, etc.*
 
-### Record list queries
+### Fetching multiple table records
 Query list of records from a single table. Note the `items` key that denotes an array of results will get returned.
 
 **Query**
