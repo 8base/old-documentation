@@ -38,7 +38,7 @@ functions:
 All webhooks require a unique name and allow for the same function to be called from different entries. This means that `functionA` and `functionB` may both specify the same function to be called, even if they have different configurations (i.e. POST vs DELETE). You are able to deploy as many webhooks as you want to a single workspace.
 
 ### Webhook Arguments
-To learn about the arguments that are passed to webhooks, review the [custom function arguments documentation.](./README.md#custom-function-arguments)
+To learn about the arguments that are passed to webhooks, review the [custom function arguments docs.](./README.md#custom-function-arguments)
 
 ### Path Parameters
 Webhook functions support the use of path parameters. Path parameters are parameters whose values are set dynamically in the endpoint's path segment, and can be accessed within the handler function. This makes the webhook incredibly dynamic, enabling the path to be used as a means of passing important data to the webhook function.

@@ -91,6 +91,8 @@ Alike the [standard custom function arguments](./README.md#section-custom-functi
 }
 ```
 
+To learn more about the arguments that are passed to triggers, review the [custom function arguments docs.](./README.md#custom-function-arguments)
+
 ### Trigger Response
 
 The value returned by a *trigger* is allowed two properties: *data* and *errors*.

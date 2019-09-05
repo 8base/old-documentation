@@ -55,7 +55,8 @@ module.exports = event => {
 };
 ```
 
-### [Webhook Arguments](./README.md)
+### Resolver Arguments
+To learn about the arguments that are passed to resolvers, review the [custom function arguments docs.](./README.md#custom-function-arguments)
 
 ### Resolver Response
 

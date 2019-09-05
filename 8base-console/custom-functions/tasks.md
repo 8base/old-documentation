@@ -79,3 +79,6 @@ Cron expressions that lead to rates faster than one invocation/minute are not su
 
 Check example expressions and read a detailed description of cron syntax [here](https://docs.aws.amazon.com/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html?shortFooter=true).
 {% endhint %}
+
+### Task Arguments
+To learn about the arguments that are passed to tasks, review the [custom function arguments docs.](./README.md#custom-function-arguments)
