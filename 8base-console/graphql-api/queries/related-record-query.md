@@ -3,7 +3,8 @@
 ### Fetching related table records
 Query a single record and return data from related tables in the response.
 
-**Query**
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query {
   post(title: "Awesome Possum") {
@@ -11,15 +12,16 @@ query {
     author {
       name
       avatar {
-      	downloadUrl
+        downloadUrl
       }
     }
   }
 }
 ```
+{% endcode-tabs-item %}
 
-**Response**
-```javascript
+{% code-tabs-item title="Result" %}
+```json
 {
   "data": {
     "post": {
@@ -27,10 +29,12 @@ query {
       "author": {
         "name": "Huxley",
         "avatar": {
-        	"downloadUrl": "https://linktomy.downloadUrl/forA/amazingAvatar.jpg"
+          "downloadUrl": "https://linktomy.downloadUrl/forA/amazingAvatar.jpg"
         }
       }
     }
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}

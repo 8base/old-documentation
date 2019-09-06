@@ -3,7 +3,8 @@
 ### Fetching specific table records
 You can fetch a single record using the record's `id`.
 
-**Query**
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query {
   post(id: "<POST_ID>") {
@@ -13,8 +14,10 @@ query {
   }
 }
 ```
-**Response**
-```javascript
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Result" %}
+```json
 {
   "data": {
     "post": {
@@ -25,11 +28,14 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ### Single record queries using unique fields
 You can fetch a single record using a unique field other than `id`. This field must be specified as *No Duplicate Values* in the table's field definition.
 
-**Query**
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query {
   post(title: "Awesome Possum") {
@@ -38,9 +44,10 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
 
-**Response**
-```javascript
+{% code-tabs-item title="Result" %}
+```json
 {
   "data": {
     "post": {
@@ -50,3 +57,5 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}

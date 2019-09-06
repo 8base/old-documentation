@@ -3,7 +3,8 @@
 ### Fetching multiple table records
 Query list of records from a single table. Note the `items` key that denotes an array of results will get returned.
 
-**Query**
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query {
   postsList {
@@ -15,9 +16,10 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
 
-**Response**
-```javascript
+{% code-tabs-item title="Result" %}
+```json
 {
   "data": {
     "postsList": {
@@ -40,3 +42,5 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}

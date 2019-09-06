@@ -6,7 +6,8 @@
 
 In order to make a query re-usable, it can be made dynamic by using variables.
 
-**Query**
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query($filter: PostFilter) {
   postsList(filter: $filter) {
@@ -16,10 +17,10 @@ query($filter: PostFilter) {
     }
   }
 }
-
 ```
+{% endcode-tabs-item %}
 
-**Variable**
+{% code-tabs-item title="Variables" %}
 ```json
 {
   "filter": {
@@ -29,8 +30,9 @@ query($filter: PostFilter) {
   }
 }
 ```
+{% endcode-tabs-item %}
 
-**Result**
+{% code-tabs-item title="Result" %}
 ```json
 {
   "data": {
@@ -48,6 +50,9 @@ query($filter: PostFilter) {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
 
 ### Aliases
 
@@ -159,3 +164,18 @@ fragment authorFrag on Author {
   }
 }
 ```
+
+
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
+```javascript
+
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Result" %}
+```json
+
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
