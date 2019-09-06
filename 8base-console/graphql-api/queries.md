@@ -1,4 +1,6 @@
-# Queries
+*For the sake of the following examples, let's consider a scenario where a table called Posts exists, having expected fields and relations like title, body, author, etc.*
+
+### GraphQL Queries
 
 GraphQL queries are used to fetch data via the workspace API.
 
