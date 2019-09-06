@@ -14,7 +14,7 @@ Always let us know how we can help!
 
 ## Connecting with the Community
 
-While building on 8base and checking out the docs, you might have some questions. Actually, lets re-phrase that... while building on 8base YOU'LL DEFINITELY HAVEs SOME QUESTIONS. When such a situation arises, fret not. We're here for you.
+While building on 8base and checking out the docs, you might have some questions. Actually, lets re-phrase that... while building on 8base YOU'LL DEFINITELY HAVE SOME QUESTIONS. When such a situation arises, fret not. We're here for you.
 
 > ### [Join us on Slack](https://slack.8base.com/)  
   Chat with other 8base developers and our support team.  
@@ -25,7 +25,7 @@ While building on 8base and checking out the docs, you might have some questions
 
 ## Contributing to 8base Docs
 
-Like most great things, 8base is a work in progress. As a consequence of that, our documentation is constantly under development and probably in need of some TLC. Right now, we have two team members are maintaining the docs and, frankly, they could use a little help...
+Like most great things, 8base is a work in progress. As a consequence of that, our documentation is constantly under development and probably in need of some TLC. Right now, we have two team members that are maintaining the docs, and frankly, they could use a little help...
 
 That's where YOU come in. Our documentation repo is public and open-sourced [right here](https://github.com/8base/documentation) on GitHub. So whenever you want to, you could:
 
@@ -45,8 +45,8 @@ If you need help getting started, just reach out to us at [support@8base.com](ma
 8base uses GitHub Issue Tracking to track issues (primarily bugs and contributions of new code). If you've found a bug in 8base, this is the place to start. You'll need to create a (free) GitHub account in order to submit an issue, to comment on them or to create pull requests.
 
 ### 2. Create an Awesome Code Example
-Examples are sooo important in great documentation and are very helpful for the 8base community. You can help by providing complete code examples, or by editing the current ones. Honestly, if you think "a, b, and c examples is terrible and I could make them better" please do! We won't take it personally...
+Examples are sooo important in great documentation and are very helpful for the 8base community. You can help by providing complete code examples, or by editing the current ones. Honestly, if you think "a, b, and c examples are terrible and I could make them better", please do! We won't take it personally...
 
 ### 3. Contributing Articles
-You can help improve the 8base Docs by making them more coherent, consistent or readable, adding missing information, correcting factual errors, fixing typos, and bringing them up to date with the latest 8base features. It's honestly an open-book. If you think something is useful, others probably will too.
+You can help improve the 8base Docs by making them more coherent, consistent, or readable and adding missing information, correcting factual errors, fixing typos, and bringing them up to date with the latest 8base features. It's honestly an open-book. If you think something is useful, others probably will too.
 
