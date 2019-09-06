@@ -20,9 +20,9 @@ Put simply, GraphQL is a specification for requesting fields on objects. Let's l
 {% code-tabs-item title="Query" %}
 ```javascript
 query {
-  user(email: "john@email.com") {
-    firstName
-    lastName
+  author(name: "Huxley") {
+    name
+    createdAt
   }
 }
 ```
@@ -32,9 +32,9 @@ query {
 ```json
 {
   "data": {
-    "user": {
-      "firstName": "John",
-      "lastName": "Smith"
+    "author": {
+      "name": "Huxley",
+      "createdAt": "2019-03-21T01:23:34.983Z"
     }
   }
 }
@@ -50,12 +50,12 @@ We see immediately that our result has the same shape as the query. This is key 
 {% code-tabs-item title="Query" %}
 ```javascript
 query {
-  user(email: "john@email.com") {
-    firstName
-    roles {
+  author(name: "Huxley") {
+    name
+    posts {
       items {
-        name
-        description
+        id
+        title
       }
     }
   }
@@ -67,13 +67,17 @@ query {
 ```json
 {
   "data": {
-    "user": {
-      "firstName": "John",
-      "roles": {
+    "author": {
+      "name": "Huxley",
+      "posts": {
         "items": [
           {
-            "name": "Administrator",
-            "description": "Administrator Role"
+            "id": "ck08eum6101qf01l9cn6v35v4",
+            "title": "Awesome Possum"
+          },
+          {
+            "id": "ck08eve7t01r701l9fsg9a4ow",
+            "title": "Pt.2 of the Possum Trilogy"
           }
         ]
       }
@@ -84,43 +88,41 @@ query {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-In this previous example, the `lastName` field was removed from the query and a `roles` parameter added. In the response, we see this reflected by there no longer being a `lastName` key and the added `roles` array containing its specified parameters - a sub-selection on fields for the related object(s).
+In this previous example, the `createdAt` field was removed from the query and a `posts` parameter added. In the response, we see this reflected by there no longer being a `created` key and the added `posts` array containing its specified parameters - a sub-selection on fields for the related object(s).
 
 ### Understanding Arguments
-The power of the 8base GraphQL API is further enriched by the ability to specify different arguments when executing a query. This has been demonstrated several times now, where "john@email.com" is being passed as an argument to the query (`...user(email: "john@email.com")`). When creating data tables in the **Data Builder**, any field marked as *unique* can then be used as an argument for a query.
+The power of the 8base GraphQL API is further enriched by the ability to specify different arguments when executing a query. This has been demonstrated several times now, where "Huxley" is being passed as an argument to the query (`...author(name: "Huxley")`). When creating data tables in the **Data Builder**, any field marked as *unique* can then be used as an argument for a query.
 
-For example, were the *Users* table to have a *fingerPrintHash* field that was set to only permit unique values, we could then query a specific user record like so:
+For example, were the *Posts* table to have the *Title* field set to only permit unique values, we could then query a specific *Post* record like so:
 
 ```javascript
 {
-  user(fingerPrintHash: "<UNIQUE_HASH_VALUE>") {
-    firstName
-    lastName
+  post(title: "<POST_TITLE>") {
+    title
+    body
   }
 }
 ```
 
 ### List Queries
-
 For every data table defined in an 8base workspace, two default queries are automatically defined.
 
 1. `<tableName>(...)`: Retrieval of a single record
 2. `<tableName>List(...)`: Retrieval of a list of records
 
-With list queries, a developer is able to request one or more records while optionally applying different selection options. For example, if you were to run a query requesting the first 10 users that have "gmail.com" email addresses, the query could look like so.
+With list queries, a developer is able to request one or more records while optionally applying different selection options. For example, if you were to run a query requesting the first 10 authors that have "gmail.com" email addresses, the query could look like so.
 
 {% code-tabs %}
 {% code-tabs-item title="Query" %}
 ```javascript
 query {
-  usersList(first: 10, filter: {
+  authorsList(first: 10, filter: {
     email: {
       ends_with: "gmail.com"
     }
   }) {
     items {
-      firstName
-      lastName
+      name
       email
     }
   }
@@ -132,14 +134,12 @@ query {
 ```json
 {
   "data": {
-    "usersList": {
+    "authorsList": {
       "items": [
         {
-          "firstName": "Jake",
-          "lastName": "Johnson",
-          "email": "jake@gmail.com"
-        },
-        // More results...
+          "name": "Huxley",
+          "email": "possumparty@gmail.com"
+        }
       ]
     }
   }
