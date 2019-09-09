@@ -1,10 +1,10 @@
 *For the sake of the following examples, let's consider a scenario where a table called `Posts` exists, having expected fields and relations like `title`, `body`, `author`, etc.*
 
 ### Using multiple arguments in queries
-
 More than one argument can get used in a single list query.
 
-**Query**
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query {
   postsList(filter: {
@@ -28,8 +28,8 @@ query {
   }
 }
 ```
-
-**Result**
+{% endcode-tabs-item %}
+{% code-tabs-item title="Result" %}
 ```json
 {
   "data": {
@@ -54,3 +54,5 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}

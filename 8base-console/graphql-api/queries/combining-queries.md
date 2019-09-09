@@ -4,7 +4,8 @@
 
 If multiple queries are combined into a single request, they get executed in parallel, the responses are collated and returned as a single response object. This lets you fetch objects of different and unrelated types in the same query.
 
-**Query**
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query {
   /* A profile about the author */
@@ -43,8 +44,8 @@ query {
   }
 }
 ```
-
-**Result**
+{% endcode-tabs-item %}
+{% code-tabs-item title="Result" %}
 ```json
 {
   "data": {
@@ -88,3 +89,5 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}

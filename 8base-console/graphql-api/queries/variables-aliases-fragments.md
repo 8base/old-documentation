@@ -1,7 +1,6 @@
 *For the sake of the following examples, let's consider a scenario where a table called `Posts` exists, having expected fields and relations like `title`, `body`, `author`, etc.*
 
 ### Variables
-
 ![Using Variables in GraphQL queries](../../../.gitbook/assets/api-explorer-variables-examples.png)
 
 In order to make a query re-usable, it can be made dynamic by using variables.
@@ -55,10 +54,10 @@ query($filter: PostFilter) {
 
 
 ### Aliases
-
 Aliases get used to return objects having different names than their field names. This is needed when fetching the same type of objects with different arguments in a single query.
 
-**Query**
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query {
   hux: author(name: "Huxley") {
@@ -76,7 +75,9 @@ query {
   }
 }
 ```
-**Result**
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Result" %}
 ```json
 {
   "data": {
@@ -95,12 +96,14 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ### Fragments
-
 Queries can get verbose and unorganized. Fragment create a set of fields that can then be used to represent the defined set.
 
-**Query**
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query {
   hux: author(name: "Huxley") { ...authorFrag }
@@ -118,10 +121,10 @@ fragment authorFrag on Author {
     }
   }
 }
-
 ```
+{% endcode-tabs-item %}
 
-**Result**
+{% code-tabs-item title="Result" %}
 ```json
 {
   "data": {
@@ -163,19 +166,6 @@ fragment authorFrag on Author {
     }
   }
 }
-```
-
-
-{% code-tabs %}
-{% code-tabs-item title="Query" %}
-```javascript
-
-```
-{% endcode-tabs-item %}
-
-{% code-tabs-item title="Result" %}
-```json
-
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}

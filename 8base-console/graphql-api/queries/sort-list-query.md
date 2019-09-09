@@ -6,7 +6,8 @@ Results from your query can be sorted by using the `sort` argument. The sort ord
 
 Sorting a list of queried records.
 
-**Query**
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query {
   postsList(sort: {
@@ -19,8 +20,9 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
 
-**Result**
+{% code-tabs-item title="Result" %}
 ```json
 {
   "data": {
@@ -51,11 +53,15 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ### Nested/multi-field sorting
 
 Results from your query can be sorted by attributes on related tables, as well as using multiple sort objects. They're ranked in priority by the order they're recieved in.
 
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query {
   postsList(sort: [
@@ -78,7 +84,9 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
 
+{% code-tabs-item title="Result" %}
 ```json
 {
   "data": {
@@ -124,5 +132,5 @@ query {
   }
 }
 ```
-
-
+{% endcode-tabs-item %}
+{% endcode-tabs %}

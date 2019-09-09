@@ -3,7 +3,8 @@
 ### Using filters in queries
 Query list of records that are filtered. Notice the `filter` argument.
 
-**Query**
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query {
   postsList(filter: {
@@ -21,9 +22,9 @@ query {
   }
 }
 ```
-
-**Result**
-```javascript
+{% endcode-tabs-item %}
+{% code-tabs-item title="Result" %}
+```json
 {
   "data": {
     "postsList": {
@@ -41,11 +42,14 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ### Conditional Filters
 Conditional filters utilize the `AND` and `OR` keys. 
 
-**Query**
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query {
   postsList(filter: {
@@ -63,8 +67,8 @@ query {
   }
 }
 ```
-
-**Result**
+{% endcode-tabs-item %}
+{% code-tabs-item title="Result" %}
 ```javascript
 {
   "data": {
@@ -83,20 +87,23 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ##### Using `AND`
 When `AND` is specified, all filter objects must return *truthy*. 
 
-**Query**
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query {
   postsList(filter: {
-  	/* 1 to N filters can be specified */
-   	AND: [
+    /* 1 to N filters can be specified */
+    AND: [
       {
         title: {
-    			contains: "Possum"
-      	}
+          contains: "Possum"
+        }
       },
       {
         author: {
@@ -105,7 +112,7 @@ query {
           }
         }
       }
-  	]
+    ]
   }) {
     items {
       title
@@ -116,8 +123,8 @@ query {
   }
 }
 ```
-
-**Result**
+{% endcode-tabs-item %}
+{% code-tabs-item title="Result" %}
 ```json
 {
   "data": {
@@ -134,19 +141,22 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ##### Using `OR`
 When `OR` is specified, at least one filter object must return *truthy*. 
 
-**Query**
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query {
   postsList(filter: {
-   	OR: [
+    OR: [
       {
         title: {
-    			contains: "Possum"
-      	}
+          contains: "Possum"
+        }
       },
       {
         author: {
@@ -155,7 +165,7 @@ query {
           }
         }
       }
-  	]
+    ]
   }) {
     items {
       title
@@ -166,8 +176,8 @@ query {
   }
 }
 ```
-
-**Result**
+{% endcode-tabs-item %}
+{% code-tabs-item title="Result" %}
 ```json
 {
   "data": {
@@ -196,18 +206,21 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ### Nested Filters
 Filters, and all their elements, can be nested to satisfy more complex specs.
 
-**Query**
+{% code-tabs %}
+{% code-tabs-item title="Query" %}
 ```javascript
 query {
   postsList(filter: {
-   	OR: [
+    OR: [
       {
         title: {
-    			contains: "Possum"
+          contains: "Possum"
         }
       },
       {
@@ -234,7 +247,7 @@ query {
           }
         ]
       }
-  	]
+    ]
   }) {
     items {
       title
@@ -246,8 +259,8 @@ query {
   }
 }
 ```
-
-**Result**
+{% endcode-tabs-item %}
+{% code-tabs-item title="Result" %}
 ```json
 {
   "data": {
@@ -279,9 +292,11 @@ query {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ### Filter Types
-Depending on a field type, different filter predicates are available.
+Depending on a field type, different filter predicates are available. 
 
 ##### ID
 When filtering by a field of type ID, the available predicates are:
@@ -342,3 +357,8 @@ When filtering by a relation, the available predicates are:
 * some: [tableName]Filter
 * every: [tableName]Filter
 * none: [tableName]Filter
+
+##### Users Table
+The *Users* has two special conditional filters that can get used. They are referential to a user record and the logged in user. For example, was a *Post.createdBy* the logged in user?
+* is_self: Boolean
+* not_self: Boolean
