@@ -19,14 +19,10 @@ Whenever a table is added to a work space, four GraphQL mutation operations are 
 ### Relationships
 A cool feature of 8base API is the ability to create related objects while creating or updating parent objects. The following operations on relationships are supported:
 
-* **Create**
-  * Create and relate child objects.
-* **connect**
-  * Connect existing objects in addition to already connected objects.
-* **reconnect**
-  * (-update mutation only). Replace old connected objects with a new set of connected objects.
-* **disconnect**
-  * (-update mutation only). Disconnect connected object(s)
+* **Create**: Create and relate child objects.
+* **Connect**: Connect existing objects in addition to already connected objects.
+* **Reconnect**: Replace old connected objects with a new set of connected objects (update mutation only).
+* **Disconnect**: Disconnect connected object(s) (update mutation only).
 
 ### Arguments
 8base accepts to the following mutation arguments, depending on the operation.
