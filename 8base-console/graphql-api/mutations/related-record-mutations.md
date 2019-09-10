@@ -19,8 +19,11 @@ Whether when creating or updating a parent record, one or more child records can
 
 {% code-tabs %}
 {% code-tabs-item title="Query" %}
-The *author* record's *bio* is gets updated while a new *Post* is being created and associated.
 ```javascript
+/**
+ * The author record's bio is gets updated while 
+ * a new Post is being created and associated.
+ */
 mutation {
   authorUpdate(filter: {
     name: "Huxley"
@@ -68,8 +71,11 @@ One or more records can be connected using a mutation that associates them - whe
 
 {% code-tabs %}
 {% code-tabs-item title="Query" %}
-The *author* gets changed to the *author* named "Stevens" using *connect*.
 ```javascript
+/**
+ * The author gets changed to the author 
+ * named "Stevens" using connect.
+ */
 mutation {
   postUpdate(filter: {
     title: "Can't stop the Possum"
@@ -89,7 +95,6 @@ mutation {
 }
 ```
 {% endcode-tabs-item %}
-
 {% code-tabs-item title="Result" %}
 ```json
 {
@@ -111,8 +116,10 @@ All related records can be *dissasociated* from a record, while *connecting* one
 
 {% code-tabs %}
 {% code-tabs-item title="Query" %}
-All posts belonging to the *author* Huxley are changed to the new set.
 ```javascript
+/**
+ * All posts belonging to the author Huxley are changed to the new set.
+ */
 mutation {
   authorUpdate(filter: {
     name: "Huxley"
@@ -137,7 +144,6 @@ mutation {
 }
 ```
 {% endcode-tabs-item %}
-
 {% code-tabs-item title="Result" %}
 ```json
 {
@@ -167,8 +173,11 @@ One or more records can be disconnected using a mutation - whether the relations
 
 {% code-tabs %}
 {% code-tabs-item title="Query" %}
-All posts belonging to the *author* Huxley are changed to the new set.
 ```javascript
+/**
+ * All posts belonging to the author 
+ * Huxley are changed to the new set.
+ */
 mutation {
   authorUpdate(filter: {
     name: "Huxley"
@@ -190,7 +199,6 @@ mutation {
 }
 ```
 {% endcode-tabs-item %}
-
 {% code-tabs-item title="Result" %}
 ```json
 {
