@@ -30,9 +30,11 @@
     * [Pagenated list queries](8base-console/graphql-api/queries/paginated-query-results.md)
     * [Combining arguments](8base-console/graphql-api/queries/combining-arguments.md)
     * [Combining queries](8base-console/graphql-api/queries/combining-queries.md)
-    * [Variables, aliases, and fragments](8base-console/graphql-api/queries/variables-aliases-fragments.md)
 
-  * [Mutations](8base-console/graphql-api/mutations.md)
+  * [Mutations](8base-console/graphql-api/mutations/README.md)
+    * [Single record mutations](8base-console/graphql-api/mutations/single-record-mutations.md)
+    * [Related record mutations](8base-console/graphql-api/mutations/related-record-mutations.md)
+
   * [Subscriptions](8base-console/graphql-api/subscriptions.md)
   * [Variables](8base-console/graphql-api/variables.md)
   * [Error Handling](8base-console/graphql-api/error_handling.md)
