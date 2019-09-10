@@ -3,14 +3,10 @@
 ### Mutating related records
 You can create, connect, reconnect, and disconnect related table records using 8base's auto-generated GraphQL mutation operations.
 
-* **Create**
-  * Create and relate child objects.
-* **connect**
-  * Connect existing objects in addition to already connected objects.
-* **reconnect**
-  * (-update mutation only). Replace old connected objects with a new set of connected objects.
-* **disconnect**
-  * (-update mutation only). Disconnect connected object(s)
+* **Create**: Create and relate child objects.
+* **Connect**: Connect existing objects in addition to already connected objects.
+* **Reconnect**: Replace old connected objects with a new set of connected objects (update mutation only).
+* **Disconnect**: Disconnect connected object(s) (update mutation only).
 
 ***Note**: Some examples will use [aliases](../README.md) to show side by side the use of `data.id` versus `filter`. All examples work without aliases.*
 
