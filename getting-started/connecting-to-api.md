@@ -2,6 +2,8 @@
 
 8base provisions all database tables with over one-dozen built-in GraphQL schemas. These resources allow you to perform any Create, Read, Update and Delete \(CRUD\) action needed to effectively manage your data. Additionally, it doesn't matter what technology you're using for a client - or server - application. As long as you can perform web requests, you'll be able to connect to your 8base workspace endpoints.
 
+{% youtube src="https://www.youtube.com/watch?v=gLM-Fc6gWlE" %}{% endyoutube %}
+
 ### Setup
 
 In the following examples, we've made a few assumptions \(feel free to re-create them for your learnings sake!\). Those assumptions are the following:
