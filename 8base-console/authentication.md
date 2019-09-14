@@ -41,6 +41,8 @@ In most applications, Users records are created as a part of a sign-up flow. How
 Under the hood, 8base utilizes [Auth0](https://auth0.com/) to manage your users' identities and ensure the best security standards. All user accounts are by default stored in an Auth0 account that's managed by 8base. For upgraded workspace plans, the option of connecting one's Auth0 account or an OpenID provider is available.
 
 ### 8base Authentication
+{% youtube src="https://www.youtube.com/watch?v=BTexF_yxrC0&feature=youtu.be" %}{% endyoutube %}
+
 To create an *Authentication Profile*, navigate to the `Settings > Authentication` and press the `+` button. The form that appears can be completed using the following fields described.
 
 * **Name**: A name that's descriptive to understanding what this profile does. In this sample case, you can replace My Auth in the screenshot above with a name like Guest User Auth.
