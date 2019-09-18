@@ -44,6 +44,7 @@
   * [Triggers](8base-console/custom-functions/triggers.md)
   * [Tasks](8base-console/custom-functions/tasks.md)
   * [Resolvers](8base-console/custom-functions/resolvers.md)
+  * [Debugging](8base-console/custom-functions/debugging.md)
 
 ## Development Tools
 
