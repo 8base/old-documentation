@@ -28,6 +28,7 @@ Like most great things, 8base is a work in progress. As a consequence of that, o
 
 That's where YOU come in. 
 
+🎉 **8base's awesome contributors** 🎉
 <!-- ALL-CONTRIBUTORS-LIST:START -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
