@@ -1,0 +1,22 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "8Base Documentation",
+  "devDependencies": {
+    "all-contributors-cli": "^6.9.1"
+  },
+  "scripts": {
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/8base/Documentation.git"
+  },
+  "author": "8base, Inc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/8base/Documentation/issues"
+  },
+  "homepage": "https://github.com/8base/Documentation#readme"
+}
