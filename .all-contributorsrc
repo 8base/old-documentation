@@ -56,6 +56,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "darkbasic",
+      "name": "Niccolò Belli",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1047358?v=4",
+      "profile": "http://www.linuxsystems.it/",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "commitConvention": "none"

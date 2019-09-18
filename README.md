@@ -38,6 +38,7 @@ That's where YOU come in.
     <td align="center"><a href="https://github.com/sebscholl"><img src="https://avatars3.githubusercontent.com/u/13649537?v=4" width="100px;" alt="Seb Scholl"/><br /><sub><b>Seb Scholl</b></sub></a><br /><a href="https://github.com/8base/Documentation/commits?author=sebscholl" title="Documentation">📖</a> <a href="[🎱]("8base")," title="8base">🎱</a> <a href="https://github.com/8base/Documentation/issues?q=author%3Asebscholl" title="Bug reports">🐛</a> <a href="#ideas-sebscholl" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://twitter.com/_marktani"><img src="https://avatars1.githubusercontent.com/u/1780597?v=4" width="100px;" alt="Nilan Marktanner"/><br /><sub><b>Nilan Marktanner</b></sub></a><br /><a href="https://github.com/8base/Documentation/commits?author=marktani" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/mikeaustin"><img src="https://avatars1.githubusercontent.com/u/343144?v=4" width="100px;" alt="Mike Austin"/><br /><sub><b>Mike Austin</b></sub></a><br /><a href="https://github.com/8base/Documentation/commits?author=mikeaustin" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://www.linuxsystems.it/"><img src="https://avatars1.githubusercontent.com/u/1047358?v=4" width="100px;" alt="Niccolò Belli"/><br /><sub><b>Niccolò Belli</b></sub></a><br /><a href="https://github.com/8base/Documentation/issues?q=author%3Adarkbasic" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

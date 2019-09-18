@@ -5,7 +5,7 @@
 The file has two main sections:
 
 * `functions` - list and configure all your custom functions. Read more on how to configure functions [here](../../8base-console/custom-functions/README.md). 
-* `permissions` - list custom permissions that can be used in your code. More [here](../../8base-console/roles-permissions.md).
+* `permissions` - list custom permissions that can be used in your code. More [here](../../8base-console/roles-and-permissions.md).
 
 ### Example 8base.yml
 
