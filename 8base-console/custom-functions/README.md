@@ -14,9 +14,9 @@ CFs in 8base are essentially AWS Lambdas that get enriched with access to your w
 There are 4-types of CFs made available on 8base that we will go over in depth in the following 4 sections. They are:
 
 * [**Resolvers**](./resolvers.md): For extending your GraphQL API
-* [**Webhooks**](./webhooks.md): For declaring RESTful endpoints (GET, POST, DELETE, etc...)
-* [**Triggers**](./triggers.md): For functions that require event-based execution
-* [**Tasks**](./tasks.md): For functions that need to be scheduled and re-occuring (cron jobs)
+* [**Webhooks**](./webhooks.md): For RESTful endpoints (GET, POST, DELETE, etc...)
+* [**Triggers**](./triggers.md): For functions requiring event-based execution
+* [**Tasks**](./tasks.md): For invocable and scheduled (cron) functions
 
 All CFs must be declared in your projects 8base.yml file.
 
@@ -46,28 +46,50 @@ The context argument - `ctx` - exposes 8base GraphQL and other APIs. It can be u
 
 ```javascript
 // Code...
-ctx.api.gqlRequest(QUERY, { ...parameters });
+ctx.api.gqlRequest(QUERY, { ...variables });
 ```
+
+The `gqlRequest` method accepts an optional options object as it's third argument. On that `options` object, the `checkPermissions` option is available. By default, `checkPermissions=true` and any query run from inside the function gets scoped to the requester's permissions. When set to `false`, the query runs without checking permissions.
+
+```javascript
+if (runWithRolesEnforced) {
+	ctx.api.gqlRequest(QUERY, VARIABLES);
+} 
+else if (runWithoutRolesEnforced) {
+	ctx.api.gqlRequest(QUERY, VARIABLES, { checkPermissions: false });
+}
+```
+
+For obvious security reasons, `checkPermissions` is ONLY available from within custom functions. It cannot be used when making requests from client applications.
 
 ### Managing Dependencies
 8base deploys CFs to a Node.js 8.10 runtime environment in which any compatible NPM dependencies are supported. On deploy, the system will check whether or not your dependencies have been installed and handle that accordingly. As expected, deploys run significantly faster when dependencies are installed locally. Feel free to use either NPM or Yarn as your package manager during development.
 
 ### Development Tips
-CFs are developed in a local development environment and then deployed to a given workspace using the [8base CLI](../../development-tools/cli/README.md). When in development, they can be invoked locally for testing purposes. A folder structure we suggest when developing CFs locally is to have a `mocks` directory containing any desired request mock.
+CFs are developed in a local development environment and then deployed to a given workspace using the [8base CLI](../../development-tools/cli/README.md). When in development, they can be invoked locally for testing purposes. 
+
+Using the `8base generate` command is recommended when creating new functions. Doing so provides a recommended folder structure that helps keep everything organized when developing CFs locally, including a `mocks` directory and management of the `8base.yml` file.
 
 ```bash
-my-project
-├── 8base.yml
-└── src
-    └── resolvers
-        ├── mocks
-	    │   └── request.json
-        ├── hello.graphql
-        └── hello.ts
+$ 8base generate resolver findPossumly
+
+=> Updated file 8base.yml
+Created file src/resolvers/findPossumly/handler.ts
+Created file src/resolvers/findPossumly/mocks/request.json
+Created file src/resolvers/findPossumly/schema.graphql
+
+Boom! Your new findPossumly function has been successfully generated. To add any required settings, check out its configuration block in your projects 8base.yml file.
 ```
 
-The benefit of this is the ability to quickly test your functions locally using the CLI and a well defined request object. For example - we're in the root of this 8base project - I'd be able to invoke my function locally using the `request.json` mock by running:
+Inside a functions `handler.(js|ts)` file the command that's needed to begin invoking the function locally get automatically generated - along with the required resources for its execution. The benefit of this is the ability to quickly test your functions locally using the CLI and a well defined request object.
 
-```bash
-$ 8base invoke-local helloResolver -p src/resolvers/mocks/request.json
+```javascript
+/**
+ * src/resolvers/findPossumly/handler.ts
+ * 
+ * To invoke this function locally, run:
+ *  8base invoke-local findPossumly -p src/resolvers/findPossumly/mocks/request.json
+ */
+
+// Code...
 ```
