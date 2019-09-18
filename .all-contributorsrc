@@ -1,6 +1,6 @@
 {
-  "projectName": "8base-docs",
-  "projectOwner": "sebscholl",
+  "projectName": "Documentation",
+  "projectOwner": "8base",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
@@ -14,7 +14,7 @@
     "8base": {
       "symbol": "🎱",
       "description": "8base",
-      "link": "[<%= symbol %>](<%= url %> \"<%= description %>\"),"
+      "link": "[<%= symbol %>](\"<%= description %>\"),"
     }
   },
   "contributors": [
@@ -37,6 +37,15 @@
         "8base",
         "bug",
         "ideas"
+      ]
+    },
+    {
+      "login": "marktani",
+      "name": "Nilan Marktanner",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1780597?v=4",
+      "profile": "https://twitter.com/_marktani",
+      "contributions": [
+        "doc"
       ]
     }
   ],

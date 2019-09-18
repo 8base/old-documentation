@@ -50,3 +50,17 @@ Examples are sooo important in great documentation and are very helpful for the 
 ### 3. Contributing Articles
 You can help improve the 8base Docs by making them more coherent, consistent, or readable and adding missing information, correcting factual errors, fixing typos, and bringing them up to date with the latest 8base features. It's honestly an open-book. If you think something is useful, others probably will too.
 
+<!-- ALL-CONTRIBUTORS-LIST:START -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/kelseyyim"><img src="https://avatars3.githubusercontent.com/u/32113193?v=4" width="100px;" alt="Kelsey Yim"/><br /><sub><b>Kelsey Yim</b></sub></a><br /><a href="https://github.com/8base/Documentation/commits?author=kelseyyim" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/sebscholl"><img src="https://avatars3.githubusercontent.com/u/13649537?v=4" width="100px;" alt="Seb Scholl"/><br /><sub><b>Seb Scholl</b></sub></a><br /><a href="https://github.com/8base/Documentation/commits?author=sebscholl" title="Documentation">📖</a> <a href="[🎱]("8base")," title="8base">🎱</a> <a href="https://github.com/8base/Documentation/issues?q=author%3Asebscholl" title="Bug reports">🐛</a> <a href="#ideas-sebscholl" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://twitter.com/_marktani"><img src="https://avatars1.githubusercontent.com/u/1780597?v=4" width="100px;" alt="Nilan Marktanner"/><br /><sub><b>Nilan Marktanner</b></sub></a><br /><a href="https://github.com/8base/Documentation/commits?author=marktani" title="Documentation">📖</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
