@@ -53,7 +53,7 @@ As you may know by now, 8base gives developers a Serverless + GraphQL backend th
 
 ```text
 # Change into the app-example/server directory
-cd app-example/server
+cd server
 
 # Install required dependencies
 npm install
