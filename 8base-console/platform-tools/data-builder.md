@@ -4,39 +4,39 @@ The 8base Data Builder is a data modeling UI for defining database tables, field
 
 This means that all Create, Read, Update, and Delete (CRUD) actions, as well as real-time connections (websockets) are immediately available to use via the workspace's unique API endpoint. 
 
-Data Builder is found in the management console's `Data` view. It is packed with cool features. For example, `File` field type allows you to seamlessly attach files to records and `Smart` fields make it simple to implement complex validations for addresses or phone number.
+Data Builder is found in the management console's `Data` view. It is packed with cool features. For example, `File` fields allow you to seamlessly attach files to records and `Smart` fields make it easy to implement complex validations for addresses or phone number.
 
 ![8Base Data Builder](../../.gitbook/assets/data-builder-new-table.gif)
 
 ## Tables
-In the background, 8base spins up an Aurora MySQL database instance for your workspace. Aurora is a relational database that can handle complex queries and is ACID (Atomicity, Consistency, Isolation, Durability). When tables are created, updated, and deleted in a workspace, 8base handles the corresponding migrations and executes them immediately against the database. Therefore, you're database is always reflected by the *Data Builder* UI - showing all available fields, validations, tables, and relations.
+In the background, 8base spins up an Aurora MySQL database instance for your workspace. Aurora is a relational database that can handle complex queries and is ACID (Atomicity, Consistency, Isolation, Durability) compliant. When tables are created, updated, and deleted in a workspace, 8base handles the corresponding migrations and executes them immediately against the database. Therefore, you're database is always reflected by the *Data Builder* UI - showing all available fields, validations, tables, and relations.
 
 ### Creating Tables
-New tables get created using the "+ New Table" button. An input that prompts for a *name* value will appear, with which the table can named. All tables require unique names.
+New tables are created using the "+ New Table" button. An input that prompts for a *name* value will appear, with which the table can named. All tables require unique names.
 
-As soon as a table gets created, corresponding GraphQL schema types and query, mutation, and subscription resolvers will be generated automatically.
+As soon as a table is created, corresponding GraphQL schema types and query, mutation, and subscription resolvers will be generated automatically.
 
 ![Creating new table's in the Data Builder](../../.gitbook/assets/data-builder-new-table.png)
 
 ### Updating Tables
-After a table gets created, fields and relations can get defined. All updates to a table are published in real-time, giving a seemless experience between defining a data model and having it be highly available. 
+After a table is created, fields and relations can get defined. All updates to a table are published in real-time, giving a seemless experience between defining a data model and having it be highly available. 
 
-As soon as a table gets updated, its corresponding GraphQL schema types and query, mutation, and subscription resolvers will be updated automatically.
+As soon as a table is updated, its corresponding GraphQL schema types and query, mutation, and subscription resolvers will be updated automatically.
 
 To ensure that table related errors and mistakes are minimized, 8base protects against **dozens** of harmful actions. Some of these include:
 
 * A prompt that requires a *Default Value* will appear when changing a non-mandatory field to being mandatory.
 * Date, Number, and Text field values are auto-magically converted when an existing field *type* is updated.
-* When changing a non-unique field to being unique, current records get validated for having unqiue values.
+* When changing a non-unique field to being unique, current records are validated for having unqiue values.
 * Many more!
 
 ### Deleting Tables
-A confirmation input that requires the table name to be typed in appears when attempting to delete a table. Know that deleted tables **cannot** be restored and any existing table records will be lost. Additionally, if any other tables are related to the table being deleted - *belongs to* and *has many*, either specified as mandatory or not - those relations will be severed.
+A confirmation input that requires the table name to be typed in appears when attempting to delete a table. Please know that deleted tables **cannot** be restored and any existing table records will be lost. Additionally, if any other tables are related to the table being deleted - *belongs to* and *has many*, either specified as mandatory or not - those relations will be severed.
 
 ![Deleting table's in the Data Builder](../../.gitbook/assets/data-builder-delete-table.png)
 
 ### Table Relationships
-8base supports 3-types of table relationships to be defined that are congruent with what to expect from relational databases:
+8base supports 3 types of table relationships to be defined that are congruent with what to expect from relational databases:
 
 | Type | *A* to *B* | *B* to *B* |
 | -- | -- | -- |
@@ -46,7 +46,7 @@ A confirmation input that requires the table name to be typed in appears when at
 
 ![Defining relationships in the Data Builder](../../.gitbook/assets/data-builder-making-relationships.gif)
 
-Defining a relationship between two tables can get accomplished by dragging and dropping one table onto another, as well as by selecting `Table` as the Data Type when creating a new table field.
+Defining a relationship between two tables can be accomplished by dragging and dropping one table onto another, as well as by selecting `Table` as the Data Type when creating a new table field.
 
 #### Table Configurations
 For specifying *has many*, *has one* and *belongs to* relationships between tables.
@@ -74,12 +74,12 @@ Custom tables are the tables created in any workspace by the administrator. They
 System tables - like *Users* - are tables that come delivered with a workspace. They are fully extensible, meaning that new fields and relations can be added to them. However, they can neither be deleted, renamed, nor their existing fields changes.
 
 ##### View Tables
-View Tables are virtual tables that aggregate fields from several or more tables into a single *view*. Under the hood, they are based on the result-set of an SQL statement. In a workspace, they can get created using the `viewCreate` GraphQL mutation in the API Explorer. 
+View Tables are virtual tables that aggregate fields from several or more tables into a single *view*. Under the hood, they are based on the result-set of an SQL statement. In a workspace, they can be created using the `viewCreate` GraphQL mutation in the API Explorer. 
 
 <small>For more information on views, [check this out](https://www.w3schools.com/sql/sql_view.asp).</small>
 
 ## Fields
-8base offers all database field types required for building software - and some! Fields with the type File, Smart, and others have extended capabilities that streamline specific tasks - such as, managing file/image uploads and validating addresses and phone numbers.
+8base offers all database field types required for building software - and some! Fields with the type File, Smart, and others have extended capabilities that streamline specific tasks - such as managing file/image uploads and validating addresses and phone numbers.
 
 ### Creating Fields
 Every field gets defined on a table and requires a *name* and a *type*. Field names must be unique on the table, irresepective of their type. Once a new field has been created, a configurations modal will appear allowing for further customizations - each being specific to the field *type*.
@@ -93,7 +93,7 @@ Fields are easily updated using the same interface used to create them. Updates 
 The "X" found on the right side of a field's name input gets clicked to delete a table. A confirmation modal that requires the field name to be typed in appears when attempting to delete a field. Deleted tables **cannot** be restored and any existing data be lost.
 
 ### Field Types
-8base offer 8 fields types that can be configured to fit almost any data requirement.
+8base offer 8 field types that can be configured to fit almost any data requirement.
 
 #### Text 
 For storing *String* data.

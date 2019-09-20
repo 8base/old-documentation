@@ -3,7 +3,7 @@
 Every 8base workspace initializes with native support for signing up, managing, and authorizing your application's Users. This feature eliminates the requirement of managing emails and passwords or social sign-on providers without compromising on access to your user data.
 
 ## Users
-**Users** is defined as a *System Table* in 8base, meaning that the table is added and required in every workspace. That said, it's fully customizable using the Data Builder and can configure to your application's requirements.
+**Users** is defined as a *System Table* in 8base, meaning that the table is added and required in every workspace. That said, it's fully customizable using the Data Builder and can be configured to your application's requirements.
 
 By default, the Users table has the following fields defined.
 
@@ -33,19 +33,19 @@ By default, the Users table has the following fields defined.
 ````
 
 ### Managing Users in the Console
-In most applications, Users records are created as a part of a sign-up flow. However, in situations where a User must be created, updated, or deleted manually by an admin, it is easy to do so using the Data Viewer pane when reviewing the Users table.
+In most applications, Users records are created as a part of a sign-up flow. However, in situations where a User must be created, updated, or deleted manually by an admin, it's easy to do so using the Data Viewer pane when reviewing the Users table.
 
 ![Creating a user in the 8base Management Console](../.gitbook/assets/data-viewer-create-user.png)
 
 ## Authorization
-Under the hood, 8base utilizes [Auth0](https://auth0.com/) to manage your users' identities and ensure the best security standards. All user accounts are by default stored in an Auth0 account that's managed by 8base. For upgraded workspace plans, the option of connecting one's Auth0 account or an OpenID provider is available.
+Under the hood, 8base utilizes [Auth0](https://auth0.com/) to manage your users' identities and utilize the best security standards. All user accounts are by default stored in an Auth0 account that's managed by 8base. For upgraded workspace plans, the option of connecting one's Auth0 account or an OpenID provider is available.
 
 ### 8base Authentication
 {% youtube src="https://www.youtube.com/watch?v=BTexF_yxrC0&feature=youtu.be" %}{% endyoutube %}
 
 To create an *Authentication Profile*, navigate to the `Settings > Authentication` and press the `+` button. The form that appears can be completed using the following fields described.
 
-* **Name**: A name that's descriptive to understanding what this profile does. In this sample case, you can replace My Auth in the screenshot above with a name like Guest User Auth.
+* **Name**: A name that describes what this profile does. In this sample case, you can replace My Auth in the screenshot above with a name like Guest User Auth.
 
 * **Type**: Select 8base authentication
 
@@ -54,13 +54,13 @@ To create an *Authentication Profile*, navigate to the `Settings > Authenticatio
 * **Roles**: Roles can be either Guest, Administrator, or any custom role. Multiple-roles can be selected.
 
 #### Client information
-An authentication profile's corresponding client-side information is generated once created. Client-side information allows for connecting client applications to the 8base backend and any corresponding authentication settings. Client ID and Domain are not sensitive strings and get added to one or more client apps.
+An authentication profile's corresponding client-side information is generated once created. Client-side information allows for connecting client applications to the 8base back-end and any corresponding authentication settings. Client ID and Domain are not sensitive strings and are added to one or more client apps.
 
 #### Configure Callback URLs
-A callback URL is an endpoint that gets invoked after a user authenticates. Users are not able to log into an application and receive an error if this field is left empty. By default, the callback URL `http://localhost:3000/auth/callback` is set. Keep it or replace it with an existing URL from your application.
+A callback URL is an endpoint that is invoked after a user authenticates. Users are not able to log into an application and receive an error if this field is left empty. By default, the callback URL `http://localhost:3000/auth/callback` is set. Keep it, or replace it with an existing URL from your application.
 
 #### Configure Logout URLs
-The logout URL is where a user gets returned to after logging out. Specify them in the Allowed Logout URLs field. The default logout URL is http://localhost:3000/ and attempting to log out when no logout URL was provided displays an error.
+The logout URL is where a user is sent after logging out. Specify them in the Allowed Logout URLs field. The default logout URL is http://localhost:3000/ and attempting to log out when no logout URL was provided displays an error.
 
 ### Your Own Auth0 Account
 There are only a few steps required to set up your Auth0 account on 8base. First, navigate to the `Settings > Authentication` of your workspace and create a new *Authentication Profile*. In the form that appears, select *Your Auth0 Account*.
@@ -70,24 +70,24 @@ All required information is in the settings of your Auth0 account.
 ![Connecting your Auth0 account](../.gitbook/assets/auth-own-auth0.png)
 
 ### OpenID Connect
-The ability to set up an authentication provider that supports the OpenID specification is available for workspaces on a *Profession* or *Enterprise* plan. Some light setup required in the Management Console and a custom *resolver* function needs to be deployed to your project's workspace to use this feature.
+The ability to set up an authentication provider that supports the OpenID specification is available for workspaces on a *Professional* or *Enterprise* plan. Some light setup required in the Management Console and a custom *resolver* function needs to be deployed to your project's workspace to use this feature.
 
 ### Sign-on Providers
-Sign-on providers can easily get enabled/disabled in the *8base Authentication Settings* section of the workspace's Authentication view. At least one authentication profile with the type set to "8base Authentication" is required to use this feature.
+Sign-on providers can easily be enabled/disabled in the *8base Authentication Settings* section of the workspace's Authentication view. At least one authentication profile with the type set to "8base Authentication" is required to use this feature.
 
 ![Creating an Authentication Profile](../.gitbook/assets/signon-provider-form.png)
 
-Each sign-on provider requires a *Client ID* and *Client Secret*. These credentials get collected from the sign-on provider(s) you want to configure. Once collected, enter the credentials into the relevant sign-on provider form before clicking "Enable Sign-On Provider" and "Save."
+Each sign-on provider requires a *Client ID* and *Client Secret*. These credentials are collected from the sign-on provider(s) you want to configure. Once collected, enter the credentials into the relevant sign-on provider form before clicking "Enable Sign-On Provider" and "Save."
 
 ![Enabling a Sign-on Provider](../.gitbook/assets/signon-provider-config.png)
 
 #### Configuring the OpenID Settings
-In the 8base Management Console, you're able to configure one or more authentication providers under `Settings > Authentication`. Click the "+" button and fill out the provider form, selecting *OpenID* as the type and adding an OpenID Provider URL. Once completed, the record gets saved to your *Authentication Profiles*.
+In the 8base Management Console, you're able to configure one or more authentication providers under `Settings > Authentication`. Click the "+" button and fill out the provider form, selecting *OpenID* as the type and adding an OpenID Provider URL. Once completed, the record is saved to your *Authentication Profiles*.
 
 ![Adding an OpenID Authentication Provider in 8base](../.gitbook/assets/openid-settings.png)
 
 #### getToken Resolver
-A custom *getToken* resolver mutation function needs to must be deployed to the workspace. This can be done by installing the [8base CLI](../development-tools/cli/README.md).
+A custom *getToken* resolver mutation function must be deployed to the workspace. This can be done by installing the [8base CLI](../development-tools/cli/README.md).
 
 In the provided *getToken* function, the relevant environment variables are accessed - if set in the Management Console - to provide the required credentials and configurations. A request is then made to the authentication provider to query or create the authenticating user from the database and return the user's token.
 
@@ -205,7 +205,7 @@ extend type Mutation {
 {% endcode-tabs %}
 
 #### Setting Environment Variables
-To set environment variables that can get accessed from within custom functions, open up your workspace, and navigate to `Settings > Environment Variables`. Here, any key-value pair may be securely stored and accessed from within your functions at `process.env.<ENV_VARIABLE_KEYNAME>`.
+To set environment variables that can be accessed from within custom functions, open up your workspace, and navigate to `Settings > Environment Variables`. Here, any key-value pair may be securely stored and accessed from within your functions at `process.env.<ENV_VARIABLE_KEYNAME>`.
 
 ![Environment variables manager in the 8base Management Console](../.gitbook/assets/openid-env-variables.png)
 
