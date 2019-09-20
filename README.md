@@ -48,4 +48,6 @@ If you need help getting started, just reach out to us at [support@8base.com](ma
 Examples are sooo important in great documentation and are very helpful for the 8base community. You can help by providing complete code examples, or by editing the current ones. Honestly, if you think "a, b, and c examples is terrible and I could make them better", please do! We won't take it personally...
 
 ### 3. Contributing Articles
-You can help improve the 8base Docs by making them more coherent, consistent or readable, adding missing information, correcting factual errors, fixing typos, and bringing them up to date with the latest 8base features. It's honestly an open-book. If you think something is useful, others probably will too.
+You can help improve the 8base Docs by making them more coherent, consistent, or readable and adding missing information, correcting factual errors, fixing typos, and bringing them up to date with the latest 8base features. It's honestly an open-book. If you think something is useful, others probably will too.
+
+Examples are sooo important in great documentation and are very helpful for the 8base community. You can help by providing complete code examples, or by editing the current ones. Honestly, if you think "a, b, and c examples are terrible and I could make them better", please do! We won't take it personally...
