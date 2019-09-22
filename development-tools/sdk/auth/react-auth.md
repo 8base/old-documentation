@@ -97,7 +97,7 @@ import { withAuth, gql } from "@8base/react-sdk";
 const USER_INFO = gql`
   query UserQuery {
     user {
-      firstName
+      id
     }
   }
 `;
