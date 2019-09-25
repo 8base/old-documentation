@@ -32,7 +32,7 @@ Assuming you're all set up and able to run `npm` commands, lets go ahead and ins
 
 ```text
 # Install 8base globally
-npm install -g 8base
+npm install -g 8base-cli
 ```
 
 ## 4. Clone the Demo App

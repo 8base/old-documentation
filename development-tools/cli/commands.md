@@ -1,130 +1,151 @@
-# Commands
+# CLI Commands
 
-Below are the list of commands supported by the CLI. You can always get the current list of commands using:
-
-`8base help`
-
-To view individual command help:
-
-`8base [COMMAND_NAME] help` 
-
-### deploy
-Deploy an application.
+Below is a list of available CLI commands. You can always get the most current list of commands using the CLI. Just run:
 
 ```sh
-8base deploy
+# See all commands
+$ 8base --help
+
+# Detail specific command
+$ 8base [COMMAND_NAME] --help
 ```
 
-### describe
-Describe resulting application artifacts.
+### Commands
+When running CLI commands, certain option flags are always available. Currently, they are:
+
+OPTIONS:  
+* `--debug`, `-d`  Turn on debug logs                                                     
+* `--help`, `-h`   Show help descriptions
+
+##### deploy
+Deploys project in current directory to 8base using `8base.yml` config file. To use this command, you must be in the root directory of your 8base project.
 
 ```sh
-8base describe
+$ 8base deploy [OPTIONS]
 ```
 
-### help
-Display help. 
+##### describe
+Describes your 8base project’s functions and their types through 8base.yml file, as well as retrieve your workspace endpoint.
 
 ```sh
-8base [COMMAND] help
+$ 8base describe [OPTIONS]
 ```
 
-### init
-Initialize 8base application in current folder.
+##### init
+Initializes a new project with suggested directory structure and example custom functions.
 
 ```sh
-8base init [DIRECTORY]
+$ 8base init [PROJECT_NAME]
 ```
 
-> Examples: `8base init` - initialize current folder `8base init my-project` - create folder **my-project** and initialize 
+OPTIONS:   
+* `--functions`, `-f`  	List of functions - type: array, default: 'resolver:resolver', 'task:task', 'webhook:webhook', 'trigger:trigger']
+* `--empty`, `-e` 		Skip examples - type: boolean, default: false
+* `--mocks`, `-x`     	Included mocks dir and files - type:boolean, default: true
+* `--syntax`, `-s`  	Syntax for the generated file - type: string, default: 'ts', allowed: 'js', 'ts'
+* `--silent`        	Disable printing extra info to the console - type: boolean, default: false
+ 
 
-### invoke
-Invoke deployed function.
+##### invoke
+Invokes a custom function in the production workspace.
 
 ```sh
-8base invoke [FUNCTION NAME] [OPTIONS]
+$ 8base invoke [FUNCTION NAME] [OPTIONS]
 ```
-OPTIONS
- * -j, --data-json input JSON 
- * -p, --data-path path to input JSON
+OPTIONS:
+* `--data-json`, `-j`  Input JSON - type: string
+* `--data-path`, `-p`  Path to input - type: path
+* `--mock`, `-m`       Name of the mock file - type: string
 
-### invoke-local
-Invoke function locally.
+##### invoke-local
+Invokes the custom function in the local development workspace.
 
 ```sh
-  8base invoke-local [FUNCTION NAME] [OPTIONS]
+$ 8base invoke-local [FUNCTION NAME] [OPTIONS]
 ```
 
-OPTIONS
- * -j, --data-json input JSON 
- * -p, --data-path path to input JSON
+OPTIONS: 
+* `--data-json`, `-j`  Input JSON - type: string
+* `--data-path`, `-p`  Path to input - type: path
+* `--mock`, `-m`       Name of the mock file - type: string
 
-### login
-Login with your 8base credentials.
+##### login
+Authenticates the command line user by letting them log into an 8base account.
 
 ```sh
-8base login [OPTIONS]
+$ 8base login [OPTIONS]
 ```
 
-OPTIONS
- * -e, --email user email
- * -p, --password user password
+OPTIONS:  
+* `-e`, `--email`	 User email - type: string
+* `-p`, `--password` User password - type: string
 
-### logout
+EXAMPLES:
+* `8base login`
+* `8base login -e my@email.com -p S3cretP@ssw0rd`
+
+##### logout
 Clears local login credentials and invalidates API session.
 
 ```sh
-8base logout
+$ 8base logout
 ```
 
-### logs
-View function logs.
+##### logs
+View a specific functions production logs.
 
 ```sh
-8base logs [FUNCTION NAME] [OPTIONS]
+$ 8base logs [FUNCTION NAME] [OPTIONS]
 ```
 
-OPTIONS
- * -n, --num number of lines to display (default: 10, max: 100) 
- * -t, --tail continually stream logs
+OPTIONS: 
+* `-n`, `--num` 	Number of lines to display - type: sting, default: 10, max: 100 
+* `-t`, `--tail` 	Continually stream logs - type: boolean
 
-### package
-Package application without deploying .
+##### package
+Package 8base application without deploying it.
  
-`8base package`
+```sh
+$ 8base package [OPTIONS]
+```
 
-### version
+##### version
 Output 8base CLI version.
 
 ```sh
-8base version
+$ 8base version
 ```
 
-### config
-Advanced configuration. Currently only allows to login into a different workspace. 
+##### config
+Allows you to select a default workspace and retrieve the API endpoint URL. 
 
-`8base config [OPTIONS]`
+```sh
+$ 8base config [OPTIONS]
+```
 
-OPTIONS
- * -w, --workspace set current workspace
+OPTIONS:
+* `-w`, `--workspace` set current workspace
 
-### export
-Export current workspace data schema.
+##### export
+Export current - or specified - workspace data schema to a local file
 
-`8base export [OPTIONS]`
+```sh
+$ 8base export [OPTIONS]
+```
 
-OPTIONS
- * -f, --file Destination file
+OPTIONS:  
+* `-f`, `--file` 		Destination file
+* `-w`, `--workspace`  	Custom workspace id
 
-### import
-Import table schema and/or data from a JSON file.
+##### import
+Import 8base schema file and data to the current - or specified - workspace.
 
 ```sh
 8base import OPTIONS
 ```
 
-OPTIONS 
- * -f, --file Path to file with schema
- * --schema Import schema only
- * --data Import data only
-
+OPTIONS:
+* `-f`, `--file` 		Path to file with schema - type: string, required: true
+* `--schema` 			Import schema only - type: boolean, default: true
+* `--data` 				Import data only - type: boolean, default: true
+* `-w`, `--workspace`   Specify workspace id - type: string
