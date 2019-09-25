@@ -42,9 +42,3 @@ OPTIONS
   --debug, -d    Turn on debug logs
   --help, -h     Show help
 ```
-
-You can check that it was installed successfully by running:
-
-```text
-8base help
-```

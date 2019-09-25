@@ -55,6 +55,7 @@
 
 * [CLI](development-tools/cli/README.md)
   * [Commands](development-tools/cli/commands.md)
+  * [Generators](development-tools/cli/generators.md)
 
 * [SDK](development-tools/sdk/README.md)
   * [User Auth](development-tools/sdk/auth/README.md)

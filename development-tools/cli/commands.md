@@ -44,7 +44,15 @@ OPTIONS:
 * `--mocks`, `-x`     	Included mocks dir and files - type:boolean, default: true
 * `--syntax`, `-s`  	Syntax for the generated file - type: string, default: 'ts', allowed: 'js', 'ts'
 * `--silent`        	Disable printing extra info to the console - type: boolean, default: false
- 
+
+##### generate
+Generate projects, functions, and some client side resources
+
+```sh
+$ 8base generate [RESOURCE_NAME] [OPTIONS]
+```
+
+Generators deserve a section of their own! Check it out [here](./generators.md).
 
 ##### invoke
 Invokes a custom function in the production workspace.
