@@ -8,17 +8,16 @@
 > Learn 8base by building a React application.	
 >
 > [**Management Console**](../8base-console/README.md)  
-> Read high-level overview of the 8base's management console.	
+> Read the high-level overview of 8base's management console.	
 >
 > [**Connect to your API**](./connecting-to-api.md)  
-> Explore ways to connect to 8base GraphQL API.	
+> Explore ways to connect to the 8base GraphQL API.	
 >
 > [**GraphQL API**](../8base-console/graphql-api/README.md)  
 > Dive deeper into API concepts like authentication, queries, mutations, subscriptions and files.	
 >
 > [**Custom Functions**](../8base-console/custom-functions/README.md)  
-> Learn how to deploy backend functions in JavaScript/TypeScript using 8base CLI.	
+> Learn how to deploy back-end functions in JavaScript/TypeScript using 8base CLI.	
 >
 > [**Client Tools**](../development-tools/sdk/README.md)  
-> Accelerate front-end development with 8base SDK and Boost UI Kit.	
-
+> Accelerate front-end development with the 8base SDK and Boost UI Kit.	
