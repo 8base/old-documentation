@@ -21,6 +21,3 @@ The `SubscriptionFilter` type is different from filters used in GraphQL queries.
 * **mutation_in**: An array of mutation events on which to listen (create, update, delete).
 * **node**: Normal query filter that allows for scoping of one or more records.
 * **updatedFields**: For specifying which individual fields to observe. 
-
-### Client-side Code
-Check out ...
