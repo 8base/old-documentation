@@ -1,0 +1,978 @@
+commit 5eee9b757d74d5c17ea4f5e2c537aeab79305852
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Tue Oct 1 11:20:13 2019 -0700
+
+    subscriptions docs
+
+commit 2a26f41b3b35f755ed38cfdf5678c0e36c2da6b4
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Tue Oct 1 11:17:32 2019 -0700
+
+    subscriptions docs
+
+commit 867efbaccf1194931678225bde0034458929d953
+Merge: 13ae586 cbac7c9
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Tue Oct 1 11:13:22 2019 -0700
+
+    Merge branch 'master' of github.com:8base/Documentation
+
+commit 13ae586d99bd9481a6749a9f428f2423c2db509a
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Tue Oct 1 11:13:09 2019 -0700
+
+    subscriptions docs
+
+commit cbac7c9d6a059173831a622ef737531d03a070fd
+Merge: 5969eeb 82999f4
+Author: Seb Scholl <sebscholl@gmail.com>
+Date:   Tue Oct 1 09:38:05 2019 -0700
+
+    Merge pull request #11 from vorobeez/react-sdk-seperation-prep
+    
+    fixes react-sdk imports
+
+commit 82999f4d7a6ba0721bf407641d915af2075e4591
+Author: Andrei Firsov <andrei.firsov@8base.com>
+Date:   Tue Oct 1 13:17:15 2019 +0300
+
+    fixes react-sdk imports
+
+commit 5969eebbd31a15b593e9865116c8108e461b3ca7
+Merge: d8102c8 781da18
+Author: Seb Scholl <sebscholl@gmail.com>
+Date:   Mon Sep 30 14:23:20 2019 -0400
+
+    Merge pull request #8 from mikeaustin/master
+    
+    Fix some typos, and try to improve sentence flow
+
+commit d8102c864382845018f83c99f9d1b0b658fec9af
+Merge: 4037790 422ade2
+Author: Seb Scholl <sebscholl@gmail.com>
+Date:   Mon Sep 30 14:18:49 2019 -0400
+
+    Merge pull request #9 from rmacy/patch-1
+    
+    Update guide
+
+commit 40377904d94b520b70b76c0573c6ca83e62401b7
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 25 18:57:00 2019 -0400
+
+    generators
+
+commit 87828bdad899561abe17f0973643ac4ef4e42c46
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 25 18:05:00 2019 -0400
+
+    commands
+
+commit 422ade284361caf183d3969c558c6790cf78e9ac
+Author: Ryan Macy <rmacy@users.noreply.github.com>
+Date:   Sat Sep 21 23:19:30 2019 -0500
+
+    Fix query to get user id
+
+commit 943360cbcd05b1a9672525c11c7ea88a7c843d20
+Author: Ryan Macy <rmacy@users.noreply.github.com>
+Date:   Sat Sep 21 23:12:04 2019 -0500
+
+    Update guide
+    
+    I believe this updates will bring the guide more in-line with what's currently implemented in `sdk` and `apollo-client` since 2.26 introduced many changes -- including hooks!
+
+commit 781da189dc74c7f810251cfdd034136b9aab9a38
+Author: Mike Austin <mike_ekim@yahoo.com>
+Date:   Thu Sep 19 22:49:38 2019 -0700
+
+    Sync with 8base branch
+
+commit 993a74c3079b7ac17a5967ed4f60039d9b21f378
+Author: Mike Austin <mike_ekim@yahoo.com>
+Date:   Thu Sep 19 22:39:19 2019 -0700
+
+    Sync with 8base branch
+
+commit 68176ea311abe9c2ae3f2a19fa9ec0836c803d7c
+Author: Mike Austin <mike_ekim@yahoo.com>
+Date:   Thu Sep 19 22:32:34 2019 -0700
+
+    Sync with 8base branch
+
+commit 4b03b98af146474f8508c48596ddcfb6b6cf3da4
+Author: Mike Austin <mike_ekim@yahoo.com>
+Date:   Thu Sep 19 22:03:10 2019 -0700
+
+    Revert over-use of work ‘utilize’
+
+commit f942412519bab11855941ec821ce6b027a3c05f5
+Author: Mike Austin <mike_ekim@yahoo.com>
+Date:   Thu Sep 19 21:49:48 2019 -0700
+
+    Fix some typos, and try to improve sentence flow
+
+commit 967f1ef453ce9012027791ea2de521641725a960
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Thu Sep 19 11:50:20 2019 -0400
+
+    patch fix for directory
+
+commit 793e4b454c23fd94a3d5e4bdace2aa1b594620a7
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 18 11:08:48 2019 -0400
+
+    fixed dead link
+
+commit 19ff85e0923ae023ac992929a2db139652ec2fe1
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 18 11:04:02 2019 -0400
+
+    mikeaustin as contributor
+
+commit 8fa1e9095b92dab68e27d1ab56c663391e1c84fc
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 18 11:01:02 2019 -0400
+
+    mikeaustin as contributor
+
+commit 3f00317ffd139eb8318fccf16bdd5e764ecea7b2
+Merge: 4c27086 14a6f96
+Author: Seb Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 18 10:59:35 2019 -0400
+
+    Merge pull request #7 from mikeaustin/master
+    
+    Update data-viewer.md
+
+commit 4c2708668216e0e22089de93ef0f79f582c5ad06
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 18 10:57:33 2019 -0400
+
+    contributors list
+
+commit a552531ef7551c206fc4e2a689fe1eb8b19a7358
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 18 10:56:00 2019 -0400
+
+    contributors list
+
+commit 25ba029aa0f20a5a29686069c7753eae71b28db3
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 18 10:46:30 2019 -0400
+
+    readme contributors
+
+commit f68c11e32768a898c42db6f672a0ef82a33d0e3a
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 18 10:42:36 2019 -0400
+
+    readme contributors
+
+commit bb44ca66f45f7cd133dcf69e74cdf1ec1884b9d4
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 18 10:42:13 2019 -0400
+
+    readme contributors
+
+commit 7e2762a8e307a5d4140a50ff93e2ca0e62ae167c
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 18 10:41:55 2019 -0400
+
+    readme contributors
+
+commit 57e02a7d9ec30d5febceaa44ed92e0e5229e247b
+Merge: 1c0fe77 b1aaf81
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 18 10:22:40 2019 -0400
+
+    Merge branch 'master' of github.com:8base/Documentation
+
+commit 1c0fe77df6c5171135d8d133529ef994e14a562d
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 18 10:22:18 2019 -0400
+
+    contributors
+
+commit b1aaf811e768ca652a1229aac0229ab03ab3a6c5
+Merge: 0782df3 53085be
+Author: Seb Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 18 10:15:39 2019 -0400
+
+    Merge pull request #5 from kelseyyim/patch-1
+    
+    Remove typos and add some grammar fixes
+
+commit 0782df3b5419cbaaec97cf985710e03ac785ed5a
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Sep 18 10:13:29 2019 -0400
+
+    Debugging and checkPermissions
+
+commit 14a6f96c1a330456fed23861692ffa4a50f20d3b
+Author: Mike Austin <mike_ekim@yahoo.com>
+Date:   Mon Sep 16 21:32:53 2019 -0700
+
+    Update data-viewer.md
+    
+    A few grammar fixes and typos to get started.
+
+commit 7e3679a7ae8e0400136017c0eda71d77aad3230f
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Sat Sep 14 16:26:22 2019 -0400
+
+    adding video
+
+commit 1f1b63a7883361ee8abac466f00821e9da7751db
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Sat Sep 14 16:26:19 2019 -0400
+
+    adding video
+
+commit f544f74749031b2ad33e7bdc502439e282fc00d5
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Sep 10 10:24:18 2019 -0400
+
+    Fixed missing examples in mutations docs
+
+commit ab7461b896edb71c63486e4a67161e47d2fddaf1
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Sep 10 10:23:07 2019 -0400
+
+    Fixed missing examples in mutations docs
+
+commit 4e0c118cb94dd28f7a969ad3f685e25a94466906
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Sep 9 20:13:32 2019 -0400
+
+    updates to mutations with 3 new articles
+
+commit 6e9184049e8e884c6f925a9dab7ecc2bee1a7b4f
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Sep 9 20:12:00 2019 -0400
+
+    updates to mutations with 3 new articles
+
+commit bf63f064e46e8ca1eabe662d1f7068bad27b3470
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Sep 9 20:10:48 2019 -0400
+
+    updates to mutations with 3 new articles
+
+commit 5152d2e5cf3fc5283d6177a214b5b886a9445f7b
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Sep 9 20:07:04 2019 -0400
+
+    updates to mutations with 3 new articles
+
+commit 9e66ac44a7f93a76abd4cf62f343e66509b72979
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Sep 9 18:28:12 2019 -0400
+
+    updates to queries
+
+commit 891a08e09e2732df7e8b7e1f1be2f2405210f932
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Fri Sep 6 13:59:40 2019 -0400
+
+    deleted dead pages
+
+commit 1a6a3934dd9bf5d6e4a541c8adeddd873840f1c9
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Fri Sep 6 13:52:58 2019 -0400
+
+    deleted dead pages
+
+commit d98bfbc07ea6ae99292cfdb0c102f3ff2cca2c15
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Fri Sep 6 13:52:27 2019 -0400
+
+    fixed missing page for pagination
+
+commit 822cfb51341b228253c051900450f611152d5048
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Fri Sep 6 13:40:31 2019 -0400
+
+    fixed missing page for pagination
+
+commit 36c9bc6e4e087f77bf46aeaf7b33e75ed804f045
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Fri Sep 6 13:39:59 2019 -0400
+
+    fixed missing page for pagination
+
+commit 02b53a8412382951d3dbf42f190deb83c3204b9a
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Fri Sep 6 13:36:35 2019 -0400
+
+    fixed missing page for pagination
+
+commit 53085beac02fefd38b9f5cf906dfddc4e0025b06
+Author: Kelsey Yim <32113193+kelseyyim@users.noreply.github.com>
+Date:   Fri Sep 6 02:11:22 2019 -0700
+
+    Remove typos and add some grammar fixes
+
+commit facc65a7b587b114e47a52791129e9eb3f0c4b7c
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Thu Sep 5 17:22:20 2019 -0400
+
+    making queries documentation awesome
+
+commit be87d8f4c82113b6262f5a1ceee49d6133481bf4
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Thu Sep 5 17:15:26 2019 -0400
+
+    making queries documentation awesome
+
+commit 6c34b817344ba3a5234dd325fb7d0a999b2bde69
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Thu Sep 5 09:19:15 2019 -0400
+
+    making function arguments docs more clear
+
+commit d13108f14bda0320a65dab48f791e58ae33ff5be
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Thu Sep 5 09:16:21 2019 -0400
+
+    making function arguments docs more clear
+
+commit 18e10d34d199d44b6886cc268a3bfe8bc1850c3a
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Thu Sep 5 09:07:29 2019 -0400
+
+    updating overview links
+
+commit a4a29b38ba0919c6d9e0774e593ae143b597edf6
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Wed Sep 4 18:34:17 2019 -0400
+
+    updating data builder docs
+
+commit 59f615522687b2d91fdfc3f5f0d8bbc2b1cbe8bc
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Wed Sep 4 18:33:40 2019 -0400
+
+    updating data builder docs
+
+commit 1ef71d31c2fafc97d96f2f5d9a2afbb446455d19
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Wed Sep 4 18:12:19 2019 -0400
+
+    updating data builder docs
+
+commit 868d5f28f51caf3ccd8620da06a99263386aa202
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Wed Sep 4 17:43:37 2019 -0400
+
+    updating data builder docs
+
+commit c8234914b8d930303b91e630302452b94abb39a4
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Wed Sep 4 17:41:52 2019 -0400
+
+    updating data builder docs
+
+commit 2675009943e6e33314d990be5f2fab81a7c1cc01
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Wed Sep 4 17:34:59 2019 -0400
+
+    updating data builder docs
+
+commit 5b50069aa2e550cf3e5791fa8e813c1473cd515e
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Wed Sep 4 15:55:42 2019 -0400
+
+    updating React auth docs
+
+commit 0d957524518cf5d4c39dcb48a02b821026629fa2
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Wed Sep 4 15:54:08 2019 -0400
+
+    updating React auth docs
+
+commit 899355a23a03153493ac3f4bc70b09f842175d35
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Wed Sep 4 15:12:12 2019 -0400
+
+    update to authentication docs
+
+commit 87a527682384e9de47ffe99bdcde8a1c44c4bcc3
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Sep 3 14:45:23 2019 -0400
+
+    Data viewer docs
+
+commit 8483dead635e00a452db8962fe5db57ef55274cc
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Sep 3 14:25:28 2019 -0400
+
+    Data viewer docs
+
+commit c8e388474c6de5109058a34cb0e9bb5321ea3cd6
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Sep 3 14:23:44 2019 -0400
+
+    Data viewer docs
+
+commit dfe3dc8b30d7d963b2ef0101dae2e25b84878033
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Sep 3 14:20:34 2019 -0400
+
+    Data viewer docs
+
+commit 3571871bf43954414c4816d31b3eab080f5979d7
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Thu Aug 22 16:15:11 2019 -0400
+
+    custom filters documentation
+
+commit 9424904edbe618a337b50833178c4ad49a9c4920
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Thu Aug 22 16:00:01 2019 -0400
+
+    custom filters documentation
+
+commit 273be2d98d493e0724fbfb728a28bce4be27b6d2
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Thu Aug 22 15:56:52 2019 -0400
+
+    custom filters documentation
+
+commit 93a352fed1671415e8a9367f268b4b5621c04f1d
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Wed Aug 21 17:08:36 2019 -0400
+
+    data builder docs
+
+commit fb2d08934bf4d0965cad3b13eedb887877900c53
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Wed Aug 21 17:02:40 2019 -0400
+
+    data builder docs
+
+commit 4cff973206e436ec89ff91daa3c26798f71e75bd
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Wed Aug 21 16:59:33 2019 -0400
+
+    data builder docs
+
+commit 22bb2e02bf633f7fad9d066f17261907639fa3d0
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Aug 20 18:13:53 2019 -0400
+
+    documentation for variables
+
+commit f4328692b495ba05861455b4e601521fcb614dbc
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Aug 20 15:28:22 2019 -0400
+
+    updating webhook examples
+
+commit abfd1440d68710f213d1ae68893e819c09838b73
+Merge: ada2b97 7326ae9
+Author: Seb Scholl <sebscholl@gmail.com>
+Date:   Tue Aug 20 15:21:40 2019 -0400
+
+    Merge pull request #2 from 8base/webhook-authorization
+    
+    Webhook authorization
+
+commit 7326ae96cd75f0549d5c619a0f42f1de09eeafda
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Aug 20 15:20:46 2019 -0400
+
+    updating webhook examples
+
+commit ada2b977c37e59e3b566f8eec6cf4016a4fe458b
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Aug 20 15:18:34 2019 -0400
+
+    updating webhook examples
+
+commit 391b1282ed3d7e931a35355f3522e49be6127864
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Aug 20 13:31:26 2019 -0400
+
+    updated task docs to not display week units
+
+commit 3ea0ed66971746452e3db5e4dcab5916f39d1a27
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Aug 20 13:28:02 2019 -0400
+
+    permissioning webhooks example
+
+commit 35cf21b3a20ab93d11f1e597af5f5bfdbbb3f85e
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Aug 20 13:06:51 2019 -0400
+
+    Updated webhooks and connection to api for typos and path params
+
+commit 75cecda391efbd68a4d6570d59e9ffaa5a2027f2
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Fri Aug 16 16:31:27 2019 -0400
+
+    Updated broken link
+
+commit 23876ffc9d3a99fd138ea6ab7313421e3abf17b5
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Fri Aug 16 16:26:19 2019 -0400
+
+    New SDK Docs section with react auth
+
+commit 415f6200fae4a267327de02b899af1d4106fbcee
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Fri Aug 16 14:53:09 2019 -0400
+
+    Updates to the documentation
+
+commit 260ebf41bdd8b4747c593d4b6c432a75eebe22e3
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Fri Aug 16 14:51:51 2019 -0400
+
+    Updates to the documentation
+
+commit 8d21e4172c16c2ebff4efd1b0521a29decfbc500
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Fri Aug 9 10:31:53 2019 -0400
+
+    reslovers
+
+commit 21d5e80d429c49baeb659a9aa11a8adf904e1ada
+Merge: e1f678d 9dab7b6
+Author: Seb Scholl <sebscholl@gmail.com>
+Date:   Thu Aug 8 10:17:13 2019 -0400
+
+    Merge pull request #1 from marktani/master
+    
+    fix typos and editing
+
+commit 9dab7b61954461bbbf9103ab7117720f73d82e20
+Author: Nilan Marktanner <nilan.marktanner@gmail.com>
+Date:   Thu Aug 8 10:50:33 2019 +0200
+
+    fix typos
+
+commit e1f678d6917af5fa5eb5d5d854585211c0033d1e
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Wed Aug 7 12:39:47 2019 -0400
+
+    spell check
+
+commit 149cfc7eefa0b5a8a636d8f6043c7929ed3d6d11
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Aug 6 14:13:51 2019 -0400
+
+    adding description to example page
+
+commit 376fef5d5fb7a41f04508d190a0f222691a653cc
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Aug 6 14:13:26 2019 -0400
+
+    adding description to example page
+
+commit d1295111f3376252ab39df58c024ae1f7ea01888
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Aug 6 14:09:10 2019 -0400
+
+    adding community CTA's to intro page
+
+commit 1bff069f142b41927df281bb56ef84dee10a77a8
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Aug 6 14:07:38 2019 -0400
+
+    adding community CTA's to intro page
+
+commit c146e2bae08a64cc99e5bea804a7c2703e829540
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Aug 6 14:07:36 2019 -0400
+
+    adding community CTA's to intro page
+
+commit 01ccbb4673a123169c1d34af8c1d7ce86558e693
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Tue Aug 6 11:07:40 2019 -0400
+
+    added action items to contributing guide
+
+commit 6ae6fb4ba4f736b7739fa745c1961566d6a944b5
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Aug 5 17:09:38 2019 -0400
+
+    emojiful homepage
+
+commit 97f79cf5c1e2d3ad2ac76347d71381e9d148386a
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Aug 5 17:06:27 2019 -0400
+
+    emojiful homepage
+
+commit f4525d3e964d0887827301e735d5e09b95763e5b
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Aug 5 14:15:57 2019 -0400
+
+    gitbook ready for prod
+
+commit a2024fc8c1cabf82c97656289b61ce4c98407474
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Aug 5 14:10:31 2019 -0400
+
+    gitbook ready for prod
+
+commit cfb064ae80d6ad224bd0308823f0e5a28fae4f49
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Aug 5 13:17:53 2019 -0400
+
+    gitbook ready for prod
+
+commit 10364e3c311a4954ce8c30b3295a84af34438e18
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Aug 5 12:32:05 2019 -0400
+
+    gitbook ready for prod
+
+commit f213875a74d94a9ef2ddb180fd8913cf2eaa8339
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Aug 5 11:08:07 2019 -0400
+
+    authentication docs now has sign-on provider
+
+commit 4909651545affb897100c6df320d6439b24f820c
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Fri Aug 2 18:27:27 2019 -0400
+
+    Authentication for console dcos
+
+commit b4049a6341d34a0264f23f2b9f1e22734362b2ec
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Fri Aug 2 17:05:14 2019 -0400
+
+    docs for customer functions and all types
+
+commit 8abccedeacc65a3d59c12bbb7f278796ade1ceea
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Fri Aug 2 09:07:59 2019 -0400
+
+    corrected eugenes errors in webhooks docs
+
+commit e14e5f56c1b8812e016a45972169b003981ceeb0
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Thu Aug 1 18:08:14 2019 -0400
+
+    webhooks docs
+
+commit 7b8281b90d9106895b8a1eda4f6d600401006195
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Thu Aug 1 18:06:53 2019 -0400
+
+    webhooks docs
+
+commit df93cd47c718a110600e90d67164bfdfe85eb630
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Thu Aug 1 15:48:11 2019 -0400
+
+    updates to queries and cf readme
+
+commit d7450e53e923645b3ff711ef71188e34ea1631ba
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Jul 29 17:51:58 2019 -0400
+
+    Queries documentation
+
+commit 911518cad3e6e4606ecba1c20c2a52198f779737
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Jul 29 17:49:28 2019 -0400
+
+    Queries documentation
+
+commit 68a49ed807d8bed7354cb9b589183e05def7c845
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Jul 29 17:00:25 2019 -0400
+
+    updating graphql readme
+
+commit 76bc9e98c3421d4b16e4d6f115f096bdcda7ff20
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Jul 29 16:43:26 2019 -0400
+
+    updating graphql readme
+
+commit 8376d9e64ca3443ab9369117ae3f83c4d09b80bc
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Jul 29 16:05:35 2019 -0400
+
+    permissions restored
+
+commit bc04da243f5e0db1f710e5dd0246b1dee00af508
+Merge: fa02b06 e5a41be
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Jul 29 15:24:57 2019 -0400
+
+    local changes merged
+
+commit fa02b0643ed8733708266a600e3ab1b2afe013ec
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Jul 29 15:23:38 2019 -0400
+
+    Files docs
+
+commit e5a41bea49b0e993114c2f2e16ee1a3199142761
+Author: Sebastian Scholl <sebastian.scholl@8base.com>
+Date:   Mon Jul 29 18:23:20 2019 +0000
+
+    GitBook: [master] 3 pages and 6 assets modified
+
+commit 9e23ce9410e23487a3f6afcba7b160922c818737
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Jul 29 14:14:54 2019 -0400
+
+    pushing up authorization article
+
+commit bb48d3a6ae544e9c977a5edaa2fe72be6460ead2
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Jul 29 11:54:43 2019 -0400
+
+    Reformatted connecting to api docs
+
+commit 1d3e239a89e129c8333e01d75f7248f35a5a7130
+Author: Sebastian Scholl <sebastian.scholl@8base.com>
+Date:   Mon Jul 29 15:49:35 2019 +0000
+
+    GitBook: [master] 41 pages and 17 assets modified
+
+commit b7008723fd75b1dfd191aae44e3af33baf84f617
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Jul 29 11:37:50 2019 -0400
+
+    updated connecting to API docs
+
+commit 4ad395d3ddd46c26ee64370fb6994b3b902af8f7
+Author: Sebastian Scholl <sebastian@Sebastians-MacBook-Pro.local>
+Date:   Mon Jul 29 11:28:24 2019 -0400
+
+    updated connecting to API docs
+
+commit 1166b6fa8fb0ce72a75ffc9042e273111f2b3893
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Sun Jul 28 17:55:01 2019 -0400
+
+    Saving changes
+
+commit 95933bc2ec6136b23009d8ee740f48bd1e1f7575
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Sun Jul 28 17:54:43 2019 -0400
+
+    Saving changes
+
+commit 2173a836148531f4f8a90a66ae956b35c5c7d516
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 15:09:54 2019 -0400
+
+    platform-tools page updated
+
+commit a14c55fb73ad1a39cc642841fc40f240b482f621
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 14:58:32 2019 -0400
+
+    Styling
+
+commit 9add4f4f639558ba41776cc80683b890052cecdb
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 14:57:43 2019 -0400
+
+    Styling
+
+commit fa066069a18f95c30d6dceb18c792967123cfbdf
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 14:54:42 2019 -0400
+
+    Styling
+
+commit f59e00ae87590416a67e0bc974e0526c54bc874d
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 14:51:57 2019 -0400
+
+    Styling
+
+commit 66b3e77fd51a3a377503dbc97dcc94bcbd50ac4a
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 14:50:18 2019 -0400
+
+    Styling
+
+commit 879b7d117d39d8a74042df2e7770c7b1e1c3f2b9
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 14:48:14 2019 -0400
+
+    Styling
+
+commit 4b138541932feb678a50669beb08253147b7561b
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 14:45:16 2019 -0400
+
+    Styling
+
+commit 95813f41ae5be9ae4e1aa1ea553aa53f6acb8e3a
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 14:41:03 2019 -0400
+
+    Updated overview page
+
+commit 99cd3c83e29697ccbc4efa3942f8f16c064a5145
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 14:16:52 2019 -0400
+
+    Restructured directories
+
+commit 2b0e8297e16dbb46ba02306d23187dc6d10deba0
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 13:34:50 2019 -0400
+
+    docs summary
+
+commit 136e63cab7644a05c02ba63bc9651525e16589de
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 12:45:46 2019 -0400
+
+    remove readme and send user straight to getting started
+
+commit 6f7986082bba9bc1b268e48fb14ce2612ff0b283
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 12:41:20 2019 -0400
+
+    fixed image urls to be served locally
+
+commit 5d6b8d7eb94a5ae289ab53d86d5907b3c0fb6263
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 12:40:48 2019 -0400
+
+    fixed image urls to be served locally
+
+commit c47721fb8fd2b75533e72f983245315de59a0d76
+Author: Sebastian Scholl <sebastian.scholl@8base.com>
+Date:   Fri Jul 26 16:35:21 2019 +0000
+
+    GitBook: [master] 60 pages and 8 assets modified
+
+commit 9d72c1880393106b4fdf000f0f4101c652a8556b
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 12:33:21 2019 -0400
+
+    trying to correct image links
+
+commit 4df3b0cc7b342fe0d3468fbf0a5cafa597c6f037
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 12:30:37 2019 -0400
+
+    grammer corrections
+
+commit 37365d20e9f6aaffe74991c5506af29726d19eaf
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Fri Jul 26 12:02:01 2019 -0400
+
+    updated getting started to suggest default workspace
+
+commit 17bdd203da98433888bbc1a76b903b438933a65e
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Thu Jul 25 17:34:42 2019 -0400
+
+    New pictures and copy in quickstart
+
+commit c4cfa157a43b7c8974e6d1dba47abc63b05c31a2
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Thu Jul 25 16:10:21 2019 -0400
+
+    added images to quickstart
+
+commit d78206ed10009da1bebff32b8ac92f1ef2090883
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Thu Jul 25 15:50:13 2019 -0400
+
+    enriching quickstart guide content
+
+commit aced78c68a3382e0707fda202a0a8eb4a0ba5d3c
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Jul 24 16:07:43 2019 -0400
+
+    Testing READme.md at root of folder for index pages
+
+commit f96dfad7827129df78bec1afed020f655f595ef9
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Jul 24 16:00:16 2019 -0400
+
+    Testing READme.md at root of folder for index pages
+
+commit 7c5db6026f81460188bc09c9387dab6305863cc5
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Jul 24 15:56:36 2019 -0400
+
+    Adding READme.md and Summary.md
+
+commit 0c7cf36d3a58f0bc329bdd68160a61a492c89d0d
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Jul 24 15:52:38 2019 -0400
+
+    Debugging synch error
+
+commit 842c1b8a92d4f90930a0b91ebbfe9bd4812bd4c9
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Jul 24 15:49:09 2019 -0400
+
+    Debugging synch error
+
+commit 2fa34204487c1ef528c4dc3966bb16a8ea7e027a
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Jul 24 15:40:20 2019 -0400
+
+    Updated Summary.md file to reflect directories structure
+
+commit 27cb536af4833170238afbad09303cba8a601801
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Jul 24 14:55:08 2019 -0400
+
+    Syncing docs with old Readme.io archives
+
+commit 591d5574035840cb89dabb338b09926af9eddeb8
+Merge: 255ca5a 5576de5
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Jul 24 12:53:04 2019 -0400
+
+    Merge branch 'master' of github.com:8base/Documentation
+    
+    Merging latest changes made on GitBook UI.
+
+commit 5576de5ab1f085946ccd02109182a54d8e3fe5d4
+Author: Sebastian Scholl <sebastian.scholl@8base.com>
+Date:   Wed Jul 24 16:18:09 2019 +0000
+
+    GitBook: [master] 2 pages and one asset modified
+
+commit 255ca5a54f7df744e1f490a212883d91b1ab8129
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Jul 24 12:02:49 2019 -0400
+
+    Learning to use gitbook markdown
+
+commit 460802221d96a8041cc7e7efac5ac93671ca4175
+Author: Sebastian Scholl <sebastian.scholl@8base.com>
+Date:   Wed Jul 24 16:01:40 2019 +0000
+
+    GitBook: [master] one page modified
+
+commit 85af3ddd2c4b6c23edac8705ebc022aa79964a5d
+Author: Sebastian Scholl <sebscholl@gmail.com>
+Date:   Wed Jul 24 11:51:23 2019 -0400
+
+    Updated copy on Homepage
+
+commit 744ddf8a12eb7519f4352a753f711d5fefcf109b
+Author: Sebastian Scholl <sebastian.scholl@8base.com>
+Date:   Wed Jul 24 14:37:51 2019 +0000
+
+    GitBook: [master] 2 pages modified
+
+commit 8a76e6a7d38af12657a4d9252fb6408cc9079eb6
+Author: gitbook-bot <ghost@gitbook.com>
+Date:   Wed Jul 24 10:37:47 2019 -0400
+
+    Initialize repository

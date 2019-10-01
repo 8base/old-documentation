@@ -22,18 +22,18 @@ The Data Viewer lets you view and modify data in an table inspired interface. Th
 
 Role-based security lets you define custom roles with granular access controls. You can specify which tables and fields a role can read, modify or delete. You can even apply custom filters, such as giving users access only to records they created.
 
-## [GraphQL API](../graphql-api/READme.md)
+## [GraphQL API](../graphql-api/README.md)
 
 ![8base GraphQL Explorer](../../.gitbook/assets/51fbda9-fireshot_capture_009_-_8base_-_app.8base.com.png)
 
 The GraphQL API is generated automatically from the data model you define. It gives power to front-end developers to query and modify the data in ways that were traditionally available only to back-end developers. It comes with robust filters, sorting, pagination, full-text search and is secured using the role-based security.
 
-## [CLI](../../development-tools/cli/READme.md)
+## [CLI](../../development-tools/cli/README.md)
 
 ![8base CLI](../../.gitbook/assets/c890144-screenshot_2019-05-12_09.23.51.png)
 
 The Command-line Interface \(CLI\) allows you to develop and deploy custom backend logic in JavaScript or TypeScript. Need to run a custom algorithm, connect to a 3rd-party API, or execute a task on schedule? The CLI lets you deploy this logic in seconds to 8base serverless environment where it is executed and scaled automatically.
 
-## [Client Tools](../../development-tools/sdk/READme.md)
+## [Client Tools](../../development-tools/sdk/README.md)
 
 The 8base SDK and Boost UI Kit provide a set of open-source libraries and UI components that simplify and accelerate front-end development. Libraries and UI components are pre-integrated with the 8base API to enable useful features, such as automatically applying client-side validation to form fields based on your data schema, seamless file uploads and more.
