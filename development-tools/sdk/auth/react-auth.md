@@ -1,23 +1,29 @@
 ## 8base React SDK Authentication
 
-8base React SDK provides an easy way to implement authentication (sign-up, sign-in, sign-out) in your React.js apps. It works by wrapping an application in an AppProvider component that interfaces with a specified authentication client. with  To use it, the following dependencies are required.
+8base React SDK provides an easy way to implement authentication (sign-up, sign-in, sign-out) in your React.js apps. It works by wrapping an application in an AppProvider HoC that interfaces with a specified authentication client (generally an 8Base Auth Client). Install the following dependencies to start using it:
 
 * **react-apollo** contains the bindings for Apollo Client with React.
-* **react-router-dom** DOM bindings for React Router
-* **@8base/react-sdk** provides tools to use 8base with React.
-* **@8base/auth** prodides auth and auth strategies modules
+* **@reach/router** a lightweight UI router that supports A11y standards.
+* **8base-react-sdk** provides tools to use 8base with React.
+* **@8base/auth** provides auth and auth strategies modules.
+
+{% hint style="warning" %}
+##### Routing
+
+In our examples, we use `@reach/router` to handle the UI routing, but this is *optional*, you can use any react routing library you wish as long as you expose an url endpoint to handle the OAuth callback workflow (which is beyond the scope of this document).
+{% endhint %}
 
 ```sh
-npm install -s @8base/react-sdk @8base/auth react-apollo react-router-dom
+npm install -s 8base-react-sdk @8base/auth react-apollo @reach/router
 ```
 
-In the top level component of the application (main.js, app.js, index.js, etc...), wrap the root element with `<AppProvider>`. A *uri* and *authClient* argument is required. Please refer to the example below. 
+To being, wrap the root element with `<AppProvider>`. An *uri* and *authClient* argument is required. Please refer to the example below. 
 
 ```js
 /* react/apollo packages */
 import React from 'react';
 import { Auth } from '@8base/auth';
-import { AppProvider } from '@8base/react-sdk';
+import { AppProvider } from '8base-react-sdk';
 
 /* Root component */
 import App from './App';
@@ -33,19 +39,18 @@ const URI = '<API_ENDPOINT>'
  * authentication settings!
  */
 const authClient = Auth.createClient({
-  strategy: '8base-auth',
+  strategy: 'web_8base',
   subscribable: true,
 }, {
   /* Authentication profile client ID  */
   clientId: '<AUTH_CLIENT_ID>',
   /* Authentication profile domain */
   domain: '<AUTH_DOMAIN>',
-  /* Permitted callback url */
-  redirectUri: `${window.location.origin}/auth/callback/path`,
-  /* Permitted logout redirect url */
-  logoutRedirectUri: `${window.location.origin}/`
+  /* Permitted callback url, make sure this is configured correctly on the 8base dashboard */
+  redirectUri: `${window.location.origin}/auth/callback`,
+  /* Permitted logout redirect url, make sure this is configured correctly on the 8base dashboard */
+  logoutRedirectUri: `${window.location.origin}/logout`
 });
-
 
 ReactDOM.render(
 	/**
@@ -64,6 +69,7 @@ ReactDOM.render(
 		  if (loading) {
 		    return <p>Please wait...</p>;
 		  }
+		  
 		  return <App />;
 		}}
 	</AppProvider>,
@@ -73,75 +79,84 @@ ReactDOM.render(
 
 ### Login
 
-`@8base/react-sdk` exports the `withAuth` function to provide components with props for authorizing the user. The component determines whether the user is authorized before fetching and displaying the user information, from which the authentication state can be determined. It can be easily used for dynamically rendering components.
+`8base-react-sdk` exports a HoC, `withAuth`, to inject authentication primitives into your custom components. One of the properties that are injected is `isAuthorized` which will inform you if the user is authorized (logged in). It can easily be used for dynamically rendering content based on user authentication state. Below, we use it to call `authClient.authorize()` which will trigger the "sign-in" or "sign-up" workflows from our authentication client, when a user is not logged in.
+
+{% hint style="warning" %}
+##### Common "Gotcha"
+
+Make sure you have configured your 8base application's authentication profile to assign a role to users, or they will not be able to make Graphql requests even if they are authenticated!
+{% endhint %}
 
 
 ```js
-import { Query } from 'react-apollo';
-import { withAuth, gql } from "@8base/react-sdk";
+import React, { useEffect } from 'react';
+import { useQuery } from 'react-apollo';
+import { withAuth, gql } from '8base-react-sdk;
 
 /* GraphQL query for user information */
 const USER_INFO = gql`
   query UserQuery {
     user {
-      firstName
+      id
     }
   }
 `;
 
 /* Component generator function being passeda auth data */
-const Login = ({ auth: { isAuthorized, authorize } }) => {
-	/* Component to display when NOT authorized*/
-  if (!isAuthorized) {
-	  return (
-	    <div>
-	      <h2>Login</h2> <button onClick={() => authorize()}>Login</button>
-	    </div>
-	  );
+const Login = ({ auth: { isAuthorized, authClient } }) => {
+  useEffect(() => {
+    if (!isAuthorized) {
+      authClient.authorize();
+    }
+  }, [authClient]);
+
+  const { loading, data, error } = useQuery(USER_INFO);
+
+  if (loading) return <p>Loading...</p>;
+
+  if (error) {
+    console.log(error);
+
+    return <p>Error!</p>;
   }
 
-  /* Component to display when authorized*/
-  return (
-    <Query query={USER_INFO}>
-      {({ data, loading }) => (
-        <div>{!loading && <p>{data.user.firstName} </p>}</div>
-      )}
-    </Query>
-  );
+  return <h1>{data.user.id}</h1>;
 };
 
-/* Decorate exported function with withAuth */
+/* Decorate exported function using the withAuth HoC */
 export default withAuth(Login);
 
 ```
 
 ### Authentication Handler
-The `react-router-dom` *Router* component assumes the role of an app's `root` component when a component that handles authentication callbacks needs to be specified. The *Router* component should get provisioned with an *Route* handling the authentication profile's allowed callback url's path.
-
+In this example, we are using `Router` from `@reach/router` to configure a routing mechanism to handle the "callback" step, which is apart of the OAuth workflow.
 
 ```js
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Router } from '@reach/router';
 
 import App from './App'
 import AuthCallback from './authCallback';
 
 const Routes = () => (
   <Router>
-  	/* Path declaration for auth callback to render AuthCallback component  */
-    <Route path="/auth/callback" component={AuthCallback} exact />
-    <Route path="/" component={App} exact />
+    /* Path declaration for auth callback to render AuthCallback component  */
+    <AuthCallback path="/auth/callback" />
+    <App default />
   </Router>
 );
 
 export default Routes;
 ```
 
-The `AuthCallback` component is up to the developer to define. When the component initializes one of two things can be expected; sign-in or sign-up. Which action is approriate can get determined by checking for an existing user with the provided details. If none exist, a new user record can be created.
+#### OAuth Callback
+
+Generally, the `AuthCallback` component is up to the developer to define. In our example, when the component initializes one of two things can be expected; user sign-in or sign-up. The appropriate pathway can be determined by checking for an existing user with the provided user details. If the user doesn't exist, as indicated by a failed query for their ID, a new user record can be created in 8Base.
 
 ```js
 import React, { useEffect } from 'react';
-import { withAuth, gql } from '@8base/react-sdk';
-import { withApollo, compose } from 'react-apollo';
+import { navigate } from '@reach/router';
+import { withAuth, gql } from '8base-react-sdk;
+import { withApollo } from 'react-apollo';
 
 /* Query the for the ID of the logged in user */
 const CURRENT_USER = gql`
@@ -163,70 +178,76 @@ const SIGN_UP_USER = gql`
 `;
 
 /* Authentication success callback function */
-const AuthCallback = ({ auth, history, client }) => {
+const completeAuth = async (authClient, client) => {
+  /* Pull required values from authorized user data */
+  const { idToken, email } = await authClient.getAuthorizedData();
+
+  /* After succesfull signup store token in local storage */
+  await authClient.setState({ token: idToken });
+
+  /* Context for API calls */
+  const context = {
+    headers: {
+      authorization: `Bearer ${idToken}`
+    }
+  };
+
+  try {
+    /* Check if a user exists, if not an error will be thrown */
+    await client.query({ query: CURRENT_USER, context });
+  } catch {
+    /* Sign up user if the request errored */
+    await client.mutate({
+      mutation: SIGN_UP_USER,
+      variables: {
+        user: { email }
+      },
+      context
+    });
+  }
+};
+
+const AuthCallback = ({ auth: { authClient }, client }) => {
   useEffect(() => {
-    const completeAuth = async () => {
-    	/* Pull required values from authorized user data */
-      const { idToken, email } = await auth.getAuthorizedData();
-
-      /* Context for API calls */
-      const context = { 
-      	headers: { 
-      		authorization: `Bearer ${idToken}` 
-      	} 
-      }
-
-      try {
-        /* Check if a user exists, if not an error will be thrown */
-        await client.query({ query: CURRENT_USER, context });
-      } catch {
-        /* Sign up user if the request errored */
-        await client.mutate({
-          mutation: SIGN_UP_USER,
-          variables: { 
-          	user: { email } 
-          },
-          context
-        });
-      }
-
-      /* After succesfull signup store token in local storage */
-      await auth.setAuthState({ token: idToken });
-      /* Redirect back to home page */
-      history.replace('/');
-    };
-
     /* Run authentication function */
-    completeAuth();
-  }, []);
+    completeAuth(authClient, client).then(() => {
+      /* Redirect back to home page */
+      navigate("/");
+    });
+  }, [authClient, client]);
 
   return <p>Please wait...</p>;
 };
 
 /* Decorated export */
-export default compose(withAuth, withApollo)(AuthCallback);
+export default withAuth(withApollo(AuthCallback));
 ```
-**auth**, **history**, and **client** objects get passed to the function as arguments. Using these modules, most final authentication flows can be established. For example, the `idToken` and `email` of the authenticated user can be returned from the `auth.getAuthorizedData` method. These values can then get used to querying the API using the `client.query` method.
 
 {% hint style="warning" %}
 ##### How to use the idToken
 
-`idToken` is a bearer token for authenticating requests to the GraphQL endpoint. Include it as a headers for non-public API calls - `Authorization: Bearer ${idToken}`.
+`idToken` is a bearer token for authenticating requests to the GraphQL endpoint. Include it as a headers for non-public API calls - `Authorization: Bearer ${idToken}`. Generally, this is included in your requests to 8Base automatically by means of the `AppProvider` we set up in the beginning of this guide.
 {% endhint %}
 
 ![Clicking the login button should redirect to this page](https://paper-attachments.dropbox.com/s_66210AD8E619DBF1B5FFC6F0A64CFE2655C6A0925870CE59A3939E2B8D1BDC31_1561354686037_Screenshot+2019-06-24+at+6.37.49+AM.png)
 
 ### Logout
 
-`@8base/react-sdk` exports the `loggedOut` function to provide easy sign-out functionality. The `withLogout` enhancer is similar to the `withAuth`, providing a `logout` function rather than an `authorize` function.
+Logging out is very easy using `withAuth`. Using `withAuth` simply calling `authClient.logout()` will log out your user. Make sure your auth client has logout method.
+
+{% hint style="warning" %}
+##### Common "Gotcha"
+
+Make sure you have configured your 8base application's supported logout urls to include the logout URL defined at the start. If you do not add the logout URL to your application's supported logout urls, you will be unable to log out users and logout's will land on a 8base error page (if you are using 8base Auth).
+{% endhint %}
 
 ```js
 import React from 'react';
-import { withLogout } from '@8base/react-sdk';
+import { withAuth } from '8base-react-sdk';
 
-const LogoutButton = ({ logout }) => (
-  <button onClick={() => logout()}>logout</button>
+const LogoutButton = ({ auth: { authClient } }) => (
+  <button onClick={() => authClient.logout()}>logout</button>
 );
 
-export default withLogout(LogoutButton);
+export default withAuth(LogoutButton);
 ```

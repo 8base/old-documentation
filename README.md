@@ -4,7 +4,7 @@
 
 ## Welcome!
 
-Welcome to 8base! We're so glad you're here. We've poured countless hours into creativity and code to create 8base. All of that effort inteded solely to support you in building something amazing.
+Welcome to 8base! We're so glad you're here. We've poured countless hours into creativity and code to create 8base. All of that effort intended solely to support you in building something amazing.
 
 Reading this documentation is the first step to becoming an 8base master, which in turn will make you into a 21st century software whiz-kid. Seriously, it's that good.
 
@@ -49,7 +49,7 @@ That's where YOU come in.
 Our documentation repo is public and open-sourced [right here](https://github.com/8base/documentation) on GitHub. So whenever you want to, you could:
 
 * Report missing sections: Think something **should** be in the documentation that **isn't**? [Create an issue](https://github.com/8base/documentation/issues) to let us know!
-* Submit pull requests: Want to not only point out the problem but be apart of the solution? Clone down the Documentation and submit pull requests start... pretty much anything, like:
+* Submit pull requests: Want to not only point out the problem but be apart of the solution? Clone the Documentation repo and submit pull requests start... pretty much anything, like:
 	* Grammar and spelling
 	* Errors in any code example
 	* Even BETTER code examples

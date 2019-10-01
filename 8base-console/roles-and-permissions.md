@@ -1,6 +1,6 @@
 # Authorization
 
-The authorization system in 8base is a robust roles and permissions system that lets you securely control access to any data resources in a workspace. You use the roles and authorization system to control what users (with roles) are able to access and who is authorized (has permission) to do what.
+Authorization in 8base uses a robust roles and permissions system that lets you securely control access to any data resources in a workspace. You use the roles and authorization system to control what users (with roles) are able to access and who is authorized (has permission) to do what.
 
 ### Managing Roles
 
@@ -8,7 +8,7 @@ The authorization system in 8base is a robust roles and permissions system that 
 
 ##### View all Roles
 
-The *Roles* Manager can be found in a given workspace by navigating to `Settings > Roles`. In this view, you can find all 8base and customer defined roles associated with the current workspace. By default, all workspaced are created with two default roles; *Administrator* and *Guest*.
+The *Roles* Manager can be found in a given workspace by navigating to `Settings > Roles`. In this view, you can find all 8base and customer defined roles associated with the current workspace. By default, all workspaces are created with two default roles; *Administrator* and *Guest*.
 
 * **Administrator** has all permissions enabled by default
 * **Guest** has no permissions enabled by default
@@ -53,7 +53,7 @@ Lists all users that hold the selected role and allows for easy role assignment 
 ![Apps permissions in Roles Manager](../.gitbook/assets/role-permissions-users.png)
 
 ### Advanced
-Custom filters get applied to the *Read* and *Update* permissions of any role, making possible advanced scoping of the records. These filters get constructed using `JSON` and mirror table specific GraphQL filter types.
+Custom filters are applied to the *Read* and *Update* permissions of any role, making advanced scoping of the records possible. These filters get constructed using `JSON` and mirror table specific GraphQL filter types.
 
 ##### Default Filters
 To better understand custom filters, lets reference two default filters that come configured in new workspaces.
@@ -71,7 +71,7 @@ New roles, by default, don't allow the logged in user to read or update other us
 }
 ```
 
-In this example, `__loggedInUserId` is a dynamic variable that 8base replaces with the logged in user's ID. If the ID of the logged in user does not match the ID of a given user record, it cannot get read or updated.
+In this example, `__loggedInUserId` is a dynamic variable that 8base replaces with the logged in user's ID. If the ID of the logged in user does not match the ID of a given user record, it cannot be read or updated.
 
 {% hint style="info" %}
 ##### Dynamic Variables
@@ -111,7 +111,7 @@ These constraints get enforced using the following filter.
 ##### Custom Filters
 {% youtube src="https://www.youtube.com/watch?v=FqZ0-usc93w" %}{% endyoutube %}
 
-The best way to write custom filters is using the API Explorer in conjuction with [Variables](./graphql-api/variables.md). The filtered result of any GraphQL query is the scoped record set that can be expected by using the same filter as a role's *Custom Filter*.
+The best way to write custom filters is by using the API Explorer in conjuction with [Variables](./graphql-api/variables.md). The filtered result of any GraphQL query is the scoped record set that can be expected by using the same filter as a role's *Custom Filter*.
 
 For example, imagine that a workspace has both *Posts* and *Authors* tables. In the API Explorer, an 8base user wants to query all *Posts* that belong to *Authors* under the following criteria:
 
@@ -153,7 +153,7 @@ Query Variable
 }
 ```
 
-After succesfully running this query, the user decides that the filter should get enforced as a custom filter for post updates. That way, only *editors* would only be able to update posts that belong to authors from their own company. 
+After succesfully running this query, the user decides that the filter should be utilized as a custom filter for post updates. That way, only *editors* would only be able to update posts that belong to authors from their own company. 
 
 To accomplish this, the value of the `filter` key can be pasted into the *Custom Filter* section of the desired role's update permission.
 
