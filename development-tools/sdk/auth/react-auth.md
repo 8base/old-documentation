@@ -4,7 +4,7 @@
 
 * **react-apollo** contains the bindings for Apollo Client with React.
 * **@reach/router** a lightweight UI router that supports A11y standards.
-* **@8base/react-sdk** provides tools to use 8base with React.
+* **8base-react-sdk** provides tools to use 8base with React.
 * **@8base/auth** provides auth and auth strategies modules.
 
 {% hint style="warning" %}
@@ -14,7 +14,7 @@ In our examples, we use `@reach/router` to handle the UI routing, but this is *o
 {% endhint %}
 
 ```sh
-npm install -s @8base/react-sdk @8base/auth react-apollo @reach/router
+npm install -s 8base-react-sdk @8base/auth react-apollo @reach/router
 ```
 
 To being, wrap the root element with `<AppProvider>`. An *uri* and *authClient* argument is required. Please refer to the example below. 
@@ -23,7 +23,7 @@ To being, wrap the root element with `<AppProvider>`. An *uri* and *authClient* 
 /* react/apollo packages */
 import React from 'react';
 import { Auth } from '@8base/auth';
-import { AppProvider } from '@8base/react-sdk';
+import { AppProvider } from '8base-react-sdk';
 
 /* Root component */
 import App from './App';
@@ -39,7 +39,7 @@ const URI = '<API_ENDPOINT>'
  * authentication settings!
  */
 const authClient = Auth.createClient({
-  strategy: '8base-auth',
+  strategy: 'web_8base',
   subscribable: true,
 }, {
   /* Authentication profile client ID  */
@@ -79,7 +79,7 @@ ReactDOM.render(
 
 ### Login
 
-`@8base/react-sdk` exports a HoC, `withAuth`, to inject authentication primitives into your custom components. One of the properties that are injected is `isAuthorized` which will inform you if the user is authorized (logged in). It can easily be used for dynamically rendering content based on user authentication state. Below, we use it to call `authClient.authorize()` which will trigger the "sign-in" or "sign-up" workflows from our authentication client, when a user is not logged in.
+`8base-react-sdk` exports a HoC, `withAuth`, to inject authentication primitives into your custom components. One of the properties that are injected is `isAuthorized` which will inform you if the user is authorized (logged in). It can easily be used for dynamically rendering content based on user authentication state. Below, we use it to call `authClient.authorize()` which will trigger the "sign-in" or "sign-up" workflows from our authentication client, when a user is not logged in.
 
 {% hint style="warning" %}
 ##### Common "Gotcha"
@@ -91,7 +91,7 @@ Make sure you have configured your 8base application's authentication profile to
 ```js
 import React, { useEffect } from 'react';
 import { useQuery } from 'react-apollo';
-import { withAuth, gql } from "@8base/react-sdk";
+import { withAuth, gql } from '8base-react-sdk;
 
 /* GraphQL query for user information */
 const USER_INFO = gql`
@@ -153,10 +153,10 @@ export default Routes;
 Generally, the `AuthCallback` component is up to the developer to define. In our example, when the component initializes one of two things can be expected; user sign-in or sign-up. The appropriate pathway can be determined by checking for an existing user with the provided user details. If the user doesn't exist, as indicated by a failed query for their ID, a new user record can be created in 8Base.
 
 ```js
-import React, { useEffect } from "react";
-import { navigate } from "@reach/router";
-import { withAuth, gql } from "@8base/react-sdk";
-import { withApollo } from "react-apollo";
+import React, { useEffect } from 'react';
+import { navigate } from '@reach/router';
+import { withAuth, gql } from '8base-react-sdk;
+import { withApollo } from 'react-apollo';
 
 /* Query the for the ID of the logged in user */
 const CURRENT_USER = gql`
@@ -233,7 +233,7 @@ export default withAuth(withApollo(AuthCallback));
 
 ### Logout
 
-Logging out is very easy using `withAuth`. Using `withAuth` simply calling `authClient.logout()` will log out your user. 
+Logging out is very easy using `withAuth`. Using `withAuth` simply calling `authClient.logout()` will log out your user. Make sure your auth client has logout method.
 
 {% hint style="warning" %}
 ##### Common "Gotcha"
@@ -243,7 +243,7 @@ Make sure you have configured your 8base application's supported logout urls to 
 
 ```js
 import React from 'react';
-import { withAuth } from '@8base/react-sdk';
+import { withAuth } from '8base-react-sdk';
 
 const LogoutButton = ({ auth: { authClient } }) => (
   <button onClick={() => authClient.logout()}>logout</button>

@@ -2,7 +2,7 @@
 
 ### File picker for React
 
-For React developers 8base SDK provides the `@8base/file-input` package that automates the steps described here. If you're looking for an easy way to integrate file uploading capabilities into your application read the [Client Tools](./file_upload.md) section.
+For React developers 8base SDK provides the `@8base-react/file-input` package that automates the steps described here. If you're looking for an easy way to integrate file uploading capabilities into your application read the [Client Tools](./file_upload.md) section.
 
 8base provides a native file management capability. You can attach files to your data object by creating a field of type `File`. A `File` field can store one or multiple files. You can manage granular files permissions just like you would for any other table.
 
