@@ -35,7 +35,10 @@
     * [Single record mutations](8base-console/graphql-api/mutations/single-record-mutations.md)
     * [Related record mutations](8base-console/graphql-api/mutations/related-record-mutations.md)
 
-  * [Subscriptions](8base-console/graphql-api/subscriptions.md)
+  * [Subscriptions](8base-console/graphql-api/subscriptions/README.md)
+    * [Simple subscriptions](8base-console/graphql-api/subscriptions/simple-record-subscriptions.md)
+    * [Scoped subscriptions](8base-console/graphql-api/subscriptions/complex-record-subscriptions.md)
+
   * [Variables](8base-console/graphql-api/variables.md)
   * [Error Handling](8base-console/graphql-api/error_handling.md)
 
