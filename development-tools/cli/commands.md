@@ -32,7 +32,7 @@ $ 8base describe [OPTIONS]
 ```
 
 ##### init
-Initializes a new project with suggested directory structure and example custom functions.
+Initializes a new project with suggested directory structure, example custom functions, and allows the user to select and existing 8base workspace or create a new one.
 
 ```sh
 $ 8base init [PROJECT_NAME]
@@ -124,11 +124,11 @@ Output 8base CLI version.
 $ 8base version
 ```
 
-##### config
-Allows you to select a default workspace and retrieve the API endpoint URL. 
+##### configure
+When run in a directory containing an `8base.yml` file, this command generates a `.workspace.json` file that maps the local project to a selected workspace. 
 
 ```sh
-$ 8base config [OPTIONS]
+$ 8base configure [OPTIONS]
 ```
 
 OPTIONS:

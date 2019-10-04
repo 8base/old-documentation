@@ -49,12 +49,21 @@ cd app-example
 
 ## 5. Import and Deploy the Schema, Data and Backend Logic
 
-As you may know by now, 8base gives developers a Serverless + GraphQL backend that's ready to rock'n roll from the get go. It's quick and convenient to update tables, fields, model relationships, and much more in the [8base console](https://app.8base.com/). Let's simply bootstrap our demo app with some definitions and data we've already prepared for you.
+You'll need to quickly link up the project with your workspace. Running the following command from the `server` directory will add a `.workspace.json` file at the root of your project, configured with the selected workspace ID.
 
 ```text
 # Change into the app-example/server directory
 cd server
 
+# Configure the project's workspace
+8base configure
+
+✔ Select workspace for current project › Default Workspace
+```
+
+As you may know by now, 8base gives developers a Serverless + GraphQL backend that's ready to rock'n roll from the get go. It's quick and convenient to update tables, fields, model relationships, and much more in the [8base console](https://app.8base.com/). Let's simply bootstrap our demo app with some definitions and data we've already prepared for you.
+
+```text
 # Install required dependencies
 npm install
 ```
