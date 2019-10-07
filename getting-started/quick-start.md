@@ -24,7 +24,7 @@ _Optional: If you want to create a new workspace, click the "YOUR NAME's Workspa
 
 ![Create a Workspace](../.gitbook/assets/workspace-menu%20%281%29.png)
 
-## 3. Install the 8base CLI
+## 3. Install the 8base CLI and Authenticate
 
 Open up your Terminal of choice. To harness the full power of 8base, you'll need to have [Node.js](https://nodejs.org/) installed on your computer. Without it, you won't be able to install our handy [8base NPM package](https://www.npmjs.com/package/8base).
 
@@ -34,6 +34,15 @@ Assuming you're all set up and able to run `npm` commands, let's go ahead and in
 # Install 8base globally
 npm install -g 8base-cli
 ```
+
+When using the 8base CLI you need to authenticate your development workspace. This allows you to communicate with 8base for deploys, function invocations, logs, and more. Try running the following and allow your browser to launch a new window \(you may have to login\).
+
+```text
+# Login with CLI.
+8base login
+```
+
+![Logged in with 8base CLI](../.gitbook/assets/cli-login-success.png)
 
 ## 4. Clone the Demo App
 
@@ -67,15 +76,6 @@ As you may know by now, 8base gives developers a Serverless + GraphQL backend th
 # Install required dependencies
 npm install
 ```
-
-Using the 8base CLI you'll be able to authenticate your development workspace, allowing you to communicate with 8base for deploys, function invocations, logs, and more. Try running the following and allow your browser to launch a new window \(you may have to login\). If you have multiple workspaces set up already, the CLI will prompt you to select one. Also, make sure to note the API endpoint URL displayed after login - you will need it later.
-
-```text
-# Login with CLI.
-8base login
-```
-
-![Logged in with 8base CLI](../.gitbook/assets/cli-login-success.png)
 
 Now we're going to run the import using a `DEMO.json` file found in the `app-example/server` directory. Just so you know, this can take a minute.
 
