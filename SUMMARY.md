@@ -11,6 +11,7 @@
 ## 8base Console
 
 * [Overview](8base-console/READme.md)
+* [Inviting Teams](8base-console/teams.md)
 * [Authentication](8base-console/authentication.md)
 * [Authorization](8base-console/roles-and-permissions.md)
 * [Handling Files](8base-console/handling-files.md)
