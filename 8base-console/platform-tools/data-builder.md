@@ -177,3 +177,29 @@ Configurations
 * *Default Value* - A default value assigned to new records.
 * *Description* - A meta description used for documentation.
 
+### Smart Fields
+*Smart Fields* are enriched field types offered by 8base. They provide structure, and sometimes logic, to the organization and validation of common data.
+
+#### Address
+For persisting addresses in a field. The `address` field will display available fields in the [Data Viewer](./data-viewer.md) and API Explorer.
+
+```
+type Address = {
+  country: !String
+  street1: !String
+  street2: String
+  zip: !String
+  city: !String
+  state: !String
+}
+```
+
+#### Phone
+For persisting phone numbers in a field. The `phone` field will display available fields in the [Data Viewer](./data-viewer.md) and API Explorer.
+
+```
+type Phone = {
+  code: !String
+  number: !String
+}
+```
