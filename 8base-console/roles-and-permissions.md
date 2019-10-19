@@ -52,6 +52,13 @@ Lists all users that hold the selected role and allows for easy role assignment 
 
 ![Apps permissions in Roles Manager](../.gitbook/assets/role-permissions-users.png)
 
+### API Tokens
+While roles can be assigned to users, they can also be assigned to API Tokens. Unlike an `idToken` that is recieved when a user authenticates and authorizes requests made to the API, API Tokens are static and often used to authorize server-to-server or app-to-server requests. Simply put, API Tokens authorize requests made to the API **without any user context**.
+
+API Tokens can be created in [`Settings > API Tokens`](https://app.8base.com/settings/api-tokens). Note that you can only copy the token on create! So make sure to copy the value and store it securely. The roles associated with the token will enforce which permissions the token has. API Tokens by default have not permissions.
+
+![Creating an API Token](../.gitbook/assets/create-api-token.png)
+
 ### Advanced
 Custom filters are applied to the *Read* and *Update* permissions of any role, making advanced scoping of the records possible. These filters get constructed using `JSON` and mirror table specific GraphQL filter types.
 

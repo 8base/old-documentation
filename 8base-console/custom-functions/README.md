@@ -62,6 +62,16 @@ else if (runWithoutRolesEnforced) {
 
 For obvious security reasons, `checkPermissions` is ONLY available from within custom functions. It cannot be used when making requests from client applications.
 
+As opposed to using `checkPermissions` option, [API Tokens](../roles-and-permissions.md#api-tokens) associated with defined roles can be used to permission `gqlRequest` calls. This ability accomodates situations where permissions are required, but not in the context of the requesting user. To accomplish this, the API Token can be added as a bearer token to the call.
+
+```javascript
+await ctx.api.gqlRequest(QUERY, VARIABLES, { 
+	headers: {
+		Authorization: "Bearer <MY_API_TOKEN>"
+	}
+});
+```
+
 ### Managing Dependencies
 8base deploys CFs to a Node.js 8.10 runtime environment in which any compatible NPM dependencies are supported. On deploy, the system will check whether or not your dependencies have been installed and handle that accordingly. As expected, deploys run significantly faster when dependencies are installed locally. Feel free to use either NPM or Yarn as your package manager during development.
 
