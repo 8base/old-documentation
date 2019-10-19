@@ -1,17 +1,14 @@
 # Table of contents
-
 * [Introduction](README.md)
 
 ## Getting Started
-
 * [Overview](getting-started/getting-started.md)
 * [Quick Start](getting-started/quick-start.md)
 * [Connecting to API](getting-started/connecting-to-api.md)
 
 ## 8base Console
-
 * [Overview](8base-console/READme.md)
-* [Inviting Teams](8base-console/teams.md)
+* [Team Members](8base-console/teams.md)
 * [Authentication](8base-console/authentication.md)
 * [Authorization](8base-console/roles-and-permissions.md)
 * [Handling Files](8base-console/handling-files.md)
@@ -19,6 +16,7 @@
 * [Platform Tools](8base-console/platform-tools/README.md)
   * [Data Builder](8base-console/platform-tools/data-builder.md)
   * [Data Viewer](8base-console/platform-tools/data-viewer.md)
+  * [API Explorer](8base-console/platform-tools/api-explorer.md)
 
 * [GraphQL API](8base-console/graphql-api/README.md)
   * [Queries](8base-console/graphql-api/queries/README.md)
@@ -51,7 +49,6 @@
   * [Debugging](8base-console/custom-functions/debugging.md)
 
 ## Development Tools
-
 * [Development Environment](development-tools/dev-env/README.md)
   * [Project Structure](development-tools/dev-env/project-structure.md)
   * [8base Config](development-tools/dev-env/8base-yml.md)
@@ -67,4 +64,3 @@
   * [Application File Uploads](development-tools/sdk/file_upload.md)
   * [VS Code Plugin](development-tools/sdk/vs_code_plugin.md)
   * [Filestack](development-tools/sdk/filestack-uploader.md)
-
