@@ -1,24 +1,85 @@
-# User Authentication
+# SDK - Auth Module
+The 8base SDK provides an easy way to implement authentication in your client application. Whether you're using 8base Authentication, Auth0, or an OpenID provider, the `Auth` module helps in managing the authentication flow.
 
-8base SDK provides an easy way to implement login in your client application. We use [Auth0](https://www.auth0.com) to login users and generate a JWT token that can be used to authenticate the API.
+For further information regarding Auth, please [refer to the docs](https://docs.8base.com/development-tools/sdk/auth).
 
-8base SDK provides the `Auth` package that wraps and configures the Auth0 React library. You call `Auth.createClient` with `web_8base` strategy and pass `domain`, `clientID` and `redirectUri` as client options. Pass auth client to `AppProvider` from `@8base-react/app-provider`. The example below shows recommended configuration using the default Auth0 account.
+## Usage
+The `Auth` module exposes several differnt auth strategies. These can be declared as strings or imported from the SDK as `AUTH_STRATEGIES`. The `Auth.createClient` function accepts two condiuration objects, from which it generates the an `authClient` that is instatiated per the given strategy.
+
+Some required values include the following:
+
+* `domain`
+* `clientId`
+* `logoutUrl`
+* `redirectUri`
+
+All these values can be collected from an [Authentication Profile](https://docs.8base.com/8base-console/authentication#authorization) created in the 8base management console. 
+
+## Auth Strategies
+There are currently several different available auth strategies that the SDK supports. They are:
 
 ```javascript
-import { Auth } from '@8base/auth';
-// Use this Auth0 configuration if you want
-// to use the default 8base Auth0 account for authentication
-const AUTH_CLIENT_ID = 'qGHZVu5CxY5klivm28OPLjopvsYp0baD';
-const AUTH_DOMAIN = 'auth.8base.com';
+AUTH_STRATEGIES {
+  WEB_8BASE = 'web_8base',
+  WEB_AUTH0 = 'web_auth0',
+  API_TOKEN = 'api_token'
+}
+```
 
-// Auth0 web client is initialized here
-const authClient = Auth.createClient({
-  strategy: 'web_8base',
-  subsbribable: true,
-}, {
-  domain: AUTH_DOMAIN,
-  clientId: AUTH_CLIENT_ID,
-  redirectUri: `${window.location.origin}/auth/callback`,
-  logoutRedirectUri: `${window.location.origin}/auth`
-});
+##### `WEB_8BASE` and `WEB_AUTH0` Example
+To initialize a new `authClient` using the `WEB_8BASE` or `WEB_AUTH0` strategy, refer to the following configuration.
+
+```javascript
+import { Auth, AUTH_STRATEGIES } from "@8base/auth";
+/**
+ * Creating an Authentication Profile in 8base will provide 
+ * you with a Client ID and Domain.
+ */
+const domain = 'authentication-profile.auth.domain';
+const clientId = 'authentication-profile-client-id';
+/**
+ * The redirect and logout URIs are all configured in the 
+ * authentication profile that gets set up in the 8base
+ * management console.
+ */
+const logoutRedirectUri = `${window.location.origin}/logout`;
+const redirectUri = `${window.location.origin}/auth/callback`;
+/**
+ * There are multiple auth strategies that can be 
+ * used when using 8base. By default, specifying
+ * 'web_8base' will configure the 8base auth client.
+ */
+const authClient = Auth.createClient(
+  {
+    strategy: AUTH_STRATEGIES['STRATEGY_NAME']
+  },
+  {
+    domain,
+    clientId,
+    redirectUri,
+    logoutRedirectUri
+  }
+);
+```
+
+##### `API_TOKEN` Example
+To initialize a new `authClient` using the `API_TOKEN` strategy, refer to the following configuration.
+
+```javascript
+import { Auth } from "@8base/auth";
+/**
+ * Set the API token generated in 8base management console.
+ */
+const apiToken = "8base-api-token";
+/**
+ * Specify the strategy and API token.
+ */
+export default Auth.createClient(
+  {
+    strategy: "api_token"
+  },
+  {
+    apiToken
+  }
+);
 ```

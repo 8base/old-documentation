@@ -59,6 +59,7 @@
   * [Generators](development-tools/cli/generators.md)
 
 * [SDK](development-tools/sdk/README.md)
+  * [API Client](development-tools/sdk/api-client/README.md)
   * [User Auth](development-tools/sdk/auth/README.md)
     * [React](development-tools/sdk/auth/react-auth.md)
   * [Application File Uploads](development-tools/sdk/file_upload.md)
