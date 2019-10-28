@@ -1,41 +1,35 @@
 # Quick Start
-
-An easy way to get familiar with 8base is to go through the steps to download, install, and run a demo application. To make this process easy, we've created [a simple React app](https://github.com/8base/app-example) for you. It will help demonstrate some important concepts of 8base.
-
-For context, the demo app is a nifty little real estate platform. It allows users to manage Brokers, Customers, Listings, and Properties, and provides a convenient "Share Listing" via email capability.
+An easy way to get familiar with 8base is to go through the steps to download, install, and run a one of the starter apps. To make this process easy, we've created a quickstart guide for you! It will help demonstrate some important concepts of 8base, and maybe even kick-off an awesome project😊
 
 So... let's get to it!
 
 ## 1. Create an 8base Account
-
-The first thing you'll need to do is create an 8base account. To get started, click [this link to signup](https://app.8base.com/auth/signup). If you use an email and password to create your account, we'll send you a confirmation email. Either way, once your account is confirmed 8base will redirect you to your default workspace.
+The first thing you'll need to do – if you haven't already – is create an 8base account. To get started, click [this link](https://app.8base.com). If you use an email and password to create your account, we'll send you a confirmation email. Either way, once your account is confirmed 8base will redirect you to your default workspace.
 
 ![8base Signup](../.gitbook/assets/signup-screen%20%281%29.png)
 
-Voila! You've officially signed up for 8base :\)
+Voila! You've officially signed up for 8base.
 
 ## 2. Visit your Workspace
+In 8base, each workspace is treated as an individual project – much like you probably have different Git repositories for different code bases. This allows you to easily stay organized with projects, as well as upgrade individual workspaces when your app or service starts to scale! Each workspace starts on a [30-day Free Trial](https://www.8base.com/pricing).
 
-In 8base, workspaces are treated like an individual project. - just like you probably have different Git repositories for different code bases. This allows you to easily stay organized with projects, as well as upgrade individual workspaces when your app or service begins to scale! Each workspace starts on a [30-day Free Trial](https://www.8base.com/pricing).
-
-Let's just use the default workspace for the rest of this demo.
+Let's just use the default workspace for the rest of this quick-start.
 
 _Optional: If you want to create a new workspace, click the "YOUR NAME's Workspace" dropdown at the top of your screen and select "+ New Workspace". Name it whatever you like before pressing create. The new workspace should load in less then 10-seconds._
 
 ![Create a Workspace](../.gitbook/assets/workspace-menu%20%281%29.png)
 
 ## 3. Install the 8base CLI and Authenticate
+Open up your Terminal of choice. To harness the full power of 8base, you'll need to have [Node.js](https://nodejs.org/) installed on your computer. Without it, you won't be able to install our handy [8base CLI](https://github.com/8base/cli).
 
-Open up your Terminal of choice. To harness the full power of 8base, you'll need to have [Node.js](https://nodejs.org/) installed on your computer. Without it, you won't be able to install our handy [8base NPM package](https://www.npmjs.com/package/8base).
-
-Assuming you're all set up and able to run `npm` commands, let's go ahead and install the 8base CLI.
+Assuming you're all set up and able to use `npm`, let's go ahead and install the 8base CLI.
 
 ```text
 # Install 8base globally
 npm install -g 8base-cli
 ```
 
-When using the 8base CLI you need to authenticate your development workspace. This allows you to communicate with 8base for deploys, function invocations, logs, and more. Try running the following and allow your browser to launch a new window \(you may have to login\).
+When using the 8base CLI you need to authenticate your development workspace. This allows you to communicate with 8base for deploys, function invocations, logs, and more. Try running the `login` command and allow your browser to launch a new window \(you may have to login\).
 
 ```text
 # Login with CLI.
@@ -44,25 +38,142 @@ When using the 8base CLI you need to authenticate your development workspace. Th
 
 ![Logged in with 8base CLI](../.gitbook/assets/cli-login-success.png)
 
-## 4. Clone the Demo App
+## 4. Setting up the Local Project
+An important concept to grasp is that 8base is a Backend-as-a-Service that any frontend application can connect to using the API. This creates a very clear separation between the server-side (8base) and client-side (app/interface). 
 
-8base gives you full freedom to use whatever front-end technologies you'd like! For this example though, we've built a simple demo app to expedite your learning. Try cloning it to you computer with the following commands.
+```
+# Directory Tree
 
-```text
-# Clone the app from GutHub
-git clone https://github.com/8base/app-example.git
-
-# Change into the app directory
-cd app-example
+8base-starter-app
+├── README.md
+├── client/
+└── server/
 ```
 
-## 5. Import and Deploy the Schema, Data and Backend Logic
+Lets create our new project with this separation in mind by adding a new directory with the printed `Directory Tree` structure. This can be accomplished with the following two commands.
 
-You'll need to quickly link up the project with your workspace. Running the following command from the `server` directory will add a `.workspace.json` file at the root of your project, configured with the selected workspace ID.
+```
+# Make directory with client/ and server/ directory at root
+mkdir 8base-starter-app 8base-starter-app/client 8base-starter-app/server
+
+# Move into project and add README.md
+cd 8base-starter-app && touch README.md
+```
+## 5. Set up Client
+8base gives you full freedom to use whatever front-end technologies/frameworks you'd like! For this quickstart, we recommend that you use one of our starter apps. Currently, they are:
+
+1) **Vue** Starter App - [https://github.com/8base/vue-8base-starter-app.git](https://github.com/8base/vue-8base-starter-app)
+2) **React** Starter App - [https://github.com/8base/react-8base-starter-app.git](https://github.com/8base/react-8base-starter-app)
+
+Depending on the framework you wish to use, try cloning it into the `client/` directory that we just created. The following commands have been listed for each framework.
+
+```
+# For Vue
+git clone https://github.com/8base/vue-8base-starter-app.git client
+
+# For React
+git clone https://github.com/8base/react-8base-starter-app.git client
+```
+
+After cloning the project, make sure to change into the `client` directory and run `npm install` (or `yarn`) so that all the required packages get installed.
+
+## 6. Setting up the Workspace
+We're now going to hop over to the [8base Management Console](https://app.8base.com) and provision the workspace with a few key resources.
+
+##### Building a Data Model
+In the workspace, navigate to the [Data Builder](https://app.8base.com/data/) page and click on “+Add Table” to start building a data model. Were going to create one simple tables with the following fields.
+
+**Posts**
+| Field | Type | Description | Options |
+| ----- | ---- | ----------- | ------- |
+| `title`  | Text | The notes title | `mandatory=True` |
+| `body`  | Text | The notes body | `mandatory=True` |
+
+Once the tables is created, we're going to establish a relationship between it and the *Users* table. This can be done by dragging one table onto the other. However, let's build the one-to-many relationship manually on the *Posts* table.
+
+**Posts**
+| Field | Type | Description | Options |
+| ----- | ---- | ----------- | ------- |
+| `title`  | Text | The notes title | `mandatory=True` |
+| `body`  | Text | The notes body | `mandatory=True` |
+| `author` | Table | A notes other | `table=Users`<br>`Relation Field Name=posts`<br>`Allow multiple Posts per User=True`<br>`Allow multiple Users per Post=False` |
+
+Before movin on, lets also add some dummy records to our database. This can be done manually by clicking on a table and navigating to the `data` tab. This time around, lets just run the following GraphQL mutation in the [API Explorer](https://app.8base.com/api-explorer).
+
+```javascript
+mutation {
+  userUpdate(
+  filter: {
+    email: "sebastian.scholl@8base.com"
+  },
+  data: {
+    notes: {
+      create: [
+        {
+          title: "New favorite food",
+          body: "My new favorite food is the impossible burger"
+        },
+        {
+          title: "This weeks todos",
+          body: "Buy milk, cookies, and walk the dog."
+          completed: false
+        }
+      ]
+    }
+  }) {
+    notes {
+      count
+    }
+  }
+}
+```
+GraphQL mutations handle record creates, updates, and deletes. Using aliases (the keys named'steve', 'bonnie', etc.), we're able to run multiple operations in a single request. The `data.mealTickets.create` value will actually create an associated meal ticket record after the attendee record is created. That value is currently an array since attendees can have many tickets. Lastly, a `fragment` is simply a templates for our queries. Its contents could be written out in the query response plainly.
+##### 3) Roles and Permissions
+To allow app users to securely access the API with appropriate permissions, were going to create a custom role. Navigate to `Settings` > `Roles` and create new role with the name "Meal Ticketer". Once created, click the role and lets update its permissions. 
+Here we can update the Meal Ticketer's (a person using the app) permissions. For example, they should be able to do things like create `attendees` or `mealTickets`, and update `mealTickets` but not delete them. Let check the appropriate boxes and select the needed options.
+**Meal Ticketer**
+| Table | Create | Read | Update | Delete | Fields |
+| ----- | ------ | ---- | ------ | ------ | ------ |
+| Attendees | True | All Records | All Records | False | *Defaults |
+| MealTickets | True | All Records | All Records | False | *Defaults |
+Now, all unauthenticated users who call the workspace API endpoint and have the `Meal Ticketer` role can permform these actions.
+##### 4) Authentication Profile
+Setting up authentication will allow users to sign-up, log-in, and log-out of the app. Users should be authenticated to view the list of attendees and to perform tasks like allocating and invalidating tickets. We’ll configure 8base to handle authentication.
+Navigate to the [**Authentication**](https://app.8base.com/settings/authentication) page to begin the setup. We’ll need to create an authentication profile that contains roles, allowed urls, etc. 
+To create a new authentication profile, click the button with a plus-sign button and specify the following values:
+| Option | Value | Notes |
+| ------ | ----- | ----- |
+| `Name` | "Default Guest Auth" | Choose any descriptive name |
+| `Type` | 8base authentication | Find more auth info in the [docs](https://docs.8base.com/8base-console/authentication#8base-authentication) |
+| `Self Signup` | Open to all | Leave `Off` if using a free workspace |
+| `Roles` | Meal Ticketer | Multiple roles can be assigned to user on sign up  |
+![](https://paper-attachments.dropbox.com/s_8218F1520023DA63B43146AA6390392DE0C38A0BF715826EA40AC70ABAC30B7D_1569563474162_AuthView.png)
+Add the new authentication profile. The information that’s now displayed is useful when connecting the client application to the authentication profile. Note the Authentication Profile `Id`, the `Client ID` and the `Domain`; these values will come in handy later in the article.
+Next, we’ll set the custom domains. Scroll down to where you see `Custom Domains`. This is where you can provide routes that’ll be used during authentication. Update your URLs to be similar to the screenshot below. 
+*Note: make sure the `localhost:port` number matches that which your React app will run on!*
+![](https://paper-attachments.dropbox.com/s_8218F1520023DA63B43146AA6390392DE0C38A0BF715826EA40AC70ABAC30B7D_1569562163756_Screenshot+2019-09-27+at+6.28.20+AM.png)
+##### 5) Getting the Workspace API Endpoint
+Lastly, let’s copy our workspace’s API endpoint. This endpoint is unique to our workspace, and is where we will send our GraphQL queries URL. 
+There are a few ways to obtain the endpoint. However, just navigate to the workspace **Home** page and you’ll find the endpoint in the bottom left. 
+   ![](https://paper-attachments.dropbox.com/s_8218F1520023DA63B43146AA6390392DE0C38A0BF715826EA40AC70ABAC30B7D_1568623083735_Screenshot+2019-09-16+at+9.37.36+AM.png)
+
+Developers are able to extend their 8base workspace's using custom serverless functions. This provides tremendous flexibility in customizing an application, allowing advanced capabilities, like: 
+
+* Resolvers: For adding custom *Querys* and *Mutations* to the GraphQL API.
+* Triggers: For invoking functions on data events (before|after record create|update|delete, run function)
+* Webhooks: For invoking functions on webhook events using HTTP requests ([GET|POST|PUT|DELETE] @ endpoint)
+* Scheduled Tasks: For invoking functions on timed intervals (once a day, every five-minutes, or cron format)
+
+Custom functions are entirely optional in any project. However, lets give them a try and learn some cool CLI tricks in the process. 
+
+Move into the `server/` directory and "link" the local project with a hosted workspace. Using the `configure` command will allow us to create/select the workspace. The workspace you select is the one where the Custom Functions will be deployed to when ready.
 
 ```text
-# Change into the app-example/server directory
-cd server
+# Change into the server directory
+cd ../server
+
+# Install dependencies
+npm install
 
 # Configure the project's workspace
 8base configure
@@ -70,32 +181,12 @@ cd server
 ✔ Select workspace for current project › Default Workspace
 ```
 
-As you may know by now, 8base gives developers a Serverless + GraphQL backend that's ready to rock'n roll from the get go. It's quick and convenient to update tables, fields, model relationships, and much more in the [8base console](https://app.8base.com/). Let's simply bootstrap our demo app with some definitions and data we've already prepared for you.
-
-```text
-# Install required dependencies
-npm install
-```
-
-Now we're going to run the import using a `DEMO.json` file found in the `app-example/server` directory. Just so you know, this can take a minute.
-
-```text
-# Import data schema and sample data
-8base import -f DEMO.json
-```
-
-Once the import is done... woohoo! You're ready to deploy using our handy `deploy` command. Once the deploy is finished, checkout the [Data Viewer](https://app.8base.com/data/) in your workspace. There should be brand new database tables filled with rows of data there waiting for you.
-
-```text
-# Deploy backend logic
-8base deploy
-```
+Once configured, a `.workspace.json` file gets added to the current directory which conatins the selected workspace ID.
 
 ![8base data viewer inside of workspace](../.gitbook/assets/demo-data-viewer.png)
 
 ## 6. Fire-up the App
-
-Let's get this show on the road. To start up the app let's first change into the `app-example/client` directory. Just like before in `app-example/server` we'll first want to install all our dependencies here. Once that's handeled though, try running the following start command - the app may take a minute or two to build.
+Let's get this show on the road. To start up the app let's first change back into the `client` directory.
 
 ### For Mac Users
 
