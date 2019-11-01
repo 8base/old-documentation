@@ -215,10 +215,12 @@ print(result)
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-### GraphiQL and other API Clients
-It is not required that you use a script or the [8base API Explorer](https://docs.8base.com/8base-console/platform-tools/api-explorer) to query your API. Dozens of great API clients exist that allow you to investigate your workspace/GraphQL APIs.
+### Using API Clients
+It is not required that you use a script or the [8base API Explorer](https://docs.8base.com/8base-console/platform-tools/api-explorer) to query your API. Dozens of great API clients exist that allow you to investigate your workspace/GraphQL APIs. 
 
-We've added a list below of some of the ones that we like. Feel free to use one of them or find another that you love!
+When using a 3rd party API Client (**NOT** the 8base API Explorer) make sure to generate an API Token with full permissions and include it as an authorization header. Otherwise, you will likely run into authentication issues when running queries.
+
+We've added a list below of some of the ones that we like. Feel free to use one of them or find another that you love! 
 
 * [GraphiQL](https://github.com/skevy/graphiql-app) 
 * [GraphiQL Online](https://graphiql-online.com/)
