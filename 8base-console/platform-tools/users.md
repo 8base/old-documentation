@@ -45,8 +45,6 @@ When a user signs up for your application (or is added manually), a role can be 
 
 Currently, it is required that users sign up with a valid email address. When using 8base Authentication, a confirmation email will get sent to the user.
 
-![Creating a user in the 8base Management Console](../.gitbook/assets/data-viewer-create-user.png)
-
 ### Updating User
 When inside the [User Administration](https://app.8base.com/users) user's `firstName`, `lastName`, `email`, and `roles` can be updated. This can be accomplished by clicking `Edit` in the row dropdown and using the popover form as needed.
 
