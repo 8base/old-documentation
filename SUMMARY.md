@@ -18,6 +18,7 @@
   * [Data Viewer](8base-console/platform-tools/data-viewer.md)
   * [API Explorer](8base-console/platform-tools/api-explorer.md)
   * [Logic](8base-console/platform-tools/functions.md)
+  * [User Administration](8base-console/platform-tools/users.md)
 
 * [GraphQL API](8base-console/graphql-api/README.md)
   * [Queries](8base-console/graphql-api/queries/README.md)

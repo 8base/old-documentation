@@ -2,42 +2,7 @@
 
 Every 8base workspace initializes with native support for signing up, managing, and authorizing your application's Users. This feature eliminates the requirement of managing emails and passwords or social sign-on providers without compromising on access to your user data.
 
-## Users
-**Users** is defined as a *System Table* in 8base, meaning that the table is added and required in every workspace. That said, it's fully customizable using the Data Builder and can be configured to your application's requirements.
-
-By default, the Users table has the following fields defined.
-
-```javascript
-{
-    id: ID
-    _description: String
-    createdAt: DateTime
-    updatedAt: DateTime
-    createdBy: User
-    email: String
-    is8base: Boolean
-    firstName: String
-    lastName: String
-    cellPhone: String
-    workPhone: String
-    workPhoneExt: String
-    gender: String
-    birthday: String
-    language: String
-    timezone: String
-    avatar: File
-    sentInvitations: Array
-    permissions: Array
-    roles: Array
-}
-````
-
-### Managing Users in the Console
-In most applications, Users records are created as a part of a sign-up flow. However, in situations where a User must be created, updated, or deleted manually by an admin, it's easy to do so using the Data Viewer pane when reviewing the Users table.
-
-![Creating a user in the 8base Management Console](../.gitbook/assets/data-viewer-create-user.png)
-
-## Authorization
+## Authentication
 Under the hood, 8base utilizes [Auth0](https://auth0.com/) to manage your users' identities and ensure the best security standards. All user accounts are by default stored in an Auth0 account that's managed by 8base. For upgraded workspace plans, the option of connecting one's Auth0 account or an OpenID provider is available.
 
 ### 8base Authentication
