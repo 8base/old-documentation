@@ -1,6 +1,16 @@
 # Overview
 
-**8base** is a GraphQL backend that lets front-end developers quickly deliver enterprise applications using full-stack JavaScript. Learn more about **8base's** awesome features on [our homepage](https://8base.com) or in [the quick start app](./quick-start.md).
+**8base** is a Backend-as-a-Service. It lets front-end developers focus more on what they love and backend developers expedite their workflow. As our CEO likes to say, "it's totally awesome!"
+
+When using 8base, you're project benefits from having:
+
+1. A fully scalable serverless API
+2. A managed MySQL Database that's hosted on AWS
+3. Ready-to-use app services, like Authentication, Authorization, and File Storage
+4. 8base's rock-star team and [the Community](https://community.8base.com) 
+5. So, so, so much more!
+
+An awesome way to get more familiar with the true power of 8base is to complete [the quick start app](./quick-start.md) and watch some of the [8base Academy Videos](https://www.youtube.com/channel/UCQgTczr5z_O4SJ-3nkANOaw). That said, below is a list of great guides to help get you familiar with many key concepts.
 
 ## Useful Guides
 
