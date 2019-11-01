@@ -1,32 +1,32 @@
 # Connecting to the API
 {% youtube src="https://www.youtube.com/watch?v=gLM-Fc6gWlE" %}{% endyoutube %}
 
-An 8base Workspace API is a single endpoint from which **all** workspace data can be queried. Simply put, it's the single source of truth for an applications data.
+An 8base Workspace API is a single endpoint from which **all** data sources can be queried. Simply put, it's the single source of truth for an application's data.
 
 {% hint style="info" %}
-### Workspace Endpoint Anatomy
+##### Workspace Endpoint Anatomy
 
 ```
 https://api.8base.com/<WORKSPACE_ID>
 ```
 {% endhint %}
 
-All requests made to a workspace endpoint must be done either using a GraphQL client or an HTTP POST request - the only exception is when using [webhook custom functions](https://docs.8base.com/8base-console/custom-functions/webhooks). We highly recommend using a GraphQL client, like [8base SDK](https://docs.8base.com/development-tools/sdk/api-client) or [Apollo Client](https://github.com/apollographql/apollo-client). That said, it doesn't matter what technology you're using for a client - or server - application. As long as you can perform HTTP web requests, you'll be able to connect to query a workspace endpoint.
+All requests made to a workspace endpoint must be run using either a GraphQL client or an HTTP POST request - the only exception is when using [webhook custom functions](https://docs.8base.com/8base-console/custom-functions/webhooks). We highly recommend using a GraphQL client like the [8base SDK](https://docs.8base.com/development-tools/sdk/api-client) or [Apollo Client](https://github.com/apollographql/apollo-client). 
+
+That said, it doesn't matter what technology you use for the client - or server - application. As long as you can perform HTTP requests, you'll be able to query a workspace endpoint.
 
 ### Setup
 In the following examples, we've made a few assumptions (feel free to re-create them for your learnings sake!). Those assumptions are the following:
 
-1. You manage a workspace named *Todo's Workspace*
-2. You've defined a table named *Todos*
-3. The *Todos* table has the following fields:
-   * `text: text`
-   * `completed: switch, { format: Yes/No }`
-4. One or more *Todos* records have been created
-5. An API token has been created for a role named *Developer*.
-6. Guest users are permitted Create, Read, Update, Delete (CRUD) access to the *Todos* table
+1. An workspace API Token has been created.
+2. You've defined a table named *Todos* in a workspace.
+3. The *Todos* table has a `text` and `completed` field.
+4. Guest users are permitted Create, Read, Update, Delete (CRUD) access to the *Todos* table
 
 ### Executing API Calls
-In all of the following examples, make sure to replace all occurances of `{API_ENDPOINT}` with your workspace's endpoint and all occurances of `{API_TOKEN}` with your developer API token.
+In all of the examples that follow, make sure to replace any occurance of `{API_ENDPOINT}` with your workspace's endpoint and `{API_TOKEN}` with your developer API token.
+
+The examples provided are in Bash, JavaScript, and Python.
 
 #### Example GraphQL Query
 In this query, we're querying a list of todos using the `todosList` operation. If successfull, the `text` field of each item in the list will be returned. 
@@ -216,7 +216,9 @@ print(result)
 {% endcode-tabs %}
 
 ### GraphiQL and other API Clients
-It is not required that you use a script or the [8base API Explorer](https://docs.8base.com/8base-console/platform-tools/api-explorer) to explore your API. Dozens of great API clients exist that allow you to investigate your workspace API. We've added a list below of some of the ones that we like. Feel free to use one of them or find another that you love!
+It is not required that you use a script or the [8base API Explorer](https://docs.8base.com/8base-console/platform-tools/api-explorer) to query your API. Dozens of great API clients exist that allow you to investigate your workspace/GraphQL APIs.
+
+We've added a list below of some of the ones that we like. Feel free to use one of them or find another that you love!
 
 * [GraphiQL](https://github.com/skevy/graphiql-app) 
 * [GraphiQL Online](https://graphiql-online.com/)
