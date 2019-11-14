@@ -18,7 +18,7 @@ Each workspace starts on a [30-day Free Trial](https://www.8base.com/pricing). L
 _Optional: If you want to create a new workspace, click the "YOUR NAME's Workspace" dropdown at the top of your screen and select "+ New Workspace". Name it whatever you like before pressing create. The new workspace should load in less then 10-seconds._
 
 ### 2.1. Building a Data Model
-In the workspace, navigate to the [Data Builder](https://app.8base.com/data/) page and click on `[+ Add Table]`. We're going to create one simple table for our data model with the following fields.
+In the workspace, navigate to the [Data Builder](https://app.8base.com/data/) page and click on `[+ Create Table]`. We're going to create one simple table and name it *Notes* for our data model with the following fields.
 
 **Notes**
 | Field | Type | Description | Options |
@@ -72,7 +72,7 @@ This is a great example of how 8base supports relational queries and mutations!
 - *[API Explorer docs](https://docs.8base.com/8base-console/platform-tools/api-explorer)*
 
 ### 2.2. Roles and Permissions
-We only want to users to see their own notes. A custom role can enforce this. Navigate to `Settings` > `Roles` and create new role with the name "Reviewer". Once created, click the role and lets update its permissions. 
+We only want to users to see their own notes. A custom role can enforce this. Navigate to `Settings` > `Roles` and create new role with the name "Reviewer". Once created, click the role and let's update its permissions. 
 
 Let's check the appropriate boxes and select the needed options.
 
