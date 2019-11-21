@@ -1,6 +1,6 @@
 # Generators
 
-Generators are awesome. Essentially, they can be used to reliably scaffold application resources – like custom functions – that can then get customized. Relying on generators will also help ensure that your project directories stay organized.
+Generators are awesome. Essentially, they can be used to reliably scaffold application resources—like custom functions—that can then be customized. Relying on generators will also help ensure that your project directories stay organized.
 
 ### Commands
 When running `8base generate [COMMAND]`, certain option flags are always available. Currently, they are:
@@ -23,8 +23,8 @@ $ 8base generate resolver [FUNCTION_NAME] [OPTIONS]
 ```
 
 OPTIONS:
-* `--mocks`, `-x`	Included mocks dir and files - type: boolean, default: true
-* `--syntax`, `-s`  Syntax for the generated file - type: string, default: 'ts', allowed: ['js', 'ts']
+* `--mocks`, `-x`	Included mocks dir and files — type: boolean, default: true
+* `--syntax`, `-s`  Syntax for the generated file — type: string, default: 'ts', allowed: ['js', 'ts']
 
 EXAMPLE: 
 ```sh
@@ -49,10 +49,10 @@ $ 8base generate webhook [FUNCTION_NAME] [OPTIONS]
 ```
 
 OPTIONS:
-* `--path`, `-p`    Path for the url (https:<endpoint>/<PATH>) - type: string
-* `--method`, `-m`  HTTP verb to invoke the function - type: string, allowed: ['POST', 'GET', 'DELETE', 'PUT']
-* `--mocks`, `-x`	Included mocks dir and files - type: boolean, default: true
-* `--syntax`, `-s`  Syntax for the generated file - type: string, default: 'ts', allowed: ['js', 'ts']
+* `--path`, `-p`    Path for the url (https:<endpoint>/<PATH>) — type: string
+* `--method`, `-m`  HTTP verb to invoke the function — type: string, allowed: ['POST', 'GET', 'DELETE', 'PUT']
+* `--mocks`, `-x`	Included mocks dir and files — type: boolean, default: true
+* `--syntax`, `-s`  Syntax for the generated file — type: string, default: 'ts', allowed: ['js', 'ts']
 
 EXAMPLE: 
 ```sh
@@ -76,10 +76,10 @@ $ 8base generate trigger [FUNCTION_NAME] [OPTIONS]
 ```
 
 OPTIONS:
-* `--type`, `-t` 	   	The trigger type - type: string, allowed: ['before', 'after']
-* `--operation`, `-o`   Operation that invokes the trigger - type: string
-* `--mocks`, `-x`		Included mocks dir and files - type: boolean, default: true
-* `--syntax`, `-s`  	Syntax for the generated file - type: string, default: 'ts', allowed: ['js', 'ts']
+* `--type`, `-t` 	   	The trigger type — type: string, allowed: ['before', 'after']
+* `--operation`, `-o`   Operation that invokes the trigger — type: string
+* `--mocks`, `-x`		Included mocks dir and files — type: boolean, default: true
+* `--syntax`, `-s`  	Syntax for the generated file — type: string, default: 'ts', allowed: ['js', 'ts']
 
 EXAMPLE:
 ```sh
@@ -103,9 +103,9 @@ $ 8base generate task [FUNCTION_NAME] [OPTIONS]
 ```
 
 OPTIONS:
-* `--schedule`, `--sch`  Schedule on which the task runs - type: string
-* `--mocks`, `-x`		Included mocks dir and files - type: boolean, default: true
-* `--syntax`, `-s`  	Syntax for the generated file - type: string, default: 'ts', allowed: ['js', 'ts']
+* `--schedule`, `--sch`  Schedule on which the task runs — type: string
+* `--mocks`, `-x`		Included mocks dir and files — type: boolean, default: true
+* `--syntax`, `-s`  	Syntax for the generated file — type: string, default: 'ts', allowed: ['js', 'ts']
 
 EXAMPLE:
 ```sh
@@ -129,8 +129,8 @@ $ 8base generate mock [FUNCTION_NAME] [OPTIONS]
 ```
 
 OPTIONS:
-* `--mockName`, `-m`    Name of the mock request - type: string, default: 'request'
-* `--syntax`, `-s`  	Syntax for the generated file - type: string, default: 'ts', allowed: ['js', 'ts']
+* `--mockName`, `-m`    Name of the mock request — type: string, default: 'request'
+* `--syntax`, `-s`  	Syntax for the generated file — type: string, default: 'ts', allowed: ['js', 'ts']
 
 EXAMPLE:
 ```sh
@@ -165,7 +165,7 @@ $ 8base generate scaffold [TABLE_NAME] [OPTIONS]
 ```
 
 OPTIONS:
-* `--depth`	Depth of the generated query - type: number, default: 1
+* `--depth`	Depth of the generated query — type: number, default: 1
 
 EXAMPLE:
 ```sh

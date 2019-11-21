@@ -41,9 +41,9 @@ query ($gender: String, $age: Int) {
 You can see that the keys here match the variable names specified in the variables definition. These variable names denoted with the *$* are what get used in the selecton set.
 
 ### Declaring Typed Variables
-Variables are not limited to being single input values. They can be complex objects with any declared *type* in a given workspace - native or custom. This allows for things like entire filters, sorts, and many others to get passed dynamically as variables. 
+Variables are not limited to being single input values. They can be complex objects with any declared *type* in a given workspace—native or custom. This allows for things like entire filters, sorts, and many others to get passed dynamically as variables. 
 
-The following two examples would work together for querying a list of *Posts* in "draft" status that belong to the *Author*, which is the logged in user - supplying the filter as a variable.
+The following two examples would work together for querying a list of *Posts* in "draft" status that belong to the *Author*, which is the logged in user—supplying the filter as a variable.
 
 ##### JSON Variable
 ```json

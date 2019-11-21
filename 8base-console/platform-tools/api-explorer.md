@@ -18,7 +18,7 @@ query {
 
 Once added, reposition the cursor after the "r" in user and press `[OPTION] + [SPACE]`. From here, it's easy to see and select available operations in the API. The auto-complete is contextual to where you are in the query being built, and filters options based on what's being typed.
 
-Additpionally, introspection helps us detect errors in queries. The system recognizes when different types are either not available or incorrectly configured - things like, `Number` should be `String`, field not available on table, as well as validations. Therefore, when using the API Explorer, hover over squiggly-red lines to reveal error tooltips.
+Additpionally, introspection helps us detect errors in queries. The system recognizes when different types are either not available or incorrectly configured—things like, `Number` should be `String`, field not available on table, as well as validations. Therefore, when using the API Explorer, hover over squiggly-red lines to reveal error tooltips.
 
 ![Tooltip showing error in API Explorer](../../.gitbook/assets/api-explorer-tooltip-error.png)
 
@@ -42,7 +42,7 @@ Once added, hold-press the `[CMD]` or `[WINDOWS]` key while hoving over "userCre
 ![Opening the documentation using keyboard shortcut](../../.gitbook/assets/documentation-explorer-open-shortcut.png)
 
 ## Explorer
-8base integrated the *Explorer* from [OneGraph](https://www.onegraph.com/) to provide an easily interface for building GraphQL Queries. To open the Explorer, click the "Explorer" button located abover the textarea. The Explorer will open up on screen left. While drilling down into the Explorer list items and clicking the checkboxes, accuracte queries will begin populating the textarea.
+8base integrated the *Explorer* from [OneGraph](https://www.onegraph.com/) to provide an easy interface for building GraphQL Queries. To open the Explorer, click the "Explorer" button located abover the textarea. The Explorer will open up on screen left. While drilling down into the Explorer list items and clicking the checkboxes, accurate queries will begin populating the textarea.
 
 Try opening `apiTokenList` and checking the `count` option. The following query will populate the textarea, which can be executed to check how many API tokens exist in the current workspace.
 

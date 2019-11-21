@@ -85,8 +85,8 @@ $ 8base login [OPTIONS]
 ```
 
 OPTIONS:  
-* `-e`, `--email`	 User email - type: string
-* `-p`, `--password` User password - type: string
+* `-e`, `--email`	 User email — type: string
+* `-p`, `--password` User password — type: string
 
 EXAMPLES:
 * `8base login`
@@ -107,8 +107,8 @@ $ 8base logs [FUNCTION NAME] [OPTIONS]
 ```
 
 OPTIONS: 
-* `-n`, `--num` 	Number of lines to display - type: sting, default: 10, max: 100 
-* `-t`, `--tail` 	Continually stream logs - type: boolean
+* `-n`, `--num` 	Number of lines to display — type: sting, default: 10, max: 100 
+* `-t`, `--tail` 	Continually stream logs — type: boolean
 
 ##### package
 Package 8base application without deploying it.
@@ -135,7 +135,7 @@ OPTIONS:
 * `-w`, `--workspace` set current workspace
 
 ##### export
-Export current - or specified - workspace data schema to a local file
+Export current—or specified—workspace data schema to a local file
 
 ```sh
 $ 8base export [OPTIONS]
@@ -153,7 +153,7 @@ Import 8base schema file and data to the current - or specified - workspace.
 ```
 
 OPTIONS:
-* `-f`, `--file` 		Path to file with schema - type: string, required: true
-* `--schema` 			Import schema only - type: boolean, default: true
-* `--data` 				Import data only - type: boolean, default: true
-* `-w`, `--workspace`   Specify workspace id - type: string
+* `-f`, `--file` 		Path to file with schema — type: string, required: true
+* `--schema` 			Import schema only — type: boolean, default: true
+* `--data` 				Import data only — type: boolean, default: true
+* `-w`, `--workspace`   Specify workspace id — type: string

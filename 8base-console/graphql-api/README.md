@@ -12,7 +12,7 @@ The API comes pre-configured with filtering, pagination, full-text search and ma
 
 *Note: Using [Custom Functions](../custom-functions/README.md), these GraphQL resources can be extended and added to in any way seen fit.*
 
-There are several way of retrieving an API endpoint for your workspace. The easiest is to login to the [8base Management Console](https://app.8base.com), select a workspace and copy the `API Endpoint` displayed on the dashboard.
+There are several ways of retrieving an API endpoint for your workspace. The easiest is to login to the [8base Management Console](https://app.8base.com), select a workspace and copy the `API Endpoint` displayed on the dashboard.
 
 ![Where to find a workspace API endpoint](../../.gitbook/assets/workspace-api-endpoint.png)
 
@@ -47,7 +47,7 @@ query {
 
 We see immediately that our result has the same shape as the query. This is key to GraphQL; you always get what you ask for, and the server knows which fields the clients was asking for.
 
-8base GraphQL queries are interactive, and support relational queries natively. This mean two important things, 1) a query can be changed at any time, and 2) related data can be joined without writing complex database queries and serializers (it's handled for you). Let's try another example to demonstrate this.
+8base GraphQL queries are interactive, and support relational queries natively. This means two important things: 1) a query can be changed at any time, and 2) related data can be joined without writing complex database queries and serializers (it's handled for you). Let's try another example to demonstrate this.
 
 {% code-tabs %}
 {% code-tabs-item title="Query" %}
@@ -161,7 +161,7 @@ query($filter: PostFilter) {
 
 
 ### Aliases
-Aliases get used to return objects having different names than their field names. This is needed when fetching the same type of objects with different arguments in a single query.
+Aliases are used to return objects having different names than their field names. This is needed when fetching the same type of objects with different arguments in a single query.
 
 {% code-tabs %}
 {% code-tabs-item title="Query" %}
@@ -207,7 +207,7 @@ query {
 {% endcode-tabs %}
 
 ### Fragments
-Queries can get verbose and unorganized. Fragment create a set of fields that can then be used to represent the defined set.
+Queries can become verbose and unorganized. Fragments create a set of fields that can then be used to represent the defined set.
 
 {% code-tabs %}
 {% code-tabs-item title="Query" %}

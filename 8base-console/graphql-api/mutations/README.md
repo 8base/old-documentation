@@ -25,7 +25,7 @@ A cool feature of 8base API is the ability to create related objects while creat
 * **Disconnect**: Disconnect connected object(s) (update mutation only).
 
 ### Arguments
-8base accepts to the following mutation arguments, depending on the operation.
+8base accepts the following mutation arguments, depending on the operation.
 
 * **data**. Data used to update or locate the record.
 * **filter**. A filter containing a unique field value for locating the record.

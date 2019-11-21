@@ -2,11 +2,11 @@
 
 ### File picker for React
 
-For React developers 8base SDK provides the `@8base-react/file-input` package that automates the steps described here. If you're looking for an easy way to integrate file uploading capabilities into your application read the [Client Tools](./file_upload.md) section.
+For React developers, 8base SDK provides the `@8base-react/file-input` package that automates the steps described here. If you're looking for an easy way to integrate file uploading capabilities into your application read the [Client Tools](./file_upload.md) section.
 
 8base provides a native file management capability. You can attach files to your data object by creating a field of type `File`. A `File` field can store one or multiple files. You can manage granular files permissions just like you would for any other table.
 
-In the GraphQL API `Files` is just another table that supports all standard CRUD operations as well as connections to other tables. When you create a field of type `File` the platform creates a relationship (connection) between your table and the `Files` table under the hood. This allows you to use connection-related operations such as `create`, `connect`, `disconnect` on file-type fields.
+In the GraphQL API, `Files` is just another table that supports all standard CRUD operations as well as connections to other tables. When you create a field of type `File`, the platform creates a relationship (connection) between your table and the `Files` table under the hood. This allows you to use connection-related operations such as `create`, `connect`, and `disconnect` on file-type fields.
 
 8base is natively integrated with [Filestack](https://www.filestack.com/) to handle file uploads, delivery and transformations. Filestack provides file `handle`, which is a unique identifier of the file inside Filestack. You provide Filestack `handle` when creating a `File` object in 8base.
 
@@ -14,7 +14,7 @@ The workflow of creating a file consists of the following steps:
 
 1. **Get Filestack upload details**
 
-   You can use the `fileUploadInfo` query to get all fields required by Filestack to upload a file. It generates a temporary policy allowing you to upload a file to a predefined path, based on your workspace ID.
+   You can use the `fileUploadInfo` query to retrieve all fields required by Filestack to upload a file. It generates a temporary policy allowing you to upload a file to a predefined path, based on your workspace ID.
 
 ```javascript
 {
@@ -27,7 +27,7 @@ The workflow of creating a file consists of the following steps:
 }
 ```
 
-2. **Upload file to Filestack** Use Filestack API or picker to upload the file using the parameters from the step 1. On successful upload Filestack returns file `handle`. You can learn more about uploading files directly to Filestack [here](https://www.filestack.com/docs/concepts/uploading/). For React developers using the 8base SDK, it provides [tools](./file_upload.md) to simplify file uploads such that you never need to interact with Filestack directly.
+2. **Upload file to Filestack** Use Filestack API or picker to upload the file using the parameters from the step 1. On successful upload, Filestack returns file `handle`. You can learn more about uploading files directly to Filestack [here](https://www.filestack.com/docs/concepts/uploading/). For React developers using the 8base SDK, it provides [tools](./file_upload.md) to simplify file uploads such that you never need to interact with Filestack directly.
 
 3. **Create file in 8base** Create file in 8base by passing the Filestack `handle` from step 2. You can either create a `File` object directly so you can later connect it to other tables:
 

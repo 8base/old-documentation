@@ -2,11 +2,11 @@
 
 **8base** is a Backend-as-a-Service. It lets front-end developers focus more on what they love and backend developers expedite their workflow. As our CEO likes to say, "it's totally awesome!"
 
-When using 8base, you're project benefits from having:
+When using 8base, your project benefits from having:
 
 1. A fully scalable serverless API
 2. A managed MySQL Database that's hosted on AWS
-3. Ready-to-use app services, like Authentication, Authorization, and File Storage
+3. Ready-to-use app services like Authentication, Authorization, and File Storage
 4. 8base's rock-star team and [the Community](https://community.8base.com) 
 5. So, so, so much more!
 

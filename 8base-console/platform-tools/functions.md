@@ -9,9 +9,9 @@ Once custom functions have been deployed to a workspace, they will appear in a l
 A quick overview of the function can be collected, showing its `type`, `description`, and any relevant meta data (configurations). Most importantly, clicking on the `Logs` tab will display the functions production logs.
 
 ## Logs
-Logs can tailed – watched in real time – and searched. To turn on tailing, turn on the "Real Time Logs" toggle. You'll see a prompt in the screen that a connection is/has been established.
+Logs can tailed—watched in real time—and searched. To turn on tailing, turn on the "Real Time Logs" toggle. You'll see a prompt in the screen that a connection is/has been established.
 
-Keep in mind that when watching the logs a short latency period can be expected. Every request made is assigned a unique ID that can be used to search and identify a single request. 
+Keep in mind that when watching the logs, a short latency period can be expected. Every request made is assigned a unique ID that can be used to search and identify a single request. 
 
 If a `console.log('...something')` statement is used inside of a custom function, the printed result will appear here inside the logs.
 

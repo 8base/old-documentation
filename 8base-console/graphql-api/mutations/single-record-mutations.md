@@ -6,7 +6,7 @@ You can create, update, and delete individual table records using 8base's auto-g
 ***Note**: Some examples will use [aliases](../README.md) to show side by side the use of `data.id` versus `filter`. All examples work without aliases.*
 
 ##### Creating a single record
-Create a new record using the data argument that define the records data. 
+Create a new record using the data argument that defines the records data. 
 
 {% code-tabs %}
 {% code-tabs-item title="Query" %}
@@ -37,7 +37,7 @@ mutation {
 {% endcode-tabs %}
 
 ##### Updating a single record
-Update a record using the data argument while including the records `id` OR using a `filter` that includes a unqiue field.
+Update a record using the data argument while including the record's `id` OR using a `filter` that includes a unqiue field.
 
 {% code-tabs %}
 {% code-tabs-item title="Query" %}
@@ -85,7 +85,7 @@ mutation {
 {% endcode-tabs %}
 
 ##### Delete a single record
-Delete a record using the data argument while including the records `id` OR using a `filter` that includes a unqiue field.
+Delete a record using the data argument while including the record's `id` OR using a `filter` that includes a unqiue field.
 
 {% code-tabs %}
 {% code-tabs-item title="Query" %}
@@ -124,4 +124,4 @@ mutation {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-When handling delete mutations, an additional force parameter can be specified in the data object that accepts a Boolean value - the default value is `false`. When set to `true` it will force a cascading delete on the record. This means that if the record being deleted is a parent in a mandatory relationship with child records, all child records will be deleted as well.
+When handling delete mutations, an additional force parameter can be specified in the data object that accepts a Boolean value—the default value is `false`. When set to `true`, it will force a cascading delete on the record. This means that if the record being deleted is a parent in a mandatory relationship with child records, all child records will be deleted as well.

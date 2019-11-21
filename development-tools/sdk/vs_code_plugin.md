@@ -1,8 +1,8 @@
 # VS Code Plugin
 
-For VS Code users we recommend installing the [Apollo GraphQL extension](https://marketplace.visualstudio.com/items?itemName=apollographql.vscode-apollo). It significantly improve the development experience by providing schema-based GraphQL autocompletion, query validation, syntax highlighting and more.
+For VS Code users we recommend installing the [Apollo GraphQL extension](https://marketplace.visualstudio.com/items?itemName=apollographql.vscode-apollo). It significantly improves the development experience by providing schema-based GraphQL autocompletion, query validation, syntax highlighting and more.
 
-Once you installed the plugin create file `apollo.config.js` in the root of the project: 
+Once you've installed the plugin, create the file `apollo.config.js` in the root of the project: 
 
 ```javascript
 module.exports = {

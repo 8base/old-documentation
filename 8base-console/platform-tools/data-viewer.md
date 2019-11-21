@@ -10,14 +10,14 @@ New table records can be added using the "+" button next to the table name. A fo
 ![Adding a new record in the Data Viewer](../../.gitbook/assets/data-viewer-add.png)
 
 ### Filtering Records
-When using the Data Viewer, filters can be applied to narrow down the list of record desiplayed. Multiple filters can be added and used together. Please note, the Data Viewer's filtering UI does not support filtering based on related tables. 
+When using the Data Viewer, filters can be applied to narrow down the list of records displayed. Multiple filters can be added and used together. Please note, the Data Viewer's filtering UI does not support filtering based on related tables. 
 
 Use the API Explorer for advanced table filtering.
 
 ![Filtering records in the Data Viewer](../../.gitbook/assets/data-viewer-filtering.png)
 
 ### Sorting Records
-Data records can be sorted by using one or more sortable attributes. Sort attributes are ranked in the order in which they were created. Additionally, the filters can be applied to narrow down the list of records desiplayed. Multiple filters can be added and used together. Please note, the Data Viewer's sorting UI does not support sorting based on related table values. 
+Data records can be sorted by using one or more sortable attributes. Sort attributes are ranked in the order in which they were created. Please note, the Data Viewer's sorting UI does not support sorting based on related table values. 
 
 Use API Explorer for advanced table sorting.
 
@@ -26,7 +26,7 @@ Use API Explorer for advanced table sorting.
 ### Selected Fields
 By default, the *createdAt*, and *updatedAt* field columns are hidden in the Data Viewer. In order to customize which fields and columns display for a given table, simply click on the `[Selected Fields]` dropdown and toggle on/off desired fields.
 
-In the same drop-down, columns can easily be reordered. Simply drag-and-drop this items in the drop-down to any preferred order.
+In the same drop-down, columns can easily be reordered. Simply drag-and-drop these items in the drop-down to any preferred order.
 
 ![Selecting fields in the Data Viewer](../../.gitbook/assets/data-viewer-selected-fields.png)
 

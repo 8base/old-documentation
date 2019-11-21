@@ -13,12 +13,12 @@ https://api.8base.com/<WORKSPACE_ID>
 
 All requests made to a workspace endpoint must be run using either a GraphQL client or an HTTP POST request - the only exception is when using [webhook custom functions](https://docs.8base.com/8base-console/custom-functions/webhooks). We highly recommend using a GraphQL client like the [8base SDK](https://docs.8base.com/development-tools/sdk/api-client) or [Apollo Client](https://github.com/apollographql/apollo-client). 
 
-That said, it doesn't matter what technology you use for the client - or server - application. As long as you can perform HTTP requests, you'll be able to query a workspace endpoint.
+That said, it doesn't matter what technology you use for the client—or server—application. As long as you can perform HTTP requests, you'll be able to query a workspace endpoint.
 
 ### Setup
 In the following examples, we've made a few assumptions (feel free to re-create them for your learnings sake!). Those assumptions are the following:
 
-1. An workspace API Token has been created.
+1. A workspace API Token has been created.
 2. You've defined a table named *Todos* in a workspace.
 3. The *Todos* table has a `text` and `completed` field.
 4. Guest users are permitted Create, Read, Update, Delete (CRUD) access to the *Todos* table
@@ -216,7 +216,7 @@ print(result)
 {% endcode-tabs %}
 
 ### Using API Clients
-It is not required that you use a script or the [8base API Explorer](https://docs.8base.com/8base-console/platform-tools/api-explorer) to query your API. Dozens of great API clients exist that allow you to investigate your workspace/GraphQL APIs. 
+It's not required that you use a script or the [8base API Explorer](https://docs.8base.com/8base-console/platform-tools/api-explorer) to query your API. Dozens of great API clients exist that allow you to investigate your workspace/GraphQL APIs. 
 
 When using a 3rd party API Client (**NOT** the 8base API Explorer) make sure to generate an API Token with full permissions and include it as an authorization header. Otherwise, you will likely run into authentication issues when running queries.
 

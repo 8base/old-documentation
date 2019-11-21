@@ -1,7 +1,7 @@
 *For the sake of the following examples, let's consider a scenario where a table called `Posts` exists, having expected fields and relations like `title`, `body`, `author`, etc.*
 
 ### Using multiple arguments in queries
-More than one argument can get used in a single list query.
+More than one argument can be used in a single list query.
 
 {% code-tabs %}
 {% code-tabs-item title="Query" %}

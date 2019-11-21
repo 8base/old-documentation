@@ -116,7 +116,7 @@ export default withAuth(Login);
 ```
 
 ### Authentication Handler
-The `react-router-dom` *Router* component assumes the role of an app's `root` component when a component that handles authentication callbacks needs to be specified. The *Router* component should get provisioned with an *Route* handling the authentication profile's allowed callback url's path.
+The `react-router-dom` *Router* component assumes the role of an app's `root` component when a component that handles authentication callbacks needs to be specified. The *Router* component should be provisioned with a *Route* handling the authentication profile's allowed callback url's path.
 
 
 ```js
@@ -136,7 +136,7 @@ const Routes = () => (
 export default Routes;
 ```
 
-The `AuthCallback` component is up to the developer to define. When the component initializes one of two things can be expected; sign-in or sign-up. Which action is approriate can get determined by checking for an existing user with the provided details. If none exist, a new user record can be created.
+The `AuthCallback` component is up to the developer to define. When the component initializes, one of two things can be expected; sign-in or sign-up. Which action is approriate can be determined by checking for an existing user with the provided details. If none exist, a new user record can be created.
 
 ```js
 import React, { useEffect } from 'react';
@@ -206,7 +206,7 @@ const AuthCallback = ({ auth, history, client }) => {
 /* Decorated export */
 export default compose(withAuth, withApollo)(AuthCallback);
 ```
-**auth**, **history**, and **client** objects get passed to the function as arguments. Using these modules, most final authentication flows can be established. For example, the `idToken` and `email` of the authenticated user can be returned from the `auth.getAuthorizedData` method. These values can then get used to querying the API using the `client.query` method.
+**auth**, **history**, and **client** objects are passed to the function as arguments. Using these modules, most final authentication flows can be established. For example, the `idToken` and `email` of the authenticated user can be returned from the `auth.getAuthorizedData` method. These values can then be used to query the API using the `client.query` method.
 
 {% hint style="warning" %}
 ##### How to use the idToken

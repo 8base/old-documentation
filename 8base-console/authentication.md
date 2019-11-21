@@ -35,7 +35,7 @@ All required information is in the settings of your Auth0 account.
 ![Connecting your Auth0 account](../.gitbook/assets/auth-own-auth0.png)
 
 ### OpenID Connect
-The ability to set up an authentication provider that supports the OpenID specification is available for workspaces on a *Professional* or *Enterprise* plan. Some light setup required in the Management Console and a custom *resolver* function needs to be deployed to your project's workspace to use this feature.
+The ability to set up an authentication provider that supports the OpenID specification is available for workspaces on a *Professional* or *Enterprise* plan. Some light setup is required in the Management Console and a custom *resolver* function needs to be deployed to your project's workspace to use this feature.
 
 ### Sign-on Providers
 Sign-on providers can easily be enabled/disabled in the *8base Authentication Settings* section of the workspace's Authentication view. At least one authentication profile with the type set to "8base Authentication" is required to use this feature.
@@ -54,7 +54,7 @@ In the 8base Management Console, you're able to configure one or more authentica
 #### getToken Resolver
 A custom *getToken* resolver mutation function must be deployed to the workspace. This can be done by installing the [8base CLI](../development-tools/cli/README.md).
 
-In the provided *getToken* function, the relevant environment variables are accessed - if set in the Management Console - to provide the required credentials and configurations. A request is then made to the authentication provider to query or create the authenticating user from the database and return the user's token.
+In the provided *getToken* function, the relevant environment variables are accessed—if set in the Management Console—to provide the required credentials and configurations. A request is then made to the authentication provider to query or create the authenticating user from the database and return the user's token.
 
 {% code-tabs %}
 {% code-tabs-item title="8base.yml" %}

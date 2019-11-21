@@ -8,7 +8,7 @@ The 8base platform consists of the following high-level components.
 
 ![8Base Data Builder](../../.gitbook/assets/44df042-fireshot_capture_004_-_8base_-_app.8base.com.png)
 
-The Data Builder lets you define an applications data model: tables, fields and relationships between tables. It is packed with cool features. For example, `File` fields allow you to seamlessly attach files to data objects, while `Smart` fields make it easy to implement complex validations for addresses and phone numbers.
+The Data Builder lets you define an application's data model: tables, fields and relationships between tables. It's packed with cool features. For example, `File` fields allow you to seamlessly attach files to data objects, while `Smart` fields make it easy to implement complex validations for addresses and phone numbers.
 
 ## [Data Viewer](./data-viewer.md)
 

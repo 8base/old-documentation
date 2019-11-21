@@ -1,12 +1,12 @@
 # Quick Start
 The goal of this quickstart is to get you up and running with 8base and a front-end framework you love, fast. Let's do it!
 
-This guide will introduce some basics of 8base workspaces and set up a starter app. It will help demonstrate key concepts of 8base, and maybe even kick-off your next awesome project 😊
+This guide will introduce you to some of the basics of 8base workspaces and set up a starter app. It will help demonstrate key concepts of 8base, and maybe even kick-off your next awesome project 😊
 
 ## 1. Start an 8base Account
 If you haven't already, create an 8base account. Click [this link](https://app.8base.com) to get started. We'll send you a confirmation email if you use an email and password to create your account. Either way, once your account is confirmed 8base will redirect you to a default workspace.
 
-Voila! You've officially on 8base.
+Voilà! You've officially on 8base.
 
 ## 2. Setting up a Workspace
 Each workspace is treated as an individual project – like having different Git repositories for different code bases. This makes it easy to stay organized with projects and upgrade individual workspaces when your app or service starts to scale! 
@@ -35,7 +35,7 @@ Once the tables is created, we're going to establish a relationship between it a
 
 ![8base tables](../.gitbook/assets/qs-tables.png)
 
-Before moving on, lets also add several dummy records to our database. You can do this manually by navigating to the `data` tab. However, lets just run the following GraphQL mutation in the [API Explorer](https://app.8base.com/api-explorer). Make sure to swap `<YOUR_ACCOUNT_EMAIL_ADDRESS>` with your email address!
+Before moving on, lets also add several dummy records to our database. You can do this manually by navigating to the `data` tab. However, let’s just run the following GraphQL mutation in the [API Explorer](https://app.8base.com/api-explorer). Make sure to swap `<YOUR_ACCOUNT_EMAIL_ADDRESS>` with your email address!
 
 ```javascript
 mutation {
@@ -108,7 +108,7 @@ Scroll down to where you see `Custom Domains`. This is where you can provide rou
 - *[Authentication Profile docs](https://docs.8base.com/8base-console/authentication#8base-authentication)*
 
 ### 2.4. Getting the Workspace API Endpoint
-Lastly, let’s copy our workspace’s API endpoint. This endpoint is unique to our workspace and is to where we will send our data requests using GraphQL. It's schema is a follows:
+Lastly, let’s copy our workspace’s API endpoint. This endpoint is unique to our workspace, and is where we'll send our data requests using GraphQL. It's schema is a follows:
 
 ```shell
 https://api.8base.com/<WORKSPACE_ID>
@@ -236,7 +236,7 @@ npm install
 ```
 
 ### 3.4. Setting up the client
-All of the 8base starter apps are preconfigured for both authentication and API communication. They only need a few environment variables to get. Those environment variables are:
+All of the 8base starter apps are preconfigured for both authentication and API communication—they only need a few environment variables set. Those environment variables are:
 
 ```shell
 APP_WORKSPACE_ENDPOINT=<workspace_endpoint>
@@ -254,7 +254,7 @@ Using the command that's appropriate to the chosen starter app (`npm start/serve
 
 You can now login, logout, and sign-up in the starter app using your username and password. Meanwhile, when authenticated you're able to access the Profile page, which queries the GraphQL API for the authenticated user information. 
 
-Authenticated queries happen by passing an `idToken` as a Authorization header on API calls. This `idToken` is recieved and stored when the user authenticates. The auth flow differs slightly depending on the starter app you chose. However, each fully documents it's own authentication flow and state management strategy. 
+Authenticated queries happen by passing an `idToken` as an Authorization header on API calls. This `idToken` is recieved and stored when the user authenticates. The auth flow differs slightly depending on the starter app you chose. However, each fully documents it's own authentication flow and state management strategy. 
 
 ## 5. Challenge
 Who ever said life has to be easy? No one! The whole goal of this quickstart is to learn, and you can't learn if you don't try! So, here is a challenge for you.
@@ -320,6 +320,6 @@ console.log(data);
 ## Conclusion
 We hope this quickstart guide has helped you better understand how 8base works! We know that there was a lot in it. Feel free to keep experimenting with your workspace, add new tables, deploy custom logic, and develop some amazing applications!
 
-If you need help or have questions, definately check out the [8base Community Here](https://community.8base.com)! Also, [our documentation](https://docs.8base.com) has a ton more information on everything that we've covered here. 
+If you need help or have questions, definately check out the [8base Community](https://community.8base.com)! Also, our [documentation](https://docs.8base.com) has a ton more information on everything that we've covered here. 
 
 Happy coding!

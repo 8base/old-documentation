@@ -25,7 +25,7 @@ Creating a new custom Role is simple. In the Roles Manager view (`Settings > Rol
 
 ##### Deleting a Role
 
-To delete a role, toggle the ellipsis toggle located at the end of the roles table row. Click the `Delete` option and then confirm your action through the modal.
+To delete a role, toggle the ellipsis located at the end of the roles table row. Click the `Delete` option and then confirm your action through the modal.
 
 ![Create a new role in the 8base Console](../.gitbook/assets/delete-role.png)
 
@@ -94,7 +94,7 @@ The `__loggedInUserId` is used in both *Custom Filters* and the API Explorer for
 1. When a file is public, anyone can view it.
 2. When a file is private, only the user it was created by can view it.
 
-These constraints get enforced using the following filter.
+These constraints are enforced using the following filter.
 
 ```json
 {
@@ -160,7 +160,7 @@ Query Variable
 }
 ```
 
-After succesfully running this query, the user decides that the filter should be utilized as a custom filter for post updates. That way, only *editors* would only be able to update posts that belong to authors from their own company. 
+After succesfully running this query, the user decides that the filter should be utilized as a custom filter for post updates. That way, only *editors* would be able to update posts that belong to authors from their own company. 
 
 To accomplish this, the value of the `filter` key can be pasted into the *Custom Filter* section of the desired role's update permission.
 

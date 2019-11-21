@@ -27,7 +27,7 @@ client.request(`
 `).then(console.log);
 ```
 
-Should an `idToken` or `apiToken` need to get set, the `client.setIdToken(tk)` method can be used. Under the hood, this will set the supplied value as a Bearer token header on subsequent requests.
+Should an `idToken` or `apiToken` need to be set, the `client.setIdToken(tk)` method can be used. Under the hood, this will set the supplied value as a Bearer token header on subsequent requests.
 
 ```javascript
 /* Set the Token */
@@ -61,7 +61,7 @@ Update the workspace identifier.
 
 #### request(query: GraphqlString!, variables: Object)
 Send request to the API with variables that will be used when executing the query.
-. Returns promise to be resolved.
+Returns a promise to be resolved.
 
 ```javascript
 /* Set variables */
@@ -89,6 +89,6 @@ client.request(query, variables).then(console.log);
 ```
 
 ## Alternatives
-There any a number of ways developers can connect to their workspace and begin executing queries. The `Client` module is only one of them! If you're curious about alternatives for how you can create a client, check out the following video. However, remember that all GraphQL calls are only HTTP post requests – and connecting to your 8base workspace is no different!
+There are a number of ways developers can connect to their workspace and begin executing queries. The `Client` module is only one of them! If you're curious about alternatives for how you can create a client, check out the following video. However, remember that all GraphQL calls are only HTTP post requests – and connecting to your 8base workspace is no different!
 
 [![Connecting to the API](https://miro.medium.com/max/4200/1*T13c_GK0ED6DluR7Wgrrxw.png)](https://www.youtube.com/watch?v=gLM-Fc6gWlE)

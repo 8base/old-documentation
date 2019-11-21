@@ -1,5 +1,5 @@
 # Users
-8base's [User Administration](https://app.8base.com/users) provides the ability to easily view and manage both App User's and Team Members. It also provides some basic insights into how App Users are engaging with your application.
+8base's [User Administration](https://app.8base.com/users) provides the ability to easily view and manage both App Users and Team Members. It also provides some basic insights into how App Users are engaging with your application.
 
 ![User administration screen](../../.gitbook/assets/user-admin-1.png)
 
@@ -34,7 +34,7 @@ By default, the Users table has the following fields defined.
 ```
 
 ### Team Members
-When a Team Member gets invited to a workspace, two seperate user records are created for them. The first record is their *Team Member Record* and the second is their *App User Record*.
+When a Team Member is invited to a workspace, two seperate user records are created for them. The first record is their *Team Member Record* and the second is their *App User Record*.
 
 This is an important distinction to be understood. The roles that get added to the *Team Member User* record determine which permissions the developer has within the Management Console. The permissions that get added to the *App User Record* determine which permissions the developer has within the **application being built**.
 
@@ -43,7 +43,7 @@ If the developer wants to test the application as if their account only had the 
 ### App Users
 When a user signs up for your application (or is added manually), a role can be added to their user record. This role will determine the priveledges that they have when using the app.
 
-Currently, it is required that users sign up with a valid email address. When using 8base Authentication, a confirmation email will get sent to the user.
+Currently, it is required that users sign up with a valid email address. When using 8base Authentication, a confirmation email will be sent to the user.
 
 ### Updating User
 When inside the [User Administration](https://app.8base.com/users) user's `firstName`, `lastName`, `email`, and `roles` can be updated. This can be accomplished by clicking `Edit` in the row dropdown and using the popover form as needed.
@@ -55,14 +55,14 @@ Many other data points are often being stored about a user. If you need to updat
 ### Deleting Users
 Deleting a user can be done by clicking `delete` in the row drop-down. This action will delete the user record, along with any of its dependent records. 
 
-When using [8base Authentication](https://docs.8base.com/8base-console/authentication#8base-authentication) the user's record will be deleted in both 8base and the authentication provider. When using another authentication provider the user record will **only** be deleted in 8base.
+When using [8base Authentication](https://docs.8base.com/8base-console/authentication#8base-authentication), the user's record will be deleted in both 8base and the authentication provider. When using another authentication provider, the user record will **only** be deleted in 8base.
 
 Please refer to the [Authentication docs](https://docs.8base.com/8base-console/authentication) to learn more about this.
 
 ### Passwords 
 8base does **NOT** store user passwords. Instead, we rely on an authentication provider, like Auth0, to authenticate a user and return a valid `idToken`. That `idToken` contains the users email address, which maps them to a user record in 8base when querying the API.
 
-This is how developers are able to use **any** OpenID provider with their workspace. However, it also means is that things like password resets must be handled by the authentication provider - not 8base.
+This is how developers are able to use **any** OpenID provider with their workspace. However, it also means is that things like password resets must be handled by the authentication provider—not 8base.
 
 In the future, we will include some tooling to help manage these concerns from the console.
 

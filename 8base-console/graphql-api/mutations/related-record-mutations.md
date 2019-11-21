@@ -63,7 +63,7 @@ mutation {
 {% endcode-tabs %}
 
 ##### Connecting records in mutation
-One or more records can be connected using a mutation that associates them - whether the relationship is *many-to-many*, *one-to-many*, or *one-to-one*.
+One or more records can be connected using a mutation that associates them—whether the relationship is *many-to-many*, *one-to-many*, or *one-to-one*.
 
 {% code-tabs %}
 {% code-tabs-item title="Query" %}
@@ -165,7 +165,7 @@ mutation {
 {% endcode-tabs %}
 
 ##### Disconnecting records in mutation
-One or more records can be disconnected using a mutation - whether the relationship is *many-to-many*, *one-to-many*, or *one-to-one*. If the relationship is *mandatory*, an error will be raised.
+One or more records can be disconnected using a mutation—whether the relationship is *many-to-many*, *one-to-many*, or *one-to-one*. If the relationship is *mandatory*, an error will be raised.
 
 {% code-tabs %}
 {% code-tabs-item title="Query" %}
