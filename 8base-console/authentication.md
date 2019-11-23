@@ -4,7 +4,7 @@ Every 8base workspace initializes with native support for signing up, managing, 
 
 ## Understanding Authentication
 
-![8base authentication diagram - how it works](../.gitbook/assets/8base-auth-diagram-1.png)
+![Authentication flow diagram](../.gitbook/assets/8base-auth-diagram-1.png)
 
 While 8base simplifies the process of setting up authentication, it's important to still have a basic understanding of what's going on under the hood! Using the diagram above, we can get a clear picture of how the authentication flow works.
 
