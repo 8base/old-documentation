@@ -43,7 +43,7 @@ Once the auth provider validates that the `idToken` – and the user claiming th
 ### 6. Query Response
 If the query runs succesfully and a user record is returned, great! Just ensure to continue sending the `idToken` in the authorization header on future API calls.
 
-If the query **fails and a user record is not found**, we simply need to create a record for the new user. This can be accomplished using the [`userSignUpWithToken`](#Mutation.userSignUpWithToken), as seen below.
+If the query **fails and a user record is not found**, we simply need to create a record for the new user. This can be accomplished using the [`userSignUpWithToken`](#mutation-usersignupwithtoken), as seen below.
 
 ```javascript
 mutation {
@@ -75,93 +75,14 @@ To create an *Authentication Profile*, navigate to the `Settings > Authenticatio
 
 * **Roles**: Roles can be either Guest, Administrator, or any custom role. Multiple-roles can be selected.
 
-### Client information
+#### Client information
 An authentication profile's corresponding client-side information is generated once created. Client-side information allows for connecting client applications to the 8base back-end and any corresponding authentication settings. Client ID and Domain are not sensitive strings and are added to one or more client apps.
 
-### Configure Callback URLs
+#### Configure Callback URLs
 A callback URL is an endpoint that is invoked after a user authenticates. Users are not able to log into an application and receive an error if this field is left empty. By default, the callback URL `http://localhost:3000/auth/callback` is set. Keep it, or replace it with an existing URL from your application.
 
-### Configure Logout URLs
+#### Configure Logout URLs
 The logout URL is where a user is sent after logging out. Specify them in the Allowed Logout URLs field. The default logout URL is http://localhost:3000/ and attempting to log out when no logout URL was provided displays an error.
-
-### GraphQL API Auth Operations
-The [GraphQL API](./graphql-api/README.md) has a number of auth related operations that can be used when using hosted auth pages or building a *custom authentication flow*.
-
-### Mutation.userLogin
-For users that sign up using email/password, the `userLogin` mutation can be used to authenticate a user and retrieve an `idToken` and `refreshToken`. This operation can **NOT** be used when an existing `idToken` is specified in the request's authorization header.
-
-```javascript
-// Mutation.userLogin(data: UserLoginInput!)
-mutation {
-  userLogin(data: {
-    email: "my@email.com"
-    password: "myP@$$word"
-    authProfileId: "SOME_PROFILE_ID"
-  }) {
-    success
-    auth {
-      idToken
-      refreshToken
-    }
-  }
-}
-```
-
-### Mutation.userSignUpWithPassword
-A user can be signed up by using the `userSignUpWithPassword` mutation. This operation can **NOT** be used if an existing `idToken` is specified in the request's authorization header.
-
-```javascript
-// Mutation.userSignUpWithPassword(authProfileId: ID, password: String!, user: UserCreateInput!)
-mutation {
-  userSignUpWithPassword(
-    authProfileId: "SOME_PROFILE_ID"
-    password: "myp@$$word"
-    user: {
-      email: "my@email.co"
-			// other user data
-    }
-  ) {
-    id
-    email
-  }
-}
-```
-
-### Mutation.userSignUpWithToken
-Once an `idToken` has been obtained from an auth provider, the user can get registered in a workspace using the `userSignUpWithToken` mutation. This operation **requires** that an `idToken` is specified in the request's authorization header.
-
-```javascript
-// Mutation.userSignUpWithToken(authProfileId: ID, user: UserCreateInput!)
-mutation {
-  userSignUpWithToken(
-    authProfileId: "SOME_PROFILE_ID"
-    user: {
-      email: "my@email.co"
-			// other user data
-    }
-  ) {
-    id
-    email
-  }
-}
-```
-
-### Mutation.userRefreshToken
-After an `idToken` has been issued, there is a 72-hour window during which the `refreshToken` is valid. Everytime the refresh token is used, it resets and generates a new `idToken` and `refreshToken`. 
-
-```javascript
-// Mutation.userRefreshToken(data: RefreshTokenInput!)
-mutation {
-  userRefreshToken(data: {
-    email: "my@email.co"
-    refreshToken: "SOME_REFRESH_TOKEN"
-    authProfileId: "SOME_PROFILE_ID"
-  }) {
-    idToken
-    refreshToken
-  }
-}
-```
 
 ### Your Own Auth0 Account
 There are only a few steps required to set up your Auth0 account on 8base. First, navigate to the `Settings > Authentication` of your workspace and create a new *Authentication Profile*. In the form that appears, select *Your Auth0 Account*.
@@ -173,21 +94,12 @@ All required information is in the settings of your Auth0 account.
 ### OpenID Connect
 The ability to set up an authentication provider that supports the OpenID specification is available for workspaces on a *Professional* or *Enterprise* plan. Some light setup required in the Management Console and a custom *resolver* function needs to be deployed to your project's workspace to use this feature.
 
-### Sign-on Providers
-Sign-on providers can easily be enabled/disabled in the *8base Authentication Settings* section of the workspace's Authentication view. At least one authentication profile with the type set to "8base Authentication" is required to use this feature.
-
-![Creating an Authentication Profile](../.gitbook/assets/signon-provider-form.png)
-
-Each sign-on provider requires a *Client ID* and *Client Secret*. These credentials are collected from the sign-on provider(s) you want to configure. Once collected, enter the credentials into the relevant sign-on provider form before clicking "Enable Sign-On Provider" and "Save."
-
-![Enabling a Sign-on Provider](../.gitbook/assets/signon-provider-config.png)
-
-### Configuring the OpenID Settings
+#### Configuring the OpenID Settings
 In the 8base Management Console, you're able to configure one or more authentication providers under `Settings > Authentication`. Click the "+" button and fill out the provider form, selecting *OpenID* as the type and adding an OpenID Provider URL. Once completed, the record is saved to your *Authentication Profiles*.
 
 ![Adding an OpenID Authentication Provider in 8base](../.gitbook/assets/openid-settings.png)
 
-### getToken Resolver
+#### getToken Resolver
 A custom *getToken* resolver mutation function must be deployed to the workspace. This can be done by installing the [8base CLI](../development-tools/cli/README.md).
 
 In the provided *getToken* function, the relevant environment variables are accessed - if set in the Management Console - to provide the required credentials and configurations. A request is then made to the authentication provider to query or create the authenticating user from the database and return the user's token.
@@ -305,10 +217,98 @@ extend type Mutation {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-### Setting Environment Variables
+#### Setting Environment Variables
 To set environment variables that can be accessed from within custom functions, open up your workspace, and navigate to `Settings > Environment Variables`. Here, any key-value pair may be securely stored and accessed from within your functions at `process.env.<ENV_VARIABLE_KEYNAME>`.
 
 ![Environment variables manager in the 8base Management Console](../.gitbook/assets/openid-env-variables.png)
+
+### Sign-on Providers
+Sign-on providers can easily be enabled/disabled in the *8base Authentication Settings* section of the workspace's Authentication view. At least one authentication profile with the type set to "8base Authentication" is required to use this feature.
+
+![Creating an Authentication Profile](../.gitbook/assets/signon-provider-form.png)
+
+Each sign-on provider requires a *Client ID* and *Client Secret*. These credentials are collected from the sign-on provider(s) you want to configure. Once collected, enter the credentials into the relevant sign-on provider form before clicking "Enable Sign-On Provider" and "Save."
+
+![Enabling a Sign-on Provider](../.gitbook/assets/signon-provider-config.png)
+
+## GraphQL API Auth Operations
+The [GraphQL API](./graphql-api/README.md) has a number of auth related operations that can be used when using hosted auth pages or building a *custom authentication flow*.
+
+### Mutation.userLogin
+For users that sign up using email/password, the `userLogin` mutation can be used to authenticate a user and retrieve an `idToken` and `refreshToken`. This operation can **NOT** be used when an existing `idToken` is specified in the request's authorization header.
+
+```javascript
+// Mutation.userLogin(data: UserLoginInput!)
+mutation {
+  userLogin(data: {
+    email: "my@email.com"
+    password: "myP@$$word"
+    authProfileId: "SOME_PROFILE_ID"
+  }) {
+    success
+    auth {
+      idToken
+      refreshToken
+    }
+  }
+}
+```
+
+### Mutation.userSignUpWithPassword
+A user can be signed up by using the `userSignUpWithPassword` mutation. This operation can **NOT** be used if an existing `idToken` is specified in the request's authorization header.
+
+```javascript
+// Mutation.userSignUpWithPassword(authProfileId: ID, password: String!, user: UserCreateInput!)
+mutation {
+  userSignUpWithPassword(
+    authProfileId: "SOME_PROFILE_ID"
+    password: "myp@$$word"
+    user: {
+      email: "my@email.co"
+			// other user data
+    }
+  ) {
+    id
+    email
+  }
+}
+```
+
+### Mutation.userSignUpWithToken
+Once an `idToken` has been obtained from an auth provider, the user can get registered in a workspace using the `userSignUpWithToken` mutation. This operation **requires** that an `idToken` is specified in the request's authorization header.
+
+```javascript
+// Mutation.userSignUpWithToken(authProfileId: ID, user: UserCreateInput!)
+mutation {
+  userSignUpWithToken(
+    authProfileId: "SOME_PROFILE_ID"
+    user: {
+      email: "my@email.co"
+			// other user data
+    }
+  ) {
+    id
+    email
+  }
+}
+```
+
+### Mutation.userRefreshToken
+After an `idToken` has been issued, there is a 72-hour window during which the `refreshToken` is valid. Everytime the refresh token is used, it resets and generates a new `idToken` and `refreshToken`. 
+
+```javascript
+// Mutation.userRefreshToken(data: RefreshTokenInput!)
+mutation {
+  userRefreshToken(data: {
+    email: "my@email.co"
+    refreshToken: "SOME_REFRESH_TOKEN"
+    authProfileId: "SOME_PROFILE_ID"
+  }) {
+    idToken
+    refreshToken
+  }
+}
+```
 
 ### Troubleshooting
 If you're unable to get the authentication provider to work and are receiving a "Not Authorized" error message, you may need to update the associated role and its API permissions. You can do this by first ensuring that the configured provider has an associated role, like *Guest*. Next, navigate to `Settings > Roles > [ROLE_NAME] > Data` and ensure that the role is enabled for the *Get Token* function call.
