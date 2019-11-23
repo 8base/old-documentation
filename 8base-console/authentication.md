@@ -51,7 +51,7 @@ mutation {
     authProfileId: "8BASE_AUTHENTICATION_PROFILE_ID"
     user: {
       email: "my@email.co"
-			// ...any other user data
+	    // ...any other user data
     }
   ) {
     id
