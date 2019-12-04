@@ -40,6 +40,8 @@
     * [Simple subscriptions](8base-console/graphql-api/subscriptions/simple-record-subscriptions.md)
     * [Scoped subscriptions](8base-console/graphql-api/subscriptions/complex-record-subscriptions.md)
 
+  * [Groupings and Aggregations](8base-console/graphql-api/grouping-and-aggregations/README.md)
+
   * [Variables](8base-console/graphql-api/variables.md)
   * [Error Handling](8base-console/graphql-api/error_handling.md)
 
