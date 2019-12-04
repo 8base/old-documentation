@@ -2,7 +2,7 @@
 
 In order to provide strong and flexible grouping and aggregation capabilities to the GraphQL API, 8base has implemented a "dynamic" approach that doesn't necessarily fit within the strict boundaries of a predefined static schema.
 
-By taking that liberty, we're able to let users build powerful grouping and aggregation queries by manually assigning aliased names and a seperate structure with expected results - for which they explicitly declare the result types. All queries that get written closely follow a strict SQL group by semantics. This is why a column should be either a grouping or an aggregation.
+By taking that liberty, we're able to let users build powerful grouping and aggregation queries by manually assigning aliased names and a separate structure with expected results - for which they explicitly declare the result types. All queries that get written closely follow a strict SQL group by semantics. This is why a column should be either a grouping or an aggregation.
 
 ## Groupings
 
@@ -726,7 +726,7 @@ query {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-### Type Conversions
+## Type Conversions
 
 Type conversions are designed to perform a best effort on converting actual values to the expected type. If this is impossible or meaningless, an instructive error will be thrown. The following list shows the permitted expected types and each one's actual value types that are supported.
 
