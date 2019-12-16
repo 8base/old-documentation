@@ -44,11 +44,17 @@ export default {
       const nextIndex = (currentIndex + 1) % themes.length;
       window.__setPreferredTheme(themes[nextIndex])
       this.theme = themes[nextIndex]
+      
+      this.$parent.setTheme(this.theme)
     }
   },
   async mounted() {
     // set default
-    if (typeof window.__theme !== 'undefined') this.theme = window.__theme
+    if (typeof window.__theme !== 'undefined') {
+      this.theme = window.__theme
+    }
+
+    this.$parent.setTheme(this.theme)
   }
 }
 </script>

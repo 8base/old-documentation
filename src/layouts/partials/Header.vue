@@ -3,7 +3,7 @@
     <div class="header-bar"></div>
     <div class="header-inner container flex gap-30">
 
-      <Logo/>
+      <Logo :theme="currentTheme"/>
 
       <Nav class="flex-fit"/>
 
@@ -59,6 +59,16 @@ export default {
     SearchForm,
     Nav,
     LazyHydrate
+  },
+  data() {
+    return {
+      currentTheme: ''
+    }
+  },
+  methods: {
+    setTheme(name) {
+      this.currentTheme = name
+    }
   }
 }
 </script>

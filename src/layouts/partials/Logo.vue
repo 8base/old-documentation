@@ -1,19 +1,32 @@
 <template>
   <div class="logo" @contextmenu="rightClick" oncontextmenu="return false;">
     <g-link class="logo__link" to="/" title="Back to home">
-      <Logo class="logo__svg hide-for-small" alt="Gridsome.org" />
+      <component :is="logo" class="logo__svg hide-for-small" alt="Gridsome.org" />
+
       <LogoSmall class="logo__svg show-for-small logo__svg--small" alt="Gridsome.org" />
     </g-link>
   </div>
 </template>
 
 <script>
-import Logo from '~/assets/images/8base-logo-horizontal.svg'
+import LogoLight from '~/assets/images/8base-logo-horizontal.svg'
+import LogoDark from '~/assets/images/8base-logo-horizontal-white.svg'
 import LogoSmall from '~/assets/images/8base-logo.svg'
 export default {
+  props: ['theme'],
   components: {
-    Logo,
+    LogoDark,
+    LogoLight,
     LogoSmall
+  },
+  computed: {
+    logo() {
+      if (process.isClient) {
+        return this.theme === 'dark' ? LogoDark : LogoLight
+      }
+
+      return LogoLight;
+    }
   },
   methods: {
     rightClick() {

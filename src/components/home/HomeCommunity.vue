@@ -4,7 +4,7 @@
     <div class="grid-cols container container-md grid-cols--2">
     	<Card class="sponsor text-center">
 	      <g-image src="~/assets/images/8base-logo-horizontal.svg" alt="8base"/>
-	      <p>Hop on the <a href="https://community.8base.com/"  rel="noopener" target="_blank">Communuty</a> to get technical support and participate in forum topics.</p>
+	      <p>Hop on the <a href="https://community.8base.com/"  rel="noopener" target="_blank">Community</a> to get technical support and participate in forum topics.</p>
     	</Card>
       <Card class="sponsor text-center">
 	      <g-image src="~/assets/images/slack-logo-2019.svg" alt="Algolia"/>

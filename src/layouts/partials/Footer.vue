@@ -1,6 +1,6 @@
 <template>
   <footer class="text-center">
-    Copy right 8base, Inc 2019 ®
+    Copyright 8base, Inc 2019 ®
   </footer>
 </template>
 
