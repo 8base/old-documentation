@@ -1,16 +1,9 @@
 <template>
   <Layout class="has-sidebar docs-page" :footer="false">
     <div class="container flex flex-align-top">
-      <div class="sidebar">
-        <template v-if="links" v-for="(group, i1) in links">
-          <h3 class="menu-item" :key="`title-${i1}`">{{ group.title }}</h3>
-          <template v-for="(item, i2) in group.items">
-            <g-link :exact="item.link == '/docs/'" class="menu-item menu-link" :to="item.link" :key="`link-${i1}-${i2}`">
-              {{ item.title }}
-            </g-link>
-          </template>
-        </template>
-      </div>
+      <!-- Left Sidebar -->
+      <LeftSidebar :links="links" :currentIndex="currentIndex" />
+
       <Section class="doc-content flex-fit" container="base">
         <slot />
         <p>
@@ -32,26 +25,22 @@
           </div>
         </nav>
       </Section>
-      <div v-if="subtitles.length > 0 && subtitles[0].depth !== 3" class="sidebar sidebar--right hide-for-small">
-        <h3>On this page</h3>
-        <ul v-if="subtitles.length" class="menu-item submenu">
-          <li class="submenu__item" :class="'submenu__item-depth-' + subtitle.depth" v-for="subtitle in subtitles" :key="subtitle.value">
-            <a class="submenu__link" :href="subtitle.anchor">
-              {{ subtitle.value }}
-            </a>
-          </li>
-        </ul>
-      </div>
+
+      <RightSidebar :subtitles="subtitles" />
     </div>
   </Layout>
 </template>
 
 <script>
 import Github from '~/assets/images/github-logo.svg'
+import LeftSidebar from './partials/LeftSidebar.vue'
+import RightSidebar from './partials/RightSidebar.vue'
 
 export default {
   components: {
-    Github
+    Github,
+    LeftSidebar,
+    RightSidebar
   },
   props: {
     subtitles: { type: Array, default: () => [] },
@@ -66,20 +55,60 @@ export default {
       if((path.match(new RegExp("/", "g")) || []).length == 1) path = path + '/README'
       return `https://github.com/gridsome/gridsome.org/blob/master${path}.md`
     },
-    items () {
-      return this.links.reduce((acc, group) => (acc.push(...group.items), acc), [])
-    },
     currentIndex () {
       return this.items.findIndex(item => {
         return item.link.replace(/\/$/, '') === this.$route.path.replace(/\/$/, '')
       })
+    },
+    items () {
+      return this.links.reduce((acc, group) => (acc.push(...group.items), acc), [])
     },
     nextPage () {
       return this.items[this.currentIndex + 1]
     },
     previousPage () {
       return this.items[this.currentIndex - 1]
-    }
+    },
+    items () {
+      let i = 0;
+      let flatSummary = [];
+      this.links.forEach(item => {
+        item.items.forEach(item1 => {
+          item1.order = i;
+          item1.depth = 0;
+          item1.relatives = []; 
+          i++;        
+          flatSummary.push(item1);
+          if(item1.items){
+            item1.items.forEach(item2 => {
+              item2.order = i;
+              item2.depth = 1;
+              item1.relatives.push(i);   
+              item2.relatives = [];            
+              i++;                                                      
+              flatSummary.push(item2);
+              if(item2.items){
+                item2.items.forEach(item3 => {
+                  item3.order = i;
+                  item3.depth = 2;
+                  item1.relatives.push(i);
+                  item2.relatives.push(i);   
+                  item3.relatives = [];     
+                  i++;                  
+                  flatSummary.push(item3);
+                });
+              } 
+            });
+          } 
+        });
+      });
+      return flatSummary;
+    },   
+    currentIndex () {
+      return this.items.findIndex(item => {
+        return item.link.replace(/\/$/, '') === this.$route.path.replace(/\/$/, '')
+      })
+    },
   }
 }
 </script>

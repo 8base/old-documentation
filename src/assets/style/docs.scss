@@ -118,3 +118,15 @@
     border: 1px solid var(--border-color);
   }
 }
+
+.code-sample {
+  display: flex;
+  margin-bottom: 3em;
+  div {
+    width: 50%;
+    padding-right: 3px;
+  }
+  pre {
+    height: 100%;
+  }
+}

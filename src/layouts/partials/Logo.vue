@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import Logo from '~/assets/images/gridsome-logo.svg'
-import LogoSmall from '~/assets/images/gridsome-logo-small.svg'
+import Logo from '~/assets/images/8base-logo-horizontal.svg'
+import LogoSmall from '~/assets/images/8base-logo.svg'
 export default {
   components: {
     Logo,

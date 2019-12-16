@@ -2,37 +2,37 @@
   <Section class="works">
     <div class="grid-cols grid-cols--gap-large grid-cols--full-md">
 
-      <Card title="Bring your data">
-        <h4>CMSs</h4>
-        <p>Any Headless CMS, Contentful, WordPress, Drupal, Sanity.io, etc.</p>
-        <h4>Data</h4>
-        <p>Any APIs, Databases, AirTable, YAML, CSV, JSON, etc.</p>
-        <h4>Markdown</h4>
-        <p>Any Git-based CMS, Forestry, Netlify CMS, Blogs, Documentation.</p>
+      <Card title="Define a Data Model">
+        <h4>Relational Data</h4>
+        <p>Quickly build relation data models, migrated to Aurora MySQL (AWS).</p>
+        
+        <h4>Input</h4>
+        <p>Add rows to the DB immediately in the 8base data console.</p>
 
+        <h4>Import</h4>
+        <p>Import existing data using the 8base CLI or a CSV file.</p>
+        
         <template slot="outer">
           <Dots class="hide-for-small"/>
           <Dots class="dots--vertical show-for-small"/>
         </template>
       </Card>
 
-      <Card title="Build" class="text-center flex-align-middle">
+      <Card title="Query" class="text-center flex-align-middle">
 
         <div class="works__logo">
-          <gridsome-logo />
+          <eightBaseLogo />
           <div class="works__pulse-bg"></div>
           <div class="works__pulse-bg"></div>
         </div>
 
         <p class="works__powered-by">
           Powered by <br/><strong>GraphQL </strong>
-          <graph-ql-logo width="15" height="18" />
+          <eightBaseLogo width="15" height="18" />
         </p>
 
         <ul class="works__tools flex gap-15 text-center flex--center">
-          <li>HTML</li>
-          <li><vue-logo width="28" height="28" alt="Vue" /> Vue.js</li>
-          <li>CSS</li>
+          <li>Instant GraphQL API</li>
         </ul>
 
         <template slot="outer">
@@ -41,18 +41,18 @@
         </template>
       </Card>
 
-      <Card title="Deploy">
-        <h4>Static Web Hosts & CDNs</h4>
+      <Card title="Build">
+        <h4>Framework Agnostic</h4>
         <p>
-          <g-link to="/docs/deploy-to-netlify/">Netlify</g-link>, <g-link to="/docs/deploy-to-amplify/">AWS Amplify</g-link>, <g-link to="/docs/deploy-to-zeit-now/">Zeit Now</g-link>, <g-link to="/docs/deploy-to-amazon-s3/">Amazon S3</g-link>, Surge.sh, Aerobatic & many more.
+          Develop frontends using any framework you want! Simply query the 8base API to send and recieve your data.
         </p>
 
         <ul class="bullet-list mb">
-          <li><Bullet /><g-link to="/docs/fast-by-default/#pre-rendered-html">Pre-rendered HTML</g-link></li>
-          <li><Bullet /><g-link to="/docs/fast-by-default/#automatic-code-splitting">Automatic Code Splitting</g-link></li>
-          <li><Bullet /><g-link to="/docs/fast-by-default/#the-prpl-pattern">Follows PRPL-pattern</g-link></li>
-          <li><Bullet /><g-link to="/docs/fast-by-default/#smart-link-prefetching">Smart link prefetching</g-link></li>
-          <li><Bullet /><g-link to="/docs/fast-by-default/#progressive-images">Progressive Images</g-link></li>
+          <li>• <g-link to="/docs/fast-by-default/#pre-rendered-html">Getting started</g-link></li>
+          <li>• <g-link to="/docs/fast-by-default/#automatic-code-splitting">Connecting to the API</g-link></li>
+          <li>• <g-link to="/docs/fast-by-default/#the-prpl-pattern">Using the Data Builder</g-link></li>
+          <li>• <g-link to="/docs/fast-by-default/#smart-link-prefetching">Setting up authentication</g-link></li>
+          <li>• <g-link to="/docs/fast-by-default/#progressive-images">Roles and permissions</g-link></li>
         </ul>
       </Card>
 
@@ -61,6 +61,7 @@
 </template>
 
 <script>
+import eightBaseLogo from '~/assets/images/8base-logo.svg'
 import GraphQlLogo from '~/assets/images/graphql-logo.svg'
 import VueLogo from '~/assets/images/vue-logo.svg'
 import WebpackLogo from '~/assets/images/webpack-logo.svg'
@@ -75,6 +76,7 @@ export default {
     GridsomeLogo,
     WebpackLogo,
     GraphQlLogo,
+    eightBaseLogo,
     Dots
   }
 }
@@ -113,7 +115,6 @@ export default {
   }
 
   &__logo {
-    background-color: var(--primary-color);
     width: 100px;
     z-index: 1;
     position: relative;

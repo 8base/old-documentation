@@ -2,11 +2,11 @@
   <Section dots="true" class="post"  dark="true">
 
       <h5 class="text-center">
-        How Gridsome Works
+        How 8base Works
       </h5>
 
       <h2 class="text-center primary-color container-sm">
-        01. Bring your data
+        01. Build a Data Model
       </h2>
 
       <p class="text-center container-md mb">

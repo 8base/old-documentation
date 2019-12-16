@@ -1,9 +1,11 @@
 <template>
     <div id="app" dark>
       <Header />
+      
       <main id="main" :class="mainClass">
         <slot />
       </main>
+
       <LazyHydrate ssr-only v-if="footer !== false">
         <Footer />
       </LazyHydrate>

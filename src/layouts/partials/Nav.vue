@@ -4,17 +4,13 @@
       <span class="main-nav__label">Docs</span>
     </g-link>
 
-    <g-link to="/starters/">
-      <span class="main-nav__label">Starters</span>
-    </g-link>
+    <a href="https://community.8base.com" target="_blank">
+      <span class="main-nav__label">Community</span>
+    </a>
 
-    <g-link to="/plugins/">
-      <span class="main-nav__label">Plugins</span>
-    </g-link>
-
-    <g-link to="/blog/">
-      <span class="main-nav__label">Blog</span>
-    </g-link>
+    <a href="https://app.8base.com" target="_blank">
+      <span class="main-nav__label">8base Console</span>
+    </a>
   </nav>
 </template>
 

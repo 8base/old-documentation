@@ -1,10 +1,10 @@
 const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
-  siteName: 'Gridsome',
-  siteUrl: `https://www.gridsome.org`,
-  titleTemplate: '%s - Gridsome',
-  siteDescription: 'Gridsome is a free & open source Vue.js-powered framework for building websites & apps that are fast by default 🚀.',
+  siteName: '8base Documentation',
+  siteUrl: `https://docs.8base.com`,
+  titleTemplate: '%s - 8base Documentation',
+  siteDescription: 'Build and run web and mobile applications faster using JavaScript, GraphQL, and 8base 🚀.',
 
   chainWebpack(config, { isServer }) {
     config.module.rules.delete('svg')
@@ -30,20 +30,10 @@ module.exports = {
   },
 
   templates: {
-    BlogPost: '/blog/:year/:month/:day/:slug',
-    Contributor: '/contributor/:id',
-    Starter: '/starters/:title',
-    Platform: '/starters/platform/:id',
     Example: node => node.path
   },
 
   plugins: [
-    {
-      use: '@gridsome/plugin-google-analytics',
-      options: {
-        id: 'UA-127625720-1'
-      }
-    },
     {
       use: '@gridsome/plugin-critical',
       options: {
@@ -78,21 +68,6 @@ module.exports = {
       options: {
         path: 'examples/*.md',
         typeName: 'Example',
-        remark: {
-          plugins: [
-            '@gridsome/remark-prismjs'
-          ]
-        }
-      }
-    },
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        typeName: 'BlogPost',
-        path: './blog/*/index.md',
-        refs: {
-          author: 'Contributor'
-        },
         remark: {
           plugins: [
             '@gridsome/remark-prismjs'

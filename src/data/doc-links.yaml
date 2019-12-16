@@ -2,141 +2,126 @@
   items:
     - title: Introduction
       link: /docs/
-    - title: Core concepts
-      link: /docs/core-concepts/
-    - title: Fast by default
-      link: /docs/fast-by-default/
-    - title: Deployment
-      link: /docs/deployment/
-
-- title : Basic Gridsome
+- title: Getting Started
   items:
-    - title: Directory structure
-      link: /docs/directory-structure/
-    - title: Project configuration
-      link: /docs/config/
-    - title: Pages
-      link: /docs/pages/
-    - title: Collections
-      link: /docs/collections/
-    - title: Templates
-      link: /docs/templates/
-    - title: Layouts
-      link: /docs/layouts/
-    - title: Components
-      link: /docs/components/
-    - title: Linking
-      link: /docs/linking/
-    - title: Dynamic Routing
-      link: /docs/dynamic-routing/
-    - title: Image processing
-      link: /docs/images/
-    - title: Populating <head>
-      link: /docs/head/
-    - title: Environment Variables
-      link: /docs/environment-variables/
-
-- title : Working with data
+    - title: Overview
+      link: /docs/getting-started
+    - title: Quick Start
+      link: /docs/getting-started/quick-start
+    - title: Connecting to API
+      link: /docs/getting-started/connecting-to-api
+- title: 8base Console
   items:
-    - title: GraphQL data layer
-      link: /docs/data-layer/
-    - title: Importing data
-      link: /docs/fetching-data/
-    - title: Querying data
-      link: /docs/querying-data/
-    - title: Filtering data
-      link: /docs/filtering-data/
-    - title: Taxonomy pages
-      link: /docs/taxonomies/
-    - title: Paginate data
-      link: /docs/pagination/
-    - title: Global metadata
-      link: /docs/metadata/
-    - title: Client-side data
-      link: /docs/client-side-data/
-
-- title : Styles and Assets
+    - title: Overview
+      link: /docs/8base-console
+    - title: Team Members
+      link: /docs/8base-console/teams
+    - title: Authentication
+      link: /docs/8base-console/authentication
+    - title: Authorization
+      link: /docs/8base-console/roles-and-permissions
+    - title: File Storage
+      link: /docs/8base-console/handling-files
+    - title: Platform Tools
+      link: /docs/8base-console/platform-tools
+      items:
+        - title: Data Builder
+          link: /docs/8base-console/platform-tools/data-builder
+        - title: Data Viewer
+          link: /docs/8base-console/platform-tools/data-viewer
+        - title: API Explorer
+          link: /docs/8base-console/platform-tools/api-explorer
+        - title: Logic
+          link: /docs/8base-console/platform-tools/functions
+        - title: User Administration
+          link: /docs/8base-console/platform-tools/users
+    - title: GraphQL API
+      link: /docs/8base-console/graphql-api
+      items:
+        - title: Queries
+          link: /docs/8base-console/graphql-api/queries
+          items:
+            - title: Single record queries
+              link: /docs/8base-console/graphql-api/queries/single-record-query
+            - title: Related record queries
+              link: /docs/8base-console/graphql-api/queries/related-record-query
+            - title: Aggregators
+              link: /docs/8base-console/graphql-api/queries/aggregation-query
+            - title: Record list queries
+              link: /docs/8base-console/graphql-api/queries/record-list-query
+            - title: Filtered list queries
+              link: /docs/8base-console/graphql-api/queries/filtered-list-query
+            - title: Sorted list queries
+              link: /docs/8base-console/graphql-api/queries/sort-list-query
+            - title: Pagenated list queries
+              link: /docs/8base-console/graphql-api/queries/paginated-query-results
+            - title: Combining arguments
+              link: /docs/8base-console/graphql-api/queries/combining-arguments
+            - title: Combining queries
+              link: /docs/8base-console/graphql-api/queries/combining-queries
+        - title: Mutations
+          link: /docs/8base-console/graphql-api/mutations
+          items:
+            - title: Single record mutations
+              link: /docs/8base-console/graphql-api/mutations/single-record-mutations
+            - title: Related record mutations
+              link: /docs/8base-console/graphql-api/mutations/related-record-mutations
+        - title: Subscriptions
+          link: /docs/8base-console/graphql-api/subscriptions
+          items:
+            - title: Simple subscriptions
+              link: /docs/8base-console/graphql-api/subscriptions/simple-record-subscriptions
+            - title: Scoped subscriptions
+              link: /docs/8base-console/graphql-api/subscriptions/complex-record-subscriptions
+        - title: Variables
+          link: /docs/8base-console/graphql-api/variables
+        - title: Error Handling
+          link: /docs/8base-console/graphql-api/error-handling
+    - title: Custom Functions
+      link: /docs/8base-console/custom-functions
+      items:
+        - title: Webhooks
+          link: /docs/8base-console/custom-functions/webhooks
+        - title: Triggers
+          link: /docs/8base-console/custom-functions/triggers
+        - title: Tasks
+          link: /docs/8base-console/custom-functions/tasks
+        - title: Resolvers
+          link: /docs/8base-console/custom-functions/resolvers
+        - title: Debugging
+          link: /docs/8base-console/custom-functions/debugging
+- title: Dev Environment
+  link: /docs/development-tools/dev-env/project-structure
   items:
-    - title: Use CSS in Gridsome
-      link: /docs/assets-css/
-    - title: Add custom fonts
-      link: /docs/assets-fonts/
-    - title: Add external scripts
-      link: /docs/assets-scripts/
-    - title: Add SVG icons
-      link: /docs/assets-svg/
-
-- title : Guides
-  items:
-    - title: Add a form
-      link: /docs/guide-forms/
-    - title: Add a search *
-      link: /docs/guide-search/
-    - title: Add comments
-      link: /docs/guide-comments/
-    - title: Add Netlify CMS
-      link: /docs/guide-netlify-cms/
-    - title: Overriding index.html
-      link: /docs/overriding-index/
-    - title: Overriding App.vue
-      link: /docs/overriding-app/
-    - title: Page transitions
-      link: /docs/page-transitions/
-    - title: body & html attributes
-      link: /docs/body-html-attributes/
-
-- title: API Reference
-  items:
-    - title: Gridsome CLI
-      link: /docs/gridsome-cli/
-    - title: Server API
-      link: /docs/server-api/
-    - title: Data store API
-      link: /docs/data-store-api/
-    - title: Schema API
-      link: /docs/schema-api/
-    - title: Pages API
-      link: /docs/pages-api/
-    - title: Client API
-      link: /docs/client-api/
-    - title: Transformer API
-      link: /docs/transformer-api/
-
-- title: Deploy
-  items:
-    - title: Netlify
-      link: /docs/deploy-to-netlify/
-    - title: AWS Amplify
-      link: /docs/deploy-to-amplify/
-    - title: ZEIT Now
-      link: /docs/deploy-to-zeit-now/
-    - title: Amazon S3
-      link: /docs/deploy-to-amazon-s3/
-    - title: GitLab Pages
-      link: /docs/deploy-to-gitlab/
-    - title: Github Pages
-      link: /docs/deploy-to-github/
-    - title: Google Cloud Platform
-      link: /docs/deploy-to-google/
-
-- title: Contribute
-  items:
-    - title: How to contribute
-      link: /docs/how-to-contribute/
-    - title: How to create a plugin
-      link: /docs/how-to-create-a-plugin/
-    - title: Code of conduct
-      link: /docs/code-of-conduct/
-
-- title: Help
-  items:
-  - title: Prerequisites
-    link: /docs/prerequisites/
-  - title: How to upgrade
-    link: /docs/how-to-upgrade/
-  - title: Troubleshooting
-    link: /docs/troubleshooting/
-  - title: Dev tools
-    link: /docs/dev-tools/
-  - title: FAQ
-    link: /docs/faq/
+    - title: Environment
+      link: /docs/development-tools/dev-env
+      items:
+        - title: Project Structure
+          link: /docs/development-tools/dev-env/project-structure
+        - title: 8base Config
+          link: /docs/development-tools/dev-env/8base-yml
+        - title: Environment
+          link: /docs/development-tools/dev-env/runtime-environment
+    - title: CLI
+      link: /docs/development-tools/cli
+      items:
+        - title: Commands
+          link: /docs/development-tools/cli/commands
+        - title: Generators
+          link: /docs/development-tools/cli/generators
+    - title: SDK
+      link: /docs/development-tools/sdk
+      items:
+        - title: API Client
+          link: /docs/development-tools/sdk/api-client
+        - title: User Auth
+          link: /docs/development-tools/sdk/auth
+          items:
+            - title: React
+              link: /docs/development-tools/sdk/auth/react-auth
+        - title: Application File Uploads
+          link: /docs/development-tools/sdk/file-upload
+        - title: VS Code Plugin
+          link: /docs/development-tools/sdk/vs-code-plugin
+        - title: Filestack
+          link: /docs/development-tools/sdk/filestack-uploader
