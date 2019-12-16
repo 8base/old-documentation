@@ -47,12 +47,12 @@
           Develop frontends using any framework you want! Simply query the 8base API to send and recieve your data.
         </p>
 
-        <ul class="bullet-list mb">
-          <li>• <g-link to="/docs/fast-by-default/#pre-rendered-html">Getting started</g-link></li>
-          <li>• <g-link to="/docs/fast-by-default/#automatic-code-splitting">Connecting to the API</g-link></li>
-          <li>• <g-link to="/docs/fast-by-default/#the-prpl-pattern">Using the Data Builder</g-link></li>
-          <li>• <g-link to="/docs/fast-by-default/#smart-link-prefetching">Setting up authentication</g-link></li>
-          <li>• <g-link to="/docs/fast-by-default/#progressive-images">Roles and permissions</g-link></li>
+        <ul class="bullet-list mb"> 
+          <li>• <g-link to="/docs/getting-started">Getting started</g-link></li>
+          <li>• <g-link to="/docs/getting-started/connecting-to-api">Connecting to the API</g-link></li>
+          <li>• <g-link to="/docs/8base-console/platform-tools/data-builder">Using the Data Builder</g-link></li>
+          <li>• <g-link to="/docs/8base-console/authentication">Setting up authentication</g-link></li>
+          <li>• <g-link to="/docs/8base-console/roles-and-permissions">Roles and permissions</g-link></li>
         </ul>
       </Card>
 
@@ -63,18 +63,12 @@
 <script>
 import eightBaseLogo from '~/assets/images/8base-logo.svg'
 import GraphQlLogo from '~/assets/images/graphql-logo.svg'
-import VueLogo from '~/assets/images/vue-logo.svg'
-import WebpackLogo from '~/assets/images/webpack-logo.svg'
-import GridsomeLogo from '~/assets/images/gridsome-small-white.svg'
 import Bullet from '~/assets/images/bullet.svg'
 import Dots from '~/components/Dots.vue'
 
 export default {
   components: {
     Bullet,
-    VueLogo,
-    GridsomeLogo,
-    WebpackLogo,
     GraphQlLogo,
     eightBaseLogo,
     Dots
