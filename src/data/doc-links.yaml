@@ -73,6 +73,8 @@
               link: /docs/8base-console/graphql-api/subscriptions/simple-record-subscriptions
             - title: Scoped subscriptions
               link: /docs/8base-console/graphql-api/subscriptions/complex-record-subscriptions
+        - title: Groupings and Aggregations
+          link: /docs/8base-console/graphql-api/grouping-and-aggregations
         - title: Variables
           link: /docs/8base-console/graphql-api/variables
         - title: Error Handling
