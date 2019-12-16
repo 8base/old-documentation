@@ -163,12 +163,18 @@ export default {
         ]
       }
     });
+
     let nodes = this.$static.docs.edges.map(e => e.node);
+    
     nodes.forEach(n => {
       n.content = removeMd(n.content);
-      n.headings = n.headings.map(h => h.value).toString();
-      n.subtitles = n.subtitles.map(s => s.value).toString();
+      /* Protect against mapping string value */
+      if (typeof n.headings != 'string') {
+        n.headings = n.headings.map(h => h.value).toString();
+        n.subtitles = n.subtitles.map(s => s.value).toString();
+      }
     });
+
     this.index.add(nodes);
   },
   computed: {
