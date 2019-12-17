@@ -8,7 +8,7 @@
 
 
 
-  @media screen and (min-width: 850px) {
+  @media screen and (min-width: 990px) {
     position: sticky;
     border-right: 1px solid var(--border-color);
     transition: border-color .3s;
@@ -118,7 +118,7 @@
     }
   }
 
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 990px) {
     & {
       width: 100%;
       position: relative;
