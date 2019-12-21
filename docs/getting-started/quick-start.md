@@ -178,7 +178,7 @@ npm install
 ✔ Select workspace for current project › Default Workspace
 ```
 
-Once configured, a `.workspace.json` file gets added to the directory which conatains the selected workspace's ID. Feel free to poke around the files marked with an astrix(*) below before deploying the dummy function.
+Once configured, a `.workspace.json` file gets added to the directory which contains the selected workspace's ID. Feel free to poke around the files marked with an astrix(*) below before deploying the dummy function.
 
 ```sh
 server
