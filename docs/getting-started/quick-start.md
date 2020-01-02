@@ -70,8 +70,8 @@ GraphQL mutations (like the one above) handle record creates, updates, and delet
 
 This is a great example of how 8base supports relational queries and mutations!
 
-- *[GraphQL API docs](https://docs.8base.com/8base-console/graphql-api)*
-- *[API Explorer docs](https://docs.8base.com/8base-console/platform-tools/api-explorer)*
+- *[GraphQL API docs](https://docs.8base.com/docs/8base-console/graphql-api)*
+- *[API Explorer docs](https://docs.8base.com/docs/8base-console/platform-tools/api-explorer)*
 
 ### 2.2. Roles and Permissions
 We only want to users to see their own notes. A custom role can enforce this. Navigate to `Settings` > `Roles` and create new role with the name "Reviewer". Once created, click the role and let's update its permissions. 
@@ -88,17 +88,17 @@ Now, all users with the *Reviewer* role who call the workspace API endpoint have
 
 ![8base roles and permissions](../images/qs-roles-and-permissions.png)
 
-- *[Roles and Permissions docs](https://docs.8base.com/8base-console/roles-and-permissions)*
+- *[Roles and Permissions docs](https://docs.8base.com/docs/8base-console/roles-and-permissions)*
 
 ### 2.3. Authentication Profiles
 Setting up authentication will allow users to sign-up, log-in, and log-out of the app. For this quickstart, users should be authenticated to view their list of notes.
 
-Navigate to the [Authentication page](https://app.8base.com/settings/authentication) in settings. To create a new authentication profile, click the plus-sign button and specify the following values. 
+Navigate to the [Authentication page](https://app.8base.com/docs/settings/authentication) in settings. To create a new authentication profile, click the plus-sign button and specify the following values. 
 
 | Option | Value | Notes |
 | ------ | ----- | ----- |
 | `Name` | "Default Guest Auth" | Choose any descriptive name |
-| `Type` | 8base authentication | Find more auth info in the [docs](https://docs.8base.com/8base-console/authentication#8base-authentication) |
+| `Type` | 8base authentication | Find more auth info in the [docs](https://docs.8base.com/docs/8base-console/authentication#8base-authentication) |
 | `Self Signup` | Open to all | Leave `Off` if using a free workspace |
 | `Roles` | Reviewer | Multiple roles can be assigned to user on sign up |
 
@@ -108,7 +108,7 @@ Add the new authentication profile. The information that’s now displayed will 
 
 Scroll down to where you see `Custom Domains`. This is where you can provide routes that’ll be used during authentication. Make sure the `localhost:port` number matches that which your app will run on in development - or other redirect URLs for native apps!
 
-- *[Authentication Profile docs](https://docs.8base.com/8base-console/authentication#8base-authentication)*
+- *[Authentication Profile docs](https://docs.8base.com/docs/8base-console/authentication#8base-authentication)*
 
 ### 2.4. Getting the Workspace API Endpoint
 Lastly, let’s copy our workspace’s API endpoint. This endpoint is unique to our workspace and is to where we will send our data requests using GraphQL. It's schema is a follows:
@@ -215,7 +215,7 @@ Serverless custom functions provide tremendous flexibility in customizing server
 * Scheduled Tasks: For invoking functions on timed intervals (once a day, every five-minutes, or cron format)
 <!--{% endhint %}-->
 
-- *[Custom Functions docs](https://docs.8base.com/8base-console/custom-functions)*
+- *[Custom Functions docs](https://docs.8base.com/docs/8base-console/custom-functions)*
 
 ### 3.3. Choose a Starter App / Framework for the Frontend
 8base gives you full freedom to use whatever front-end technologies/frameworks you love. For this quickstart, we recommend that you use one of our starter apps. Currently, they are:
@@ -318,7 +318,7 @@ const data = await client.request('<YOUR_API_ENDPOINT>', `
 console.log(data);
 ```
 
-- *[Connecting to the API docs](https://docs.8base.com/getting-started/connecting-to-api)*
+- *[Connecting to the API docs](https://docs.8base.com/docs/getting-started/connecting-to-api)*
 
 ## Conclusion
 We hope this quickstart guide has helped you better understand how 8base works! We know that there was a lot in it. Feel free to keep experimenting with your workspace, add new tables, deploy custom logic, and develop some amazing applications!

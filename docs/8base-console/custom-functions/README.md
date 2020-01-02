@@ -1,5 +1,4 @@
 # Custom Functions
-
 In 8base, pretty much everything is extensible when using *Custom Functions* (CFs). If you want to extend your GraphQL API, add custom endpoints, or build some other server side functionality, CFs will be the answer. So, how do they work?
 
 CFs in 8base are essentially AWS Lambdas that get enriched with access to your workspace resources. For example, 8base makes sure you're able to access the workspace's environment variables and database from within a CF by default. CFs can be written in either JavaScript or TypeScript (we'll package them for you... so no need to worry about Babel) and be deployed in a matter of minutes.

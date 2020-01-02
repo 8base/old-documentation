@@ -1,5 +1,5 @@
 # Users
-8base's [User Administration](https://app.8base.com/users) provides the ability to easily view and manage both App User's and Team Members. It also provides some basic insights into how App Users are engaging with your application.
+8base's [User Administration](https://app.8base.com/users/app-users) provides the ability to easily view and manage both App User's and Team Members. It also provides some basic insights into how App Users are engaging with your application.
 
 ![User administration screen](../../images/user-admin-1.png)
 
@@ -46,7 +46,7 @@ When a user signs up for your application (or is added manually), a role can be 
 Currently, it is required that users sign up with a valid email address. When using 8base Authentication, a confirmation email will get sent to the user.
 
 ### Updating User
-When inside the [User Administration](https://app.8base.com/users) user's `firstName`, `lastName`, `email`, and `roles` can be updated. This can be accomplished by clicking `Edit` in the row dropdown and using the popover form as needed.
+When inside the [User Administration](https://app.8base.com/users/app-users) user's `firstName`, `lastName`, `email`, and `roles` can be updated. This can be accomplished by clicking `Edit` in the row dropdown and using the popover form as needed.
 
 ![User administration screen](../../images/ua-edit-user.png)
 
@@ -55,9 +55,9 @@ Many other data points are often being stored about a user. If you need to updat
 ### Deleting Users
 Deleting a user can be done by clicking `delete` in the row drop-down. This action will delete the user record, along with any of its dependent records. 
 
-When using [8base Authentication](https://docs.8base.com/8base-console/authentication#8base-authentication) the user's record will be deleted in both 8base and the authentication provider. When using another authentication provider the user record will **only** be deleted in 8base.
+When using [8base Authentication](https://docs.8base.com/docs/8base-console/authentication#8base-authentication) the user's record will be deleted in both 8base and the authentication provider. When using another authentication provider the user record will **only** be deleted in 8base.
 
-Please refer to the [Authentication docs](https://docs.8base.com/8base-console/authentication) to learn more about this.
+Please refer to the [Authentication docs](https://docs.8base.com/docs/8base-console/authentication) to learn more about this.
 
 ## Passwords 
 8base does **NOT** store user passwords. Instead, we rely on an authentication provider, like Auth0, to authenticate a user and return a valid `idToken`. That `idToken` contains the users email address, which maps them to a user record in 8base when querying the API.

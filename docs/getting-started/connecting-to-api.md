@@ -1,6 +1,6 @@
 # Connecting to the API
 
-<YoutubePlayer src="https://www.youtube.com/embed/gLM-Fc6gWlE"/>
+<YoutubePlayer src="https://www.youtube.com/embed/gLM-Fc6gWlE" />
 
 An 8base Workspace API is a single endpoint from which **all** data sources can be queried. Simply put, it's the single source of truth for an application's data.
 
@@ -10,7 +10,7 @@ An 8base Workspace API is a single endpoint from which **all** data sources can 
 https://api.8base.com/<WORKSPACE_ID>
 ```
 
-All requests made to a workspace endpoint must be run using either a GraphQL client or an HTTP POST request - the only exception is when using [webhook custom functions](https://docs.8base.com/8base-console/custom-functions/webhooks). We highly recommend using a GraphQL client like the [8base SDK](https://docs.8base.com/development-tools/sdk/api-client) or [Apollo Client](https://github.com/apollographql/apollo-client).
+All requests made to a workspace endpoint must be run using either a GraphQL client or an HTTP POST request - the only exception is when using [webhook custom functions](https://docs.8base.com/docs/8base-console/custom-functions/webhooks). We highly recommend using a GraphQL client like the [8base SDK](https://docs.8base.com/docs/development-tools/sdk/api-client) or [Apollo Client](https://github.com/apollographql/apollo-client).
 
 That said, it doesn't matter what technology you use for the client - or server - application. As long as you can perform HTTP requests, you'll be able to query a workspace endpoint.
 
@@ -98,7 +98,18 @@ In this mutation, we're using the `todoCreate` operation to create a new note wi
 ```bash
 curl -X POST {API_ENDPOINT} \
      -H "Content-Type: application/json" \
-     -d '{ "query": "mutation TodoCreate { todoCreate(data: {text: \"from CURL\", completed: false}) {id text completed}}"}'
+     -d '''{ 
+          "query": "mutation TodoCreate { 
+            todoCreate(data: {
+              text: \"from CURL\", 
+              completed: false
+            }) {
+              id 
+              text 
+              completed
+            }
+          }"
+        }'''
 ```
 
 **Javascript**
@@ -156,8 +167,18 @@ In this mutation, we're using the `todoCreate` operation to create a new note wh
 curl -X POST {API_ENDPOINT}\
      -H "Content-Type: application/json" \
      -H 'Authorization: Bearer {API_TOKEN}' \
-     -d '{ "query": "mutation TodoCreate { todoCreate(data: {text: \"from CURL with auth\",
-     completed: false}) {id text completed}} "}'
+     -d '''{ 
+          "query": "mutation TodoCreate { 
+            todoCreate(data: {
+              text: \"from CURL with auth\",
+              completed: false
+            }) {
+              id 
+              text
+              completed
+            }
+          }"
+        }'''
 ```
 
 **Javascript**
@@ -218,7 +239,7 @@ print(result)
 
 ## Using API Clients
 
-It is not required that you use a script or the [8base API Explorer](https://docs.8base.com/8base-console/platform-tools/api-explorer) to query your API. Dozens of great API clients exist that allow you to investigate your workspace/GraphQL APIs.
+It is not required that you use a script or the [8base API Explorer](https://docs.8base.com/8base-console/docs/platform-tools/api-explorer) to query your API. Dozens of great API clients exist that allow you to investigate your workspace/GraphQL APIs.
 
 When using a 3rd party API Client (**NOT** the 8base API Explorer) make sure to generate an API Token with full permissions and include it as an authorization header. Otherwise, you will likely run into authentication issues when running queries.
 

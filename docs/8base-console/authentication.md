@@ -65,7 +65,7 @@ Under the hood, 8base utilizes [Auth0](https://auth0.com/) to manage your users'
 ### 8base Authentication
 <YoutubePlayer src="https://www.youtube.com/embed/BTexF_yxrC0"/>
 
-To create an *Authentication Profile*, navigate to the `Settings > Authentication` and press the `+` button. The form that appears can be completed using the following fields described.
+To create an *Authentication Profile*, navigate to the `App Services > Authentication` and press the `+` button. The form that appears can be completed using the following fields described.
 
 * **Name**: A name that describes what this profile does. In this sample case, you can replace My Auth in the screenshot above with a name like Guest User Auth.
 
@@ -85,7 +85,7 @@ A callback URL is an endpoint that is invoked after a user authenticates. Users 
 The logout URL is where a user is sent after logging out. Specify them in the Allowed Logout URLs field. The default logout URL is http://localhost:3000/ and attempting to log out when no logout URL was provided displays an error.
 
 ### Your Own Auth0 Account
-There are only a few steps required to set up your Auth0 account on 8base. First, navigate to the `Settings > Authentication` of your workspace and create a new *Authentication Profile*. In the form that appears, select *Your Auth0 Account*.
+There are only a few steps required to set up your Auth0 account on 8base. First, navigate to the `App Services > Authentication` of your workspace and create a new *Authentication Profile*. In the form that appears, select *Your Auth0 Account*.
 
 All required information is in the settings of your Auth0 account.
 
@@ -104,7 +104,7 @@ Each sign-on provider requires a *Client ID* and *Client Secret*. These credenti
 ![Enabling a Sign-on Provider](../images/signon-provider-config.png)
 
 #### Configuring the OpenID Settings
-In the 8base Management Console, you're able to configure one or more authentication providers under `Settings > Authentication`. Click the "+" button and fill out the provider form, selecting *OpenID* as the type and adding an OpenID Provider URL. Once completed, the record is saved to your *Authentication Profiles*.
+In the 8base Management Console, you're able to configure one or more authentication providers under `App Services > Authentication`. Click the "+" button and fill out the provider form, selecting *OpenID* as the type and adding an OpenID Provider URL. Once completed, the record is saved to your *Authentication Profiles*.
 
 ![Adding an OpenID Authentication Provider in 8base](../images/openid-settings.png)
 
@@ -228,4 +228,4 @@ To set environment variables that can be accessed from within custom functions, 
 ![Environment variables manager in the 8base Management Console](../images/openid-env-variables.png)
 
 #### Troubleshooting
-If you're unable to get the authentication provider to work and are receiving a "Not Authorized" error message, you may need to update the associated role and its API permissions. You can do this by first ensuring that the configured provider has an associated role, like *Guest*. Next, navigate to `Settings > Roles > [ROLE_NAME] > Data` and ensure that the role is enabled for the *Get Token* function call.
+If you're unable to get the authentication provider to work and are receiving a "Not Authorized" error message, you may need to update the associated role and its API permissions. You can do this by first ensuring that the configured provider has an associated role, like *Guest*. Next, navigate to `App Services > Roles > [ROLE_NAME] > Data` and ensure that the role is enabled for the *Get Token* function call.

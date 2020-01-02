@@ -8,7 +8,7 @@ Authorization in 8base uses a robust roles and permissions system that lets you 
 
 ### View all Roles
 
-The *Roles* Manager can be found in a given workspace by navigating to `Settings > Roles`. In this view, you can find all 8base and customer defined roles associated with the current workspace. By default, all workspaces are created with two default roles; *Administrator* and *Guest*.
+The *Roles* Manager can be found in a given workspace by navigating to `App Services > Roles`. In this view, you can find all 8base and customer defined roles associated with the current workspace. By default, all workspaces are created with two default roles; *Administrator* and *Guest*.
 
 * **Administrator** has all permissions enabled by default
 * **Guest** has no permissions enabled by default
@@ -19,7 +19,7 @@ The *Roles* Manager can be found in a given workspace by navigating to `Settings
 
 ### Create new Role
 
-Creating a new custom Role is simple. In the Roles Manager view (`Settings > Roles`), click the `+ New Role` button at the bottom of the screen. Add a unique name (required) and a simple description before clicking `Add Role`. You may optionally assign users to the new role in the create form. However, this may also be done at anytime in the future once permissions have been specified.
+Creating a new custom Role is simple. In the Roles Manager view (`App Services > Roles`), click the `+ New Role` button at the bottom of the screen. Add a unique name (required) and a simple description before clicking `Add Role`. You may optionally assign users to the new role in the create form. However, this may also be done at anytime in the future once permissions have been specified.
 
 ![Create a new role in the 8base Console](../images/create-role.png)
 
@@ -33,7 +33,7 @@ To delete a role, toggle the ellipsis toggle located at the end of the roles tab
 
 **Permissions** in 8base refer to the specific actions a user is authorized to take. These permissions are defined under a *Role*, which is then attributed to a user. For example, a permission that authorizes a user to read *Posts* may be defined under the *Guest* role.
 
-In the Roles Manager view (`Settings > Roles`), click on the name of a *Role* whose permissions you'd like to update. You'll be taken to a view containing three tabs; *Data*, *Apps* and *Roles*.
+In the Roles Manager view (`App Services > Roles`), click on the name of a *Role* whose permissions you'd like to update. You'll be taken to a view containing three tabs; *Data*, *Apps* and *Roles*.
 
 ### Data
 Lists all data tables in the current workspace. Each table exposes the ability to set Create, Read, Update, Delete (CRUD) and Field permissions using simple controls. If fine-tuned permissions beyond CRUD actions are required, `Custom Filters` on tables and `Custom Access` on fields can be implemented.

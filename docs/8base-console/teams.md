@@ -2,12 +2,12 @@
 Inviting other developers as team members on an 8base workspace is easy. As the workspace owner you can quickly configure what roles a user has and then invite them to the workspace from within the console. 
 
 ## Inviting team members
-To invite a team member, navigate to [`Settings > Teams`](https://app.8base.com/settings/team). Click the invite user button to open the invitation form. Once completed, send the invitation and 8base will email the invitee.
+To invite a team member, navigate to [`Settings > Teams`](https://app.8base.com/users/team-members). Click the invite user button to open the invitation form. Once completed, send the invitation and 8base will email the invitee.
 
 ![Invite a team member to 8base](../images/invite-new-team-member.png)
 
 ## Managing team members
-Team members can be updated and removed from a workspace in the [`Settings > Teams`](https://app.8base.com/settings/team) page. Updating a team member's roles will effect their permissions within the current workspace. Deleting a team member will **only** dissasociate a developer from the current workspace; their 8base developer account will remain intact.
+Team members can be updated and removed from a workspace in the [`Settings > Teams`](https://app.8base.com/users/team-members) page. Updating a team member's roles will effect their permissions within the current workspace. Deleting a team member will **only** dissasociate a developer from the current workspace; their 8base developer account will remain intact.
 
 To view pending invitations, switch the top left drop-down option to *Invitations*. In this view, team invitations can both be revoked or resent. If a mistake was made in the original invitation, please delete and create a new and correct invitation – pending invitations cannot be edited.
 
@@ -20,7 +20,7 @@ In some scenarios, the workspace owner might want to limit the access of an indi
 1. Are not allowed to edit the data model.
 2. Are only allowed to view their own records.
 
-To accomplish this, they'd add a new role in [`Settings > Roles`](https://app.8base.com/settings/roles) called "Steve - Developer Role". Then in the role's data configuration window, they'd update all tables to only allow the Steve to read and update *User's Records*. Next, in the role's app configuration window, they'd ensure that *Data: Enable for role: Schema Access* is unchecked.
+To accomplish this, they'd add a new role in [`App Services > Roles`](https://app.8base.com/app-services/roles) called "Steve - Developer Role". Then in the role's data configuration window, they'd update all tables to only allow the Steve to read and update *User's Records*. Next, in the role's app configuration window, they'd ensure that *Data: Enable for role: Schema Access* is unchecked.
 
 When inviting the developer as a team member, this new role can get attached to the invitation. Otherwise, it can get attribute to their team member profile once they've accepted the invitation.
 
@@ -30,7 +30,7 @@ In some scenarios, the workspace owner might want to limit the access of a type 
 1. Are not allowed to deploy backend logic to the workspace.
 2. Are not allowed to administer the workspace.
 
-To accomplish this, they'd add a new role in [`Settings > Roles`](https://app.8base.com/settings/roles) called "Frontend Developer Role". In the role's app configuration window, they'd ensure that *Settings: Enable for role: Workspace Administration* and *Logic: Enable for role: Deploy* are unchecked.
+To accomplish this, they'd add a new role in [`App Services > Roles`](https://app.8base.com/app-services/roles) called "Frontend Developer Role". In the role's app configuration window, they'd ensure that *Settings: Enable for role: Workspace Administration* and *Logic: Enable for role: Deploy* are unchecked.
 
 When inviting a frontend developer team member, this new role can get attached to their invitation. Otherwise, it can get attribute to any team members profile once they've accepted the invitation.
 

@@ -1,7 +1,7 @@
 # SDK - Auth Module
 The 8base SDK provides an easy way to implement authentication in your client application. Whether you're using 8base Authentication, Auth0, or an OpenID provider, the `Auth` module helps in managing the authentication flow.
 
-For further information regarding Auth, please [refer to the docs](https://docs.8base.com/development-tools/sdk/auth).
+For further information regarding Auth, please [refer to the docs](https://docs.8base.com/docs/development-tools/sdk/auth).
 
 ## Usage
 The `Auth` module exposes several differnt auth strategies. These can be declared as strings or imported from the SDK as `AUTH_STRATEGIES`. The `Auth.createClient` function accepts two condiuration objects, from which it generates the an `authClient` that is instatiated per the given strategy.
@@ -13,7 +13,7 @@ Some required values include the following:
 * `logoutUrl`
 * `redirectUri`
 
-All these values can be collected from an [Authentication Profile](https://docs.8base.com/8base-console/authentication#authorization) created in the 8base management console. 
+All these values can be collected from an [Authentication Profile](https://docs.8base.com/docs/8base-console/authentication#authorization) created in the 8base management console. 
 
 ## Auth Strategies
 There are currently several different available auth strategies that the SDK supports. They are:
