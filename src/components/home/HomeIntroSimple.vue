@@ -1,34 +1,34 @@
 <template>
   <Section class="intro" dots="true">
     <div class="container text-center ">
+      <div class="intro__message mb" hidden></div>
 
-        <div class="intro__message mb" hidden></div>
+      <h1 class="intro__title">
+        <span>8base Docs</span>
+      </h1>
 
-        <h1 class="intro__title">
-          <span>8base Docs</span>
-        </h1>
+      <p class="intro__lead lead post mb">
+        Learn how to build and run web and mobile applications faster using
+        JavaScript, GraphQL, and 8base.
+      </p>
 
-        <p class="intro__lead lead post mb">
-          Learn how to build and run web and mobile applications faster using JavaScript, GraphQL, and 8base.
-        </p>
-
-        <p class="intro__links">
-          <g-link  to="/docs/" class="button primary button--large">
-            <span>Read the Docs</span>
-          </g-link>
-        </p>
+      <p class="intro__links">
+        <g-link to="/docs/" class="button primary button--large">
+          <span>Read the Docs</span>
+        </g-link>
+      </p>
     </div>
   </Section>
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style lang="scss">
-
 .intro {
-  padding: calc(2% + var(--space)) 0;
+  padding-top: calc(8% + var(--header-height));
+  padding-bottom: calc(3% + var(--space));
 
   &__title {
     font-size: 3rem;
@@ -57,7 +57,13 @@ export default {}
   }
 
   &__info {
-    font-size: .9rem;
+    font-size: 0.9rem;
+  }
+
+  @media screen and (max-width: 850px) {
+    & {
+      padding-top: calc(15% + var(--header-height));
+    }
   }
 }
 </style>

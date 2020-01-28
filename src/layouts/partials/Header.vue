@@ -1,11 +1,9 @@
 <template>
   <header>
-    <div class="header-bar"></div>
     <div class="header-inner container flex gap-30">
+      <Logo :theme="currentTheme" />
 
-      <Logo :theme="currentTheme"/>
-
-      <Nav class="flex-fit"/>
+      <Nav class="flex-fit" />
 
       <SearchForm />
 
@@ -19,7 +17,7 @@
           target="_blank"
           title="Follow us on Twitter"
         >
-          <twitter-logo/>
+          <twitter-logo />
         </a>
 
         <div class="has-dropdown">
@@ -30,10 +28,7 @@
             target="_blank"
             title="8base @ GitHub"
           >
-            <github-logo
-              height="20px"
-              width="20px"
-            />
+            <github-logo height="20px" width="20px" />
           </a>
         </div>
       </nav>
@@ -42,13 +37,13 @@
 </template>
 
 <script>
-import Logo from './Logo'
-import Nav from './Nav'
-import SearchForm from '@/components/SearchForm.vue'
-import ToggleTheme from '@/components/ToggleTheme.vue'
-import GithubLogo from '@/assets/images/github-logo.svg'
-import TwitterLogo from '@/assets/images/twitter-logo.svg'
-import LazyHydrate from 'vue-lazy-hydration'
+import Logo from "./Logo";
+import Nav from "./Nav";
+import SearchForm from "@/components/SearchForm.vue";
+import ToggleTheme from "@/components/ToggleTheme.vue";
+import GithubLogo from "@/assets/images/github-logo.svg";
+import TwitterLogo from "@/assets/images/twitter-logo.svg";
+import LazyHydrate from "vue-lazy-hydration";
 
 export default {
   components: {
@@ -62,35 +57,42 @@ export default {
   },
   data() {
     return {
-      currentTheme: ''
-    }
+      currentTheme: ""
+    };
   },
   methods: {
     setTheme(name) {
-      this.currentTheme = name
+      this.currentTheme = name;
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
 header {
   z-index: 20;
-  position: relative;
+  width: 100%;
+  max-width: 90%;
+  margin: 27px 5% 0;
+  position: fixed;
   top: 0;
   background-color: var(--bg-transparent);
-  border-bottom: 1px solid var(--border-color);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
   flex-wrap: nowrap;
-  position: sticky;
-  transition: background-color .3s, border-color, .3s;
+  transition: background-color 0.3s, border-color, 0.3s;
   backdrop-filter: blur(4px);
 
-
   .header-bar {
-    background: linear-gradient(90deg, var(--primary-color) 0%,  #8ED6FB 50%, #D32E9D 100%);
+    background: linear-gradient(
+      90deg,
+      var(--primary-color) 0%,
+      #8ed6fb 50%,
+      #d32e9d 100%
+    );
     padding: 2px;
     text-align: center;
-    color:#FFF;
+    color: #fff;
     font-size: 1rem;
 
     a {

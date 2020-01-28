@@ -6,13 +6,10 @@
   -webkit-overflow-scrolling: touch;
   padding: 2.5% 20px 40px 5px;
 
-
-
   @media screen and (min-width: 990px) {
     position: sticky;
-    border-right: 1px solid var(--border-color);
-    transition: border-color .3s;
-    top: var(--header-height);
+    transition: border-color 0.3s;
+    top: calc(var(--header-height) + 27px);
     height: calc(100vh + (var(--header-height) * -1) - 5px);
     width: 260px;
     order: 0;
@@ -33,26 +30,26 @@
 
   &--right {
     width: 220px;
-    border-right:0;
+    border-right: 0;
     position: sticky;
     padding-left: 20px;
-    top: var(--header-height);
+    top: calc(var(--header-height) + 27px);
   }
 
   h3 {
-    font-size: .8rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin: 15px 0 15px;
     border-bottom: 1px solid var(--border-color);
     &:first-of-type {
-      border:0;
+      border: 0;
     }
   }
 
   p {
     margin-bottom: 5px;
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 
   a {
@@ -65,7 +62,7 @@
     &.active--exact {
       color: var(--primary-color-dark);
     }
-    
+
     &:hover {
       color: var(--primary-color);
     }
@@ -73,13 +70,13 @@
 
   .menu-link {
     margin: 0;
-    padding: .2rem 0;
-    font-size: .95rem;
+    padding: 0.2rem 0;
+    font-size: 0.95rem;
 
     &.active {
       color: var(--primary-color-dark);
       position: relative;
-      padding-left: .8rem;
+      padding-left: 0.8rem;
 
       &:before {
         content: " ";
@@ -91,7 +88,7 @@
         top: 50%;
         margin-top: -5px;
         background-color: var(--primary-color-dark);
-        animation: scaleIn .7s forwards;
+        animation: scaleIn 0.7s forwards;
       }
     }
   }
@@ -99,22 +96,22 @@
   .submenu {
     list-style: none;
     margin: 0;
-    font-size: .9rem;
+    font-size: 0.9rem;
     opacity: 1;
 
     &__item-depth-2 {
       margin-bottom: 0;
-      padding: .4rem 0;
-      font-size: .85rem;
+      padding: 0.4rem 0;
+      font-size: 0.85rem;
       border-top: 1px dashed var(--border-color);
-      transition: border-color .3s;
+      transition: border-color 0.3s;
     }
 
     &__item-depth-3 {
       margin-bottom: 0;
-      padding: .2rem .4rem;
-      font-size: .8rem;
-      opacity: .8;
+      padding: 0.2rem 0.4rem;
+      font-size: 0.8rem;
+      opacity: 0.8;
     }
   }
 
@@ -122,11 +119,11 @@
     & {
       width: 100%;
       position: relative;
-      margin:0;
+      margin: 0;
       order: 2;
       padding-bottom: 150px;
-     
-    } + .section {
+    }
+    + .section {
       margin-left: 0;
       width: 100%;
     }
