@@ -72,7 +72,7 @@ await ctx.api.gqlRequest(QUERY, VARIABLES, {
 ```
 
 ### Managing Dependencies
-8base deploys CFs to a Node.js 8.10 runtime environment in which any compatible NPM dependencies are supported. On deploy, the system will check whether or not your dependencies have been installed and handle that accordingly. As expected, deploys run significantly faster when dependencies are installed locally. Feel free to use either NPM or Yarn as your package manager during development.
+8base deploys CFs to a Node.js 10 runtime environment in which any compatible NPM dependencies are supported. On deploy, the system will check whether or not your dependencies have been installed and handle that accordingly. As expected, deploys run significantly faster when dependencies are installed locally. Feel free to use either NPM or Yarn as your package manager during development.
 
 ### Development Tips
 CFs are developed in a local development environment and then deployed to a given workspace using the [8base CLI](../../development-tools/cli). When in development, they can be invoked locally for testing purposes. 
