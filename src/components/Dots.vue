@@ -1,12 +1,11 @@
 <template>
-	<div class="dots">
-	  <div class="dots__dot" />
-	  <div class="dots__dot" />
-	  <div class="dots__dot" />
-	  <div class="dots__dot" />
-	</div>
+  <div class="dots">
+    <div class="dots__dot" />
+    <div class="dots__dot" />
+    <div class="dots__dot" />
+    <div class="dots__dot" />
+  </div>
 </template>
-
 
 <style lang="scss">
 .dots {
@@ -21,8 +20,8 @@
     margin: 5px;
     display: inline-block;
     border-radius: 99px;
-    background-color: var(--primary-color);
-    animation: moveInOutX .3s linear infinite;
+    background-color: var(--danger-color);
+    animation: moveInOutX 0.3s linear infinite;
   }
 }
 

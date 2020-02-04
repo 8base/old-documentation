@@ -1,15 +1,13 @@
 <template>
   <header>
-    <div class="header-inner container flex gap-30">
-      <Logo :theme="currentTheme" />
+    <div class="header-inner flex gap-30">
+      <Logo />
 
       <Nav class="flex-fit" />
 
       <SearchForm />
 
       <nav class="header-actions flex">
-        <ToggleTheme />
-
         <a
           aria-label="Twitter"
           href="//twitter.com/8base"
@@ -40,7 +38,6 @@
 import Logo from "./Logo";
 import Nav from "./Nav";
 import SearchForm from "@/components/SearchForm.vue";
-import ToggleTheme from "@/components/ToggleTheme.vue";
 import GithubLogo from "@/assets/images/github-logo.svg";
 import TwitterLogo from "@/assets/images/twitter-logo.svg";
 import LazyHydrate from "vue-lazy-hydration";
@@ -50,20 +47,9 @@ export default {
     Logo,
     GithubLogo,
     TwitterLogo,
-    ToggleTheme,
     SearchForm,
     Nav,
     LazyHydrate
-  },
-  data() {
-    return {
-      currentTheme: ""
-    };
-  },
-  methods: {
-    setTheme(name) {
-      this.currentTheme = name;
-    }
   }
 };
 </script>
@@ -73,15 +59,15 @@ header {
   z-index: 20;
   width: 100%;
   max-width: 90%;
-  margin: 27px 5% 0;
   position: fixed;
+  margin: 27px 5% 0;
   top: 0;
-  background-color: var(--bg-transparent);
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
   flex-wrap: nowrap;
-  transition: background-color 0.3s, border-color, 0.3s;
+  border-radius: 8px;
   backdrop-filter: blur(4px);
+  border: 1px solid var(--border-color);
+  background-color: var(--slate-color);
+  transition: background-color 0.3s, border-color, 0.3s;
 
   .header-bar {
     background: linear-gradient(
@@ -101,8 +87,20 @@ header {
   }
 
   .header-inner {
-    padding: 0 var(--space);
+    padding: 0 30px;
     min-height: var(--header-height);
+  }
+
+  .main-nav {
+    flex-grow: inherit;
+    padding-left: 30px;
+    border-left: 2px solid;
+    border-color: var(--bg);
+
+    @media screen and (max-width: 990px) {
+      border: none;
+      padding-left: 0;
+    }
   }
 }
 </style>

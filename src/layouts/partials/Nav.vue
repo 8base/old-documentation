@@ -9,18 +9,23 @@
     </a>
 
     <a href="https://app.8base.com" target="_blank">
-      <span class="main-nav__label">8base Console</span>
+      <span class="main-nav__label">8base&nbsp;Console</span>
     </a>
   </nav>
 </template>
 
-
 <style lang="scss">
 .main-nav {
+  height: 75px;
   flex-wrap: nowrap;
-}
-@media screen and (max-width: 850px) {
- .main-nav {
+
+  &__label {
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 980px) {
+    height: auto;
     order: 10;
     min-width: 100%;
     a {
