@@ -8,7 +8,7 @@
           <Card class="sponsor">
             <g-image src="~/assets/images/8base-logo-white.svg" alt="8base" />
             <p>
-              Hop on the
+              Hop on our
               <a
                 href="https://community.8base.com/"
                 rel="noopener"

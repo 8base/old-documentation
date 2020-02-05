@@ -5,7 +5,9 @@
   "scripts": {
     "develop": "gridsome develop",
     "explore": "gridsome explore",
-    "build": "gridsome build"
+    "build": "gridsome build",
+    "postdeploy": "npm run invalidate-cloudfront",
+    "invalidate-cloudfront": "aws cloudfront create-invalidation --distribution-id EZWU2FBHP41E9 --paths '/*'"
   },
   "dependencies": {
     "@gridsome/plugin-google-analytics": "^0.1.0",
