@@ -52,9 +52,8 @@
     </div>
 
     <p class="home-links text-center ">
-      <g-link to="/docs/" class="button primary button--large">
+      <g-link to="https://app.8base.com" class="button primary button--large">
         Get started for free
-
         <div class="chevron"></div>
       </g-link>
     </p>
