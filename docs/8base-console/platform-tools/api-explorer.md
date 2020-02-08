@@ -18,7 +18,7 @@ query {
 
 Once added, reposition the cursor after the "r" in user and press `[OPTION] + [SPACE]`. From here, it's easy to see and select available operations in the API. The auto-complete is contextual to where you are in the query being built, and filters options based on what's being typed.
 
-Additpionally, introspection helps us detect errors in queries. The system recognizes when different types are either not available or incorrectly configured - things like, `Number` should be `String`, field not available on table, as well as validations. Therefore, when using the API Explorer, hover over squiggly-red lines to reveal error tooltips.
+Additionally, introspection helps us detect errors in queries. The system recognizes when different types are either not available or incorrectly configured - things like, `Number` should be `String`, field not available on table, as well as validations. Therefore, when using the API Explorer, hover over squiggly-red lines to reveal error tooltips.
 
 ![Tooltip showing error in API Explorer](../../images/api-explorer-tooltip-error.png)
 
