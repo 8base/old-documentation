@@ -92,6 +92,11 @@
           link: /docs/8base-console/custom-functions/resolvers
         - title: Debugging
           link: /docs/8base-console/custom-functions/debugging
+    - title: Plugins and Integrations
+      link: /docs/8base-console/plugins-integrations
+      items:
+        - title: Salesforce Bolt
+          link: /docs/8base-console/plugins-integrations/salesforce
 - title: Dev Environment
   link: /docs/development-tools/dev-env/project-structure
   items:
@@ -114,9 +119,9 @@
     - title: SDK
       link: /docs/development-tools/sdk
       items:
-        - title: API Client
-          link: /docs/development-tools/sdk/api-client
-        - title: User Auth
+        - title: Api
+          link: /docs/development-tools/sdk/api
+        - title: Auth
           link: /docs/development-tools/sdk/auth
           items:
             - title: React

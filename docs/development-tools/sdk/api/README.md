@@ -94,42 +94,6 @@ export const apiConfig = {
 export default new Api(apiConfig);
 ```
 
-## Config Error Handlers
-
-In the Api module config, you're able to specify error handler functions. While the first positional argument passed to the handler function is the error itself, the second positional argument is a function that will re-runs the API request with its original scope - as well as resolve the original promise.
-
-For example, this can be useful when handling expired authentication token errors.
-
-```javascript
-import auth from "auth.js";
-
-const ApiConfig = {
-  // other config options
-  catchErrors: {
-    /**
-     * Error code is mapped to TokenExpiredError key name
-     */
-    TokenExpiredError: (err, reRun) => {
-      try {
-        /**
-         * Refresh the token, store it using preferred store, and
-         * call `reRun()` to execute original API call.
-         */
-        const { idToken } = auth.refreshToken();
-        store.setItem("id_token", idToken);
-        reRun();
-        /**
-         * If token refresh failed, catch error and handle user logout.
-         */
-      } catch (err) {
-        auth.logout();
-      }
-    },
-    default: err => {}
-  }
-};
-```
-
 ## request()
 
 Execute any GraphQL Query or Mutation using the `request()` method.
@@ -297,7 +261,7 @@ setTimeout(() => subscription.close(), 6000);
 
 ## invoke()
 
-Execute any [WebHook or Task Function](../../../8base-console/custom-functions/README.md) deployed to a workspace using the `invoke()` method.
+Execute any deployed to a workspace using the `invoke()` method.
 
 ```javascript
 /**
@@ -331,4 +295,40 @@ await api.invoke(
     "X-AMZ-HEADER": "SOME-VALUE"
   }
 );
+```
+
+## Error Handlers
+
+In the Api module config, you're able to specify error handler functions. While the first positional argument passed to the handler function is the error itself, the second positional argument is a function that will re-run the API request with its original scope - as well as resolve the original promise.
+
+For example, this can be useful when handling expired authentication token errors.
+
+```javascript
+import auth from "auth.js";
+
+const ApiConfig = {
+  // other config options
+  catchErrors: {
+    /**
+     * Error code is mapped to TokenExpiredError key name
+     */
+    TokenExpiredError: (err, reRun) => {
+      try {
+        /**
+         * Refresh the token, store it using preferred store, and
+         * call `reRun()` to execute original API call.
+         */
+        const { idToken } = auth.refreshToken();
+        store.setItem("id_token", idToken);
+        reRun();
+        /**
+         * If token refresh failed, catch error and handle user logout.
+         */
+      } catch (err) {
+        auth.logout();
+      }
+    },
+    default: err => {}
+  }
+};
 ```

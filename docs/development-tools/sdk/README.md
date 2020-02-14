@@ -1,4 +1,4 @@
-# SDK - Client Module
+# Javascript SDK
 
 The 8base JavaScript SDK implements the client-side libraries used by applications using 8base services.
 
@@ -8,7 +8,7 @@ The SDK makes available the `eight8base` class, on which the `configure()` metho
 
 Once initialized, any configured submodule can be imported into or access in other script/component files.
 
-### `configure()`
+### configure()
 
 When using the `configure()` method, the `workspaceId` argument is required and gets passed down automatically to all submodules. The SDK generates the workspace endpoint URLs required for all GraphQL API calls.
 
@@ -42,8 +42,8 @@ import { Auth, Api } from "8base.js";
 
 ## Available SDK Modules
 
-- [API](./api/README.md): Conveniently execute GraphQL queries, mutations, and subscriptions against a workspace.
-- [AUTH](/.auth/README.md): Quickly authenticate users and build auth flows in client applications.
+- [Api](./api/README.md): Conveniently execute GraphQL queries, mutations, and subscriptions against a workspace.
+- [Auth](./auth/README.md): Quickly authenticate users and build auth flows in client applications.
 
 ## Alternatives
 
