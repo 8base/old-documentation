@@ -1,10 +1,50 @@
-# Client Tools
+# Javascript SDK
 
-8base provides a set of client libraries that simplify building front-end applications on top of 8base platform:
+The 8base JavaScript SDK implements the client-side libraries used by applications using 8base services.
 
-* **[SDK](https://github.com/8base/sdk)** comes with a set of libraries that simplify authentication, connecting to the API, client-side subscriptions, file uploads and more. SDK uses [ApolloClient](https://www.apollographql.com/docs/react/) for GraphQL requests and state management. It uses [Auth0](https://auth0.com/) for authentication.
+## Usage
 
-* **[Boost UI Kit](https://github.com/8base/boost)** provides a set of common UI components, such as form fields, tables, layout elements and a file upload widget. Some of the components are pre-wired with the 8base API to enable automatic client-side validation and other features.
+The SDK makes available the `eight8base` class, on which the `configure()` method can be used to initialize any and all SDK modules in a single config file.
 
-* **[Quickstart App](../../getting-started/quick-start)** can be used as a starter project to quickly learn how to build on 8base.
+Once initialized, any configured submodule can be imported into or access in other script/component files.
 
+### configure()
+
+When using the `configure()` method, the `workspaceId` argument is required and gets passed down automatically to all submodules. The SDK generates the workspace endpoint URLs required for all GraphQL API calls.
+
+```javascript
+/**
+ * Import 8base SDK
+ */
+import eightBase from "8base-sdk";
+
+/**
+ * Import configs (optionally stored in other files)
+ */
+import Auth from "./configs/auth.js";
+import API from "./configs/api.js";
+
+/**
+ * Configure all SDK submodules in single configure call.
+ */
+export default eightBase.configure({
+  workspaceId: "8BASE_WORKSPACE_ID",
+  Auth,
+  Api
+});
+```
+
+Once configured, the SDK submodules can be imported into scripts and components that require them from the configuration file.
+
+```javascript
+import { Auth, Api } from "8base.js";
+```
+
+## Available SDK Modules
+
+- [Api](./api/README.md): Conveniently execute GraphQL queries, mutations, and subscriptions against a workspace.
+- [Auth](./auth/README.md): Quickly authenticate users and build auth flows in client applications.
+
+## Alternatives
+
+There any a number of ways developers can connect to their workspace's GraphQL API, authenticate users, and build client apps. The 8base SDK is only one of them! Remember that your workspace is simply an flexible GraphQL API that can be developed on top of however you wish to.
