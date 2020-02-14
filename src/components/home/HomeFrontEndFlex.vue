@@ -13,37 +13,7 @@
       <div class="col col-sm-6">
         <div class="flex-content-between">
           <g-image
-            src="~/assets/images/reactjs.png"
-            width="75"
-            height="75"
-            fit="inside"
-          ></g-image>
-
-          <g-image
-            src="~/assets/images/angularjs.png"
-            width="75"
-            height="75"
-            fit="inside"
-          ></g-image>
-
-          <g-image
-            src="~/assets/images/vuejs.png"
-            width="75"
-            height="75"
-            fit="inside"
-          ></g-image>
-
-          <g-image
-            src="~/assets/images/ios.png"
-            width="75"
-            height="75"
-            fit="inside"
-          ></g-image>
-
-          <g-image
-            src="~/assets/images/android.png"
-            width="75"
-            height="75"
+            src="~/assets/images/front-end-framworks-8base.png"
             fit="inside"
           ></g-image>
         </div>
@@ -53,8 +23,25 @@
 
     <p class="home-links text-center ">
       <g-link to="https://app.8base.com" class="button primary button--large">
-        Get started for free
-        <div class="chevron"></div>
+        <span>
+          Get started for free
+
+          <g-image
+            width="100"
+            height="100"
+            class="shadow"
+            alt="right shadow"
+            src="~/assets/images/right-shadow.svg"
+          ></g-image>
+
+          <g-image
+            width="13"
+            height="13"
+            class="arrow"
+            alt="right arrow"
+            src="~/assets/images/right-arrow.svg"
+          ></g-image>
+        </span>
       </g-link>
     </p>
   </Section>
@@ -84,16 +71,6 @@ export default {};
     border-radius: 25px;
     text-transform: uppercase;
     padding: 13px 20px 13px 25px;
-
-    .chevron {
-      width: 0;
-      height: 0;
-      margin-left: 35px;
-      display: inline-block;
-      border-left: 9px solid white;
-      border-top: 5px solid transparent;
-      border-bottom: 5px solid transparent;
-    }
   }
 }
 </style>

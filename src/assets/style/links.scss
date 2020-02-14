@@ -1,17 +1,17 @@
 a {
-  transition: color .3s, opacity .3s, background .3s, text-decoration .5s;
+  transition: color 0.3s, opacity 0.3s, background 0.3s, text-decoration 0.5s;
   position: relative;
   text-decoration: underline;
-  color: var(--primary-color-dark);
+  color: var(--primary-link-color);
   text-decoration-color: var(--border-color);
 
   &:hover {
     color: var(--body-color);
     text-decoration-color: var(--body-color);
   }
-  
+
   svg + & {
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
 
   code & {

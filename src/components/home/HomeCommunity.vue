@@ -41,10 +41,6 @@
   padding: 30px 30px 60px;
   border: 2px solid var(--bg-transparent);
 
-  a {
-    color: var(--danger-color);
-  }
-
   img {
     max-height: 35px;
     width: auto;

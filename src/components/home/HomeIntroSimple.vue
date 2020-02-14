@@ -13,12 +13,12 @@
 
         <div class="col col-md-7 h-450px">
           <div class="flex-vertical-center">
-            <h2>
+            <h1>
               <span
                 >Built for <span class="primary-color">developers</span>, by
                 <span class="primary-color">developers</span></span
               >
-            </h2>
+            </h1>
 
             <p class="lead post mb">
               Build and run web and mobile applications faster using JavaScript,
@@ -27,10 +27,25 @@
 
             <p class="intro__links">
               <g-link to="/docs/" class="button danger button--large">
-                <span
-                  >Read the Docs
-                  <div class="chevron"></div
-                ></span>
+                <span>
+                  Read the Docs
+
+                  <g-image
+                    width="100"
+                    height="100"
+                    class="shadow"
+                    alt="right shadow"
+                    src="~/assets/images/right-shadow.svg"
+                  ></g-image>
+
+                  <g-image
+                    width="13"
+                    height="13"
+                    class="arrow"
+                    alt="right arrow"
+                    src="~/assets/images/right-arrow.svg"
+                  ></g-image>
+                </span>
               </g-link>
             </p>
           </div>
@@ -52,6 +67,11 @@ export default {};
     @media screen and (max-width: 990px) {
       height: auto;
     }
+  }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 400;
   }
 
   .flex-vertical-center {
@@ -92,16 +112,6 @@ export default {};
     border-radius: 25px;
     text-transform: uppercase;
     padding: 13px 20px 13px 25px;
-
-    .chevron {
-      width: 0;
-      height: 0;
-      margin-left: 35px;
-      display: inline-block;
-      border-left: 9px solid white;
-      border-top: 5px solid transparent;
-      border-bottom: 5px solid transparent;
-    }
   }
 
   &__info {
