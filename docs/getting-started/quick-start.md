@@ -93,7 +93,7 @@ Now, all users with the *Reviewer* role who call the workspace API endpoint have
 ### 2.3. Authentication Profiles
 Setting up authentication will allow users to sign-up, log-in, and log-out of the app. For this quickstart, users should be authenticated to view their list of notes.
 
-Navigate to the [Authentication page](https://app.8base.com/docs/settings/authentication) in settings. To create a new authentication profile, click the plus-sign button and specify the following values. 
+Navigate to the [Authentication page](https://app.8base.com/app-services/authentication) in App Services. To create a new authentication profile, click the plus-sign button and specify the following values. 
 
 | Option | Value | Notes |
 | ------ | ----- | ----- |
