@@ -4,6 +4,7 @@
 
     <div class="container">
       <div class="row">
+        <div class="col-md-3"></div>
         <div class="col-md-6 mb">
           <Card class="sponsor">
             <g-image src="~/assets/images/8base-logo-white.svg" alt="8base" />
@@ -19,18 +20,7 @@
             </p>
           </Card>
         </div>
-        <div class="col-md-6 mb">
-          <Card class="sponsor">
-            <g-image src="~/assets/images/slack-logo.svg" alt="Algolia" />
-            <p>
-              Find us on
-              <a href="8base-community.slack.com" rel="noopener" target="_blank"
-                >Slack</a
-              >
-              to chat with 8base team members on the developer community.
-            </p>
-          </Card>
-        </div>
+        <div class="col-md-3"></div>
       </div>
     </div>
   </Section>

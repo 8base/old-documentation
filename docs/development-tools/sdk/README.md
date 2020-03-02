@@ -4,33 +4,30 @@ The 8base JavaScript SDK implements the client-side libraries used by applicatio
 
 ## Usage
 
-The SDK makes available the `eight8base` class, on which the `configure()` method can be used to initialize any and all SDK modules in a single config file.
+The SDK makes available the `Eight8base` class which can be used to initialize any and all SDK modules in a single config file.
 
 Once initialized, any configured submodule can be imported into or access in other script/component files.
 
-### configure()
+### constructor
 
-When using the `configure()` method, the `workspaceId` argument is required and gets passed down automatically to all submodules. The SDK generates the workspace endpoint URLs required for all GraphQL API calls.
+When initializing the `EightBase` class, the `workspaceId` argument is required and gets passed down automatically to all submodules. The SDK generates the workspace endpoint URLs required for all GraphQL API calls.
 
 ```javascript
-/**
- * Import 8base SDK
- */
-import eightBase from "8base-sdk";
+import { EightBase } from "8base-js-sdk";
 
 /**
  * Import configs (optionally stored in other files)
  */
-import Auth from "./configs/auth.js";
-import API from "./configs/api.js";
+import auth from "./configs/auth.js";
+import api from "./configs/api.js";
 
 /**
  * Configure all SDK submodules in single configure call.
  */
-export default eightBase.configure({
-  workspaceId: "8BASE_WORKSPACE_ID",
-  Auth,
-  Api
+export default new EightBase({
+  workspaceId: "ck3oze0ez00br01l27dcd6v4r",
+  auth,
+  api
 });
 ```
 

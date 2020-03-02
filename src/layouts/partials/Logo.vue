@@ -12,8 +12,7 @@
 </template>
 
 <script>
-import LogoLight from "~/assets/images/8base-logo-horizontal.svg";
-import LogoDark from "~/assets/images/8base-logo-horizontal-white.svg";
+import LogoDark from "~/assets/images/8base-logo-white.svg";
 import LogoSmall from "~/assets/images/8base-logo.svg";
 export default {
   props: ["theme"],
