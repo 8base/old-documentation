@@ -13,28 +13,34 @@ Once initialized, any configured submodule can be imported into or access in oth
 When initializing the `EightBase` class, the `workspaceId` argument is required and gets passed down automatically to all submodules. The SDK generates the workspace endpoint URLs required for all GraphQL API calls.
 
 ```javascript
-import { EightBase } from "8base-js-sdk";
+import eightBase from "8base-js-sdk";
 
 /**
  * Import configs (optionally stored in other files)
  */
-import auth from "./configs/auth.js";
-import api from "./configs/api.js";
+import authConfig from "./configs/auth.js";
+import apiConfig from "./configs/api.js";
 
 /**
  * Configure all SDK submodules in single configure call.
  */
-export default new EightBase({
-  workspaceId: "ck3oze0ez00br01l27dcd6v4r",
-  auth,
-  api
+export const { api, auth } = eightBase.configure({
+  /**
+   * Workspace ID is required!
+   */
+  workspaceId: "<WORKSPACE_ID>",
+  /**
+   * Specify configs for any named SDK module 
+   */
+  Auth: AuthConfig,
+  Api: ApiConfig
 });
 ```
 
 Once configured, the SDK submodules can be imported into scripts and components that require them from the configuration file.
 
 ```javascript
-import { Auth, Api } from "8base.js";
+import { auth, api } from "8base.js";
 ```
 
 ## Available SDK Modules

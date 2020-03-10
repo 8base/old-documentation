@@ -7,7 +7,7 @@ The `Api` module is used to conveniently execute GraphQL queries, mutations, and
 The `Api` module requires a configuration object to initialize. When being initialized using the the module directly, the `workspaceId` value is required. When being initialized using the `eightBase.configure()` method, the `workspaceId` value is **not** required.
 
 ```javascript
-import Api from '8base-sdk/api';
+import Api from '@8base-js-sdk/api';
 
 export const apiConfig = {
   /**
