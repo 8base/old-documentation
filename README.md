@@ -14,7 +14,7 @@ Always let us know how we can help!
 
 ## Connecting with the Community
 
-While building on 8base and checking out the docs, you might have some questions. Actually, lets re-phrase that... while building on 8base YOU'LL DEFINITELY HAVE SOME QUESTIONS. When such a situation arises, fret not. We're here for you.
+While building on 8base and reading out the docs, you might have some questions. Actually, lets re-phrase that... while building on 8base YOU'LL DEFINITELY HAVE SOME QUESTIONS. When such a situation arises, fret not. We're here for you.
 
 > ### [Join us on Slack](https://slack.8base.com/)  
   Chat with other 8base developers and our support team.  
