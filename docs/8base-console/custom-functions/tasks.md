@@ -69,14 +69,14 @@ For a singular value (1) the unit must be written as singular, otherwise it need
 
 `cron(Minutes Hours Day-of-month Month Day-of-week Year)`
 
-| Expression                | Instruction                                                         |
-| :------------------------ | :------------------------------------------------------------------ |
-| cron(0 10 ? \*)           | Invoke task at 10:00am (UTC) everyday                               |
-| cron(15 12 ? \*)          | Invoke task at 12:15pm (UTC) everyday                               |
-| cron(0 18 ? MON-FRI )     | Invoke task at 06:00pm (UTC) every Mon-Fri                          |
-| cron(0/10 ? MON-FRI \*)   | Invoke task every 10 min Mon-Fri                                    |
-| cron(0/5 8-17 ? MON-FRI ) | Invoke task every 5 minutes Mon-Fri between 8:00am and 5:55pm (UTC) |
-| cron(0 9 ? 2#1 )          | Invoke task at 9 a.m. (UTC) the first Monday of each month          |
+| Expression                   | Instruction                                                         |
+| :--------------------------- | :------------------------------------------------------------------ |
+| cron(0 10 * * ? *)           | Invoke task at 10:00am (UTC) everyday                               |
+| cron(15 12 * * ? *)          | Invoke task at 12:15pm (UTC) everyday                               |
+| cron(0 18 ? * MON-FRI *)     | Invoke task at 06:00pm (UTC) every Mon-Fri                          |
+| cron(0/10 * ? * MON-FRI *)   | Invoke task every 10 min Mon-Fri                                    |
+| cron(0/5 8-17 ? * MON-FRI *) | Invoke task every 5 minutes Mon-Fri between 8:00am and 5:55pm (UTC) |
+| cron(0 9 ? * 2#1 *)          | Invoke task at 9 a.m. (UTC) the first Monday of each month          |
 
 Cron expressions that lead to rates faster than one invocation/minute are not supported. Additionally, one of the day-of-month or day-of-week values must be a question mark (?).
 
