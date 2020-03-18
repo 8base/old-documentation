@@ -11,7 +11,7 @@ Voila! You've officially on 8base.
 ## 2. Setting up a Workspace
 Each workspace is treated as an individual project – like having different Git repositories for different code bases. This makes it easy to stay organized with projects and upgrade individual workspaces when your app or service starts to scale! 
 
-Each workspace starts on a [30-day Free Trial](https://www.8base.com/pricing). Let's just use the default workspace for the rest of this quick-start.
+Let's just use the default workspace for the rest of this quick-start.
 
 ![8base workspace](../images/qs-workspace.png)
 
@@ -74,7 +74,7 @@ This is a great example of how 8base supports relational queries and mutations!
 - *[API Explorer docs](https://docs.8base.com/docs/8base-console/platform-tools/api-explorer)*
 
 ### 2.2. Roles and Permissions
-We only want to users to see their own notes. A custom role can enforce this. Navigate to `Settings` > `Roles` and create new role with the name "Reviewer". Once created, click the role and let's update its permissions. 
+We only want to users to see their own notes. A custom role can enforce this. Navigate to `App Services` > `Roles` and create new role with the name "Reviewer". Once created, click the role and let's update its permissions. 
 
 Let's check the appropriate boxes and select the needed options.
 
