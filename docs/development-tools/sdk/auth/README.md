@@ -62,34 +62,6 @@ const OpenIDConfig = {
 export default new Auth(OpenIDConfig);
 ```
 
-## signUp()
-
-**AUTH0_AUTH ONLY** - Sign up a new user using _Email / Password_ authentication.
-
-```javascript
-const {
-  data: {
-    userSignupWithPassword: { id, email, status, timezone, lastName, firstName }
-  }
-} = await auth.signUp({
-  /* User's password */
-  password: "myP@ssw0rd",
-  /* User's profile data */
-  user: {
-    /**
-     * Any fields available on the user record
-     * can be specified here and get saved.
-     *
-     * username: "joe_shmo",
-     * firstName: "Joe",
-     * lastName: "Shmo"
-     * ...
-     */
-    email: "joe@shmo.com"
-  }
-});
-```
-
 ## authorize()
 
 Navigates app user to the _Hosted Login Page_ provided by the Auth provider.
