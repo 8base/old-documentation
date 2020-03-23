@@ -116,19 +116,19 @@
           link: /docs/development-tools/cli/commands
         - title: Generators
           link: /docs/development-tools/cli/generators
-    # - title: SDK
-    #   link: /docs/development-tools/sdk
-    #   items:
-    #     - title: Api
-    #       link: /docs/development-tools/sdk/api
-    #     - title: Auth
-    #       link: /docs/development-tools/sdk/auth
-    #       items:
-    #         - title: React
-    #           link: /docs/development-tools/sdk/auth/react-auth
-    #     - title: Application File Uploads
-    #       link: /docs/development-tools/sdk/file-upload
-    #     - title: VS Code Plugin
-    #       link: /docs/development-tools/sdk/vs-code-plugin
-    #     - title: Filestack
-    #       link: /docs/development-tools/sdk/filestack-uploader
+    - title: SDK
+      link: /docs/development-tools/sdk
+      items:
+        - title: Api
+          link: /docs/development-tools/sdk/api
+        - title: Auth
+          link: /docs/development-tools/sdk/auth
+          items:
+            - title: React
+              link: /docs/development-tools/sdk/auth/react-auth
+        - title: Application File Uploads
+          link: /docs/development-tools/sdk/file-upload
+        - title: VS Code Plugin
+          link: /docs/development-tools/sdk/vs-code-plugin
+        - title: Filestack
+          link: /docs/development-tools/sdk/filestack-uploader

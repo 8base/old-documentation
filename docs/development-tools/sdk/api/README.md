@@ -25,19 +25,19 @@ export const apiConfig = {
    * EXAMPLE 1 - Headers Function
    *
    * headers: (httpHeaders) => ({
-   *   Authorization: `Bearer ${localHost.getItem('idToken')}`,
+   *   auth: localHost.getItem('idToken'),
    *   ...httpHeaders
    * })
    * ----------------------------
    * EXAMPLE 2 - Headers Object
    *
    * headers: {
-   *   Authorization: `Bearer ${SOME_API_TOKEN}`
+   *   auth: SOME_API_TOKEN
    * }
    * ----------------------------
    */
-  headers: : {
-    Authorization: `Bearer ${SOME_API_TOKEN}`
+  headers: {
+    auth: SOME_API_TOKEN
   },
   /**
    * All API calls can be transformed before a request
@@ -47,8 +47,22 @@ export const apiConfig = {
    * get passed to the follow function.
    */
   transformRequest: [
-    (query, data, headers) => ({ data: firstTransformation(data) }),
-    (query, data, headers) => ({ data: secondTransformation(data) })
+    (next, data) => {
+      next({ 
+        ...data,
+        variables: {
+          data: {
+            timestamp: fixedTimestamp,
+          }       
+        } 
+      })
+    },
+    (next, data) => {
+      next({ 
+        ...data
+        // Something else!
+      })
+    }
   ],
 ​  /**
    * All successful API responses can be transformed before the
@@ -58,8 +72,24 @@ export const apiConfig = {
    * get passed to the follow function.
    */
   transformResponse: [
-    (response) => firstTransformation(response),
-    (response) => secondTransformation(response)
+    (next, data) => {
+      next({ 
+        ...data
+        response: {
+          data: {
+            recordQuery: {
+              timestamp: fixedTimestamp
+            },
+          },
+        }
+      })
+    },
+    (next, data) => {
+      next({ 
+        ...data
+        // Something else!
+      })
+    }
   ],
   /**
    * All failed requests can be captured when a response is recieved.
@@ -101,24 +131,26 @@ Execute any GraphQL Query or Mutation using the `request()` method.
 ```javascript
 /**
  * Pass variables as an object as the 2nd positional argument, and
- * any non-default header options as the 3rd positional argument.
+ * any non-default fetch options as the 3rd positional argument.
  *
- * api.request(query: string, variables?: object, headers?: object)
+ * api.request(query: string, variables?: object, fetchOptions?: object)
  */
 
 await Api.request(
   `
-	query($email: String) {
-		person(filter: { email: $email }) {
-			email
-		}
-	}
-`,
+  query($email: String) {
+    person(filter: { email: $email }) {
+      email
+    }
+  }
+  `,
   {
     email: "joe@shmo.com"
   },
   {
-    "X-AMZ-HEADER": "SOME-VALUE"
+    headers: {
+      "X-AMZ-HEADER": "SOME-VALUE"
+    }
   }
 );
 ```
@@ -130,9 +162,9 @@ Execute any GraphQL Query using the `query()` method, without needing to specify
 ```javascript
 /**
  * Pass variables as an object as the 2nd positional argument, and
- * any non-default header options as the 3rd positional argument.
+ * any non-default fetch options as the 3rd positional argument.
  *
- * api.query(query: string, variables?: object, headers?: object)
+ * api.query(query: string, variables?: object, fetchOptions?: object)
  */
 
 await Api.query(
@@ -147,7 +179,9 @@ await Api.query(
     name: "Joe"
   },
   {
-    "X-AMZ-HEADER": "SOME-VALUE"
+    headers: {
+      "X-AMZ-HEADER": "SOME-VALUE"
+    }
   }
 );
 ```
@@ -159,9 +193,9 @@ Execute any GraphQL Mutation using the `mutation()` method, without needing to s
 ```javascript
 /**
  * Pass variables as an object as the 2nd positional argument, and
- * any non-default header options as the 3rd positional argument.
+ * any non-default fetch options as the 3rd positional argument.
  *
- * api.mutation(mutation: string, variables?: object, headers?: object)
+ * api.mutation(mutation: string, variables?: object, fetchOptions?: object)
  */
 
 await api.mutation(
@@ -180,7 +214,9 @@ await api.mutation(
     newName: "Tom"
   },
   {
-    "X-AMZ-HEADER": "SOME-VALUE"
+    headers: {
+      "X-AMZ-HEADER": "SOME-VALUE"
+    }
   }
 );
 ```
@@ -202,12 +238,6 @@ const SubscriptionOptions = {
    */
   variables: {
     action: "create"
-  },
-  /**
-   * Any non-default headers to be sent in the requests.
-   */
-  headers: {
-    "X-AMZ-HEADER": "SOME-VALUE"
   },
   /**
    * Callback for when the connection is opened
@@ -267,32 +297,24 @@ Execute any deployed to a workspace using the `invoke()` method.
 /**
  * Let's user invoke an custom function deployed to workspace with options.
  *
- * api.invoke(functionName: string, options: SDKApiInvokeOptionsInput, headers?: object)
+ * api.invoke(functionName: string, options: SDKApiInvokeOptionsInput, fetchOptions?: object)
  */
-
-/**
- * Options required when the function is a webhook
- */
-const WebhookOptions = {
-  /* HTTP verb of webhook */
-  method: 'POST',
-  /* Params for url */
-  params: object
-}
-
 const InvokeOptions = {
+  /* HTTP verb of a webhook */
+  method: 'POST',
   /* Data passed to function */
   data: {
     email: "joe@shmo.com"
-  },
-  webhookOptions
+  }
 }
 
 await api.invoke(
   "myFunctionName",
-  InvokeOptions, ,
+  InvokeOptions,
   {
-    "X-AMZ-HEADER": "SOME-VALUE"
+    headers: {
+      "X-AMZ-HEADER": "SOME-VALUE"
+    }
   }
 );
 ```

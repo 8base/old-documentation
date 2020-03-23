@@ -90,50 +90,6 @@ const {
 });
 ```
 
-## signUpWithToken()
-
-Sign up a new user using a valid `idToken` issued by any configured authentication provider.
-
-```javascript
-const {
-  data: {
-    userSignUpWithToken: { id, email, status, timezone, lastName, firstName }
-  }
-} = await auth.signUpWithToken(
-  token: "VALID_ID_TOKEN",
-  user: {
-    /**
-     * Any fields available on the user record
-     * can be specified here and get saved.
-     *
-     * username: "joe_shmo",
-     * firstName: "Joe",
-     * lastName: "Shmo"
-     * ...
-     */
-    email: "joe@shmo.com"
-  })
-);
-```
-
-## signIn()
-
-**AUTH0_AUTH ONLY** - Sign in a new user using _Email / Password_ authentication.
-
-```javascript
-const {
-  data: {
-    userLogin: {
-      success
-      auth: {
-        idToken
-        refreshToken
-      }
-    }
-  }
-} = await auth.signIn(email: "joe@shmo.com", password: "myP@ssw0rd");
-```
-
 ## authorize()
 
 Navigates app user to the _Hosted Login Page_ provided by the Auth provider.
@@ -162,14 +118,6 @@ auth.signOut();
  *
  * auth.signOut({ ...options });
  */
-```
-
-## forgotPassword()
-
-**AUTH0_AUTH ONLY** - Send a forgot password email to a user's specified email address (_Email / Password_ auth users only).
-
-```javascript
-await auth.forgotPassword("joe@shmo.com");
 ```
 
 ## currentUser()

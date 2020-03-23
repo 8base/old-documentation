@@ -30,6 +30,11 @@ export const { api, auth } = eightBase.configure({
    */
   workspaceId: "<WORKSPACE_ID>",
   /**
+   * Automatically enable refresh tokens to
+   * get used by the SDK.
+   */
+  autoTokenRefresh: true,
+  /**
    * Specify configs for any named SDK module 
    */
   Auth: AuthConfig,
