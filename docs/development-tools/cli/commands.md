@@ -23,6 +23,12 @@ Deploys project in current directory to 8base using `8base.yml` config file. To 
 ```sh
 $ 8base deploy [OPTIONS]
 ```
+OPTIONS:
+* `--debug, -d`      Turn on debug logs                  [boolean]
+* `--help, -h`       Show help                           [boolean]
+* `--plugins, -p`    The list of plugins to deploy         [array]
+* `--functions, -f`  The list of functions to deploy       [array]
+* `--mode, -m`       The deploy mode [string] [choices: "FULL", "ONLY_PLUGINS", "ONLY_PROJECT", "FUNCTIONS"] [default: "ONLY_PROJECT"]
 
 ##### describe
 Describes your 8base project’s functions and their types through 8base.yml file, as well as retrieve your workspace endpoint.
@@ -87,10 +93,12 @@ $ 8base login [OPTIONS]
 OPTIONS:  
 * `-e`, `--email`	 User email - type: string
 * `-p`, `--password` User password - type: string
+* `-t`, `--token` An 8base API token (intended from use when Authenticate CI/CD scripts) - type: string
 
 EXAMPLES:
 * `8base login`
 * `8base login -e my@email.com -p S3cretP@ssw0rd`
+* `8base login -t <8BASE_API_TOKEN>`
 
 ##### logout
 Clears local login credentials and invalidates API session.

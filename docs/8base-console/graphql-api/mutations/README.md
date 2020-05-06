@@ -14,12 +14,15 @@ Whenever a table is added to a work space, four GraphQL mutation operations are 
 
 * `tableNameUpdate(...)` - Accepts `data` and `filter` as arguments with which it will update an existing record.
 
+* `tableNameUpdateByFilter(...)` - Accepts `data` and `filter` as arguments with which it will update an list of existing record.
+
 * `tableNameDelete(...)` - Accepts `data`, `filter`, and `force` as arguments with which it will delete an existing record - and dependent records when specified.
 
 ### Relationships
 A cool feature of 8base API is the ability to create related objects while creating or updating parent objects. The following operations on relationships are supported:
 
 * **Create**: Create and relate child objects.
+* **Update**: Updates a record through the existing relationship.
 * **Connect**: Connect existing objects in addition to already connected objects.
 * **Reconnect**: Replace old connected objects with a new set of connected objects (update mutation only).
 * **Disconnect**: Disconnect connected object(s) (update mutation only).

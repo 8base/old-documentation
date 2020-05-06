@@ -66,6 +66,8 @@
               link: /docs/8base-console/graphql-api/mutations/single-record-mutations
             - title: Related record mutations
               link: /docs/8base-console/graphql-api/mutations/related-record-mutations
+            - title: Update by filter mutations
+              link: /docs/8base-console/graphql-api/mutations/update-by-filter-mutations
         - title: Subscriptions
           link: /docs/8base-console/graphql-api/subscriptions
           items:

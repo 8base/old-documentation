@@ -8,12 +8,14 @@
     "build": "gridsome build"
   },
   "dependencies": {
+    "8base-cli": "^0.0.95",
     "@gridsome/plugin-google-analytics": "^0.1.0",
     "algoliasearch": "^3.32.0",
     "babel-runtime": "^6.26.0",
     "clipboard-copy": "^3.0.0",
     "docsearch.js": "^2.6.2",
     "flexsearch": "^0.6.32",
+    "global": "^4.4.0",
     "gridsome": "^0.7.0",
     "marked": "^0.6.1",
     "remove-markdown": "^0.3.0",
