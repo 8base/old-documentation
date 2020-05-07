@@ -32,8 +32,8 @@ query {
           aggregate: COUNT
         }
       },
-      _groupIds: {
-        as: "postsIds"
+      _group: {
+        as: "posts"
       }
     },
     having: {
@@ -46,7 +46,11 @@ query {
     groups {
       authorName: String
       authorPosts: Int
-      postsIds: GroupIds
+      posts: PostGroup {
+        items {
+          title
+        }
+      }
     }
   }
 }
@@ -59,50 +63,54 @@ query {
       "groups": [
         {
           "authorName": "James Huxley",
-          "authorPosts": 12,
-          "postsIds": [
-            "ck37jzw2f001b01l7dhm09gcu",
-            "ck37jzw2f001j01l77093d05d",
-            "ck37jzw2f001a01l73cnf8ax5",
-            "ck37jzw2f001i01l723258t3i",
-            "ck37jzw2f001h01l78n2hagxp",
-            "ck37jzw2f001g01l71wtk87kp",
-            "ck37jzw2f001o01l7hjp5ee4n",
-            "ck37jzw2f001f01l787o65uh7",
-            "ck37jzw2f001e01l76wbmgnrt",
-            "ck37jzw2f001m01l74cz49nb4",
-            "ck37jzw2f001l01l7f93be80q",
-            "ck37jzw2f001c01l78ga4brgb"
-          ]
+          "authorPosts": 2,
+          "posts": {
+            "items": [
+              {
+                "title": "Post 1 Title"
+              },
+              {
+                "title": "Post 2 Title"
+              }
+            ]
+          }
         },
         {
           "authorName": "Huckelberry Ben",
-          "authorPosts": 7,
-          "postsIds": [
-            "ck37jzw2g002501l73ol60z36",
-            "ck37jzw2g002l01l75799d0f4",
-            "ck37jzw2g002t01l75ehxgbyt",
-            "ck37jzw2h003g01l76rzaayho",
-            "ck37jzw2g002c01l79r61banv",
-            "ck37jzw2g002q01l77hg3hgz2",
-            "ck37jzw2g002801l7ha9w90ov"
-          ]
+          "authorPosts": 3,
+          "posts": {
+            "items": [
+              {
+                "title": "Post 11 Title"
+              },
+              {
+                "title": "Post 12 Title"
+              },
+              {
+                "title": "Post 13 Title"
+              }
+            ]
+          }
         },
         {
           "authorName": "Stephen Begzz",
-          "authorPosts": 10,
-          "postsIds": [
-            "ck37jzw2o005z01l74727gcjl",
-            "ck37jzw2n005201l7d5aidgfv",
-            "ck37jzw2n004t01l7erv4fkom",
-            "ck37jzw2m003w01l7cafeag37",
-            "ck37jzw2p007701l7e0w5949g",
-            "ck37jzw2n004y01l714dicfap",
-            "ck37jzw2n005u01l7hg1u6yii",
-            "ck37jzw2n004p01l78w0qfm2i",
-            "ck37jzw2n005d01l78g7kd290",
-            "ck37jzw2o006801l7ghhs0gm8"
-          ]
+          "authorPosts": 4,
+          "posts": {
+            "items": [
+              {
+                "title": "Post 111 Title"
+              },
+              {
+                "title": "Post 112 Title"
+              },
+              {
+                "title": "Post 113 Title"
+              },
+              {
+                "title": "Post 114 Title"
+              }
+            ]
+          }
         }
       ]
     }
@@ -572,19 +580,17 @@ query {
 
 ## Special grouping fields
 
-##### Group IDs
+##### _group
 
-8base provides one special group by field called `_groupIds`. Actually it’s a shortcut to an aggregation function with a distinct modifier applied - { aggregate: GROUP_CONCAT, distinct: true }.
+8base provides a special groupBy query field called `_group`. It’s a shortcut to an aggregation function with a distinct modifier applied - { aggregate: GROUP_CONCAT, distinct: true }.
 
-Using this field, you can get an array of result IDs including the joined tables from each group at different nesting levels.
+Using this field, you can access the array of records used in the grouping, including the joined tables from each group at different nesting levels.
 
 **Example**
 
 ```javascript
 /**
- * Group authors with their articles count as authorPosts and filter using
- * a compound having clause by groups (authors) with less than/equal to 10 authorPosts
- * and return an array of their post's ids.
+ * Group authors with their articles count as authorPostsCount and access the collection of authors posts.
  */
 query {
   authorsList(
@@ -595,28 +601,26 @@ query {
         },
         articles: {
           id: {
-            as: "authorPosts"
+            as: "authorPostsCount"
             fn: {
               aggregate: COUNT
             }
+          },
+          _group: {
+            as: "authorPosts"
           }
-          _groupIds: {
-            as: "authorPostIds"
-          }
-        }
-      },
-      having: {
-        alias: "authorPosts"
-        int: {
-          lte: 10
         }
       }
     }
   ) {
     groups {
       name: String
-      authorPosts: Int
-      authorPostIds: GroupIds
+      authorPostsCount: Int
+      authorPosts: PostGroup {
+        items {
+          title
+        }
+      }
     }
   }
 }
@@ -628,33 +632,21 @@ query {
     "authorsList": {
       "groups": [
         {
-          "name": "Huckelberry Ben",
-          "authorPosts": 7,
-          "authorPostIds": [
-            "ck37jzw2g002501l73ol60z36",
-            "ck37jzw2g002801l7ha9w90ov",
-            "ck37jzw2g002c01l79r61banv",
-            "ck37jzw2g002l01l75799d0f4",
-            "ck37jzw2g002q01l77hg3hgz2",
-            "ck37jzw2g002t01l75ehxgbyt",
-            "ck37jzw2h003g01l76rzaayho"
-          ]
-        },
-        {
-          "name": "Stephen Begzz",
-          "authorPosts": 10,
-          "authorPostIds": [
-            "ck37jzw2m003w01l7cafeag37",
-            "ck37jzw2n004p01l78w0qfm2i",
-            "ck37jzw2n004t01l7erv4fkom",
-            "ck37jzw2n004y01l714dicfap",
-            "ck37jzw2n005201l7d5aidgfv",
-            "ck37jzw2n005d01l78g7kd290",
-            "ck37jzw2n005u01l7hg1u6yii",
-            "ck37jzw2o005z01l74727gcjl",
-            "ck37jzw2o006801l7ghhs0gm8",
-            "ck37jzw2p007701l7e0w5949g"
-          ]
+          "name": "Steven Snyder",
+          "authorPostsCount": 3,
+          "authorPosts": {
+            "items": [
+              {
+                "title": "LEGACY: My Post - ADD ME AFTER"
+              },
+              {
+                "title": "LEGACY: My Other Post - ADD ME AFTER"
+              },
+              {
+                "title": "LEGACY: My Other Awesome Post - ADD ME AFTER"
+              }
+            ]
+          }
         }
       ]
     }
@@ -704,8 +696,8 @@ Type conversions are designed to perform a best effort on converting actual valu
 - string (parsed as JSON if possible)
 - any (returned as is)
 
-- **GroupIds**
-- string (parsed from comma-separated IDs list and only if all entries are valid IDs)
+- **{TableName}Group**
+- array of the groups records
 
 ## Aggregation Functions
 Each aggregation function is combined with optional distinct modifier, which is false by default.
