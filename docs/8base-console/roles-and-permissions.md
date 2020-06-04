@@ -80,12 +80,6 @@ New roles, by default, don't allow the logged in user to read or update other us
 
 In this example, `__loggedInUserId` is a dynamic variable that 8base replaces with the logged in user's ID. If the ID of the logged in user does not match the ID of a given user record, it cannot be read or updated.
 
-<!--{% hint style="info" %}-->
-### Dynamic Variables
-
-The `__loggedInUserId` is used in both *Custom Filters* and the API Explorer for dynamic filtering!
-<!--{% endhint %}-->
-
 * **Table**: Files  
 * **Permission**: Read and Update
 
@@ -114,6 +108,17 @@ These constraints get enforced using the following filter.
   ]
 }
 ```
+
+### Dynamic Variables
+
+There are 3 dynamic variables that can be used when creating Roles. They are:
+
+• `__requestingApiToken` - The API Token being used to authenticate the request.
+
+• `__loggedInUserEmail` - The authenticated user's email address.
+
+• `__loggedInUserId` - The authenticated user's ID.
+
 
 ### Custom Filters
 <YoutubePlayer src="https://www.youtube.com/embed/FqZ0-usc93w"/>

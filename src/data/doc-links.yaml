@@ -111,6 +111,8 @@
           link: /docs/development-tools/dev-env/8base-yml
         - title: Environment
           link: /docs/development-tools/dev-env/runtime-environment
+        - title: Hosting
+          link: /docs/development-tools/dev-env/hosting
     - title: CLI
       link: /docs/development-tools/cli
       items:
