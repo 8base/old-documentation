@@ -5134,6 +5134,13 @@ gray-percentage@^2.0.0:
   resolved "https://registry.yarnpkg.com/gray-percentage/-/gray-percentage-2.0.0.tgz#b72a274d1b1379104a0050b63b207dc53fe56f99"
   integrity sha1-tyonTRsTeRBKAFC2OyB9xT/lb5k=
 
+gridsome-plugin-gtm@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/gridsome-plugin-gtm/-/gridsome-plugin-gtm-0.1.1.tgz#9359b961a806c861d91ba056e5e117fe240219eb"
+  integrity sha512-74lUgH6QHUNPS3Ahz1CAx9RbKidMebaU6S7XCXtpVJn6lAc8Azep1Dkjf/oGdP7x5Ll7vPmZmVTbNlXlPKETjQ==
+  dependencies:
+    vue-gtm "^2.0.0"
+
 gridsome@^0.7.0:
   version "0.7.12"
   resolved "https://registry.yarnpkg.com/gridsome/-/gridsome-0.7.12.tgz#62f602797fb8a18a0b61f6e16a41714743d10f85"
@@ -11269,6 +11276,11 @@ vue-analytics@^5.16.1:
   version "5.19.1"
   resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.19.1.tgz#ee1504328d44b2990bbcf3a191608a73758f39f4"
   integrity sha512-vNMgKJn85sHw+7Q/iat+yVcUnHLd3sgXiFJvm7+NuyN3Wa+6TQY8G0yK/pUCJFW0bA+3QNAe6tPtUvq8mapG7A==
+
+vue-gtm@^2.0.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/vue-gtm/-/vue-gtm-2.3.0.tgz#3bc41734921a071f243aa6fca308d105b7ea2fa7"
+  integrity sha512-hwRRyyO2U7LrwJw+6OB/gObvVjcEz770Ajne8XOldhpE9gL2CaloP3AEFTtKXmrsDE6z6A0mrXeWqjQ4vlyK9Q==
 
 vue-highlight-words@^1.2.0:
   version "1.2.0"

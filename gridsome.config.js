@@ -74,6 +74,14 @@ module.exports = {
           ]
         }
       }
+    },
+    {
+      use: 'gridsome-plugin-gtm',
+      options: {
+        id: 'GTM-KXDLMXJ',
+        enabled: true,
+        debug: true
+      }
     }
   ]
 }
