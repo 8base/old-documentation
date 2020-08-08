@@ -12,10 +12,10 @@ CFs in 8base are essentially AWS Lambdas that get enriched with access to your w
 ### Custom Function Types
 There are 4-types of CFs made available on 8base that we will go over in depth in the following 4 sections. They are:
 
-* **[Resolvers](custom-functions/resolvers)**: For extending your GraphQL API
-* **[Webhooks](custom-functions/webhooks)**: For RESTful endpoints (GET, POST, DELETE, etc...)
-* **[Triggers](custom-functions/triggers)**: For functions requiring event-based execution
-* **[Tasks](custom-functions/tasks)**: For invocable and scheduled (cron) functions
+* **[Resolvers](./resolvers)**: For extending your GraphQL API
+* **[Webhooks](./webhooks)**: For RESTful endpoints (GET, POST, DELETE, etc...)
+* **[Triggers](./triggers)**: For functions requiring event-based execution
+* **[Tasks](./tasks)**: For invocable and scheduled (cron) functions
 
 All CFs must be declared in your projects 8base.yml file.
 
@@ -61,7 +61,7 @@ else if (runWithoutRolesEnforced) {
 
 For obvious security reasons, `checkPermissions` is ONLY available from within custom functions. It cannot be used when making requests from client applications.
 
-As opposed to using `checkPermissions` option, [API Tokens](./roles-and-permissions#api-tokens) associated with defined roles can be used to permission `gqlRequest` calls. This ability accomodates situations where permissions are required, but not in the context of the requesting user. To accomplish this, the API Token can be added as a bearer token to the call.
+As opposed to using `checkPermissions` option, [API Tokens](https://docs.8base.com/docs/8base-console/roles-and-permissions/#api-tokens) associated with defined roles can be used to permission `gqlRequest` calls. This ability accomodates situations where permissions are required, but not in the context of the requesting user. To accomplish this, the API Token can be added as a bearer token to the call.
 
 ```javascript
 await ctx.api.gqlRequest(QUERY, VARIABLES, { 

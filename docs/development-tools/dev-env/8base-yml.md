@@ -4,7 +4,7 @@
 
 The file has one main section:
 
-* `functions` - list and configure all your custom functions. Read more on how to configure functions [here](../../8base-console/custom-functions). 
+* `functions` - list and configure all your custom functions. Read more on how to configure functions [here](https://docs.8base.com/docs/8base-console/custom-functions). 
 
 
 ### Example 8base.yml

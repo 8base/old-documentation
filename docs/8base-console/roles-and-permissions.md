@@ -123,7 +123,7 @@ There are 3 dynamic variables that can be used when creating Roles. They are:
 ### Custom Filters
 <YoutubePlayer src="https://www.youtube.com/embed/FqZ0-usc93w"/>
 
-The best way to write custom filters is by using the API Explorer in conjuction with [Variables](./graphql-api/variables). The filtered result of any GraphQL query is the scoped record set that can be expected by using the same filter as a role's *Custom Filter*.
+The best way to write custom filters is by using the API Explorer in conjuction with [Variables](https://docs.8base.com/docs/8base-console/graphql-api/variables). The filtered result of any GraphQL query is the scoped record set that can be expected by using the same filter as a role's *Custom Filter*.
 
 For example, imagine that a workspace has both *Posts* and *Authors* tables. In the API Explorer, an 8base user wants to query all *Posts* that belong to *Authors* under the following criteria:
 

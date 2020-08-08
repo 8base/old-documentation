@@ -10,14 +10,14 @@ $ 8base --help
 $ 8base [COMMAND_NAME] --help
 ```
 
-### Commands
+## Commands
 When running CLI commands, certain option flags are always available. Currently, they are:
 
 OPTIONS:  
 * `--debug`, `-d`  Turn on debug logs                                                     
 * `--help`, `-h`   Show help descriptions
 
-##### deploy
+### deploy
 Deploys project in current directory to 8base using `8base.yml` config file. To use this command, you must be in the root directory of your 8base project.
 
 ```sh
@@ -30,14 +30,14 @@ OPTIONS:
 * `--functions, -f`  The list of functions to deploy       [array]
 * `--mode, -m`       The deploy mode [string] [choices: "FULL", "ONLY_PLUGINS", "ONLY_PROJECT", "FUNCTIONS"] [default: "ONLY_PROJECT"]
 
-##### describe
+### describe
 Describes your 8base project’s functions and their types through 8base.yml file, as well as retrieve your workspace endpoint.
 
 ```sh
 $ 8base describe [OPTIONS]
 ```
 
-##### init
+### init
 Initializes a new project with suggested directory structure, example custom functions, and allows the user to select and existing 8base workspace or create a new one.
 
 ```sh
@@ -51,7 +51,7 @@ OPTIONS:
 * `--syntax`, `-s`  	Syntax for the generated file - type: string, default: 'ts', allowed: 'js', 'ts'
 * `--silent`        	Disable printing extra info to the console - type: boolean, default: false
 
-##### generate
+### generate
 Generate projects, functions, and some client side resources
 
 ```sh
@@ -60,7 +60,7 @@ $ 8base generate [RESOURCE_NAME] [OPTIONS]
 
 Generators deserve a section of their own! Check it out [here](./generators).
 
-##### invoke
+### invoke
 Invokes a custom function in the production workspace.
 
 ```sh
@@ -71,7 +71,7 @@ OPTIONS:
 * `--data-path`, `-p`  Path to input - type: path
 * `--mock`, `-m`       Name of the mock file - type: string
 
-##### invoke-local
+### invoke-local
 Invokes the custom function in the local development workspace.
 
 ```sh
@@ -83,7 +83,7 @@ OPTIONS:
 * `--data-path`, `-p`  Path to input - type: path
 * `--mock`, `-m`       Name of the mock file - type: string
 
-##### login
+### login
 Authenticates the command line user by letting them log into an 8base account.
 
 ```sh
@@ -100,14 +100,14 @@ EXAMPLES:
 * `8base login -e my@email.com -p S3cretP@ssw0rd`
 * `8base login -t <8BASE_API_TOKEN>`
 
-##### logout
+### logout
 Clears local login credentials and invalidates API session.
 
 ```sh
 $ 8base logout
 ```
 
-##### logs
+### logs
 View a specific functions production logs.
 
 ```sh
@@ -118,21 +118,21 @@ OPTIONS:
 * `-n`, `--num` 	Number of lines to display - type: sting, default: 10, max: 100 
 * `-t`, `--tail` 	Continually stream logs - type: boolean
 
-##### package
+### package
 Package 8base application without deploying it.
  
 ```sh
 $ 8base package [OPTIONS]
 ```
 
-##### version
+### version
 Output 8base CLI version.
 
 ```sh
 $ 8base version
 ```
 
-##### configure
+### configure
 When run in a directory containing an `8base.yml` file, this command generates a `.workspace.json` file that maps the local project to a selected workspace. 
 
 ```sh
@@ -142,7 +142,7 @@ $ 8base configure [OPTIONS]
 OPTIONS:
 * `-w`, `--workspace` set current workspace
 
-##### export
+### export
 Export current - or specified - workspace data schema to a local file
 
 ```sh
@@ -153,7 +153,7 @@ OPTIONS:
 * `-f`, `--file` 		Destination file
 * `-w`, `--workspace`  	Custom workspace id
 
-##### import
+### import
 Import 8base schema file and data to the current - or specified - workspace.
 
 ```sh

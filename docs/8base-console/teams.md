@@ -12,7 +12,7 @@ Team members can be updated and removed from a workspace in the [`Settings > Tea
 To view pending invitations, switch the top left drop-down option to *Invitations*. In this view, team invitations can both be revoked or resent. If a mistake was made in the original invitation, please delete and create a new and correct invitation – pending invitations cannot be edited.
 
 ## Roles and permission for team members
-The same [roles and permissions](./roles-and-permissions) system that gets used in authorizing 8base applications is used for team member access management. These roles can be configured so that they are specific to an individual or general to a group. Roles are configued the same way in both of these scenarios. However, lets look at both examples.
+The same [roles and permissions](https://docs.8base.com/docs/8base-console/roles-and-permissions) system that gets used in authorizing 8base applications is used for team member access management. These roles can be configured so that they are specific to an individual or general to a group. Roles are configued the same way in both of these scenarios. However, lets look at both examples.
 
 ### Developer User Role
 In some scenarios, the workspace owner might want to limit the access of an individual developer (Steve) so that they:

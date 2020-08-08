@@ -70,8 +70,8 @@ module.exports = async event => {
 }
 ```
 
-### [Trigger Arguments](./#custom-function-arguments)
-Alike the [standard custom function arguments](./), a *trigger.after* type function receives the output of a mutation in the `event.data` property. However, sometimes parameters that were originally passed in the mutation are needed. Therefore, the `event` object is enriched to have a `event.originalData` property which maintains the original input object.
+### Trigger Arguments
+Alike the [standard custom function arguments](https://docs.8base.com/docs/8base-console/custom-functions/#custom-function-arguments), a *trigger.after* type function receives the output of a mutation in the `event.data` property. However, sometimes parameters that were originally passed in the mutation are needed. Therefore, the `event` object is enriched to have a `event.originalData` property which maintains the original input object.
 
 `event.originalObject` also contains the version of the object before the mutation was applied to it. This is useful when you need to compare objects before and after the mutation to find out what fields changed.
 
@@ -88,7 +88,7 @@ Alike the [standard custom function arguments](./), a *trigger.after* type funct
 }
 ```
 
-To learn more about the arguments that are passed to triggers, review the [custom function arguments docs.](./#custom-function-arguments)
+To learn more about the arguments that are passed to triggers, review the [custom function arguments docs.](https://docs.8base.com/docs/8base-console/custom-functions/#custom-function-arguments)
 
 ### Trigger Response
 The value returned by a *trigger* is allowed two properties: *data* and *errors*.

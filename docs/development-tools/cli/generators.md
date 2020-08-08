@@ -2,7 +2,7 @@
 
 Generators are awesome. Essentially, they can be used to reliably scaffold application resources – like custom functions – that can then get customized. Relying on generators will also help ensure that your project directories stay organized.
 
-### Commands
+## Commands
 When running `8base generate [COMMAND]`, certain option flags are always available. Currently, they are:
 
 OPTIONS:  
@@ -12,10 +12,10 @@ OPTIONS:
 
 Let's walk through a few examples of using generators.
 
-### Custom Functions
+## Custom Functions
 Custom function generators will add all the files required for a given type, along with boiler-plate code.
 
-##### Resolvers
+### resolver
 Generate a custom resolver function.
 
 ```sh
@@ -41,7 +41,7 @@ Boom! Your new myNewResolver function has been successfully generated. To add an
 generate done. Time: 18 ms.
 ```
 
-##### Webhooks
+### webhook
 Generate a custom webhook function.
 
 ```sh
@@ -68,7 +68,7 @@ Boom! Your new myNewWebhook function has been successfully generated. To add any
 generate done. Time: 12 ms.
 ```
 
-##### Trigger
+### trigger
 Generate a custom trigger function.
 
 ```sh
@@ -95,7 +95,7 @@ Boom! Your new myNewTrigger function has been successfully generated. To add any
 generate done. Time: 14 ms.
 ```
 
-##### Task
+### task
 Generate a custom task function.
 
 ```sh
@@ -121,7 +121,7 @@ Boom! Your new myNewTask function has been successfully generated. To add any re
 generate done. Time: 11 ms.
 ```
 
-##### Mock
+### mock
 Generate a mock for a custom function.
 
 ```sh
@@ -145,10 +145,10 @@ Boom! Your new success request mock has been successfully generated.
 generate done. Time: 10 ms.
 ```
 
-### Client Side
+## Client Side
 Application generators can be used for building 'starter-app-like' skeletons in supported frameworks. Please note that this feature is highly experimental on our part!
 
-##### App
+### app
 Generate a starter app in a specified framework.
 
 ```sh
@@ -157,7 +157,7 @@ $ 8base generate app [PROJECT_NAME]
 
 Currently, only ReactJs is supported and the application template can be found [here](https://github.com/8base/react-app-starter).
 
-##### Scaffold
+### scaffold
 Scaffold client side resources for a given table resource.
 
 ```sh

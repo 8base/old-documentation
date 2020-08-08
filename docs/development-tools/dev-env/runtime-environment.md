@@ -7,7 +7,7 @@ Each function handler receives two arguments: `event` and `context`. The structu
 Functions have a second `context` argument passed to them that has the following properties:
 
 * `workspaceId` property holds the id of the current workspace.
-* `context.invokeFunction(taskName, args, options)` allows you to invoke other functions. You can read more about it [here](../../8base-console/custom-functions).
+* `context.invokeFunction(taskName, args, options)` allows you to invoke other functions. You can read more about it [here](https://docs.8base.com/docs/8base-console/custom-functions).
 * `context.api.gqlRequest(query, variables, options)` which provides a convenient way to interact with the 8base GraphQL API. When using the `api.gqlRequest` you don't have to worry about setting the URL or authentication header - this is done automatically. The query is executed under the authentication context of the user that made the request.
 
 ### Using `gqlRequest` to call 8base API
