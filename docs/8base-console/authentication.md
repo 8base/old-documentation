@@ -1,3 +1,13 @@
+<div style="color: red; padding-bottom: 50px;">
+
+## _8base Auth Temporarily Disabled!_
+
+**We are currently revamping our native 8base Authentication offering. For a limited time, we're giving all developers access to setting up their _Own Auth0_ and _Custom Auth_ with 8base.**
+
+**_During this time, 8base Authentication is disabled._**
+
+</div>
+
 # Authentication
 
 Every 8base workspace initializes with native support for signing up, managing, and authorizing your application's Users. This feature eliminates the requirement of managing emails and passwords or social sign-on providers without compromising on access to your user data.
@@ -29,9 +39,9 @@ fetch("8BASE_WORKSPACE_API_ENDPOINT", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${idToken}`
+    Authorization: `Bearer ${idToken}`,
   },
-  body: JSON.stringify({ query: "{ user { id } }" })
+  body: JSON.stringify({ query: "{ user { id } }" }),
 })
   .then(userExistsCallback)
   .catch(userDoesntExistCallback);

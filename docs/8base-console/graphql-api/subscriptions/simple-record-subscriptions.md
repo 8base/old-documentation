@@ -1,13 +1,14 @@
 # Simple Record Subscriptions
 
-*For the sake of the following examples, let's consider a scenario where a table called `Posts` exists, having expected fields and relations like `title`, `body`, `author`, etc.*
+_For the sake of the following examples, let's consider a scenario where a table called `Posts` exists, having expected fields and relations like `title`, `body`, `author`, etc._
 
 ## Subscribing to records
-You can subscribe to records being created, updated, and deleted using 8base's auto-generated GraphQL subscriptiong operation.
+
+You can subscribe to records being created, updated, and deleted using 8base's auto-generated GraphQL subscription operation.
 
 ### Create subscription
-Subscription for listening to table records being created.
 
+Subscription for listening to table records being created.
 
 ```javascript
 subscription {
@@ -22,8 +23,6 @@ subscription {
 }
 ```
 
-
-
 ```json
 {
   "data": {
@@ -37,11 +36,9 @@ subscription {
 }
 ```
 
-
-
 ### Update subscription
-Subscription for listening to table records being updated.
 
+Subscription for listening to table records being updated.
 
 ```javascript
 subscription {
@@ -63,8 +60,6 @@ subscription {
 }
 ```
 
-
-
 ```json
 {
   "data": {
@@ -79,20 +74,15 @@ subscription {
         "title": "Nothing is Im-possumble",
         "body": "Never let anyone tell you that something is impossumble."
       },
-      "updatedFields": [
-        "title",
-        "body"
-      ]
+      "updatedFields": ["title", "body"]
     }
   }
 }
 ```
 
-
-
 ### Delete subscription
-Subscription for listening to table records being deleted.
 
+Subscription for listening to table records being deleted.
 
 ```javascript
 subscription {
@@ -106,8 +96,6 @@ subscription {
 }
 ```
 
-
-
 ```json
 {
   "data": {
@@ -119,5 +107,3 @@ subscription {
   }
 }
 ```
-
-

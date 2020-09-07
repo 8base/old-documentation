@@ -1,6 +1,6 @@
 # Introduction
 
-**[Sign Up for 8Base](https://app.8base.com)** 🤘 **[Documentation Home](https://docs.8base.com)** 📑 **[Getting Started](https://docs.8base.com/getting-started/quick-start)** 🚀 **[8base Plans](https://www.8base.com/pricing)**
+**[Sign Up for 8Base](https://app.8base.com)** 🤘 **[Documentation Home](https://docs.8base.com)** 📑 **[Getting Started](https://docs.8base.com/docs/getting-started/quick-start)** 🚀 **[8base Plans](https://www.8base.com/pricing)**
 
 ## Welcome!
 
@@ -13,9 +13,6 @@ Always let us know how we can help!
 ## Connecting with the Community
 
 While building on 8base and checking out the docs, you might have some questions. Actually, lets re-phrase that... while building on 8base YOU'LL DEFINITELY HAVE SOME QUESTIONS. When such a situation arises, fret not. We're here for you.
-
-> [Join us on Slack](https://slack.8base.com/)  
->  Chat with other 8base developers and our support team.
 
 > [Start a Topic on 8base's Discourse](https://community.8base.com)  
 >  Create topics for new feature suggestions, code support, or debugging help.
@@ -50,23 +47,3 @@ Examples are sooo important in great documentation and are very helpful for the 
 ### 3. Contributing Articles
 
 You can help improve the 8base Docs by making them more coherent, consistent, or readable and adding missing information, correcting factual errors, fixing typos, and bringing them up to date with the latest 8base features. It's honestly an open-book. If you think something is useful, others probably will too.
-
-🎉 **8base's awesome contributors** 🎉
-
-<!-- ALL-CONTRIBUTORS-LIST:START -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/kelseyyim"><img src="https://avatars3.githubusercontent.com/u/32113193?v=4" width="100px;" alt="Kelsey Yim"/><br /><sub><b>Kelsey Yim</b></sub></a><br /><a href="https://github.com/8base/Documentation/commits?author=kelseyyim" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/sebscholl"><img src="https://avatars3.githubusercontent.com/u/13649537?v=4" width="100px;" alt="Seb Scholl"/><br /><sub><b>Seb Scholl</b></sub></a><br /><a href="https://github.com/8base/Documentation/commits?author=sebscholl" title="Documentation">📖</a> <a href="[🎱]('8base')," title="8base">🎱</a> <a href="https://github.com/8base/Documentation/issues?q=author%3Asebscholl" title="Bug reports">🐛</a> <a href="#ideas-sebscholl" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://twitter.com/_marktani"><img src="https://avatars1.githubusercontent.com/u/1780597?v=4" width="100px;" alt="Nilan Marktanner"/><br /><sub><b>Nilan Marktanner</b></sub></a><br /><a href="https://github.com/8base/Documentation/commits?author=marktani" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/mikeaustin"><img src="https://avatars1.githubusercontent.com/u/343144?v=4" width="100px;" alt="Mike Austin"/><br /><sub><b>Mike Austin</b></sub></a><br /><a href="https://github.com/8base/Documentation/commits?author=mikeaustin" title="Documentation">📖</a></td>
-    <td align="center"><a href="http://www.linuxsystems.it/"><img src="https://avatars1.githubusercontent.com/u/1047358?v=4" width="100px;" alt="Niccolò Belli"/><br /><sub><b>Niccolò Belli</b></sub></a><br /><a href="https://github.com/8base/Documentation/issues?q=author%3Adarkbasic" title="Bug reports">🐛</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
