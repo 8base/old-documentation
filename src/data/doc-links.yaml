@@ -31,6 +31,8 @@
           link: /docs/8base-console/platform-tools/data-viewer
         - title: API Explorer
           link: /docs/8base-console/platform-tools/api-explorer
+        - title: CI/CD
+          link: /docs/8base-console/platform-tools/ci-cd
         - title: Logic
           link: /docs/8base-console/platform-tools/functions
         - title: User Administration
@@ -122,6 +124,8 @@
           link: /docs/development-tools/cli/commands
         - title: Generators
           link: /docs/development-tools/cli/generators
+        - title: CI/CD
+          link: /docs/development-tools/cli/ci-cd
     - title: SDK
       link: /docs/development-tools/sdk
       items:

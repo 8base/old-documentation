@@ -41,7 +41,7 @@ You can switch between environments when using the CLI by running the following 
 To delete an environment, run the following command - keeping in mind the *Master* environment cannot be deleted.
 
 ```sh
-8base environment delete -n <BRANCH_NAME>
+8base environment delete -n [BRANCH_NAME]
 ```
 
 _**Note: For a list of all environment commands with their associated options, run `8base environment --help` in your terminal.**_
