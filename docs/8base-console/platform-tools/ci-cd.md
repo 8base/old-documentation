@@ -7,7 +7,7 @@
 Make sure that the workspace for which you want CI/CD is subscribed to an [8base plan](https://www.8base.com/pricing) where the feature is enabled. Additionally, ensure that you have the latest version of the 8base CLI installed (or a version later than 0.0.98)
 
 ```sh
-npm install -g 8base-cli@0.0.98-rc15
+npm install -g 8base-cli
 ```
 
 ## Creating New Environments
