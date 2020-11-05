@@ -14,7 +14,7 @@ jobs:
           node-version: '12'
 
       - name: Installing packages
-        run: npm install
+        run: yarn install
 
       - name: Build Gridsome site
-        run: yarn build
+        run: node -v && yarn build
