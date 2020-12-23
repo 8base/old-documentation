@@ -20,8 +20,12 @@ Whenever a table is added to a work space, four GraphQL mutation operations are 
 
 - `tableNameDelete(...)` - Accepts `data`, `filter`, and `force` as arguments with which it will delete an existing record - and dependent records when specified.
 
+- `tableNameDeleteByFilter(...)` - Accepts `filter` and `force` as arguments with which it will delete an list of existing record
+
 - `tableNameDestroy(...)` - Accepts `filter` and `force` as arguments with which it will permanently
   destroy an existing or deleted record - and dependent records when specified.
+
+- `tableNameDestroyByFilter(...)` - Accepts `filter` and `force` as arguments with which it will destroy an list of existing record
 
 - `tableNameRestore(...)` - Accepts `id` as an argument with which it will restore a previously deleted records; does not work on destroyed records.
 
