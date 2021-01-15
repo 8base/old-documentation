@@ -11,7 +11,7 @@ function:
   # Declare custom triggers like so.
   helloTrigger:
     handler:
-      code: src/triggerBefor.ts
+      code: src/triggerBefore.ts
     type: trigger.before
     operation: User.create
 ```
