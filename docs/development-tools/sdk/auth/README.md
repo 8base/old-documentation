@@ -50,7 +50,7 @@ The `CUSTOM_AUTH` strategy is used when the _Authentication Profile_ is set to "
 import Auth from '8base-sdk/auth';
 
 const OpenIDConfig = {
-  strategy: "CUSTOM_AUTH"
+  strategy: "CUSTOM_AUTH",
   /* Strategy settings */
   settings: {
     /* 8base Authentication Profile ID */
