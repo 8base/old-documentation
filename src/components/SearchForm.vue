@@ -36,6 +36,7 @@
     overflow: auto;
     z-index: 1;
     right: -10px;
+    max-height: 70vh;
 
     .search-dropdown-item {
       color: var(--body-color);
@@ -70,6 +71,7 @@
     }
 
     .search-highlight {
+      display: block;
       margin: 2%;
       color: var(--body-color);
     }
@@ -93,6 +95,9 @@
         v-model="searchTerm"
         placeholder="Search..."
         class="search-dropdown-input"
+        v-on:click="seen = true"
+        v-clickoutside="hideSearchModal"
+        autocomplete="off"
       />
 
       <svg
@@ -113,7 +118,7 @@
     </label>
 
     <!-- Dropdown for Search Results -->
-    <div class="search-dropdown-content">
+    <div class="search-dropdown-content" v-if="seen">
       <div
         class="search-dropdown-item"
         v-for="(item, index) in searchResults"
@@ -178,6 +183,7 @@ export default {
   data() {
     return {
       index: null,
+      seen: false,
       searchTerm: ""
     };
   },
@@ -228,7 +234,41 @@ export default {
       }
       //Or return the first sentence
       return sentences[0];
+    },
+    hideSearchModal() {
+      this.seen = false;
     }
-  }
+  },
+  directives: {
+    clickoutside: {
+      bind: function (el, binding, vnode) {
+
+        el.eventSetDrag = function () {
+            el.setAttribute('data-dragging', 'yes');
+        }
+        el.eventClearDrag = function () {
+            el.removeAttribute('data-dragging');
+        }
+        el.eventOnClick = function (event) {
+            var dragging = el.getAttribute('data-dragging');
+            // Check that the click was outside the el and its children, and wasn't a drag
+            if (!(el == event.target || el.contains(event.target)) && !dragging) {
+                // call method provided in attribute value
+                vnode.context[binding.expression](event);
+            }    
+        };
+        document.addEventListener('touchstart', el.eventClearDrag);
+        document.addEventListener('touchmove', el.eventSetDrag);
+        document.addEventListener('click', el.eventOnClick);
+        document.addEventListener('touchend', el.eventOnClick);
+      }, unbind: function (el) {
+        document.removeEventListener('touchstart', el.eventClearDrag);
+        document.removeEventListener('touchmove', el.eventSetDrag);
+        document.removeEventListener('click', el.eventOnClick);
+        document.removeEventListener('touchend', el.eventOnClick);
+        el.removeAttribute('data-dragging');
+      },
+    }
+  },
 };
 </script>
