@@ -28,7 +28,7 @@ Changing/deploying to parent Environments is only possible with **Migration** lo
 
 ## CI/CD Commands
 
-All the the interaction with CI/CD System takes place in [8base CLI](..development-tools/cli) 
+All the the interaction with CI/CD System takes place in [8base CLI](../development-tools/cli) 
 There are 3 categories of commands corressponding to 3 main components of CI/CD System  ; *Environment commands*, *Migrations commands*, and *Backup commands*.
 
 ## Environment Commands:
