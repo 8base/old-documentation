@@ -30,7 +30,7 @@ It defines signing up, managing, and authorizing flow of your application.
 [**7.Custom Logic (Custom Functions)**](../8base-console/custom-functions.md)
 Easy way to build and extend your server-side application functionality.
 **8. Billing**
-9. Integrations
+**9. Integrations**
 Integration of data and functionalities from 3rd party sources. 
 [**10. CI/CD**](../8base-console/development-tools/cli/ci-cd.md)
 
