@@ -14,32 +14,48 @@ When using 8base, you're project benefits from having:
 
 Every 8base application consists of the following components:
 
-1. Schema
-It describes all of the project Tables and Custom Functions.
-Simply put, Schema represents the shape of your application data, specifies what exactly clients can get from your application and how to manipulate with it.
-2. System Data
-Several data categories pre-defined by default for every 8base application, such as: [Team Members](/docs/8base-console/teams), Users, [Roles & Permissions](/docs/8base-console/roles-and-permissions)
-3. User Data
-All the unique data created directly by application users.
-4. Authentication and Authorization System
-It defines signing up, managing, and authorizing flow of your application.
-[Authentication](/docs/8base-console/authentication) is implemented through Authentication Profiles
-[Authorization](/docs/8base-console/roles-and-permissions) uses roles and permissions managing system
+1. **Schema**
+
+    Simply put, Schema represents the shape of your application data, specifies what exactly clients can get from your application and how to manipulate with it.
+
+2. **System Data**
+
+    Several data categories pre-defined by default for every 8base application, such as: [Team Members](/docs/8base-console/teams), Users, [Roles & Permissions](/docs/8base-console/roles-and-permissions)
+
+3. **User Data**
+
+    All the unique data (tables, records etc) created directly by application users.
+
+4. **Authentication and Authorization System**
+
+    It defines signing up, managing, and authorizing flow of your application.
+
+    [Authentication](/docs/8base-console/authentication) is implemented through [Authentication Profiles](/docs/8base-console/authentication#authentication-types)
+
+    [Authorization](/docs/8base-console/roles-and-permissions) uses roles and permissions managing system
+
 5. [Files](/docs/8base-console/handling-files)
-6. Workspace Users
+
+6. **Workspace Users**
+
 7. [Custom Logic (Custom Functions)](/docs/8base-console/custom-functions)
-Easy way to build and extend your server-side application functionality.
-8. Billing
-9. Integrations**
-Integration of data and functionalities from 3rd party sources.
+
+    Easy way to build and extend your server-side application functionality.
+
+8. **Billing**
+
+9. **Integrations**
+
+    Data and functionalities from 3rd party sources.
+
 10. [CI/CD](/docs/development-tools/cli/ci-cd)
 
 ## Workspaces
 
 All the above mentioned parts of 8base application system become available to you through the **Workspace**.
-You can represent it as your personal environment for application development. (see how to create and set it up in our [Quick Start Guide](/docs/getting-started/quick-start)
+You can represent it as your personal environment for application development (see how to create and set it up in our [Quick Start Guide](/docs/getting-started/quick-start))
 
-Based on this, structure of every Workspace follows the structure of whole application, described above, and generally can be divide into two parts:
+Based on this, structure of every Workspace follows the structure of application, described above, and generally can be divide into two parts:
 
 ### System Part
 
@@ -58,13 +74,13 @@ An awesome way to get more familiar with the true power of 8base is to complete 
 
 ## Useful Guides
 
-> [Quick Start](/docs/getting-started/quick-start)  
+> [Quick Start](/docs/getting-started/quick-start)
 > Learn 8base by building a React application.
 >
-> [Management Console](/docs/8base-console)  
+> [Management Console](/docs/8base-console)
 > Read the high-level overview of 8base's management console.
 >
-> [Connect to your API](/docs/getting-started/connecting-to-api)  
+> [Connect to your API](/docs/getting-started/connecting-to-api)
 > Explore ways to connect to the 8base GraphQL API.
 >
 > [GraphQL API](/docs/8base-console/graphql-api)
