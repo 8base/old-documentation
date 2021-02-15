@@ -1,9 +1,8 @@
 # CI/CD System
 
-Large distributed teams usually have multiple developers working simultaneously on different features of the same application (therefore - of the same [Workspace](/docs/getting-started#workspaces).
-СI/CD system was implemented in order to make parallel isolated development possible for each of the developers.
+Teams that have multiple developers working simultaneously on different features of the same application – or [Workspace](/docs/getting-started#workspaces) – benefit from having isolated development environments for each developer. 8base implimented the СI/CD system implemented to make this possible!
 
-After CI/CD is enabled in your Workspace - you can create additional **Environments** inside it.
+By enabling CI/CD in your Workspace you can create additional Workspace **Environments**.
 
 ![CI/CD Switch](../../images/enable-ci-cd.png)
 
@@ -11,34 +10,28 @@ Only **Master Environment** is available by default.
 
 ![Master Environment](../../images/master-env.png)
 
-Process of creating new Environment (cloning it from other Environment) is called **Branching**.
+The process of creating new Environments (cloning one Environment into another) is called **Branching**. Every Environment gets a unique URL/API endpoint that has the following anatomy `https://app.8base.com/<workspace_id>_<environment_name>`. There is no need to add `<environment_name>` to your URL for requesting *Master* Environment. 
 
-Every Environment has individual URL/API endpoint:
-`https://app.8base.com/<workspace_id>_<environment_name>`
-
-There is no need to add `<environment_name>` to your URL for requesting *Master* Environment.
-
-## Environment rules
+### Environment rules
 
 1. Environments are inheritable.
-2. Manually changing of *System Part* of the parent Environment and deploying are prohibited after Branching.
-   It means that *System Part* of Master Environment can’t be changed as soon as another Environment created.
+2. You CANNOT manually change *System Parts* of parent Environments after Branching (for example, one Environment can’t be manually changed after another is created from it).    
+3. You CAN manually change *System Parts* and deploy in child Environments (inheritors).
+4. Every Environment can have up to 3-inheritors.
 
-    You can read more about [System](/docs/getting-started#system-part)  and [User](/docs/getting-started#user-part) Parts of 8base workspace/application in our [Overview](/docs/getting-started#8base-application-structure) section.
-3. You can manually change *System Part* and deploy only in inheritors (children) Environments.
-4. Every Environment can have several inheritors.
 Changing/deploying to parent Environments is only possible with [Migration logic](/docs/development-tools/cli/ci-cd#migrations-logic-and-commands).
+
+You can read more about [System Parts](/docs/getting-started#system-part) and [User Parts](/docs/getting-started#user-part) of 8base in our [overview section](/docs/getting-started#8base-application-structure).
 
 ## CI/CD Commands
 
-All the the interaction with CI/CD System takes place in [8base CLI](/docs/development-tools/cli)
-There are 3 categories of commands corresponding to 3 main components of CI/CD System  ; *Environment commands*, *Migrations commands*, and *Backup commands*.
+The CI/CD System is controlled using the [8base CLI](/docs/development-tools/cli). There are 3 command categories that correspond to the main components of the CI/CD System; *Environment commands*, *Migrations commands*, and *Backup commands*.
 
-## Environment Commands
+### Environment Commands
 
 Environment commands.
 
-### 1. environment branch
+##### 1. environment branch
 
 ```sh
 8base environment branch
@@ -54,16 +47,20 @@ Environment commands.
 ```
 
 Using example:
-`8base environment branch -n <env_name> -m FULL/SYSTEM` - branch new environment with `<env_name>` from currently set environment in one of the two modes.
+```
+# Branch new environment with `<env_name>` from currently set environment in one of the two modes.
 
-There are two modes of environment Branching are available:
+8base environment branch -n <env_name> -m FULL/SYSTEM
+```
 
-1. Branching in SYSTEM mode: only [System Part](/docs/getting-started)   of the Environment will be cloned.
-Branching in FULL mode: both [System and User Parts](/docs/getting-started) of the Environment will be cloned.
+Two modes of environment branching are available:
 
-### 2. environment set
+1. **SYSTEM Mode**: When branching in SYSTEM mode, only [System Part](/docs/getting-started) of the Environment get cloned.
+2. **FULL Mode**: When branching in FULL mode, both [System and User Parts](/docs/getting-started) of the Environment get cloned.
 
-With the helps of this command you can choose and set environment to work with.
+##### 2. environment set
+
+This command selects and sets the current working environment.
 
 ```sh
 8base environment set
@@ -77,9 +74,9 @@ With the helps of this command you can choose and set environment to work with.
 #   --environmentName, -n The environment name of the project [string]
 ```
 
-### 3. environment show
+##### 3. environment show
 
-It displays currently set environment.
+Displays currently set environment.
 
 ```sh
 8base environment show
@@ -92,9 +89,9 @@ It displays currently set environment.
 #   --help, -h Show help [boolean]
 ```
 
-### 4. environment delete
+##### 4. environment delete
 
-It deletes specified environment
+Deletes a named environment.
 
 ```sh
 8base environment delete
@@ -108,9 +105,9 @@ It deletes specified environment
 #   --name, -n Name of deleted environment [string][required]
 ```
 
-### 5. environment list
+##### 5. environment list
 
-It displays all of the workspace environments.
+Displays all environments in the current workspace.
 
 ```sh
 8base environment list
@@ -123,52 +120,42 @@ It displays all of the workspace environments.
 #   --help, -h Show help [boolean]
 ```
 
-## Migrations Logic and Commands
+### Migrations Logic and Commands
 
 Making changes and deploying to parent Environments is only possible with **Migration logic**.
 
 Basically, *Migrations* are the files in the ‘migrations’ directory of your local project (`../<localProjectName>/migrations/`) which describe all the changes in [Schema and/or System/User Data](/docs/getting-started).
 
-### Migration file structure
+##### Migration file structure
 
- File name pattern of migration is:
-`<time>-<data/<application-part>-<post-fix>.ts`
+Migration file naming pattern: `<time>-<data/<application-part>-<post-fix>.ts`
 
-File body of migration is:
+Migration file script:
 
 ```sh
 import { Context, MigrationVersion } from "./typing.v1";
 export const version: MigrationVersion = "v1";
-export const up = async (context: Context) => {
-};
+export const up = async (context: Context) => {};
 ```
 
-`Context` consists of functions for Schema/Data changing and function for GraphQL request execution.
+`Context` consists of methods for Schema/Data changing and a method for executing GraphQL requests.
 
-The `up` function and `version` variable (`v1` for the version one of migration version) must be defined in every migration.
-
-There is `CiCdMigrations` table contained all the already committed  migration’s names  and code in every environment.
+The `up` function and `version` variable (`v1` for the version one of migration version) must be defined in every migration. There is a `CiCdMigrations` table that contains all of the already committed migration's in every Workspace environment.
 
 ### Commands for migraion workflow
 
-### 1. migration generate
+##### 1. migration generate
 
- Creates newly generated migrations files in your `migrations` local project directory.
+```
+# Generates new migration files in your local `migrations` project directory.
 
-These kind of migrations are automatically generated by the server after developer made some changes in set Environment (for example - developer creates new table with some fields in children environment).
+migration generate
+```
 
-`migration generate` shall be used every time changes being made in children environment.
+These migrations are automatically generated by the server after changes are made in a set Environment (for example - a new table is added). Developers can also manually create their own migration files and commit them directly to specified environments.
 
-So, as you can see this is convenient way for auto-tracking of changes in environments before and after they are committed.
-
-Developers can also manually create their own migration files and commit them directly to specified environments.
-
-Also, generating migrations of User Tables Data is a little different.
-
-To generate migrations for such data, you should specify *table name* in command argument like this:
-`migration generate -t <tableName>`
-
-Please take a note, that this kind of migration returns whole state of requested table records without comparison it to target Environment.  
+Generating migrations for data in the User's tables occurrs differently. Fr User data, you must specify a *table name* flag in command argument. For example:
+`migration generate -t <tableName>` Note that this kind of migration returns the whole state of the requested table's records without any comparison to the target Environment.  
 
 ```sh
 8base migration generate
@@ -184,11 +171,9 @@ Please take a note, that this kind of migration returns whole state of requested
 #   --environment, -e Target environment [string]
 ```
 
-### 2. migration status
+##### 2. migration status
 
-Command shows the difference between your local migrations files and migrations, committed to target Environment (migrations of `CiCdMigrations` table).
-
-You can check migrations to be committed with `migration status` and easily just delete  migration file if you don’t need corresponding change in your Schema/Data.
+This command shows the difference between your local migration files and any migrations committed to target Environment (migrations of `CiCdMigrations` table). You can check migrations to be committed with `migration status` and easily delete any you don’t need/want in your Schema/Data.
 
 ```sh
 8base migration status
@@ -202,17 +187,15 @@ You can check migrations to be committed with `migration status` and easily just
 #   --environment, -e Target environment [string]
 ```
 
-### 3. migration commit
+##### 3. migration commit
 
 Applies local migrations files to target Environment.
 
-It is important to know that *[Custom Logic (Functions)](/docs/8base-console/custom-functions)* are being deployed as well as migrations files after `migration commit` execution by default.
+It is important to know that *[Custom Logic (Functions)](/docs/8base-console/custom-functions)* are being deployed by default with any migrations files after `migration commit` is run. You can change this default behavior by specifying a commit mode:
 
-You can change default behavior by changing committing mode:
-
-- `FULL` mode - commits migrations files AND Custom Logic (Functions)
-- `ONLY_MIGRATIONS` - commits only migrations (without Custom Logic)
-- `ONLY_PROJECT` - commits only Custom Logic (without migration files)
+- `--mode FULL` - commits migration files AND Custom Logic (Functions)
+- `--mode ONLY_MIGRATIONS` - commits only migration (without Custom Logic)
+- `--mode ONLY_PROJECT` - commits only Custom Logic (without migration files)
 
 ```sh
 8base migration commit
@@ -229,15 +212,13 @@ You can change default behavior by changing committing mode:
 #   --environment, -e Specify the environment you want to commit. [string]
 ```
 
-## Backups Commands
+### Backups Commands
 
-There is also a server feature for making backups (snapshots) of Environments in order to restore the Environment previous state in case of error.
+There is also a server feature for making backups (snapshots) of Environments in order to restore the Environment to a previous state.
 
-### 1. backup create
+##### 1. backup create
 
-Creates the whole backup of current environment.
-
-Backup (snapshot) contains full state of Environment: [System](/docs/getting-started#system-part) and [User](/docs/getting-started#user-part) Parts at the same time.
+Create a whole backup of current environment. A backup (snapshot) contains full state of the Environment ([System](/docs/getting-started#system-part) and [User](/docs/getting-started#user-part) Parts).
 
 ```sh
 8base backup create
@@ -250,9 +231,9 @@ Backup (snapshot) contains full state of Environment: [System](/docs/getting-sta
 #   --help, -h Show help [boolean]
 ```
 
-### 2. backup list
+##### 2. backup list
 
-Shows the backups available for current environment.
+Show available backups for the current environment.
 
 ```sh
 8base backup list
@@ -265,11 +246,9 @@ Shows the backups available for current environment.
 #   --help, -h Show help [boolean]
 ```
 
-### 3. backup restore
+##### 3. backup restore
 
-Returns the current environment to the state when it’s backup was created.
-
-It is recommended to execute ‘migration commit’ command before backuping of Environment.
+Return the state of a current or specified environment to a specified backup. *It is recommended to execute ‘migration commit’ command before backuping of Environment.*
 
 ```sh
 8base backup restore [OPTIONS].
@@ -284,25 +263,24 @@ It is recommended to execute ‘migration commit’ command before backuping of 
 #   --environment, -e Target environment name [string][required]
 ```
 
-## Basic development workflow with CI/CD
+## Basic CI/CD Workflow
 
-To sum up, the basic development workflow with the use of CI/CD could be look like this:
+A basic CI/CD workflow can resemble something like this:
 
 ### Environments
 
-- `Master Environment` is used as production environment
-- `staging` environment being branched from `Master`
-- `dev` environment being branched from `staging`
-- Isolated `feature branches` for every single developer task are being branched from `dev`
+- `Master` - gets used as the "Production" environment (live application backend).
+- `Staging` environment gets branched from `Master` (pre go-live backend for testing).
+- `Dev` environment gets branched from `Staging` (development backend for whole team).
+- `<feature>-Branches` get branched from Dev for single developer or team working on isolated feature.
 
-### Feature development workflow
+### Feature Development Workflow
 
-1. Developer branches `dev_task_1` from `dev` environment.
-2. Developer executes `8base environment set -n dev_task_1` to switch the branch
-3. Developer makes necessary changes in the `dev-task_1` environment
-4. Developer executes `8base migration generate` command (as the result he gets migration files for System Data update), checks the correction of generated migration files, makes changes in files if necessary
-5. Developer switches environment to parent one (`dev`) by executing
-`8base environment set -n dev`
-6. Developer checks the difference between `dev` and his personal feature environment `dev_task_1` by executing `8base migrations status -e dev_task_1` and makes sure only needed migrations will be committed.
-7. Developer creates backup of the `dev` snapshot.
-8. Developer commits local migrations (and/or _Custom Logic_)   by executing `8base migration commit -e dev -m <commit-mode>`.
+1. Developer branches `dev_task_1` from `Dev` environment.
+2. Developer executes `8base environment set -n dev_task_1` to switch the new environment.
+3. Developer makes changes in the `dev-task_1` environment (for example, new functions).
+4. Developer executes `8base migration generate` command (gets migration files for System Data update), reviews generated migration files and makes changes if necessary.
+5. Developer switches environment to parent one (`Dev`) by executing `8base environment set -n Dev`
+6. Developer checks the difference between `Dev` and his personal feature environment `dev_task_1` by executing `8base migrations status -e dev_task_1` and makes sure only needed migrations will get committed.
+7. Developer creates backup of the `Dev` snapshot.
+8. Developer commits local migrations (and/or _Custom Logic_) by executing `8base migration commit -e Dev -m <commit-mode>`.
