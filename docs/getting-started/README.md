@@ -1,63 +1,33 @@
 # Overview
 
-**8base** is a Backend-as-a-Service. It lets front-end developers focus more on what they love and backend developers expedite their workflow. As our CEO likes to say, "it's totally awesome!"
+**8base** is a Backend-as-a-Service. It lets front-end developers focus more on what they love and backend developers expedite their workflow.
 
 When using 8base, you're project benefits from having:
 
-1. A fully scalable serverless API
-2. A managed MySQL Database that's hosted on AWS
-3. Ready-to-use app services, like Authentication, Authorization, and File Storage
+1. A fully scalable serverless GraphQL API.
+2. A fully managed MySQL Database that's hosted on AWS ([Aurora MySQL](https://aws.amazon.com/rds/aurora/)).
+3. Ready-to-use app services (Authentication, Authorization, File Storage, and more)
 4. 8base's rock-star team and [the Community](https://community.8base.com)
 5. So, so, so much more!
 
 ## 8base Application Structure
 
-Every 8base application consists of the following components:
+Every 8base Workspace contains of the following components:
 
-1. **Schema**
-
-    Simply put, Schema represents the shape of your application data, specifies what exactly clients can get from your application and how to manipulate with it.
-
-2. **System Data**
-
-    Several data categories pre-defined by default for every 8base application, such as: [Team Members](/docs/8base-console/teams), Users, [Roles & Permissions](/docs/8base-console/roles-and-permissions)
-
-3. **User Data**
-
-    All the unique data (tables, records etc) created directly by application users.
-
-4. **Authentication and Authorization System**
-
-    It defines signing up, managing, and authorizing flow of your application.
-
-    [Authentication](/docs/8base-console/authentication) is implemented through [Authentication Profiles](/docs/8base-console/authentication#authentication-types)
-
-    [Authorization](/docs/8base-console/roles-and-permissions) uses roles and permissions managing system
-
-5. [Files](/docs/8base-console/handling-files)
-
-6. **Workspace Users**
-
-7. [Custom Logic (Custom Functions)](/docs/8base-console/custom-functions)
-
-    Easy way to build and extend your server-side application functionality.
-
-8. **Billing**
-
-9. **Integrations**
-
-    Data and functionalities from 3rd party sources.
-
-10. [CI/CD](/docs/development-tools/cli/ci-cd)
+1. **Schema**: A Schema represents the shape of your application data and specifies what data a client application can query from your API, as well as how to manipulate it.
+2. **System Data**: Data resources that are pre-defined by default for every 8base application, such as: [Team Members](/docs/8base-console/teams), Users, [Roles & Permissions](/docs/8base-console/roles-and-permissions), and [Files](/docs/8base-console/handling-files).
+3. **User Data**: All the unique data resources (tables, records, etc) that are specific to your application.
+4. **Authentication and Authorization System**: Sign-up/Sign-in, manage, and authorizion flows of your application. [Authentication](/docs/8base-console/authentication) is implemented through [Authentication Profiles](/docs/8base-console/authentication#authentication-types) while [Authorization](/docs/8base-console/roles-and-permissions) uses the roles and permissions system.
+5. **Workspace Users**: 8base users with access to your Workspace through the console.
+6. [Custom Logic (Custom Functions)](/docs/8base-console/custom-functions): For building and extending your application's server-side functionality.
+7. **Integrations**: Data and functionalities from 3rd party sources.
+8. [CI/CD](/docs/development-tools/cli/ci-cd): The ability to create branched Workspace environments and a development pipeline.
 
 ## Workspaces
 
-All the above mentioned parts of 8base application system become available to you through the **Workspace**.
-You can represent it as your personal environment for application development (see how to create and set it up in our [Quick Start Guide](/docs/getting-started/quick-start))
+The structure of a Workspace can generally be divide into two parts:
 
-Based on this, structure of every Workspace follows the structure of application, described above, and generally can be divide into two parts:
-
-### System Part
+### System Parts
 
 - Schema
 - System Data
@@ -66,7 +36,7 @@ Based on this, structure of every Workspace follows the structure of application
 - Authorization (Roles and Permission)
 - Workspace Settings
 
-### User Part
+### User Parts
 
 Application users and all the data created by them, contained in user data tables.
 
@@ -75,7 +45,7 @@ An awesome way to get more familiar with the true power of 8base is to complete 
 ## Useful Guides
 
 > [Quick Start](/docs/getting-started/quick-start)
-> Learn 8base by building a React application.
+> Learn 8base by building a React or Vue application.
 >
 > [Management Console](/docs/8base-console)
 > Read the high-level overview of 8base's management console.
