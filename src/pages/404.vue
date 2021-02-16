@@ -22,15 +22,13 @@ export default {
   components: {
     LeftSidebar,
   },
+  data: () => ({ links }), 
   computed: {
-  	links () {
-      return links
-    },
     subtitles() {
       // Remove h1, h4, h5, h6 titles
-      let subtitles = this.$page.doc.subtitles.filter(function(value, index, arr){
-        return [2,3].includes(value.depth)
-      })
+      let subtitles = this.$page.doc.subtitles.filter((value, index, arr) =>
+        [2, 3].includes(value.depth)
+      )
       return subtitles
     },
     currentPath () {
@@ -38,13 +36,11 @@ export default {
     },
     editLink () {
       let path = this.currentPath
-      if((path.match(new RegExp("/", "g")) || []).length == 1) path = path + '/README'
+      let test = (path.match(new RegExp('/', 'g')) || []).length == 1
+      
+      if (test) path = path + '/README'
+      
       return `https://github.com/8base/Documentation/blob/master${path}.md`
-    },
-    currentIndex () {
-      return this.items.findIndex(item => {
-        return item.link.replace(/\/$/, '') === this.$route.path.replace(/\/$/, '')
-      })
     },
     items () {
       return this.links.reduce((acc, group) => (acc.push(...group.items), acc), [])
@@ -56,44 +52,38 @@ export default {
       return this.items[this.currentIndex - 1]
     },
     items () {
-      let i = 0;
-      let flatSummary = [];
-      this.links.forEach(item => {
-        item.items.forEach(item1 => {
-          item1.order = i;
-          item1.depth = 0;
-          item1.relatives = []; 
-          i++;        
-          flatSummary.push(item1);
-          if(item1.items){
-            item1.items.forEach(item2 => {
-              item2.order = i;
-              item2.depth = 1;
-              item1.relatives.push(i);   
-              item2.relatives = [];            
-              i++;                                                      
-              flatSummary.push(item2);
-              if(item2.items){
-                item2.items.forEach(item3 => {
-                  item3.order = i;
-                  item3.depth = 2;
-                  item1.relatives.push(i);
-                  item2.relatives.push(i);   
-                  item3.relatives = [];     
-                  i++;                  
-                  flatSummary.push(item3);
-                });
-              } 
-            });
-          } 
-        });
-      });
-      return flatSummary;
+      let index = 0
+      let relatives = []
+
+      const summarizeItem = (flatSummary, item, depth) => {
+        item.order = index
+        item.depth = depth
+        item.relatives = []
+
+        relatives.forEach(s => s.relatives.push(index))
+        flatSummary.push(item)
+        index++
+        
+        if (item.items) {
+          item.items.forEach(
+            next =>
+              relatives.push(item) &&
+              summarizeItem(flatSummary, next, depth + 1, relatives)
+          )
+        }
+
+        relatives = []
+      }
+
+      return links.reduce((flatSummary, { items }) => {
+        items.forEach(item => summarizeItem(flatSummary, item, 0))
+        return flatSummary
+      }, [])
     },   
     currentIndex () {
-      return this.items.findIndex(item => {
-        return item.link.replace(/\/$/, '') === this.$route.path.replace(/\/$/, '')
-      })
+      return this.items.findIndex(
+        item => item.link.replace(/\/$/, '') === this.$route.path.replace(/\/$/, '')
+      )
     },
   }
 }
