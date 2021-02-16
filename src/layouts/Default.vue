@@ -37,7 +37,6 @@ export default {
 
 #app main {
   flex: 1;
-  margin-bottom: 80px;
 }
 .main--bg-teritary {
   background-color: var(--bg-teritary);

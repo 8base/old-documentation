@@ -41,7 +41,7 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     margin: 15px 0 15px;
-    border-bottom: 1px solid var(--border-color);
+
     &:first-of-type {
       border: 0;
     }
@@ -103,8 +103,6 @@
       margin-bottom: 0;
       padding: 0.4rem 0;
       font-size: 0.85rem;
-      border-top: 1px dashed var(--border-color);
-      transition: border-color 0.3s;
     }
 
     &__item-depth-3 {

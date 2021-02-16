@@ -17,6 +17,9 @@
   .sidebar-entry.menu-link_depth_4 {
     padding-left: 40px;
   }
+  .sidebar-entry-button {
+    cursor: pointer;
+  }
 }
 </style>
 
