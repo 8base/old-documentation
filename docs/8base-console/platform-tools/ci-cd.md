@@ -94,12 +94,6 @@ Sometimes you'll want to take a snapshot of an environment in order to easily re
 # List all backups for environment
 8base backup list
 
-# Generate export url for backup
-8base backup export
-
-# Enroll external backup to environment
-8base backup import
-
 # Restore environment to backup
 8base backup restore
 ```
