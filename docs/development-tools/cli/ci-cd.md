@@ -207,7 +207,7 @@ It is important to know that *[Custom Logic (Functions)](/docs/8base-console/cus
 # OPTIONS
 #   --debug, -d Turn on debug logs [boolean]
 #   --help, -h Show help [boolean]
-#   --mode, -m Commit mode. [string][choices: "FULL", "ONLY_MIGRATIONS", "ONLY_PROJECTS"] [default: "FULL"]
+#   --mode, -m Commit mode. [string][choices: "FULL", "ONLY_MIGRATIONS", "ONLY_PROJECT"] [default: "FULL"]
 #   --force, -f You can specify force flag to commit to master without prompt.
 #   --environment, -e Specify the environment you want to commit. [string]
 ```
