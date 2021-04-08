@@ -71,6 +71,11 @@ await ctx.api.gqlRequest(QUERY, VARIABLES, {
 });
 ```
 
+### Timeouts
+All custom functions types have maximum 20 seconds execution time. After the execution time limit is reached the execution times out and returns an error. Please let us know if you have a use case where you need more than 20 seconds continuous execution. 
+
+In some cases, you can reach a timeout when executing several functions sequentially, in order not to await them you can spawn background tasks using the `context.invokeFunction` API [described here](/docs/8base-console/custom-functions/tasks).
+
 ### Managing Dependencies
 8base deploys CFs to a Node.js 10 runtime environment in which any compatible NPM dependencies are supported. On deploy, the system will check whether or not your dependencies have been installed and handle that accordingly. As expected, deploys run significantly faster when dependencies are installed locally. Feel free to use either NPM or Yarn as your package manager during development.
 
