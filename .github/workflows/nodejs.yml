@@ -19,12 +19,11 @@ jobs:
       - name: Build Gridsome site
         run: node -v && yarn build
 
+      - name: Check AWS CLI
+        run: aws --version
+
       - name: Sync to S3
         run: |
-          # Install AWS CLI
-          curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          sudo ./aws/install
           # Sync dist with S3 bucket
           aws s3 sync ./dist/ s3://docs.8base.com/
           # Invalidate last Cloudfront distribution
