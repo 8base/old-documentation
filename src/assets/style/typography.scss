@@ -97,7 +97,10 @@
   font-weight: 500;
 }
 
-
+h3#app {
+  min-height: unset !important;
+  display: block;
+}
 
 #app h5 {
   text-transform: uppercase;
