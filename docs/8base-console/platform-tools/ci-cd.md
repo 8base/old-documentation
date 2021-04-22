@@ -65,7 +65,7 @@ Once successfully run, a timestamped migrations script will appear in a director
 
 ## Committing Migrations
 
-Once a migration has been generated, you'll be able to commit it so that the changes propogate to the specified environment. This can be accomplished using the following command:
+Once a migration has been generated, you'll be able to commit it so that the changes propagate to the specified environment. This can be accomplished using the following command:
 
 ```sh
 8base migration commit

@@ -1,6 +1,6 @@
 # Overview
 
-**8base** is a Backend-as-a-Service. It lets front-end developers focus more on what they love and backend developers expedite their workflow.
+**8base** is a Backend-as-a-Service. It lets front-end developers focus more on what they love and backend developers expedite their workflow. As our CEO likes to say, "it's totally awesome!"
 
 When using 8base, you're project benefits from having:
 

@@ -3,7 +3,7 @@
 ### Mutating multiple records using filters
 You can update multiple table records using 8base's auto-generated GraphQL mutation operations.
 
-***Note**: Some examples might use [aliases](./) to show side by side the use of `data.id` versus `filter`. All examples work without aliases.*
+***Note**: Some examples might use [aliases](/docs/8base-console/graphql-api/#aliases) to show side by side the use of `data.id` versus `filter`. All examples work without aliases.*
 
 ##### Updating all post's titles published before a given day
 Prefix the title of every post published before a specific date with the string "LEGACY: ". 

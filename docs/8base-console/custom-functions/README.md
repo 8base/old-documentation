@@ -12,10 +12,10 @@ CFs in 8base are essentially AWS Lambdas that get enriched with access to your w
 ### Custom Function Types
 There are 4-types of CFs made available on 8base that we will go over in depth in the following 4 sections. They are:
 
-* **[Resolvers](custom-functions/resolvers)**: For extending your GraphQL API
-* **[Webhooks](custom-functions/webhooks)**: For RESTful endpoints (GET, POST, DELETE, etc...)
-* **[Triggers](custom-functions/triggers)**: For functions requiring event-based execution
-* **[Tasks](custom-functions/tasks)**: For invocable and scheduled (cron) functions
+* **[Resolvers](/docs/8base-console/custom-functions/resolvers)**: For extending your GraphQL API
+* **[Webhooks](/docs/8base-console/custom-functions/webhooks)**: For RESTful endpoints (GET, POST, DELETE, etc...)
+* **[Triggers](/docs/8base-console/custom-functions/triggers)**: For functions requiring event-based execution
+* **[Tasks](/docs/8base-console/custom-functions/tasks)**: For invocable and scheduled (cron) functions
 
 All CFs must be declared in your projects 8base.yml file.
 
@@ -61,7 +61,7 @@ else if (runWithoutRolesEnforced) {
 
 For obvious security reasons, `checkPermissions` is ONLY available from within custom functions. It cannot be used when making requests from client applications.
 
-As opposed to using `checkPermissions` option, [API Tokens](./roles-and-permissions#api-tokens) associated with defined roles can be used to permission `gqlRequest` calls. This ability accomodates situations where permissions are required, but not in the context of the requesting user. To accomplish this, the API Token can be added as a bearer token to the call.
+As opposed to using `checkPermissions` option, [API Tokens](/docs/8base-console/roles-and-permissions#api-tokens) associated with defined roles can be used to permission `gqlRequest` calls. This ability accommodates situations where permissions are required, but not in the context of the requesting user. To accomplish this, the API Token can be added as a bearer token to the call.
 
 ```javascript
 await ctx.api.gqlRequest(QUERY, VARIABLES, { 
@@ -80,7 +80,7 @@ In some cases, you can reach a timeout when executing several functions sequenti
 8base deploys CFs to a Node.js 10 runtime environment in which any compatible NPM dependencies are supported. On deploy, the system will check whether or not your dependencies have been installed and handle that accordingly. As expected, deploys run significantly faster when dependencies are installed locally. Feel free to use either NPM or Yarn as your package manager during development.
 
 ### Development Tips
-CFs are developed in a local development environment and then deployed to a given workspace using the [8base CLI](../../development-tools/cli). When in development, they can be invoked locally for testing purposes. 
+CFs are developed in a local development environment and then deployed to a given workspace using the [8base CLI](/docs/development-tools/cli). When in development, they can be invoked locally for testing purposes. 
 
 Using the `8base generate` command is recommended when creating new functions. Doing so provides a recommended folder structure that helps keep everything organized when developing CFs locally, including a `mocks` directory and management of the `8base.yml` file.
 

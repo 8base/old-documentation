@@ -50,8 +50,8 @@ import { auth, api } from "8base.js";
 
 ## Available SDK Modules
 
-- [Api](./api/README.md): Conveniently execute GraphQL queries, mutations, and subscriptions against a workspace.
-- [Auth](./auth/README.md): Quickly authenticate users and build auth flows in client applications.
+- [Api](/docs/development-tools/sdk/api): Conveniently execute GraphQL queries, mutations, and subscriptions against a workspace.
+- [Auth](/docs/development-tools/sdk/auth): Quickly authenticate users and build auth flows in client applications.
 
 ## Alternatives
 

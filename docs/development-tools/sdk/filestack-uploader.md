@@ -27,9 +27,9 @@ The workflow of creating a file consists of the following steps:
 }
 ```
 
-2. **Upload file to Filestack** Use Filestack API or picker to upload the file using the parameters from the step 1. On successful upload Filestack returns file `handle`. You can learn more about uploading files directly to Filestack [here](https://www.filestack.com/docs/concepts/uploading/). For React developers using the 8base SDK, it provides [tools](./file-upload) to simplify file uploads such that you never need to interact with Filestack directly.
+1. **Upload file to Filestack** Use Filestack API or picker to upload the file using the parameters from the step 1. On successful upload Filestack returns file `handle`. You can learn more about uploading files directly to Filestack [here](https://www.filestack.com/docs/concepts/uploading/). For React developers using the 8base SDK, it provides [tools](/docs/development-tools/sdk/file-upload) to simplify file uploads such that you never need to interact with Filestack directly.
 
-3. **Create file in 8base** Create file in 8base by passing the Filestack `handle` from step 2. You can either create a `File` object directly so you can later connect it to other tables:
+2. **Create file in 8base** Create file in 8base by passing the Filestack `handle` from step 2. You can either create a `File` object directly so you can later connect it to other tables:
 
 ```javascript
 mutation {
@@ -61,7 +61,7 @@ mutation {
 
 ### Filestack API
 
-Filestack has API clients, Pickers and Framework integrations that make it easy to upload your files using a variety of different languages and frameworks. See the full list [here](https://www.filestack.com/docs/api/#api-clients). You will need to use the [security credentials](../../8base-console/roles-and-permissions) from the 8base GraphQL API to upload files to Filestack. This is how to upload a file to the API using a basic `CURL` request:
+Filestack has API clients, Pickers and Framework integrations that make it easy to upload your files using a variety of different languages and frameworks. See the full list [here](https://www.filestack.com/docs/api/#api-clients). You will need to use the [security credentials](/docs/8base-console/roles-and-permissions) from the 8base GraphQL API to upload files to Filestack. This is how to upload a file to the API using a basic `CURL` request:
 
 ```sh
 curl -X POST \

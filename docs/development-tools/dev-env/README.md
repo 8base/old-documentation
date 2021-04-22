@@ -18,7 +18,7 @@ For testing purposes you can execute functions locally and supply a JSON value f
 
 You can specify JSON inline using the `-j` option or a path to a file with JSON using `-p` option.
 
-_To test this feature, implement the `hello` resolver from_ [_Resolvers_](doc:resolvers) _and run the following command in your CLI._
+_To test this feature, implement the `hello` resolver from [Resolvers](/docs/8base-console/custom-functions/resolvers) and run the following command in your CLI._
 
 `8base invoke-local hello -j '{ "data": { "name": "Bob" } }'`
 

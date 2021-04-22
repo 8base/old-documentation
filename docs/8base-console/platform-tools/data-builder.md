@@ -188,7 +188,7 @@ Configurations
 *Smart Fields* are enriched field types offered by 8base. They provide structure, and sometimes logic, to the organization and validation of common data.
 
 #### Address
-For persisting addresses in a field. The `address` field will display available fields in the [Data Viewer](./data-viewer) and API Explorer.
+For persisting addresses in a field. The `address` field will display available fields in the [Data Viewer](/docs/8base-console/platform-tools/data-viewer/) and API Explorer.
 
 ```
 type Address = {
@@ -202,7 +202,7 @@ type Address = {
 ```
 
 #### Phone
-For persisting phone numbers in a field. The `phone` field will display available fields in the [Data Viewer](./data-viewer) and API Explorer.
+For persisting phone numbers in a field. The `phone` field will display available fields in the [Data Viewer](/docs/8base-console/platform-tools/data-viewer/) and API Explorer.
 
 ```
 type Phone = {

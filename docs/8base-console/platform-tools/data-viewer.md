@@ -33,6 +33,6 @@ In the same drop-down, columns can easily be reordered. Simply drag-and-drop thi
 ### Importing Data
 Importing data from CSV files is supported and can be opened by clicking the `[Import CSV]` option located in the top-right elipsis dropdown menu. The CSV importer supports column mapping and enforces all schema defined validations on create.
 
-Please refer to the [CLI's Import](../../development-tools/cli/commands#import) command docs to import more complex data (related records, images, smart fields, etc).
+Please refer to the [CLI's Import](/docs/development-tools/cli/commands#import) command docs to import more complex data (related records, images, smart fields, etc).
 
 ![Importing records into the Data Viewer](../../images/data-viewer-import.gif)

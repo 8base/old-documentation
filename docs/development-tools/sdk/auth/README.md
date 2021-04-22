@@ -2,7 +2,7 @@
 
 The `Auth` module is used to quickly enable user authentication and sign-up in 8base developer's client applications.
 
-_Note: Before setting up Auth using the SDK, you must have first created an [Authentication Profile](../../../8base-console/authentication.md)_
+_Note: Before setting up Auth using the SDK, you must have first created an [Authentication Profile](/docs/8base-console/authentication)_
 
 ## Usage
 
@@ -12,7 +12,7 @@ When initializing the `Auth` module, an auth strategy needs to be specified.
 
 ### Auth Strategies
 
-All required settings values for initializing the Auth module can be collected from an [Authentication Profile](../../../8base-console/authentication#authorization) created in the 8base management console.
+All required settings values for initializing the Auth module can be collected from an [Authentication Profile](/docs/8base-console/authentication#authorization) created in the 8base management console.
 
 #### AUTH0_AUTH
 

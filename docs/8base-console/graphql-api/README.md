@@ -12,7 +12,7 @@ All API Endpoints are structured as so:
 
 The API comes pre-configured with filtering, pagination, full-text search and many other advanced features, putting the best tools possible for accessing data in the front-end developer's hands.
 
-*Note: Using [Custom Functions](./custom-functions), these GraphQL resources can be extended and added to in any way seen fit.*
+*Note: Using [Custom Functions](/docs/8base-console/custom-functions), these GraphQL resources can be extended and added to in any way seen fit.*
 
 There are several way of retrieving an API endpoint for your workspace. The easiest is to login to the [8base Management Console](https://app.8base.com), select a workspace and copy the `API Endpoint` displayed on the dashboard.
 
