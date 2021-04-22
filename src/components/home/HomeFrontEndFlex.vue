@@ -60,6 +60,7 @@ export default {};
 
     img {
       margin-bottom: 0;
+      object-fit: contain;
       @media screen and (max-width: 960) {
         width: 40%;
       }
