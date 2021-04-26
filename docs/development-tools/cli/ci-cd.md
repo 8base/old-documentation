@@ -55,8 +55,8 @@ Using example:
 
 Two modes of environment branching are available:
 
-1. **SYSTEM Mode**: When branching in SYSTEM mode, only [System Part](/docs/getting-started) of the Environment get cloned.
-2. **FULL Mode**: When branching in FULL mode, both [System and User Parts](/docs/getting-started) of the Environment get cloned.
+1. **SYSTEM Mode**: When branching in SYSTEM mode, only [System Part](/docs/getting-started#system-part) of the Environment get cloned.
+2. **FULL Mode**: When branching in FULL mode, both [System and User Parts](/docs/getting-started#user-part) of the Environment get cloned.
 
 ##### 2. environment set
 
