@@ -21,7 +21,7 @@ The process of creating new Environments (cloning one Environment into another) 
 
 Changing/deploying to parent Environments is only possible with [Migration logic](/docs/development-tools/cli/ci-cd#migrations-logic-and-commands).
 
-You can read more about [System Parts](/docs/getting-started#system-part) and [User Parts](/docs/getting-started#user-part) of 8base in our [overview section](/docs/getting-started#8base-application-structure).
+You can read more about [System Parts](/docs/getting-started#system-parts) and [User Parts](/docs/getting-started#user-parts) of 8base in our [overview section](/docs/getting-started#8base-application-structure).
 
 ## CI/CD Commands
 
@@ -55,8 +55,8 @@ Using example:
 
 Two modes of environment branching are available:
 
-1. **SYSTEM Mode**: When branching in SYSTEM mode, only [System Part](/docs/getting-started) of the Environment get cloned.
-2. **FULL Mode**: When branching in FULL mode, both [System and User Parts](/docs/getting-started) of the Environment get cloned.
+1. **SYSTEM Mode**: When branching in SYSTEM mode, only [System Part](/docs/getting-started#system-parts) of the Environment get cloned.
+2. **FULL Mode**: When branching in FULL mode, both [System and User Parts](/docs/getting-started#user-parts) of the Environment get cloned.
 
 ##### 2. environment set
 
@@ -218,7 +218,7 @@ There is also a server feature for making backups (snapshots) of Environments in
 
 ##### 1. backup create
 
-Create a whole backup of current environment. A backup (snapshot) contains full state of the Environment ([System](/docs/getting-started#system-part) and [User](/docs/getting-started#user-part) Parts).
+Create a whole backup of current environment. A backup (snapshot) contains full state of the Environment ([System](/docs/getting-started#system-parts) and [User](/docs/getting-started#user-parts) Parts).
 
 ```sh
 8base backup create
