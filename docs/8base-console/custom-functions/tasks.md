@@ -38,7 +38,7 @@ module.exports = async (event, ctx) => {
   });
 };
 
-// The task handler may looks like that
+// The "myTask" handler may looks like that
 module.exports = async (event, ctx) => {
   const { param } = event.data
   // ...
