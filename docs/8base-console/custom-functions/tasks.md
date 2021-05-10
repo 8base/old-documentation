@@ -29,7 +29,7 @@ Functions like resolvers, triggers and webhooks usually run in response to user 
 
 ```javascript
 // Context (ctx) argument maintains the invokeFunction method for
-//invoking tasks from other functions.
+// invoking tasks from other functions.
 module.exports = async (event, ctx) => {
   const args = { data: { param: "value" } };
 
@@ -37,6 +37,12 @@ module.exports = async (event, ctx) => {
     waitForResponse: false
   });
 };
+
+// The task handler may looks like that
+module.exports = async (event, ctx) => {
+  const { param } = event.data
+  // ...
+}
 ```
 
 The `options.waitForResponse (default: false)` property tells the platform to resolve the promise immediately without waiting for the task to complete. If instead you'd like to wait for the task result you can set `waitForResponse` to `true`.
