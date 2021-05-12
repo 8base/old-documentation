@@ -76,6 +76,74 @@ All custom functions types have maximum 20 seconds execution time. After the exe
 
 In some cases, you can reach a timeout when executing several functions sequentially, in order not to await them you can spawn background tasks using the `context.invokeFunction` API [described here](/docs/8base-console/custom-functions/tasks).
 
+Sometimes your function reaches the 20s limit and also must be executed sequentially. In that case, to not spread the logic of the function across multiple tasks you could make one task and run it multiple times in a recursive manner as shown below:
+```javascript
+// Create `myLongTask` that contains all your logic
+module.exports = async (event, ctx) => {
+  const { param1, param2, param3, subtask = "operation1" } = event.data;
+
+  switch (subtask) {
+    case "operation1": {
+      // first part of the long-run task
+      console.log(param1);
+      // run the next part
+      await ctx.invokeFunction(
+        "myLongTask",
+        {
+          subtask: "operation2",
+          param2: "world",
+        },
+        {
+          waitForResponse: false,
+        }
+      );
+      break;
+    }
+    case "operation2": {
+      // second part of the long-run task
+      console.log(param2);
+      // run the next part
+      await ctx.invokeFunction(
+        "myLongTask",
+        {
+          subtask: "operation3",
+          param3: "!!!",
+        },
+        {
+          waitForResponse: false,
+        }
+      );
+      break;
+    }
+    case "operation3": {
+      // third part of the long-run task
+      console.log(param3);
+      break;
+    }
+    default: {
+      throw new Error(`Subtask ${subtask} not found`);
+    }
+  }
+
+  return {
+    data: {
+      result: `${subtask}: done`,
+    },
+  };
+};
+
+// In some other custom function run that task
+await ctx.invokeFunction(
+  "myLongTask",
+  {
+    param1: "Hello",
+  },
+  {
+    waitForResponse: false,
+  }
+);
+```
+
 ### Managing Dependencies
 8base deploys CFs to a Node.js 10 runtime environment in which any compatible NPM dependencies are supported. On deploy, the system will check whether or not your dependencies have been installed and handle that accordingly. As expected, deploys run significantly faster when dependencies are installed locally. Feel free to use either NPM or Yarn as your package manager during development.
 
