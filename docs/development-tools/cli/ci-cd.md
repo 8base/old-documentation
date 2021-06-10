@@ -281,6 +281,6 @@ A basic CI/CD workflow can resemble something like this:
 3. Developer makes changes in the `dev-task_1` environment (for example, new functions).
 4. Developer executes `8base migration generate` command (gets migration files for System Data update), reviews generated migration files and makes changes if necessary.
 5. Developer switches environment to parent one (`Dev`) by executing `8base environment set -n Dev`
-6. Developer checks the difference between `Dev` and his personal feature environment `dev_task_1` by executing `8base migrations status -e dev_task_1` and makes sure only needed migrations will get committed.
+6. Developer checks the difference between `Dev` and his personal feature environment `dev_task_1` by executing `8base migration status -e dev_task_1` and makes sure only needed migrations will get committed.
 7. Developer creates backup of the `Dev` snapshot.
 8. Developer commits local migrations (and/or _Custom Logic_) by executing `8base migration commit -e Dev -m <commit-mode>`.
