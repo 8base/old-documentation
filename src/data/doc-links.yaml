@@ -133,9 +133,6 @@
           link: /docs/development-tools/sdk/api
         - title: Auth
           link: /docs/development-tools/sdk/auth
-          items:
-            - title: React
-              link: /docs/development-tools/sdk/auth/react-auth
         - title: Application File Uploads
           link: /docs/development-tools/sdk/file-upload
         - title: VS Code Plugin
