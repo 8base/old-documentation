@@ -2,7 +2,7 @@
 
 **8base** is a Backend-as-a-Service. It lets front-end developers focus more on what they love and backend developers expedite their workflow. As our CEO likes to say, "it's totally awesome!"
 
-When using 8base, you're project benefits from having:
+When using 8base, your project benefits from having:
 
 1. A fully scalable serverless GraphQL API.
 2. A fully managed MySQL Database that's hosted on AWS ([Aurora MySQL](https://aws.amazon.com/rds/aurora/)).
