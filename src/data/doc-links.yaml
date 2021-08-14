@@ -88,14 +88,14 @@
     - title: Custom Functions
       link: /docs/8base-console/custom-functions
       items:
+        - title: Resolvers
+          link: /docs/8base-console/custom-functions/resolvers
+        - title: Tasks
+          link: /docs/8base-console/custom-functions/tasks
         - title: Webhooks
           link: /docs/8base-console/custom-functions/webhooks
         - title: Triggers
           link: /docs/8base-console/custom-functions/triggers
-        - title: Tasks
-          link: /docs/8base-console/custom-functions/tasks
-        - title: Resolvers
-          link: /docs/8base-console/custom-functions/resolvers
         - title: Debugging
           link: /docs/8base-console/custom-functions/debugging
     - title: Plugins and Integrations
