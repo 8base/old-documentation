@@ -15,7 +15,7 @@ Always let us know how we can help!
 While building on 8base and checking out the docs, you might have some questions. Actually, lets re-phrase that... while building on 8base YOU'LL DEFINITELY HAVE SOME QUESTIONS. When such a situation arises, fret not. We're here for you.
 
 > [Start a Topic on 8base's Discourse](https://community.8base.com)  
->  Create topics for new feature suggestions, code support, or debugging help.
+> Create topics for new feature suggestions, code support, or debugging help.
 
 ## Contributing to 8base Docs
 
@@ -27,12 +27,12 @@ Our documentation repo is public and open-sourced [right here](https://github.co
 
 - Report missing sections: Think something **should** be in the documentation that **isn't**? [Create an issue](https://github.com/8base/documentation/issues) to let us know!
 - Submit pull requests: Want to not only point out the problem but be apart of the solution? Clone the Documentation repo and submit pull requests start... pretty much anything, like:
-  _ Grammar and spelling
-  _ Errors in any code example
-  _ Even BETTER code examples
-  _ Missing sections
-  _ Better descriptions
-  _ A nice GIF of a police man in the Authorization section \* Anything else...
+  - Grammar and spelling
+  - Errors in any code example
+  - Even BETTER code examples
+  - Missing sections
+  - Better descriptions
+  - A nice GIF of a police man in the Authorization section \* Anything else...
 
 If you need help getting started, just reach out to us at [support@8base.com](mailto://support@8base.com). However, here are some more complete descriptions of work that can be done.
 
