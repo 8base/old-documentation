@@ -1,24 +1,27 @@
 # Data Builder
 
-The 8base Data Builder is a data modeling UI for defining database tables, field types, and relationships between tables. For each table defined, the 8base GraphQL engine creates GraphQL schema object types and the corresponding query, mutation, and subscription fields with resolvers automatically. 
+The 8base Data Builder is a data modeling UI for defining database tables, field types, and relationships between tables. For each table defined, the 8base GraphQL engine creates GraphQL schema object types and the corresponding query, mutation, and subscription fields with resolvers automatically.
 
-This means that all Create, Read, Update, and Delete (CRUD) actions, as well as real-time connections (websockets) are immediately available to use via the workspace's unique API endpoint. 
+This means that all Create, Read, Update, and Delete (CRUD) actions, as well as real-time connections (websockets) are immediately available to use via the workspace's unique API endpoint.
 
 Data Builder is found in the management console's `Data` view. It is packed with cool features. For example, `File` fields allow you to seamlessly attach files to records and `Smart` fields make it easy to implement complex validations for addresses or phone number.
 
 ![8Base Data Builder](../../images/data-builder-new-table.gif)
 
 ## Tables
+
 In the background, 8base spins up an Aurora MySQL database instance for your workspace. Aurora is a relational database that can handle complex queries and is ACID (Atomicity, Consistency, Isolation, Durability) compliant. When tables are created, updated, and deleted in a workspace, 8base handles the corresponding migrations and executes them immediately against the database. Therefore, you're database is always reflected by the *Data Builder* UI - showing all available fields, validations, tables, and relations.
 
 ### Creating Tables
+
 New tables are created using the "+ New Table" button. An input that prompts for a *name* value will appear, with which the table can named. All tables require unique names.
 
 As soon as a table is created, corresponding GraphQL schema types and query, mutation, and subscription resolvers will be generated automatically.
 
 ![Creating new table's in the Data Builder](../../images/data-builder-new-table.png)
 
-##### Creating Table Indexes
+### Creating Table Indexes
+
 To improve look up performance on your tables, you can add one or more of your own indexes. This feature is found in the table settings.
 
 You can choose up to 8 fields on the table by which the index will be constructed, as well as whether or not it should be a *Unique Index*. When naming the index, insure that no spaces are used.
@@ -26,7 +29,8 @@ You can choose up to 8 fields on the table by which the index will be constructe
 ![Creating new table index in the Data Builder](../../images/creating-table-indexes.png)
 
 ### Updating Tables
-After a table is created, fields and relations can get defined. All updates to a table are published in real-time, giving a seemless experience between defining a data model and having it be highly available. 
+
+After a table is created, fields and relations can get defined. All updates to a table are published in real-time, giving a seamless experience between defining a data model and having it be highly available.
 
 As soon as a table is updated, its corresponding GraphQL schema types and query, mutation, and subscription resolvers will be updated automatically.
 
@@ -34,18 +38,20 @@ To ensure that table related errors and mistakes are minimized, 8base protects a
 
 * A prompt that requires a *Default Value* will appear when changing a non-mandatory field to being mandatory.
 * Date, Number, and Text field values are auto-magically converted when an existing field *type* is updated.
-* When changing a non-unique field to being unique, current records are validated for having unqiue values.
+* When changing a non-unique field to being unique, current records are validated for having unique values.
 * Many more!
 
 ### Deleting Tables
+
 A confirmation input that requires the table name to be typed in appears when attempting to delete a table. Please know that deleted tables **cannot** be restored and any existing table records will be lost. Additionally, if any other tables are related to the table being deleted - *belongs to* and *has many*, either specified as mandatory or not - those relations will be severed.
 
 ![Deleting table's in the Data Builder](../../images/data-builder-delete-table.png)
 
 ### Table Relationships
+
 8base supports 3 types of table relationships to be defined that are congruent with what to expect from relational databases:
 
-| Type | *A* to *B* | *B* to *B* |
+| Type | *A* to *B* | *B* to *A* |
 | -- | -- | -- |
 | `one-to-one` | Records in table A may `have_one` or `belong_to` records in table B. | Records in table B may `have_one` or `belong_to` records in table A. |
 | `one-to-many` | Record in table A may `have_many` records in table B. | Records in table B may `have_one` or `belong_to` records in table A. |
@@ -56,9 +62,11 @@ A confirmation input that requires the table name to be typed in appears when at
 Defining a relationship between two tables can be accomplished by dragging and dropping one table onto another, as well as by selecting `Table` as the Data Type when creating a new table field.
 
 #### Table Configurations
+
 For specifying *has many*, *has one* and *belongs to* relationships between tables.
 
 Configurations
+
 * *Table* - For selecting what table is to get related.
 * *Relation Field Name* - The name of the relation as it appears on the **corresponding** table.
 * *Allow Multiple X to Y* - Whether the relationship is *has one* or *has many*.
@@ -66,46 +74,57 @@ Configurations
 * *Description* - A meta description used for documentation.
 
 <!--{% hint style="info" %}-->
-##### Self-Referential Relationships
+#### Self-Referential Relationships
 
 Self-Referential relationships can be defined by relating tables to themselves! For example, a the *Users* table might have a `many-to-many` relationship with itself, and use a named association of *friends*.
 <!-- {% endhint %} -->
 
 ### Table Types
+
 There are several types of tables in 8base, each of which offers an important utility.
 
-##### Custom Tables
+#### Custom Tables
+
 Custom tables are the tables created in any workspace by the administrator. They are fully customizable and managed by the administrator.
 
-##### System Tables
+#### System Tables
+
 System tables - like *Users* - are tables that come delivered with a workspace. They are fully extensible, meaning that new fields and relations can be added to them. However, they can neither be deleted, renamed, nor their existing fields changes.
 
-##### View Tables
+#### View Tables
+
 View Tables are virtual tables that aggregate fields from several or more tables into a single *view*. Under the hood, they are based on the result-set of an SQL statement. In a workspace, they can be created using the `viewCreate` GraphQL mutation in the API Explorer. 
 
 For more information on views, [check this out](https://www.w3schools.com/sql/sql_view.asp).
 
 ## Fields
+
 8base offers all database field types required for building software - and some! Fields with the type File, Smart, and others have extended capabilities that streamline specific tasks - such as managing file/image uploads and validating addresses and phone numbers.
 
 ### Creating Fields
-Every field gets defined on a table and requires a *name* and a *type*. Field names must be unique on the table, irresepective of their type. Once a new field has been created, a configurations modal will appear allowing for further customizations - each being specific to the field *type*.
+
+Every field gets defined on a table and requires a *name* and a *type*. Field names must be unique on the table, irrespective of their type. Once a new field has been created, a configurations modal will appear allowing for further customizations - each being specific to the field *type*.
 
 ### Updating Fields
+
 Fields are easily updated using the same interface used to create them. Updates to attributes like the field's *name* - and even *type* in some cases - are changed in real-time, while changes configurations must be saved. If 8base detects an issue with the change being made, an alert will be display with instructions to remedy the issue.
 
 ![Updating fields in the Data Builder](../../images/data-builder-field-update.png)
 
 ### Deleting Fields
+
 The "X" found on the right side of a field's name input gets clicked to delete a table. A confirmation modal that requires the field name to be typed in appears when attempting to delete a field. Deleted tables **cannot** be restored and any existing data be lost.
 
 ### Field Types
+
 8base offer 8 field types that can be configured to fit almost any data requirement.
 
-#### Text 
+#### Text
+
 For storing *String* data.
 
 Configurations
+
 * *Field Size* - The maximum string length.
 * *Allow Multiple* - Stores 0 or more *Text* values in an array (not searchable).
 * *Mandatory* - Whether the field value is required.
@@ -114,9 +133,11 @@ Configurations
 * *Description* - A meta description used for documentation.
 
 #### Number
+
 For storing *Integer*, *BigInt*, and *Float* data.
 
 Configurations
+
 * *Decimal Place* - How many decimal places *Float* values maintain.
 * *Big Number* - For numbers outside the range `-2^63 (-9,223,372,036,854,775,808) to 2^63-1 (9,223,372,036,854,775,807)`
 * *Minimum Value* - The minimum value required.
@@ -128,9 +149,11 @@ Configurations
 * *Description* - A meta description used for documentation.
 
 #### Date
+
 For storing *Date* and *DateTime* data.
 
 Configurations
+
 * *Format* - Whether the field stores a *Date* or a *DateTime* value.
 * *Allow Multiple* - Stores 0 or more *Date* values in an array (not searchable).
 * *Mandatory* - Whether the field value is required.
@@ -139,9 +162,11 @@ Configurations
 * *Description* - A meta description used for documentation.
 
 #### Switch
+
 For storing *Boolean* and custom *Enum* type data.
 
 Configurations
+
 * *Format* - For specifying the *Boolean* type (true / false, yes / no, etc...)
 * *Allow Multiple* - Stores 0 or more *Boolean* values in an array (not searchable).
 * *Mandatory* - Whether the field value is required.
@@ -149,18 +174,22 @@ Configurations
 * *Description* - A meta description used for documentation.
 
 #### File
+
 For storing *Image* and *File* objects.
 
 Configurations
+
 * *Format* - Whether the field stores a *File* or an *Image*.
 * *Allow Multiple* - Stores 0 or more *File* objects in an array.
 * *Mandatory* - Whether the field value is required.
 * *Description* - A meta description used for documentation.
 
 #### Table
+
 For specifying *has many*, *has one* and *belongs to* relationships between tables.
 
 Configurations
+
 * *Table* - For selecting what table is to get related.
 * *Relation Field Name* - The name of the relation as it appears on the **corresponding** table.
 * *Allow Multiple X to Y* - Whether the relationship is *has one* or *has many*.
@@ -168,29 +197,35 @@ Configurations
 * *Description* - A meta description used for documentation.
 
 #### Smart
+
 For storing *addresses* and *phone numbers* with managed validations and logic. 
 
 Configurations
+
 * *Format* - Whether the field stores a *Phone Number* or an *Address*.
 * *Allow Multiple* - Stores 0 or more *Smart* objects in an array.
 * *Mandatory* - Whether the field value is required.
 * *Description* - A meta description used for documentation.
 
 #### JSON
+
 For storing *JSON* objects.
 
 Configurations
+
 * *Mandatory* - Whether the field value is required.
 * *Default Value* - A default value assigned to new records.
 * *Description* - A meta description used for documentation.
 
 ### Smart Fields
+
 *Smart Fields* are enriched field types offered by 8base. They provide structure, and sometimes logic, to the organization and validation of common data.
 
 #### Address
+
 For persisting addresses in a field. The `address` field will display available fields in the [Data Viewer](/docs/8base-console/platform-tools/data-viewer/) and API Explorer.
 
-```
+```ts
 type Address = {
   country: !String
   street1: !String
@@ -202,9 +237,10 @@ type Address = {
 ```
 
 #### Phone
+
 For persisting phone numbers in a field. The `phone` field will display available fields in the [Data Viewer](/docs/8base-console/platform-tools/data-viewer/) and API Explorer.
 
-```
+```ts
 type Phone = {
   code: !String
   number: !String
@@ -212,15 +248,18 @@ type Phone = {
 ```
 
 ### Auto Increment Fields
-When using *Number* field types, the "Auto-Increment" option is available under the fields *Advanced Settings*.
-The system will automatically increment a number value for the field when selected, starting at 1. 
 
-Fields that have been created using *Auto Increment* can be deleted, though they are **not** editable via the console or API when in use. Similarly to a integer based Primary Key, the value is always escalating. This means that if five-records are created and recieve the values 1-5 in their *Auto Increment* fields, whether or not those records get deleted, the next record will be assigned a value of 6.
+When using *Number* field types, the "Auto-Increment" option is available under the fields *Advanced Settings*.
+The system will automatically increment a number value for the field when selected, starting at 1.
+
+Fields that have been created using *Auto Increment* can be deleted, though they are **not** editable via the console or API when in use. Similarly to a integer based Primary Key, the value is always escalating. This means that if five-records are created and receive the values 1-5 in their *Auto Increment* fields, whether or not those records get deleted, the next record will be assigned a value of 6.
 
 ### Calculated Fields
+
 Under *Advanced Settings* for field types *Text*, *Number*, *Date*, *Switch*, and *JSON* the "Calculated" option is available. This feature follows the [MySQL Generated Column standard](https://dev.mysql.com/doc/refman/5.7/en/create-table-generated-columns.html).
 
-##### Calculated Field Types
+#### Calculated Field Types
+
 The "Virtual" and "Stored" options will indicate how values are stored, which has the following implications when used:
 
 * *Virtual* - Values are not stored, but are evaluated when rows are read. A virtual column takes no storage.
@@ -257,7 +296,7 @@ JsonResponse = {
 }
 ```
 
-There is a long list of available MySQL Functions that are referenced with further documenation [MySQL Docs. Functions and Operators](https://dev.mysql.com/doc/refman/5.7/en/functions.html), all of which are available when using *Calculated Fields*. All operators, with simple descriptions, are listed below.
+There is a long list of available MySQL Functions that are referenced with further documentation [MySQL Docs. Functions and Operators](https://dev.mysql.com/doc/refman/5.7/en/functions.html), all of which are available when using *Calculated Fields*. All operators, with simple descriptions, are listed below.
 
 | Name | Description |
 |------|-------------|
