@@ -67,7 +67,7 @@ mutation {
 
 ## Authentication Types
 
-Under the hood, 8base utilizes [Auth0](https://auth0.com/) to manage your users' identities and ensure the best security standards. All user accounts are by default stored in an Auth0 account that's managed by 8base. For upgraded workspace plans, the option of connecting one's Auth0 account or an OpenID provider is available.
+Under the hood, 8base by default utilizes [Amazon Cognito](https://aws.amazon.com/cognito/) to manage your users' identities and ensure the best security standards. All user accounts are by default stored in an AWS account that's managed by 8base. For upgraded workspace plans, the option of connecting one's Auth0 account or an OpenID provider is available.
 
 ### 8base Authentication
 
@@ -77,15 +77,19 @@ To create an _Authentication Profile_, navigate to the `App Services > Authentic
 
 - **Name**: A name that describes what this profile does. In this sample case, you can replace My Auth in the screenshot above with a name like Guest User Auth.
 
-- **Type**: Select 8base authentication
+- **Type**: Select `8base Authentication`
 
-- **Self Signup**: Open allows users to self-register. Otherwise, you can restrict access to only invited users or users within a specific domain (i.e., '@company.com').
+- **Self Signup**: `Open to all` allows users to self-register. Otherwise, you can restrict access to only invited users (`Off`) or users within a specific domain (`Specific Email Domain Only` i.e., '@company.com').
 
 - **Roles**: Roles can be either Guest, Administrator, or any custom role. Multiple-roles can be selected.
 
 #### Client information
 
-An authentication profile's corresponding client-side information is generated once created. Client-side information allows for connecting client applications to the 8base back-end and any corresponding authentication settings. Client ID and Domain are not sensitive strings and are added to one or more client apps.
+An authentication profile's corresponding client-side information is generated once created. Client-side information allows for connecting client applications to the 8base back-end and any corresponding authentication settings.
+
+`Client ID` and `Domain` are not sensitive strings and are added to one or more client apps.
+
+`Login URL` is the auto-generated URL template leading to default sign-up/sign-in form. You should fill out it with one of the `Allowed Callbacks URLs`.
 
 #### Configure Callback URLs
 
@@ -93,7 +97,7 @@ A callback URL is an endpoint that is invoked after a user authenticates. Users 
 
 #### Configure Logout URLs
 
-The logout URL is where a user is sent after logging out. Specify them in the Allowed Logout URLs field. The default logout URL is http://localhost:3000/ and attempting to log out when no logout URL was provided displays an error.
+The logout URL is where a user is sent after logging out. Specify them in the Allowed Logout URLs field. The default logout URL is `http://localhost:3000/logout` and attempting to log out when no logout URL was provided displays an error.
 
 ### Your Own Auth0 Account
 

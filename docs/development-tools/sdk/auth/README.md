@@ -14,15 +14,15 @@ When initializing the `Auth` module, an auth strategy needs to be specified.
 
 All required settings values for initializing the Auth module can be collected from an [Authentication Profile](/docs/8base-console/authentication#authorization) created in the 8base management console.
 
-#### AUTH0_AUTH
+#### WEB_COGNITO and WEB_AUTH0
 
-The `AUTH0_AUTH` strategy is the simpliest method by which to set up authentication in client applications. This is the strategy you need to specify when an _Authentication Profile_ is using "8base Authentication" or "Your Auth0 Account" as the authentication type.
+The `WEB_COGNITO` and `WEB_AUTH0` strategies are the simpliest methods by which to set up authentication in client applications. These are the strategies you need to specify when an _Authentication Profile_ is using "8base Authentication" or "Your Auth0 Account" as the authentication type.
 
 ```javascript
 import Auth from '8base-sdk/auth';
 
 const Auth0Config = {
-  strategy: "AUTH0_AUTH"
+  strategy: "WEB_8BASE" // WEB_AUTH0
   /* Strategy settings */
   settings: {
     /* 8base Authentication Profile ID */
@@ -42,15 +42,15 @@ const Auth0Config = {
 export default new Auth(Auth0Config);
 ```
 
-#### CUSTOM_AUTH
+#### WEB_OAUTH
 
-The `CUSTOM_AUTH` strategy is used when the _Authentication Profile_ is set to "OpenID" as the authentication type.
+The `WEB_OAUTH` strategy is used when the _Authentication Profile_ is set to "OpenID" as the authentication type.
 
 ```javascript
 import Auth from '8base-sdk/auth';
 
 const OpenIDConfig = {
-  strategy: "CUSTOM_AUTH",
+  strategy: "WEB_OAUTH",
   /* Strategy settings */
   settings: {
     /* 8base Authentication Profile ID */
@@ -79,7 +79,7 @@ auth.authorize();
 
 ## signOut()
 
-Sign/log out a user to invalidating their `idToken`. When used with `AUTH0_AUTH` strategy, this will result in a redirect to the configured `redirectUrl`.
+Sign/log out a user to invalidating their `idToken`. When used with `WEB_COGNITO` or `WEB_AUTH0` strategy, this will result in a redirect to the configured `redirectUrl`.
 
 ```javascript
 auth.signOut();

@@ -160,14 +160,14 @@ When using the 8base CLI you need to authenticate your development workspace. Th
 ### 3.2 Deploy a Serverless Function (**OPTIONAL**)
 This step is **totally optional** in the quickstart. It will show you how to quickly extend your workspace by generating and deploying serverless functions to a workspace. 
 
-Move into the `8base-starter-app/server` directory. Let's initialize a new server project and configure it to a hosted workspace. Using the `init` and `configure` commands will generate and configure the needed resources. The workspace you select is the one where the Custom Functions will be deployed to when ready.
+Move into the `8base-starter-app` directory. Let's initialize a new server project and configure it to a hosted workspace. Using the `init` and `configure` commands will generate and configure the needed resources. The workspace you select is the one where the Custom Functions will be deployed to when ready.
 
 ```text
-# Change into the server directory
-cd ../server
+# Init new 8base project in server folder with one function called myCustomResolver
+8base init server --functions=resolver:myCustomResolver
 
-# Init new 8base project with one function called myCustomResolver
-8base init . --functions=resolver:myCustomResolver
+# Move to server project directory
+cd server/
 
 # Install dependencies
 npm install
