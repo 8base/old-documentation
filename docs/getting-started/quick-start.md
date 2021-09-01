@@ -166,16 +166,29 @@ Move into the `8base-starter-app` directory. Let's initialize a new server proje
 # Init new 8base project in server folder with one function called myCustomResolver
 8base init server --functions=resolver:myCustomResolver
 
+# Type 'y' to overwrite contents of empty 'server' folder we've created earlier
+✔ Selected directory is not empty. Are you sure you want to continue? … yes
+
+# Configure the project's workspace by choosing selecting workspace from the menu
+
+? What workspace does this project belong to? › - Use arrow-keys. Return to submit.
+  <New Workspace>
+❯ Default Workspace
+   Another Workspace
+
 # Move to server project directory
 cd server/
 
 # Install dependencies
 npm install
 
-# Configure the project's workspace
+# You can always use `configure` command inside your project to assign different workspace to it.
 8base configure
 
-✔ Select workspace for current project › Default Workspace
+? Select workspace for current project › - Use arrow-keys. Return to submit.
+  Default Workspace
+❯ Another Workspace
+
 ```
 
 Once configured, a `.workspace.json` file gets added to the directory which contains the selected workspace's ID. Feel free to poke around the files marked with an astrix(*) below before deploying the dummy function.
