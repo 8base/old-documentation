@@ -5,7 +5,11 @@
   display: block;
   margin-bottom: 0;
   font-size: 0.9rem;
-  position: relative;
+  @media screen and (min-width: 850px) {
+    & {
+      position: relative;
+    }
+  }
 
   label {
     display: flex;
@@ -37,6 +41,13 @@
     z-index: 1;
     right: -10px;
     max-height: 70vh;
+
+    @media screen and (max-width: 850px) {
+      & {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
 
     .search-dropdown-item {
       color: var(--body-color);
@@ -255,7 +266,7 @@ export default {
             if (!(el == event.target || el.contains(event.target)) && !dragging) {
                 // call method provided in attribute value
                 vnode.context[binding.expression](event);
-            }    
+            }
         };
         document.addEventListener('touchstart', el.eventClearDrag);
         document.addEventListener('touchmove', el.eventSetDrag);

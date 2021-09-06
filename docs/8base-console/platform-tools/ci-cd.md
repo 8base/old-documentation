@@ -2,7 +2,7 @@
 
 Teams that have multiple developers working simultaneously on different features of the same application – or [Workspace](/docs/getting-started#workspaces) – benefit from having isolated development environments for each developer. 8base built CI/CD capabilities natively into the workspace to make this possible!
 
- On subscription plans where CI/CD is enabled, developers will be able to create up to a specified number of enviroments and graduate changes through their environment pipeline in a [Git](https://git-scm.com/) like fashion.
+ On subscription plans where CI/CD is enabled, developers will be able to create up to a specified number of environments and graduate changes through their environment pipeline in a [Git](https://git-scm.com/) like fashion.
 
  ## Getting Started with CI/CD
 
