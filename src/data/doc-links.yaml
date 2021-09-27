@@ -124,6 +124,8 @@
           link: /docs/development-tools/cli/commands
         - title: Generators
           link: /docs/development-tools/cli/generators
+        - title: CI/CD
+          link: /docs/development-tools/cli/ci-cd
     - title: SDK
       link: /docs/development-tools/sdk
       items:
