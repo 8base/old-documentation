@@ -9,7 +9,7 @@ If you haven't already, create an 8base account. Click [this link](https://app.8
 Voila! You've officially on 8base.
 
 ## 2. Setting up a Workspace
-Each workspace is treated as an individual project – like having different Git repositories for different code bases. This makes it easy to stay organized with projects and upgrade individual workspaces when your app or service starts to scale! 
+Each workspace is treated as an individual project – like having different Git repositories for different code bases. This makes it easy to stay organized with projects and upgrade individual workspaces when your app or service starts to scale!
 
 Let's just use the default workspace for the rest of this quick-start.
 
@@ -22,17 +22,17 @@ In the workspace, navigate to the [Data Builder](https://app.8base.com/data/) pa
 
 **Notes**
 
-| Field | Type | Description | Options |
-| ----- | ---- | ----------- | ------- |
-| `title`  | Text | The notes title | `mandatory=True` |
-| `body`  | Text | The notes body | `mandatory=True` |
+| Field   | Type | Description     | Options          |
+| ------- | ---- | --------------- | ---------------- |
+| `title` | Text | The notes title | `mandatory=True` |
+| `body`  | Text | The notes body  | `mandatory=True` |
 
 Once the tables is created, we're going to establish a relationship between it and the *Users* table - the *Users* table has already been created for you, by default. This can be done by dragging one table onto the other. However, we'll build the one-to-many relationship manually on the *Notes* table.
 
 **Add user to Notes**
 
-| Field | Type | Description | Options |
-| ----- | ---- | ----------- | ------- |
+| Field  | Type  | Description   | Options                                                                                                                       |
+| ------ | ----- | ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | `user` | Table | A notes other | `table=Users`<br>`Relation Field Name=notes`<br>`Allow multiple Notes per User=True`<br>`Allow multiple Users per Note=False` |
 
 ![8base tables](../images/qs-tables.png)
@@ -66,7 +66,7 @@ mutation {
 }
 ```
 
-GraphQL mutations (like the one above) handle record creates, updates, and deletes. The `data.notes.create` value will actually create notes associated with the user record we're identifying by email – which is **you** in this example. The reason the value is an array is because *Users* can have many *Notes*. 
+GraphQL mutations (like the one above) handle record creates, updates, and deletes. The `data.notes.create` value will actually create notes associated with the user record we're identifying by email – which is **you** in this example. The reason the value is an array is because *Users* can have many *Notes*.
 
 This is a great example of how 8base supports relational queries and mutations!
 
@@ -74,17 +74,17 @@ This is a great example of how 8base supports relational queries and mutations!
 - *[API Explorer docs](https://docs.8base.com/docs/8base-console/platform-tools/api-explorer)*
 
 ### 2.2. Roles and Permissions
-We only want to users to see their own notes. A custom role can enforce this. Navigate to `App Services` > `Roles` and create new role with the name "Reviewer". Once created, click the role and let's update its permissions. 
+We only want to users to see their own notes. A custom role can enforce this. Navigate to `App Services` > `Roles` and create new role with the name "Reviewer". Once created, click the role and let's update its permissions.
 
 Let's check the appropriate boxes and select the needed options.
 
 **Reviewer**
 
-| Table | Create | Read | Update | Delete | Fields |
-| ----- | ------ | ---- | ------ | ------ | ------ |
-| Notes | True | User's Records | User's Records | True | Full Access |
+| Table | Create | Read           | Update         | Delete | Fields      |
+| ----- | ------ | -------------- | -------------- | ------ | ----------- |
+| Notes | True   | User's Records | User's Records | True   | Full Access |
 
-Now, all users with the *Reviewer* role who call the workspace API endpoint have these permissions when querying notes. 8base handles roles and permissions natively so that it's easy to control what actions users can take on data resources. 
+Now, all users with the *Reviewer* role who call the workspace API endpoint have these permissions when querying notes. 8base handles roles and permissions natively so that it's easy to control what actions users can take on data resources.
 
 ![8base roles and permissions](../images/qs-roles-and-permissions.png)
 
@@ -93,14 +93,14 @@ Now, all users with the *Reviewer* role who call the workspace API endpoint have
 ### 2.3. Authentication Profiles
 Setting up authentication will allow users to sign-up, log-in, and log-out of the app. For this quickstart, users should be authenticated to view their list of notes.
 
-Navigate to the [Authentication page](https://app.8base.com/app-services/authentication) in App Services. To create a new authentication profile, click the plus-sign button and specify the following values. 
+Navigate to the [Authentication page](https://app.8base.com/app-services/authentication) in App Services. To create a new authentication profile, click the plus-sign button and specify the following values.
 
-| Option | Value | Notes |
-| ------ | ----- | ----- |
-| `Name` | "Default Guest Auth" | Choose any descriptive name |
-| `Type` | 8base authentication | Find more auth info in the [docs](https://docs.8base.com/docs/8base-console/authentication#8base-authentication) |
-| `Self Signup` | Open to all | Leave `Off` if using a free workspace |
-| `Roles` | Reviewer | Multiple roles can be assigned to user on sign up |
+| Option        | Value                | Notes                                                                                                            |
+| ------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `Name`        | "Default Guest Auth" | Choose any descriptive name                                                                                      |
+| `Type`        | 8base authentication | Find more auth info in the [docs](https://docs.8base.com/docs/8base-console/authentication#8base-authentication) |
+| `Self Signup` | Open to all          | Leave `Off` if using a free workspace                                                                            |
+| `Roles`       | Reviewer             | Multiple roles can be assigned to user on sign up                                                                |
 
 Add the new authentication profile. The information that’s now displayed will be used when adding authentication to the frontend. Note the Authentication Profile `Id`, the `Client ID` and the `Domain` – these values will come in handy later in the article.
 
@@ -120,7 +120,7 @@ https://api.8base.com/<WORKSPACE_ID>
 There are a few ways to obtain the endpoint. However, just navigate to the workspace **Home** page and you’ll find the endpoint in the bottom left. 
 
 ## 3. Setting up the Client
-An important concept to grasp is that 8base is a Backend-as-a-Service that **any** frontend application can connect to using the workspace API. This creates a very clear separation between the server-side (8base) and client-side (an app / frontend). 
+An important concept to grasp is that 8base is a Backend-as-a-Service that **any** frontend application can connect to using the workspace API. This creates a very clear separation between the server-side (8base) and client-side (an app / frontend).
 
 ```
 # Project Directory Tree
@@ -158,7 +158,7 @@ When using the 8base CLI you need to authenticate your development workspace. Th
 ```
 
 ### 3.2 Deploy a Serverless Function (**OPTIONAL**)
-This step is **totally optional** in the quickstart. It will show you how to quickly extend your workspace by generating and deploying serverless functions to a workspace. 
+This step is **totally optional** in the quickstart. It will show you how to quickly extend your workspace by generating and deploying serverless functions to a workspace.
 
 Move into the `8base-starter-app` directory. Let's initialize a new server project and configure it to a hosted workspace. Using the `init` and `configure` commands will generate and configure the needed resources. The workspace you select is the one where the Custom Functions will be deployed to when ready.
 
@@ -172,7 +172,7 @@ Move into the `8base-starter-app` directory. Let's initialize a new server proje
 # Configure the project's workspace by choosing selecting workspace from the menu
 
 ? What workspace does this project belong to? › - Use arrow-keys. Return to submit.
-  <New Workspace>
+  New Workspace
 ❯ Default Workspace
    Another Workspace
 
@@ -220,7 +220,7 @@ By running the `8base deploy` command, we deploy the Function to our workspace (
 There are many custom function types you can deploy on 8base, all of which must be configured in the `8base.yml` file located at the root of your project.
 
 <!--{% hint style="info" %}-->
-Serverless custom functions provide tremendous flexibility in customizing server-side resources and allowing advanced capabilities, like: 
+Serverless custom functions provide tremendous flexibility in customizing server-side resources and allowing advanced capabilities, like:
 
 * Resolvers: For adding custom *Querys* and *Mutations* to the GraphQL API.
 * Triggers: For invoking functions on data events (before|after record create|update|delete, run function)
@@ -233,10 +233,10 @@ Serverless custom functions provide tremendous flexibility in customizing server
 ### 3.3. Choose a Starter App / Framework for the Frontend
 8base gives you full freedom to use whatever front-end technologies/frameworks you love. For this quickstart, we recommend that you use one of our starter apps. Currently, they are:
 
-| Framework | Repo | Clone |
-| ------    | -----   | ------- |
-| Vue | [Repo](https://github.com/8base/vue-8base-starter-app) | `git clone https://github.com/8base/vue-8base-starter-app.git`|
-| React | [Repo](https://github.com/8base/react-8base-starter-app) | `git clone https://github.com/8base/react-8base-starter-app.git` |
+| Framework | Repo                                                     | Clone                                                            |
+| --------- | -------------------------------------------------------- | ---------------------------------------------------------------- |
+| Vue       | [Repo](https://github.com/8base/vue-8base-starter-app)   | `git clone https://github.com/8base/vue-8base-starter-app.git`   |
+| React     | [Repo](https://github.com/8base/react-8base-starter-app) | `git clone https://github.com/8base/react-8base-starter-app.git` |
 
 Depending on the framework you wish to use, try cloning it into the `8base-starter-app/client` directory.
 
@@ -268,14 +268,14 @@ Using the command that's appropriate to the chosen starter app (`npm start/serve
 
 ![8base starter app](../images/qs-starter-app.png)
 
-You can now login, logout, and sign-up in the starter app using your username and password. Meanwhile, when authenticated you're able to access the Profile page, which queries the GraphQL API for the authenticated user information. 
+You can now login, logout, and sign-up in the starter app using your username and password. Meanwhile, when authenticated you're able to access the Profile page, which queries the GraphQL API for the authenticated user information.
 
-Authenticated queries happen by passing an `idToken` as a Authorization header on API calls. This `idToken` is recieved and stored when the user authenticates. The auth flow differs slightly depending on the starter app you chose. However, each fully documents it's own authentication flow and state management strategy. 
+Authenticated queries happen by passing an `idToken` as a Authorization header on API calls. This `idToken` is recieved and stored when the user authenticates. The auth flow differs slightly depending on the starter app you chose. However, each fully documents it's own authentication flow and state management strategy.
 
 ## 5. Challenge
 Who ever said life has to be easy? No one! The whole goal of this quickstart is to learn, and you can't learn if you don't try! So, here is a challenge for you.
 
-Go back to the [API Explorer](https://app.8base.com/api-explorer) and click on the `Explorer` button. Once opened, find the `notesList` operation and build a query. Once that query is built, run it to make sure it's working properly. 
+Go back to the [API Explorer](https://app.8base.com/api-explorer) and click on the `Explorer` button. Once opened, find the `notesList` operation and build a query. Once that query is built, run it to make sure it's working properly.
 
 It could look something like this:
 
@@ -298,9 +298,9 @@ query {
 }
 ```
 
-Now, try to copy the working query and add it to your application. Look for a `graphql.js` file if you're working with a JavaScript application, or simply add it anywhere you see fit. Go ahead! 
+Now, try to copy the working query and add it to your application. Look for a `graphql.js` file if you're working with a JavaScript application, or simply add it anywhere you see fit. Go ahead!
 
-Using this query, you'll start getting your notes data back from the API. With that data, you can build an awesome notes component inside your application. 
+Using this query, you'll start getting your notes data back from the API. With that data, you can build an awesome notes component inside your application.
 
 Take the time to investigate the starter app for clues on how you might execute that query. However, if you need some help making it happen, here's a simple script that will help give you an idea.
 
@@ -309,10 +309,10 @@ Take the time to investigate the starter app for clues on how you might execute 
 const { GraphQLClient } = require('graphql-request');
 
 /* Create a GraphQL client instance to send requests */
-const client = new GraphQLClient(endpoint, { 
+const client = new GraphQLClient(endpoint, {
   headers: {
     Authorization: `Bearer <ID_TOKEN OR API_TOKEN>`
-  } 
+  }
 });
 
 /* Execute an API request */
@@ -336,6 +336,6 @@ console.log(data);
 ## Conclusion
 We hope this quickstart guide has helped you better understand how 8base works! We know that there was a lot in it. Feel free to keep experimenting with your workspace, add new tables, deploy custom logic, and develop some amazing applications!
 
-If you need help or have questions, definately check out the [8base Community Here](https://community.8base.com)! Also, [our documentation](https://docs.8base.com) has a ton more information on everything that we've covered here. 
+If you need help or have questions, definately check out the [8base Community Here](https://community.8base.com)! Also, [our documentation](https://docs.8base.com) has a ton more information on everything that we've covered here.
 
 Happy coding!
