@@ -24,7 +24,7 @@ As soon as a table is created, corresponding GraphQL schema types and query, mut
 
 To improve look up performance on your tables, you can add one or more of your own indexes. This feature is found in the table settings.
 
-You can choose up to 8 fields on the table by which the index will be constructed, as well as whether or not it should be a *Unique Index*. When naming the index, insure that no spaces are used.
+You can select one or several fields in the table by which the index will be generated, as well as whether or not it should be a *Unique Index*. When naming the index, insure that no spaces are used.
 
 ![Creating new table index in the Data Builder](../../images/creating-table-indexes.png)
 
