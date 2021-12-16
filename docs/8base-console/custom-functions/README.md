@@ -72,7 +72,8 @@ await ctx.api.gqlRequest(QUERY, VARIABLES, {
 ```
 
 ### Timeouts
-All custom functions types have maximum 20 seconds execution time. After the execution time limit is reached the execution times out and returns an error. Please let us know if you have a use case where you need more than 20 seconds continuous execution. 
+All custom functions types have maximum 20 seconds execution time. After the execution time limit is reached the execution times out and returns an error.
+If you need more than 20 seconds of continuous execution you can increase your timeout up to 900 seconds by specifying it in `8base.yml` . Check out the example in [Config](/docs/development-tools/dev-env/8base-yml) section of documentation.
 
 In some cases, you can reach a timeout when executing several functions sequentially, in order not to await them you can spawn background tasks using the `context.invokeFunction` API [described here](/docs/8base-console/custom-functions/tasks).
 

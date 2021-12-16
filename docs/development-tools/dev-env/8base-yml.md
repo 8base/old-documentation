@@ -2,9 +2,10 @@
 
 `8base.yml` is the main configuration file where you define how custom functions get exposed and called as well as the list of custom permissions that can restrict access to certain paths in your code.
 
-The file has one main section:
+The file consists of two sections:
 
-* `functions` - list and configure all your custom functions. Read more on how to configure functions [here](/docs/8base-console/custom-functions). 
+* `functions` - list and configure all your custom functions. Read more on how to configure functions [here](/docs/8base-console/custom-functions).
+* `settings` - list of additional global settings for your project.
 
 
 ### Example 8base.yml
@@ -51,4 +52,7 @@ functions:
     schedule: 'rate(1 minute)'
     description: |
       An optional description of your task function.
+      
+settings: 
+  timeout: 500 # you can specify any value from 1 to 900 seconds
 ```
