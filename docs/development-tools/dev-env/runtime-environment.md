@@ -39,7 +39,7 @@ You can set environment variables in 8base settings and they automatically get e
 ![Setting environment variables in 8base settings](../../images/8base-env-variables.png)
 
 ### Timeouts
-Functions have maximum 20 seconds execution time. After the execution time limit is reached the execution times out and returns an error. Please let us know if you have a use case where you need more than 20 seconds continuous execution.
+Functions have maximum 20 seconds execution time by default. After the execution time limit is reached the execution times out and returns an error. If you need more than 20 seconds of continuous execution you can increase your timeout up to 900 seconds by specifying it in `8base.yml` . Check out the example in [Config](/docs/development-tools/dev-env/8base-yml) section of documentation.
 
 ### What happens after 'return'
 After your function returns its execution is immediately frozen. This means that if you have any asynchronous processes still running they will not be able to finish. There are several ways to deal with this:
