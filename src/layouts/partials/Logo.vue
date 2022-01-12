@@ -1,6 +1,6 @@
 <template>
   <div class="logo" @contextmenu="rightClick" oncontextmenu="return false;">
-    <g-link class="logo__link" to="/" title="Back to home">
+    <g-link class="logo__link" to="https://www.8base.com/" title="Back to home">
       <LogoDark class="logo__svg hide-for-small" alt="Gridsome.org" />
 
       <LogoSmall
