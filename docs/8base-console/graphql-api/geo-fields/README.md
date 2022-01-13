@@ -4,7 +4,7 @@ With GeoFields, developers are able to filter records based on geo-coordinates. 
 
 ## Location Based Filtering and Queries
 
-The current implementation of geo filtering querying and works with _Point_ type geo fields defined on 8base tables (i.e. `[latitude, longitude]`). There are number of different geo-coordinate based predicates that can get used to query specific records. That list includes the following:
+The current implementation of geo filtering querying and works with _Point_ type geo fields defined on 8base tables (i.e. `[longitude, latitude]`). There are number of different geo-coordinate based predicates that can get used to query specific records. That list includes the following:
 
 - *equals*: GeoJSONCoordinates
 - *not_equals*: GeoJSONCoordinates
@@ -27,10 +27,10 @@ query($latitude: Float, $longitude: Float){
 	tableNameList(filter: {
     location: {
       # Equals predicate would filter for all records with an identical location lat/lon location.
-      equals: [$latitude, $longitude]
+      equals: [$longitude, $latitude]
 
       # Not_Equals predicate would filter out all records with an identical location lat/lon location.
-      not_equals: [$latitude, $longitude]
+      not_equals: [$longitude, $latitude]
     }
   }) {
     count

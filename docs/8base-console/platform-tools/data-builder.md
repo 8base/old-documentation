@@ -55,7 +55,7 @@ A confirmation input that requires the table name to be typed in appears when at
 | -- | -- | -- |
 | `one-to-one` | Records in table A may `have_one` or `belong_to` records in table B. | Records in table B may `have_one` or `belong_to` records in table A. |
 | `one-to-many` | Record in table A may `have_many` records in table B. | Records in table B may `have_one` or `belong_to` records in table A. |
-| many-to-many | Record in table A may `have_many` records in table B. | Record in table B may `have_many` records in table A. |
+| `many-to-many` | Record in table A may `have_many` records in table B. | Record in table B may `have_many` records in table A. |
 
 ![Defining relationships in the Data Builder](../../images/data-builder-making-relationships.gif)
 
