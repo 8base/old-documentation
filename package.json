@@ -18,7 +18,7 @@
     "global": "^4.4.0",
     "gridsome": "^0.7.0",
     "gridsome-plugin-gtm": "^0.1.1",
-    "marked": "^0.6.1",
+    "marked": "^4.0.10",
     "remove-markdown": "^0.3.0",
     "typography": "^0.16.18",
     "vue-highlight-words": "^1.2.0",
