@@ -74,6 +74,20 @@ module.exports = (event: any, context: any) => {
 3. Spawn a background task that keeps running after your function returns. You can use the `context.invokeFunction` API ([described here](/docs/8base-console/custom-functions/tasks)).
 
 ### Managing Dependencies
-You can add any dependencies using `npm` or `yarn`. When you run '8base deploy', 8base uploads your code to the cloud, runs `npm install` and deploys the bundle to AWS Lambda.
+You can add any dependencies using `npm` or `yarn`. When you run '8base deploy', 8base uploads your code to the cloud, runs `npm install` and deploys the bundle (.zip file archive includes your project) to AWS Lambda.
+
+Please keep in mind that total size of your application code and its dependencies cannot exceed 50 MB zipped and 250 MB unzipped.
 
 It is recommended that you have a `package-lock.json` file to dramatically accelerate deployment. 8base checks whether `package-lock.json` has changed since the last deploy and only installs dependencies when necessary.
+
+### Supported Languages and Runtime
+
+8base invokes your [Custom Functions](/docs/8base-console/custom-functions/) in an secure and isolated runtime environment.
+
+[Custom Functions](/docs/8base-console/custom-functions/) can be written in either JavaScript or TypeScript.
+
+8base runtime environment currently supports:
+- TypeScript of version `4.3.4`
+- Node.js of version `14.x`
+
+
