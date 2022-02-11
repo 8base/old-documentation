@@ -242,8 +242,6 @@ To set environment variables that can be accessed from within custom functions, 
 
 ## Troubleshooting
 
-Common issues when inviting team members.
-
 ### 1: 'Not Authorized' error
 
 If you're unable to get the authentication provider to work and are receiving a `Not Authorized` error message, you may need to update the associated role and its API permissions. You can do this by first ensuring that the configured provider has an associated role, like _Guest_. Next, navigate to `App Services > Roles > [ROLE_NAME] > Data` and ensure that the role is enabled for the _Get Token_ function call.
