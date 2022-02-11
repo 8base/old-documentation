@@ -14,7 +14,7 @@ In the background, 8base spins up an Aurora MySQL database instance for your wor
 
 ### Creating Tables
 
-New tables are created using the "+ New Table" button. An input that prompts for a *name* value will appear, with which the table can named. All tables require unique names.
+New tables are created using the "+ New Table" button. An input that prompts for a *name* value will appear, with which the table can named. All tables require unique names (`attribute`, `workspace` names and their plural form are reserved and cannot be used in any letter cases).
 
 As soon as a table is created, corresponding GraphQL schema types and query, mutation, and subscription resolvers will be generated automatically.
 
@@ -125,6 +125,7 @@ For storing *String* data.
 
 Configurations
 
+* *Format* - For specifying what values the field stores (*Plain*, *HTML* or *Markdown*).
 * *Field Size* - The maximum string length.
 * *Allow Multiple* - Stores 0 or more *Text* values in an array (not searchable).
 * *Mandatory* - Whether the field value is required.

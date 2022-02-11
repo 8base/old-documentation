@@ -51,7 +51,7 @@ mutation {
     id
     name
   }
-  
+}
   /* Updates record with (find by id) */
   wyatt: authorUpdate(data: {
     id: "ck0d12w8e01c001l1dtxz5b7f",
@@ -97,7 +97,7 @@ mutation {
   
   /* Deletes record by id. */
   wyatt: authorDelete(data: {
-    id: "ck0d12w8e01c001l1dtxz5b7f",
+    id: "ck0d12w8e01c001l1dtxz5b7f"
   }) {
     success
   }
