@@ -37,11 +37,11 @@ When inviting a frontend developer team member, this new role can get attached t
 ![Configuring a team member role in 8base](../images/team-developer-role.png)
 
 ## Team Members vs. App Users
-When a Team Member gets invited to a workspace, two seperate user records are created for them. The first record is their *Team Member Record* and the second is their *App User Record*.
+There are two types of user-related records in 8base. The first one is called _Team Member Record_ and is created when Team Member gets invited to a workspace. The second one is _User Record_ which is related to the actual client app User who signs-up (registers) for the application you build.
 
-This is an important distinction to be understood. The roles that get added to the *Team Member User* record determine which permissions the developer has within the Management Console. The permissions that get added to the *App User Record* determine which permissions the developer has within the **application being built**.
+This is an important distinction to be understood. The roles assigned to the *Team Member* determine which permissions the developer has within the Management Console. The roles assigned to the *User* determine which permissions the developer has within the **application being built**.
 
-If the developer wants to test the application as if their account only had the "Guest" role, they can do so by updating their *App User Record* with the desired role. However, only the workspace administrator is able to update and edit roles belonging to *Team Member Users*.
+If the developer wants to test the application as if their account only had the "Guest" role, they can do so by updating their *User Record* with the desired role. However, only the workspace administrator is able to update and edit roles belonging to *Team Members*.
 
 ![Team members vs. app users](../images/team-users-members.png)
 

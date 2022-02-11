@@ -234,6 +234,12 @@ To set environment variables that can be accessed from within custom functions, 
 
 ![Environment variables manager in the 8base Management Console](../images/openid-env-variables.png)
 
-#### Troubleshooting
+## Troubleshooting
 
-If you're unable to get the authentication provider to work and are receiving a "Not Authorized" error message, you may need to update the associated role and its API permissions. You can do this by first ensuring that the configured provider has an associated role, like _Guest_. Next, navigate to `App Services > Roles > [ROLE_NAME] > Data` and ensure that the role is enabled for the _Get Token_ function call.
+### 1: 'Not Authorized' error
+
+If you're unable to get the authentication provider to work and are receiving a `Not Authorized` error message, you may need to update the associated role and its API permissions. You can do this by first ensuring that the configured provider has an associated role, like _Guest_. Next, navigate to `App Services > Roles > [ROLE_NAME] > Data` and ensure that the role is enabled for the _Get Token_ function call.
+
+### 2: Mismatch between auth provider user pool and 8base Users table
+
+Make sure you keep _Users_ table records in 8base up to date with records in your authentication provider user pool. Let's say you are using Custom Auth0 and have manually changed the email for some _User_ record in 8base. This will lead to an authentication error because the email (primary identifier) from the Auth0 token and email from the existing _User_ record are different.
