@@ -55,6 +55,8 @@ If the query **fails and a user record is not found**, we simply need to create 
 mutation {
   userSignUpWithToken(
     authProfileId: "8BASE_AUTHENTICATION_PROFILE_ID"
+    /* if not specified - will be executed with the
+    first auth profile in authenticationProfilesList */
     user: {
       email: "my@email.co"
 	    // ...any other user data
@@ -67,7 +69,7 @@ mutation {
 
 ## Authentication Types
 
-Under the hood, 8base utilizes [Auth0](https://auth0.com/) to manage your users' identities and ensure the best security standards. All user accounts are by default stored in an Auth0 account that's managed by 8base. For upgraded workspace plans, the option of connecting one's Auth0 account or an OpenID provider is available.
+Under the hood, 8base utilizes [Amazon Cognito](https://aws.amazon.com/cognito/) by default to manage your users' identities and ensure the best security standards. All user accounts are by default stored in an AWS account that's managed by 8base. For upgraded workspace plans, the option of connecting one's Auth0 account or an OpenID provider is available.
 
 ### 8base Authentication
 
@@ -77,15 +79,19 @@ To create an _Authentication Profile_, navigate to the `App Services > Authentic
 
 - **Name**: A name that describes what this profile does. In this sample case, you can replace My Auth in the screenshot above with a name like Guest User Auth.
 
-- **Type**: Select 8base authentication
+- **Type**: Select `8base Authentication`
 
-- **Self Signup**: Open allows users to self-register. Otherwise, you can restrict access to only invited users or users within a specific domain (i.e., '@company.com').
+- **Self Signup**: `Open to all` allows users to self-register. Otherwise, you can restrict access to only invited users (`Off`) or users within a specific domain (`Specific Email Domain Only` i.e., '@company.com').
 
 - **Roles**: Roles can be either Guest, Administrator, or any custom role. Multiple-roles can be selected.
 
 #### Client information
 
-An authentication profile's corresponding client-side information is generated once created. Client-side information allows for connecting client applications to the 8base back-end and any corresponding authentication settings. Client ID and Domain are not sensitive strings and are added to one or more client apps.
+An authentication profile's corresponding client-side information is generated once created. Client-side information allows for connecting client applications to the 8base back-end and any corresponding authentication settings.
+
+`Client ID` and `Domain` are not sensitive strings and are added to one or more client apps.
+
+`Login URL` is the auto-generated URL template leading to the Hosted Login Page. You should fill this with one of the `Allowed Callbacks URLs`.
 
 #### Configure Callback URLs
 
@@ -93,7 +99,7 @@ A callback URL is an endpoint that is invoked after a user authenticates. Users 
 
 #### Configure Logout URLs
 
-The logout URL is where a user is sent after logging out. Specify them in the Allowed Logout URLs field. The default logout URL is http://localhost:3000/ and attempting to log out when no logout URL was provided displays an error.
+The logout URL is where a user is sent after logging out. Specify them in the Allowed Logout URLs field. The default logout URL is `http://localhost:3000/logout` and attempting to log out when no logout URL was provided displays an error.
 
 ### Your Own Auth0 Account
 
@@ -105,19 +111,7 @@ All required information is in the settings of your Auth0 account.
 
 ### OpenID Connect
 
-The ability to set up an authentication provider that supports the OpenID specification is available for workspaces on a _Professional_ or _Enterprise_ plan. Some light setup required in the Management Console and a custom _resolver_ function needs to be deployed to your project's workspace to use this feature.
-
-### Sign-on Providers
-
-Sign-on providers can easily be enabled/disabled in the _8base Authentication Settings_ section of the workspace's Authentication view. At least one authentication profile with the type set to "8base Authentication" is required to use this feature.
-
-![Creating an Authentication Profile](../images/signon-provider-form.png)
-
-Each sign-on provider requires a _Client ID_ and _Client Secret_. These credentials are collected from the sign-on provider(s) you want to configure. Once collected, enter the credentials into the relevant sign-on provider form before clicking "Enable Sign-On Provider" and "Save."
-
-![Enabling a Sign-on Provider](../images/signon-provider-config.png)
-
-#### Configuring the OpenID Settings
+The ability to set up an authentication provider that supports the OpenID specification is available for workspaces with paid plan.
 
 In the 8base Management Console, you're able to configure one or more authentication providers under `App Services > Authentication`. Click the "+" button and fill out the provider form, selecting _OpenID_ as the type and adding an OpenID Provider URL. Once completed, the record is saved to your _Authentication Profiles_.
 
