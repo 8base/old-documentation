@@ -69,7 +69,7 @@ mutation {
 
 ## Authentication Types
 
-Under the hood, 8base by default utilizes [Amazon Cognito](https://aws.amazon.com/cognito/) to manage your users' identities and ensure the best security standards. All user accounts are by default stored in an AWS account that's managed by 8base. For upgraded workspace plans, the option of connecting one's Auth0 account or an OpenID provider is available.
+Under the hood, 8base utilizes [Amazon Cognito](https://aws.amazon.com/cognito/) by default to manage your users' identities and ensure the best security standards. All user accounts are by default stored in an AWS account that's managed by 8base. For upgraded workspace plans, the option of connecting one's Auth0 account or an OpenID provider is available.
 
 ### 8base Authentication
 
