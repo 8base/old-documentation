@@ -27,9 +27,9 @@ The workflow of creating a file consists of the following steps:
 }
 ```
 
-1. **Upload file to Filestack** Use Filestack API or picker to upload the file using the parameters from the step 1. On successful upload Filestack returns file `handle`. You can learn more about uploading files directly to Filestack [here](https://www.filestack.com/docs/concepts/uploading/). For React developers using the 8base SDK, it provides [tools](/docs/development-tools/sdk/file-upload) to simplify file uploads such that you never need to interact with Filestack directly.
+2. **Upload file to Filestack** Use Filestack API or picker to upload the file using the parameters from the step 1. On successful upload Filestack returns file `handle`. You can learn more about uploading files directly to Filestack [here](https://www.filestack.com/docs/concepts/uploading/). For React developers using the 8base SDK, it provides [tools](/docs/development-tools/sdk/file-upload) to simplify file uploads such that you never need to interact with Filestack directly.
 
-2. **Create file in 8base** Create file in 8base by passing the Filestack `handle` from step 2. You can either create a `File` object directly so you can later connect it to other tables:
+3. **Create file in 8base** Create file in 8base by passing the Filestack `handle` from step 2. You can either create a `File` object directly so you can later connect it to other tables:
 
 ```javascript
 mutation {
