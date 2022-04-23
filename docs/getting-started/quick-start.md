@@ -305,8 +305,7 @@ const client = new GraphQLClient(endpoint, {
 /* Execute an API request */
 const data = await client.request('<YOUR_API_ENDPOINT>', `
   query {
-    notesList(first: 10
-    }) {
+    notesList(first: 10) {
       items {
         title
       }
