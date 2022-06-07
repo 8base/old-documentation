@@ -3,7 +3,7 @@
 Custom Functions (CFs) can get debugged in production and when developing locally. While there are many ways to debug code, and specific IDEs that provide special tooling, here we're addressing the most general ways to debug custom functions in 8base.
 
 ### Production Debugging
-![Production logs for custom functions](../../images/cf-searching-logs.gif)
+<!-- ![Production logs for custom functions](../../images/cf-searching-logs.gif) -->
 
 When a CF gets deployed to a workspace it becomes visible in the `Logic` screen on the 8base console. This both confirms that the function was successfully deployed and is where the CFs execution logs can get reviewed and tailed in real-time. Logs report each request uniquely.
 

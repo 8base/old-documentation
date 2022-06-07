@@ -35,4 +35,4 @@ Importing data from CSV files is supported and can be opened by clicking the `[I
 
 Please refer to the [CLI's Import](/docs/development-tools/cli/commands#import) command docs to import more complex data (related records, images, smart fields, etc).
 
-![Importing records into the Data Viewer](../../images/data-viewer-import.gif)
+<!-- ![Importing records into the Data Viewer](../../images/data-viewer-import.gif) -->

@@ -6,7 +6,7 @@ This means that all Create, Read, Update, and Delete (CRUD) actions, as well as 
 
 Data Builder is found in the management console's `Data` view. It is packed with cool features. For example, `File` fields allow you to seamlessly attach files to records and `Smart` fields make it easy to implement complex validations for addresses or phone number.
 
-![8Base Data Builder](../../images/data-builder-new-table.gif)
+<!-- ![8Base Data Builder](../../images/data-builder-new-table.gif) -->
 
 ## Tables
 
@@ -57,7 +57,7 @@ A confirmation input that requires the table name to be typed in appears when at
 | `one-to-many` | Record in table A may `have_many` records in table B. | Records in table B may `have_one` or `belong_to` records in table A. |
 | `many-to-many` | Record in table A may `have_many` records in table B. | Record in table B may `have_many` records in table A. |
 
-![Defining relationships in the Data Builder](../../images/data-builder-making-relationships.gif)
+<!-- ![Defining relationships in the Data Builder](../../images/data-builder-making-relationships.gif) -->
 
 Defining a relationship between two tables can be accomplished by dragging and dropping one table onto another, as well as by selecting `Table` as the Data Type when creating a new table field.
 

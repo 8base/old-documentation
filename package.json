@@ -16,19 +16,21 @@
     "docsearch.js": "^2.6.2",
     "flexsearch": "^0.6.32",
     "global": "^4.4.0",
-    "gridsome": "^0.7.0",
+    "gridsome": "^0.7.23",
     "gridsome-plugin-gtm": "^0.1.1",
-    "marked": "^0.6.1",
+    "marked": "^4.0.16",
+    "minipass": "2.7.0",
     "remove-markdown": "^0.3.0",
+    "sharp": "^0.30.6",
     "typography": "^0.16.18",
     "vue-highlight-words": "^1.2.0",
-    "vue-instantsearch": "^2.0.0",
+    "vue-instantsearch": "^4.3.3",
     "vue-lazy-hydration": "^1.0.0-beta.7",
     "vue-popover": "^1.6.2",
     "vue-scrollto": "^2.13.0"
   },
   "devDependencies": {
-    "@gridsome/plugin-critical": "^0.1.2",
+    "@gridsome/plugin-critical": "^0.2.0",
     "@gridsome/remark-prismjs": "^0.2.0",
     "@gridsome/source-filesystem": "^0.6.0",
     "@gridsome/transformer-remark": "0.3.4",
@@ -36,10 +38,10 @@
     "execa": "^1.0.0",
     "fs-extra": "^7.0.1",
     "js-yaml": "^3.13.1",
-    "node-sass": "^4.9.3",
     "raw-loader": "^0.5.1",
+    "sass": "^1.52.2",
     "sass-loader": "^7.1.0",
-    "svg-to-vue-component": "^0.2.2",
+    "svg-to-vue-component": "^0.1.0",
     "webpack-node-externals": "^1.7.2"
   }
 }

@@ -7,6 +7,9 @@ module.exports = {
   siteDescription: 'Build and run web and mobile applications faster using JavaScript, GraphQL, and 8base 🚀.',
 
   chainWebpack(config, { isServer }) {
+    config.mode('development')
+  
+    // Rule for SVG Loading
     config.module.rules.delete('svg')
     config.module.rule('svg')
       .test(/\.svg$/)
@@ -15,6 +18,15 @@ module.exports = {
         .end()
       .use('svg-to-vue-component')
       .loader('svg-to-vue-component/loader')
+
+    // // Rule for GIF Loading
+    config.module.rules.delete('gif')
+    config.module.rule('gif')
+      .test(/\.(gif)$/)
+      .use('vue')
+      .loader('url-loader')
+      .options({ encoding: false })
+      .end()
 
     if (isServer) {
       config.externals(nodeExternals({
